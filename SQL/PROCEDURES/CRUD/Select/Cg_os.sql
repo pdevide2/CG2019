@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_osASBEGINSELECT	id_os,	data_movto,	id_loja_origem,	nf_transp,	serie_nf_transp,	emissao_nf_transp,	id_fornecedor,	id_responsavel_ida,	status_os,	status_os,	status_osFROM	CG_OSEND------------------------------------------------------------

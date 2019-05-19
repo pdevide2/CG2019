@@ -1,0 +1,22 @@
+Public Class Cg_peca	Dim _id_peca As Integer	Dim _nome_peca As String	Dim _descricao As String	Dim _id_marca As Integer	Dim _id_categoria As Integer	Dim _id_fornecedor As Integer	Dim _id_finalidade As Integer	Dim _estoque As Integer	Dim _estoque_min As Integer	Dim _estoque_max As Integer	Dim _unidade As String	Dim _data_aquisicao As Date	Dim _dias_garantia As Integer	Dim _custo As Decimal	Dim _foto As Object	Dim _ref_fornec As String	Dim _obs As String	Dim _user_ins As Integer	Dim _data_ins As Date	Dim _user_upd As Integer	Dim _data_upd As Date
+    Dim _id_empresa As Integer
+    Dim _serie As String
+    Dim _modelo As String
+
+    Property Id_empresa() As Integer		Get			Return _id_empresa		End Get		Set(ByVal value As Integer)			_id_empresa = value		End Set	End Property	Property Id_peca() As Integer		Get			Return _id_peca		End Get		Set(ByVal value As Integer)			_id_peca = value		End Set	End Property	Property Nome_peca() As String		Get			Return _nome_peca		End Get		Set(ByVal value As String)			_nome_peca = value		End Set	End Property	Property Descricao() As String		Get			Return _descricao		End Get		Set(ByVal value As String)			_descricao = value		End Set	End Property	Property Id_marca() As Integer		Get			Return _id_marca		End Get		Set(ByVal value As Integer)			_id_marca = value		End Set	End Property	Property Id_categoria() As Integer		Get			Return _id_categoria		End Get		Set(ByVal value As Integer)			_id_categoria = value		End Set	End Property	Property Id_fornecedor() As Integer		Get			Return _id_fornecedor		End Get		Set(ByVal value As Integer)			_id_fornecedor = value		End Set	End Property	Property Id_finalidade() As Integer		Get			Return _id_finalidade		End Get		Set(ByVal value As Integer)			_id_finalidade = value		End Set	End Property	Property Estoque() As Integer		Get			Return _estoque		End Get		Set(ByVal value As Integer)			_estoque = value		End Set	End Property	Property Estoque_min() As Integer		Get			Return _estoque_min		End Get		Set(ByVal value As Integer)			_estoque_min = value		End Set	End Property	Property Estoque_max() As Integer		Get			Return _estoque_max		End Get		Set(ByVal value As Integer)			_estoque_max = value		End Set	End Property	Property Unidade() As String		Get			Return _unidade		End Get		Set(ByVal value As String)			_unidade = value		End Set	End Property	Property Data_aquisicao() As Date		Get			Return _data_aquisicao		End Get		Set(ByVal value As Date)			_data_aquisicao = value		End Set	End Property	Property Dias_garantia() As Integer		Get			Return _dias_garantia		End Get		Set(ByVal value As Integer)			_dias_garantia = value		End Set	End Property	Property Custo() As Decimal		Get			Return _custo		End Get		Set(ByVal value As Decimal)			_custo = value		End Set	End Property	Property Foto() As Object		Get			Return _foto		End Get		Set(ByVal value As Object)			_foto = value		End Set	End Property	Property Ref_fornec() As String		Get			Return _ref_fornec		End Get		Set(ByVal value As String)			_ref_fornec = value		End Set	End Property	Property Obs() As String		Get			Return _obs		End Get		Set(ByVal value As String)			_obs = value		End Set	End Property	Property User_ins() As Integer		Get			Return _user_ins		End Get		Set(ByVal value As Integer)			_user_ins = value		End Set	End Property	Property Data_ins() As Date		Get			Return _data_ins		End Get		Set(ByVal value As Date)			_data_ins = value		End Set	End Property	Property User_upd() As Integer		Get			Return _user_upd		End Get		Set(ByVal value As Integer)			_user_upd = value		End Set	End Property	Property Data_upd() As Date		Get			Return _data_upd		End Get		Set(ByVal value As Date)			_data_upd = value		End Set	End Property
+
+    Property Serie() As String
+        Get
+            Return _serie
+        End Get
+        Set(ByVal value As String)
+            _serie = value
+        End Set
+    End Property    Property Modelo() As String
+        Get
+            Return _modelo
+        End Get
+        Set(ByVal value As String)
+            _modelo = value
+        End Set
+    End PropertyEnd Class

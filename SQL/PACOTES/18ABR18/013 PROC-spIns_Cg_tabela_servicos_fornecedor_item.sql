@@ -1,0 +1,1 @@
+CREATE PROCEDURE spIns_Cg_tabela_servicos_fornecedor_item	@ID_ITEM As uniqueidentifier,	@ID_FORNECEDOR As int,	@ID_CONCERTO As intASBEGININSERT INTO CG_TABELA_SERVICOS_FORNECEDOR_ITEM (	id_item,	id_fornecedor,	id_concerto)VALUES (	@id_item,	@id_fornecedor,	@id_concerto)END------------------------------------------------------------

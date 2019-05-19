@@ -1,0 +1,1 @@
+if exists(select 1 from sysobjects where TYPE = 'P' AND name = 'spDel_Cg_responsavel')begin	drop procedure spDel_Cg_responsavelendGOCREATE PROCEDURE spDel_Cg_responsavel	@ID_RESPONSAVEL As intASBEGINDELETE FROM CG_RESPONSAVEL WHERE	ID_RESPONSAVEL = @ID_RESPONSAVELENDGO------------------------------------------------------------

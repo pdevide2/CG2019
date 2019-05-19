@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_responsavel	@ID_RESPONSAVEL As intASBEGINDELETE FROM CG_RESPONSAVEL WHERE	ID_RESPONSAVEL = @ID_RESPONSAVELEND------------------------------------------------------------

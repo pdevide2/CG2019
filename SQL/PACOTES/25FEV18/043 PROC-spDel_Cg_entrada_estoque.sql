@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_entrada_estoque	@ID_ROMANEIO As intASBEGINDELETE FROM CG_ENTRADA_ESTOQUE WHERE	ID_ROMANEIO = @ID_ROMANEIOEND------------------------------------------------------------

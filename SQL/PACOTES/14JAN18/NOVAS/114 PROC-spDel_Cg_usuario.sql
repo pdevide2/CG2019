@@ -1,0 +1,1 @@
+if exists(select 1 from sysobjects where TYPE = 'P' AND name = 'spDel_Cg_usuario')begin	drop procedure spDel_Cg_usuarioendGOCREATE PROCEDURE spDel_Cg_usuario	@ID_USUARIO As intASBEGINDELETE FROM CG_USUARIO WHERE	ID_USUARIO = @ID_USUARIOENDGO------------------------------------------------------------

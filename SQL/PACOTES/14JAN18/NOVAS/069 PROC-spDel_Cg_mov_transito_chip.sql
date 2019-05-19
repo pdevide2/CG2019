@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_mov_transito_chip	@ID_LANCTO As bigintASBEGINDELETE FROM CG_MOV_TRANSITO_CHIP WHERE	ID_LANCTO = @ID_LANCTOEND------------------------------------------------------------

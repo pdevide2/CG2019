@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_operadoraASBEGINSELECT	id_operadora,	desc_operadoraFROM	CG_OPERADORAEND------------------------------------------------------------

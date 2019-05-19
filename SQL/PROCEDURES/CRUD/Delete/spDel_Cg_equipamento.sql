@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_equipamento	@ID_EQUIPAMENTO As intASBEGINDELETE FROM CG_EQUIPAMENTO WHERE	ID_EQUIPAMENTO = @ID_EQUIPAMENTOEND------------------------------------------------------------

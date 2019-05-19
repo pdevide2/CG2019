@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_tabela_servicos_fornecedor_item	@ID As intASBEGINDELETE FROM CG_TABELA_SERVICOS_FORNECEDOR_ITEM WHERE	ID = @IDEND------------------------------------------------------------

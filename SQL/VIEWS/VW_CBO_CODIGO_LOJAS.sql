@@ -1,0 +1,19 @@
+USE [dbCG]
+GO
+
+/****** Object:  View [dbo].[VW_CBO_LOJAS]    Script Date: 01/05/2017 18:02:32 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[VW_CBO_CODIGO_LOJAS]
+AS
+select '<TODOS>' AS CODIGO
+UNION
+select CODIGO from CG_LOJA
+
+GO
+
+

@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_marca	@ID_MARCA As intASBEGINDELETE FROM CG_MARCA WHERE	ID_MARCA = @ID_MARCAEND------------------------------------------------------------

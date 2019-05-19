@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_cargoASBEGINSELECT	id_cargo,	desc_cargoFROM	CG_CARGOEND------------------------------------------------------------

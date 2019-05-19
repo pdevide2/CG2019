@@ -1,0 +1,1 @@
+CREATE PROCEDURE spIns_Cg_tabelas_pesquisa_dinamica	@ID_TABELA As int,	@TABELA As varchar(50),	@TIPO_TABELA As char(1)ASBEGININSERT INTO CG_TABELAS_PESQUISA_DINAMICA (	id_tabela,	tabela,	tipo_tabela)VALUES (	@id_tabela,	@tabela,	@tipo_tabela)END------------------------------------------------------------

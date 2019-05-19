@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Romaneio_estoque	@ROMANEIO As intASBEGINDELETE FROM ROMANEIO_ESTOQUE WHERE	ROMANEIO = @ROMANEIOEND------------------------------------------------------------

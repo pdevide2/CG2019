@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dbCGDataReport01" targetNamespace="http://tempuri.org/dbCGDataReport01.xsd" xmlns:mstns="http://tempuri.org/dbCGDataReport01.xsd" xmlns="http://tempuri.org/dbCGDataReport01.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="SQLServerConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SQLServerConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WinCG.My.MySettings.GlobalReference.Default.SQLServerConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VW_CG_EQUIPAMENTO_VS_CHIPTableAdapter" GeneratorDataComponentClassName="VW_CG_EQUIPAMENTO_VS_CHIPTableAdapter" Name="VW_CG_EQUIPAMENTO_VS_CHIP" UserDataComponentName="VW_CG_EQUIPAMENTO_VS_CHIPTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SQLServerConnectionString (MySettings)" DbObjectName="dbCG.dbo.VW_CG_EQUIPAMENTO_VS_CHIP" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ID_EQUIPAMENTO, DESC_EQUIPAMENTO, SERIE, MODELO, ID_CHIP, SIMID, ID_OPERADORA, DESC_OPERADORA, APELIDO, NOME FROM dbo.VW_CG_EQUIPAMENTO_VS_CHIP</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_EQUIPAMENTO" DataSetColumn="ID_EQUIPAMENTO" />
+              <Mapping SourceColumn="DESC_EQUIPAMENTO" DataSetColumn="DESC_EQUIPAMENTO" />
+              <Mapping SourceColumn="SERIE" DataSetColumn="SERIE" />
+              <Mapping SourceColumn="MODELO" DataSetColumn="MODELO" />
+              <Mapping SourceColumn="ID_CHIP" DataSetColumn="ID_CHIP" />
+              <Mapping SourceColumn="SIMID" DataSetColumn="SIMID" />
+              <Mapping SourceColumn="ID_OPERADORA" DataSetColumn="ID_OPERADORA" />
+              <Mapping SourceColumn="DESC_OPERADORA" DataSetColumn="DESC_OPERADORA" />
+              <Mapping SourceColumn="APELIDO" DataSetColumn="APELIDO" />
+              <Mapping SourceColumn="NOME" DataSetColumn="NOME" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dbCGDataReport01" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dbCGDataReport01" msprop:Generator_UserDSName="dbCGDataReport01">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VW_CG_EQUIPAMENTO_VS_CHIP" msprop:Generator_TableClassName="VW_CG_EQUIPAMENTO_VS_CHIPDataTable" msprop:Generator_TableVarName="tableVW_CG_EQUIPAMENTO_VS_CHIP" msprop:Generator_RowChangedName="VW_CG_EQUIPAMENTO_VS_CHIPRowChanged" msprop:Generator_TablePropName="VW_CG_EQUIPAMENTO_VS_CHIP" msprop:Generator_RowDeletingName="VW_CG_EQUIPAMENTO_VS_CHIPRowDeleting" msprop:Generator_RowChangingName="VW_CG_EQUIPAMENTO_VS_CHIPRowChanging" msprop:Generator_RowEvHandlerName="VW_CG_EQUIPAMENTO_VS_CHIPRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_CG_EQUIPAMENTO_VS_CHIPRowDeleted" msprop:Generator_RowClassName="VW_CG_EQUIPAMENTO_VS_CHIPRow" msprop:Generator_UserTableName="VW_CG_EQUIPAMENTO_VS_CHIP" msprop:Generator_RowEvArgName="VW_CG_EQUIPAMENTO_VS_CHIPRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_EQUIPAMENTO" msprop:Generator_ColumnVarNameInTable="columnID_EQUIPAMENTO" msprop:Generator_ColumnPropNameInRow="ID_EQUIPAMENTO" msprop:Generator_ColumnPropNameInTable="ID_EQUIPAMENTOColumn" msprop:Generator_UserColumnName="ID_EQUIPAMENTO" type="xs:int" />
+              <xs:element name="DESC_EQUIPAMENTO" msprop:Generator_ColumnVarNameInTable="columnDESC_EQUIPAMENTO" msprop:Generator_ColumnPropNameInRow="DESC_EQUIPAMENTO" msprop:Generator_ColumnPropNameInTable="DESC_EQUIPAMENTOColumn" msprop:Generator_UserColumnName="DESC_EQUIPAMENTO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SERIE" msprop:Generator_ColumnVarNameInTable="columnSERIE" msprop:Generator_ColumnPropNameInRow="SERIE" msprop:Generator_ColumnPropNameInTable="SERIEColumn" msprop:Generator_UserColumnName="SERIE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MODELO" msprop:Generator_ColumnVarNameInTable="columnMODELO" msprop:Generator_ColumnPropNameInRow="MODELO" msprop:Generator_ColumnPropNameInTable="MODELOColumn" msprop:Generator_UserColumnName="MODELO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID_CHIP" msprop:Generator_ColumnVarNameInTable="columnID_CHIP" msprop:Generator_ColumnPropNameInRow="ID_CHIP" msprop:Generator_ColumnPropNameInTable="ID_CHIPColumn" msprop:Generator_UserColumnName="ID_CHIP" type="xs:int" />
+              <xs:element name="SIMID" msprop:Generator_ColumnVarNameInTable="columnSIMID" msprop:Generator_ColumnPropNameInRow="SIMID" msprop:Generator_ColumnPropNameInTable="SIMIDColumn" msprop:Generator_UserColumnName="SIMID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID_OPERADORA" msprop:Generator_ColumnVarNameInTable="columnID_OPERADORA" msprop:Generator_ColumnPropNameInRow="ID_OPERADORA" msprop:Generator_ColumnPropNameInTable="ID_OPERADORAColumn" msprop:Generator_UserColumnName="ID_OPERADORA" type="xs:int" minOccurs="0" />
+              <xs:element name="DESC_OPERADORA" msprop:Generator_ColumnVarNameInTable="columnDESC_OPERADORA" msprop:Generator_ColumnPropNameInRow="DESC_OPERADORA" msprop:Generator_ColumnPropNameInTable="DESC_OPERADORAColumn" msprop:Generator_UserColumnName="DESC_OPERADORA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APELIDO" msprop:Generator_ColumnVarNameInTable="columnAPELIDO" msprop:Generator_ColumnPropNameInRow="APELIDO" msprop:Generator_ColumnPropNameInTable="APELIDOColumn" msprop:Generator_UserColumnName="APELIDO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOME" msprop:Generator_ColumnVarNameInTable="columnNOME" msprop:Generator_ColumnPropNameInRow="NOME" msprop:Generator_ColumnPropNameInTable="NOMEColumn" msprop:Generator_UserColumnName="NOME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VW_CG_EQUIPAMENTO_VS_CHIP" />
+      <xs:field xpath="mstns:ID_EQUIPAMENTO" />
+      <xs:field xpath="mstns:ID_CHIP" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

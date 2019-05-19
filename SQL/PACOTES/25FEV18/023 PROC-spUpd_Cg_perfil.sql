@@ -1,0 +1,1 @@
+CREATE PROCEDURE spUpd_Cg_perfil	@ID_PERFIL As int,	@DESC_PERFIL As varchar(50)ASBEGINUPDATE CG_PERFIL SET	desc_perfil = @desc_perfilWHERE	ID_PERFIL = @ID_PERFILEND------------------------------------------------------------

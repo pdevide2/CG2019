@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_concerto	@ID_CONCERTO As intASBEGINDELETE FROM CG_CONCERTO WHERE	ID_CONCERTO = @ID_CONCERTOEND------------------------------------------------------------

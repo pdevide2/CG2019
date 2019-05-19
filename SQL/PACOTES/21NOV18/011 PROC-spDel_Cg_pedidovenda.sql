@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_pedidovenda	@ID_PEDIDO As intASBEGINDELETE FROM CG_PEDIDOVENDA WHERE	ID_PEDIDO = @ID_PEDIDOEND------------------------------------------------------------

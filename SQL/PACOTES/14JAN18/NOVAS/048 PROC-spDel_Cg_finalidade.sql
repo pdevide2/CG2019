@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_finalidade	@ID_FINALIDADE As intASBEGINDELETE FROM CG_FINALIDADE WHERE	ID_FINALIDADE = @ID_FINALIDADEEND------------------------------------------------------------

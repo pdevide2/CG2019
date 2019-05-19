@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_cargo	@ID_CARGO As intASBEGINDELETE FROM CG_CARGO WHERE	ID_CARGO = @ID_CARGOEND------------------------------------------------------------

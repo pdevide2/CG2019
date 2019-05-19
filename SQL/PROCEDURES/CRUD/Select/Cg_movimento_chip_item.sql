@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_movimento_chip_itemASBEGINSELECT	id_romaneio,	unique_keyid,	id_chip,	simid,	qtd,	valorFROM	CG_MOVIMENTO_CHIP_ITEMEND------------------------------------------------------------

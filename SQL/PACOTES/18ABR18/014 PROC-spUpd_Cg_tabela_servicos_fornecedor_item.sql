@@ -1,0 +1,1 @@
+CREATE PROCEDURE spUpd_Cg_tabela_servicos_fornecedor_item	@ID_ITEM As uniqueidentifier,	@ID_FORNECEDOR As int,	@ID_CONCERTO As int,	@ID As intASBEGINUPDATE CG_TABELA_SERVICOS_FORNECEDOR_ITEM SET	id_item = @id_item,	id_fornecedor = @id_fornecedor,	id_concerto = @id_concertoWHERE	ID = @IDEND------------------------------------------------------------

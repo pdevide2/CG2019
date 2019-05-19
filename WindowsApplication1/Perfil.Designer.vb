@@ -1,0 +1,128 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class Perfil
+    Inherits modeloCadastro
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.lblCodigo = New System.Windows.Forms.Label()
+        Me.lblDescricao = New System.Windows.Forms.Label()
+        Me.txtCodigo = New System.Windows.Forms.TextBox()
+        Me.txtDescricao = New System.Windows.Forms.TextBox()
+        Me.tv1 = New System.Windows.Forms.TreeView()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.SuspendLayout()
+        '
+        'lblCodigo
+        '
+        Me.lblCodigo.AutoSize = True
+        Me.lblCodigo.Location = New System.Drawing.Point(21, 15)
+        Me.lblCodigo.Name = "lblCodigo"
+        Me.lblCodigo.Size = New System.Drawing.Size(44, 13)
+        Me.lblCodigo.TabIndex = 1
+        Me.lblCodigo.Text = "Perfil ID"
+        '
+        'lblDescricao
+        '
+        Me.lblDescricao.AutoSize = True
+        Me.lblDescricao.Location = New System.Drawing.Point(21, 42)
+        Me.lblDescricao.Name = "lblDescricao"
+        Me.lblDescricao.Size = New System.Drawing.Size(55, 13)
+        Me.lblDescricao.TabIndex = 2
+        Me.lblDescricao.Text = "Descrição"
+        '
+        'txtCodigo
+        '
+        Me.txtCodigo.Enabled = False
+        Me.txtCodigo.Location = New System.Drawing.Point(91, 12)
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.Size = New System.Drawing.Size(74, 20)
+        Me.txtCodigo.TabIndex = 3
+        '
+        'txtDescricao
+        '
+        Me.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtDescricao.Location = New System.Drawing.Point(91, 39)
+        Me.txtDescricao.Name = "txtDescricao"
+        Me.txtDescricao.ReadOnly = True
+        Me.txtDescricao.Size = New System.Drawing.Size(405, 20)
+        Me.txtDescricao.TabIndex = 4
+        Me.txtDescricao.Tag = "Descrição da Marca"
+        '
+        'tv1
+        '
+        Me.tv1.CheckBoxes = True
+        Me.tv1.Location = New System.Drawing.Point(24, 70)
+        Me.tv1.Name = "tv1"
+        Me.tv1.Size = New System.Drawing.Size(472, 405)
+        Me.tv1.TabIndex = 5
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(24, 485)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Expandir"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(105, 485)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 6
+        Me.Button2.Text = "Fechar"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Perfil
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(508, 561)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.tv1)
+        Me.Controls.Add(Me.txtDescricao)
+        Me.Controls.Add(Me.txtCodigo)
+        Me.Controls.Add(Me.lblDescricao)
+        Me.Controls.Add(Me.lblCodigo)
+        Me.Name = "Perfil"
+        Me.Text = "Cadastro de Perfis (Nivel de Usuários)"
+        Me.Controls.SetChildIndex(Me.lblCodigo, 0)
+        Me.Controls.SetChildIndex(Me.lblDescricao, 0)
+        Me.Controls.SetChildIndex(Me.txtCodigo, 0)
+        Me.Controls.SetChildIndex(Me.txtDescricao, 0)
+        Me.Controls.SetChildIndex(Me.tv1, 0)
+        Me.Controls.SetChildIndex(Me.Button1, 0)
+        Me.Controls.SetChildIndex(Me.Button2, 0)
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents lblCodigo As System.Windows.Forms.Label
+    Friend WithEvents lblDescricao As System.Windows.Forms.Label
+    Friend WithEvents txtCodigo As System.Windows.Forms.TextBox
+    Friend WithEvents txtDescricao As System.Windows.Forms.TextBox
+    Friend WithEvents tv1 As System.Windows.Forms.TreeView
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+End Class

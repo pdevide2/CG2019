@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_usuarioASBEGINSELECT	id_usuario,	apelido,	nome,	cpf,	rg,	email,	telefone,	whatsapp,	cep,	endereco,	complemento,	cidade,	bairro,	uf,	login,	id_statusFROM	CG_USUARIOEND------------------------------------------------------------

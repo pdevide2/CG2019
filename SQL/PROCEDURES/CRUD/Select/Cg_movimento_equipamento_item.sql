@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_movimento_equipamento_itemASBEGINSELECT	id_romaneio,	unique_keyid,	id_equipamento,	serie,	qtd,	valorFROM	CG_MOVIMENTO_EQUIPAMENTO_ITEMEND------------------------------------------------------------

@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_area	@ID_AREA As char(8),	@ID_EMPRESA INTASBEGINDELETE FROM CG_AREA WHERE	ID_AREA = @ID_AREA AND ID_EMPRESA = @ID_EMPRESAEND------------------------------------------------------------

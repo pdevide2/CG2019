@@ -1,0 +1,1 @@
+if exists(select 1 from sysobjects where TYPE = 'P' AND name = 'spDel_Cg_os')begin	drop procedure spDel_Cg_osendGOCREATE PROCEDURE spDel_Cg_os	@ID_OS As intASBEGINDELETE FROM CG_OS WHERE	ID_OS = @ID_OSENDGO------------------------------------------------------------

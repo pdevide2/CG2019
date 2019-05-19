@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_devolucao_equipamentoASBEGINSELECT	id_romaneio,	data_movtoFROM	CG_DEVOLUCAO_EQUIPAMENTOEND------------------------------------------------------------

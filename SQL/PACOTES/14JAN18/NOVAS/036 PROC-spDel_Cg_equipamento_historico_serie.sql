@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_equipamento_historico_serie	@ID_EQUIPAMENTO As int,	@ID_OS As int,	@ITEM_ID As intASBEGINDELETE FROM CG_EQUIPAMENTO_HISTORICO_SERIE WHERE	ID_OS = @ID_OS AND	ITEM_ID = @ITEM_ID AND	ID_EQUIPAMENTO = @ID_EQUIPAMENTOEND------------------------------------------------------------

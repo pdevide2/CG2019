@@ -1,0 +1,1 @@
+CREATE PROCEDURE spUpd_Cg_transito	@ID_TRANSITO As int,	@NOME_TRANSITO As varchar(40),	@INATIVO As bitASBEGINupdate CG_TRANSITO set	nome_transito = @nome_transito,	inativo = @inativowhere ID_TRANSITO = @ID_TRANSITOEND------------------------------------------------------------

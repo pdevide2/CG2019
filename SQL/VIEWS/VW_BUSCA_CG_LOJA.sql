@@ -1,0 +1,8 @@
+CREATE VIEW VW_BUSCA_CG_LOJA
+AS
+
+    SELECT 
+	   ID_LOJA, 
+	   CODIGO + ' - ' + NOME AS NOME 
+    FROM 
+	   CG_LOJA

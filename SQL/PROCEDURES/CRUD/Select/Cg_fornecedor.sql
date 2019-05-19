@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_fornecedorASBEGINSELECT	id_fornecedor,	sigla,	utiliza_nfts,	nome,	cep,	endereco,	complemento,	cidade,	bairro,	uf,	email,	telefone,	contato,	whatsapp,	id_tipo_servico,	obsFROM	CG_FORNECEDOREND------------------------------------------------------------

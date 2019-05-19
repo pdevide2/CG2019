@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_modulo	@ID_MODULO As intASBEGINDELETE FROM CG_MODULO WHERE	ID_MODULO = @ID_MODULOEND------------------------------------------------------------

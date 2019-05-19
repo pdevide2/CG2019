@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_tabelas_pesquisa_dinamica	@ID_TABELA As intASBEGINDELETE FROM CG_TABELAS_PESQUISA_DINAMICA WHERE	ID_TABELA = @ID_TABELAEND------------------------------------------------------------

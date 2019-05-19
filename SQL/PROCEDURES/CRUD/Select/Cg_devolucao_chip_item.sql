@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_devolucao_chip_itemASBEGINSELECT	id_romaneio,	unique_keyid,	id_chip,	simid,	qtd,	valor,	id_motivoFROM	CG_DEVOLUCAO_CHIP_ITEMEND------------------------------------------------------------

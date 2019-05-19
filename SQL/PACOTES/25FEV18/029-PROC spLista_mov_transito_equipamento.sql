@@ -1,0 +1,56 @@
+USE [dbCG]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spLista_mov_transito_equipamento]    Script Date: 19/12/2017 15:02:23 ******/
+IF EXISTS(SELECT 1 FROM SYSOBJECTS WHERE TYPE='P' AND NAME='spLista_mov_transito_equipamento')
+BEGIN
+	DROP PROCEDURE [dbo].[spLista_mov_transito_equipamento]
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[spLista_mov_transito_equipamento]    Script Date: 19/12/2017 15:02:23 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[spLista_mov_transito_equipamento]
+(
+    @ID_TRANSITO INT = NULL,
+    @DATA1 DATETIME = NULL,
+    @DATA2 DATETIME = NULL,
+	@ID_EMPRESA INT = 0
+)
+as
+SELECT  
+    ID_TRANSITO
+    , NOME_TRANSITO
+    , CODIGO_ORIGEM
+    , NOME_ORIGEM
+    , SERIE
+    , MODELO
+    , ID_EQUIPAMENTO
+    , QUANTIDADE
+    , DATA_LANCTO
+    , CODIGO_DESTINO
+    , NOME_DESTINO
+    , ID_DESTINO
+    , DATA_MOV_DESTINO
+    , ID_LANCTO
+    , ID_ORIGEM
+    , DESC_EQUIPAMENTO
+    , USER_INS
+    , NOME_USUARIO
+	, ID_EMPRESA
+
+FROM VW_CG_MOV_TRANSITO_EQUIPAMENTO
+WHERE 
+    CONVERT(VARCHAR,DATA_LANCTO,112) BETWEEN CONVERT(VARCHAR,ISNULL(@DATA1,GETDATE()),112) AND CONVERT(VARCHAR,ISNULL(@DATA2,GETDATE()),112)
+    AND ID_TRANSITO = ISNULL(@ID_TRANSITO, ID_TRANSITO)
+	AND ID_EMPRESA = @ID_EMPRESA
+ORDER BY NOME_TRANSITO ASC, DATA_LANCTO ASC
+ 
+GO
+
+

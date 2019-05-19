@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_fornecedor	@ID_FORNECEDOR As intASBEGINDELETE FROM CG_FORNECEDOR WHERE	ID_FORNECEDOR = @ID_FORNECEDOREND------------------------------------------------------------

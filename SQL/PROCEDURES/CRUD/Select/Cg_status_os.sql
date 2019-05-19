@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_status_osASBEGINSELECT	id_status,	desc_statusFROM	CG_STATUS_OSEND------------------------------------------------------------

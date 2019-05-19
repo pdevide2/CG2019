@@ -1,0 +1,45 @@
+select * from CG_OS_ITEM where id_os = 18
+
+
+select * from CG_OCORRENCIA where ID_OCORRENCIA=9
+
+select 'Editar' as botao, 'Ocorrência' as botao1, 
+VW_CG_OS_ITEM.ID_OS, VW_CG_OS_ITEM.ITEM_ID, VW_CG_OS_ITEM.ID_EQUIPAMENTO, DESC_EQUIPAMENTO, 
+SERIE, MODELO, convert(VARCHAR, previsao_retorno, 103) AS PREVISAO_RETORNO, 
+DESC_DEFEITO, CONSERTO_OK, ID_TIPO_EQUIPAMENTO, 
+DESC_TIPO_EQUIPAMENTO, GARANTIA, ID_OCORRENCIA, ISNULL(OC.DESCRICAO,'') AS DESC_OCORRENCIA 
+from VW_CG_OS_ITEM 
+left join (
+select	DESCRICAO, 
+		DBO.fncSplit(ISNULL(OS_VINCULADA,''),'|',1) AS ID_OS,   
+		DBO.fncSplit(ISNULL(OS_VINCULADA,''),'|',2) AS ITEM_ID,   
+		DBO.fncSplit(ISNULL(OS_VINCULADA,''),'|',3) AS ID_EQUIPAMENTO   
+FROM CG_OCORRENCIA
+) AS OC ON OC.ID_OS = VW_CG_OS_ITEM.ID_OS AND OC.ITEM_ID = VW_CG_OS_ITEM.ITEM_ID AND OC.ID_EQUIPAMENTO = VW_CG_OS_ITEM.ID_EQUIPAMENTO
+
+
+
+
+select 'Editar' as botao, 'Ocorrência' as botao1, 
+         a.ID_OS, a.ITEM_ID, a.ID_EQUIPAMENTO, a.DESC_EQUIPAMENTO, 
+         a.SERIE, a.MODELO, convert(VARCHAR, a.previsao_retorno, 103) AS PREVISAO_RETORNO, 
+         a.DESC_DEFEITO, a.CONSERTO_OK, a.ID_TIPO_EQUIPAMENTO, 
+         a.DESC_TIPO_EQUIPAMENTO, a.GARANTIA, a.ID_OCORRENCIA, ISNULL(OC.DESCRICAO,'') AS DESC_OCORRENCIA 
+          from VW_CG_OS_ITEM a 
+          left join ( 
+          select	DESCRICAO, 
+          DBO.fncSplit(ISNULL(OS_VINCULADA,''),'|',1) AS ID_OS1, 
+          DBO.fncSplit(ISNULL(OS_VINCULADA,''),'|',2) AS ITEM_ID, 
+          DBO.fncSplit(ISNULL(OS_VINCULADA,''),'|',3) AS ID_EQUIPAMENTO 
+          FROM CG_OCORRENCIA 
+          ) AS OC ON OC.ID_OS1 = a.ID_OS AND OC.ITEM_ID = a.ITEM_ID 
+          and OC.ID_EQUIPAMENTO = a.ID_EQUIPAMENTO 
+
+
+
+
+
+
+
+
+select * from VW_CG_OS_ITEM 

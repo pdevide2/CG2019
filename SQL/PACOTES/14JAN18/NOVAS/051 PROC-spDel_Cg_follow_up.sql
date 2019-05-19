@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_follow_up	@ID_OS As int,	@PROTOCOLO As varchar(20)ASBEGINDELETE FROM CG_FOLLOW_UP WHERE	ID_OS = @ID_OS AND	PROTOCOLO = @PROTOCOLOEND------------------------------------------------------------

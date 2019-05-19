@@ -1,0 +1,1 @@
+CREATE PROCEDURE spIns_Cg_concerto	@ID_CONCERTO As int,	@DESC_CONCERTO As varchar(75)ASBEGININSERT INTO CG_CONCERTO (	id_concerto,	desc_concerto)VALUES (	@id_concerto,	@desc_concerto)END------------------------------------------------------------

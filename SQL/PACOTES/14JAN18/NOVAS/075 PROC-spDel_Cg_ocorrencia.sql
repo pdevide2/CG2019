@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_ocorrencia	@ID_OCORRENCIA As intASBEGINDELETE FROM CG_OCORRENCIA WHERE	ID_OCORRENCIA = @ID_OCORRENCIAEND------------------------------------------------------------

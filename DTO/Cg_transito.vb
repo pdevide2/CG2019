@@ -1,0 +1,3 @@
+Public Class Cg_transito	Dim _id_transito As Integer	Dim _nome_transito As String	Dim _inativo As Boolean
+
+    Property Id_transito() As Integer		Get			Return _id_transito		End Get		Set(ByVal value As Integer)			_id_transito = value		End Set	End Property	Property Nome_transito() As String		Get			Return _nome_transito		End Get		Set(ByVal value As String)			_nome_transito = value		End Set	End Property	Property Inativo() As Boolean		Get			Return _inativo		End Get		Set(ByVal value As Boolean)			_inativo = value		End Set	End PropertyEnd Class

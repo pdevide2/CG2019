@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_tipo_servicoASBEGINSELECT	id_tipo_servico,	desc_tipo_servicoFROM	CG_TIPO_SERVICOEND------------------------------------------------------------

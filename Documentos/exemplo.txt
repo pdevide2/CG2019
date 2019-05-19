@@ -1,0 +1,30 @@
+Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim p As New DTO.Cg_cargo
+        p.Id_cargo = CInt(txtCodigo.Text)
+        p.Desc_cargo = txtDescricao.Text
+
+        'Dim lista As New List(Of String)
+        'lista.Add(p.Id_cargo.ToString)
+        'lista.Add(p.Desc_cargo)
+
+        'Dim a As List(Of System.Reflection.PropertyInfo)
+        'a = p.GetType().GetProperties().ToList()
+
+        'For Each x In a
+        '    Debug.Print(x.Name)
+        'Next
+
+        'For Each y In lista
+        '    Debug.Print(y)
+        'Next
+        Me.ObjModel = p
+        Debug.Print(Me.ObjModel.desc_cargo)
+    End Sub
+
+    ActiveDocument.ExportAsFixedFormat OutputFileName:= _
+        "D:\Workspace\Source\Saida\RELATORIO_OS_20180819125739412.pdf", _
+        ExportFormat:=wdExportFormatPDF, OpenAfterExport:=True, OptimizeFor:= _
+        wdExportOptimizeForPrint, Range:=wdExportAllDocument, From:=1, To:=1, _
+        Item:=wdExportDocumentContent, IncludeDocProps:=True, KeepIRM:=True, _
+        CreateBookmarks:=wdExportCreateNoBookmarks, DocStructureTags:=True, _
+        BitmapMissingFonts:=True, UseISO19005_1:=False

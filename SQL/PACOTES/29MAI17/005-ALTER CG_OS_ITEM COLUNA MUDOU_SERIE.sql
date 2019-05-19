@@ -1,0 +1,3 @@
+alter table [dbo].[CG_OS_ITEM]
+add MUDOU_SERIE BIT NOT NULL DEFAULT(0)
+GO

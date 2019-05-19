@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_lojaASBEGINSELECT	id_loja,	sigla,	nome,	endereco,	complemento,	cep,	cidade,	bairro,	uf,	id_tipo_local,	id_responsavelFROM	CG_LOJAEND------------------------------------------------------------

@@ -1,0 +1,1 @@
+CREATE PROCEDURE spIns_Cg_transito	@ID_TRANSITO As int,	@NOME_TRANSITO As varchar(40),	@INATIVO As bitASBEGININSERT INTO CG_TRANSITO (	id_transito,	nome_transito,	inativo)VALUES (	@id_transito,	@nome_transito,	@inativo)END------------------------------------------------------------

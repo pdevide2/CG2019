@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_sequencial	@TABELA As varchar(40)ASBEGINDELETE FROM CG_SEQUENCIAL WHERE	TABELA = @TABELAEND------------------------------------------------------------

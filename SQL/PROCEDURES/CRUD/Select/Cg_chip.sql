@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_chipASBEGINSELECT	id_chip,	simid,	id_operadora,	id_fornecedorFROM	CG_CHIPEND------------------------------------------------------------

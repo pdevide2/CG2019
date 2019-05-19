@@ -1,0 +1,402 @@
+/*
+// CG_LOJA       OK
+// spIns_Cg_loja OK
+// spUpd_Cg_loja OK
+
+// CG_AREA
+// spIns_Cg_area OK
+// spDel_Cg_area OK
+// spUpd_Cg_area OK
+// VW_CG_LOJA    OK
+// VW_CG_AREA
+*/
+
+ALTER TABLE [dbo].[CG_LOJA] DROP CONSTRAINT [FK_CG_LOJA_CG_AREA_01]
+GO
+
+ALTER TABLE CG_LOJA 
+DROP CONSTRAINT DF__CG_LOJA__ID_AREA__2858E14B
+GO
+
+ALTER TABLE [dbo].[CG_LOJA]
+DROP COLUMN ID_AREA 
+GO
+
+ALTER TABLE [dbo].[CG_LOJA]
+ADD ID_AREA CHAR(8) NOT NULL DEFAULT ('0000')
+GO
+
+ALTER TABLE CG_LOJA DISABLE TRIGGER ALL
+GO
+
+UPDATE CG_LOJA 
+SET ID_AREA = '0000'
+GO
+
+ALTER TABLE CG_LOJA ENABLE TRIGGER ALL
+GO
+
+USE [dbCG]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spIns_Cg_loja]    Script Date: 17/09/2017 20:48:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[spIns_Cg_loja]
+
+	@ID_LOJA As int,
+	@SIGLA As varchar(50) = NULL,
+	@NOME As varchar(50) = NULL,
+	@ENDERECO As varchar(70) = NULL,
+	@COMPLEMENTO As varchar(40) = NULL,
+	@CEP As varchar(9) = NULL,
+	@CIDADE As varchar(50) = NULL,
+	@BAIRRO As varchar(50) = NULL,
+	@UF As char(2) = NULL,
+	@ID_TIPO_LOCAL As int = NULL,
+	@ID_RESPONSAVEL As int = NULL,
+	@USER_INS As int = NULL,
+	@DATA_INS As datetime = NULL,
+	@USER_UPD As int = NULL,
+	@DATA_UPD As datetime = NULL,
+	@CODIGO AS VARCHAR(10),
+	@TELEFONE AS VARCHAR(20) = NULL,
+	@CELULAR AS VARCHAR(20) = NULL,
+	@LOJA_FISICA AS BIT = 0,
+	@PARCERIA AS BIT = 0,
+	@ID_AREA AS CHAR(8) = '0000'
+
+AS
+
+BEGIN
+INSERT INTO CG_LOJA (
+	id_loja,
+	sigla,
+	nome,
+	endereco,
+	complemento,
+	cep,
+	cidade,
+	bairro,
+	uf,
+	id_tipo_local,
+	id_responsavel,
+	user_ins,
+	data_ins,
+	user_upd,
+	data_upd,
+	CODIGO,
+	TELEFONE,
+	CELULAR,
+	LOJA_FISICA,
+	PARCERIA,
+	ID_AREA)
+VALUES (
+	@id_loja,
+	@sigla,
+	@nome,
+	@endereco,
+	@complemento,
+	@cep,
+	@cidade,
+	@bairro,
+	@uf,
+	@id_tipo_local,
+	@id_responsavel,
+	@user_ins,
+	@data_ins,
+	@user_upd,
+	@data_upd,
+	@CODIGO,
+	@TELEFONE,
+	@CELULAR,
+	@LOJA_FISICA,
+	@PARCERIA,
+	@ID_AREA)
+
+END
+
+------------------------------------------------------------
+GO
+
+
+USE [dbCG]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spUpd_Cg_loja]    Script Date: 17/09/2017 20:50:33 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+ALTER PROCEDURE [dbo].[spUpd_Cg_loja]
+
+	@ID_LOJA As int,
+	@SIGLA As varchar(50) = NULL,
+	@NOME As varchar(50) = NULL,
+	@ENDERECO As varchar(70) = NULL,
+	@COMPLEMENTO As varchar(40) = NULL,
+	@CEP As varchar(9) = NULL,
+	@CIDADE As varchar(50) = NULL,
+	@BAIRRO As varchar(50) = NULL,
+	@UF As char(2) = NULL,
+	@ID_TIPO_LOCAL As int = NULL,
+	@ID_RESPONSAVEL As int = NULL,
+	@USER_INS As int = NULL,
+	@DATA_INS As datetime = NULL,
+	@USER_UPD As int = NULL,
+	@DATA_UPD As datetime = NULL,
+	@CODIGO AS VARCHAR(10),
+	@TELEFONE AS VARCHAR(20) = NULL,
+	@CELULAR AS VARCHAR(20) = NULL,
+	@LOJA_FISICA AS BIT = 0,
+	@PARCERIA AS BIT = 0,
+	@ID_AREA AS CHAR(8) = '0000'
+
+AS
+
+BEGIN
+UPDATE CG_LOJA SET
+	sigla = @sigla,
+	nome = @nome,
+	endereco = @endereco,
+	complemento = @complemento,
+	cep = @cep,
+	cidade = @cidade,
+	bairro = @bairro,
+	uf = @uf,
+	id_tipo_local = @id_tipo_local,
+	id_responsavel = @id_responsavel,
+	user_ins = @user_ins,
+	data_ins = @data_ins,
+	user_upd = @user_upd,
+	data_upd = @data_upd,
+	codigo = @CODIGO,
+	TELEFONE = @TELEFONE,
+	CELULAR = @CELULAR,
+	LOJA_FISICA = @LOJA_FISICA,
+	PARCERIA = @PARCERIA,
+	ID_AREA = @ID_AREA
+WHERE
+	ID_LOJA = @ID_LOJA
+
+END
+------------------------------------------------------------
+GO
+
+ALTER TABLE CG_AREA 
+DROP CONSTRAINT PK_CG_AREA
+GO
+
+ALTER TABLE CG_AREA
+ALTER COLUMN ID_AREA CHAR(8) NOT NULL
+GO
+
+UPDATE CG_AREA SET ID_AREA = '0000' WHERE ID_AREA = '0'
+GO
+
+ALTER TABLE CG_AREA
+ADD CONSTRAINT PK_CG_AREA PRIMARY KEY (ID_AREA)
+GO
+
+USE [dbCG]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spIns_Cg_area]    Script Date: 17/09/2017 20:59:45 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[spIns_Cg_area]
+
+	@ID_AREA As CHAR(8),
+	@DESC_AREA As varchar(50),
+	@ID_RESPONSAVEL As int,
+	@USER_INS As int = NULL,
+	@DATA_INS As datetime = NULL,
+	@USER_UPD As int = NULL,
+	@DATA_UPD As datetime = NULL
+
+AS
+
+BEGIN
+INSERT INTO CG_AREA (
+	id_area,
+	desc_area,
+	id_responsavel,
+	user_ins,
+	data_ins,
+	user_upd,
+	data_upd)
+VALUES (
+	@id_area,
+	@desc_area,
+	@id_responsavel,
+	@user_ins,
+	@data_ins,
+	@user_upd,
+	@data_upd)
+
+END
+
+------------------------------------------------------------
+GO
+
+USE [dbCG]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spUpd_Cg_area]    Script Date: 17/09/2017 21:00:29 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+ALTER PROCEDURE [dbo].[spUpd_Cg_area]
+
+	@ID_AREA As CHAR(8),
+	@DESC_AREA As varchar(50),
+	@ID_RESPONSAVEL As int,
+	@USER_INS As int = NULL,
+	@DATA_INS As datetime = NULL,
+	@USER_UPD As int = NULL,
+	@DATA_UPD As datetime = NULL
+
+AS
+
+BEGIN
+UPDATE CG_AREA SET
+	desc_area = @desc_area,
+	id_responsavel = @id_responsavel,
+	user_ins = @user_ins,
+	data_ins = @data_ins,
+	user_upd = @user_upd,
+	data_upd = @data_upd
+WHERE
+	ID_AREA = @ID_AREA
+
+END
+------------------------------------------------------------
+GO
+
+
+USE [dbCG]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spDel_Cg_area]    Script Date: 17/09/2017 21:01:30 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+ALTER PROCEDURE [dbo].[spDel_Cg_area]
+
+	@ID_AREA As CHAR(8)
+
+AS
+
+BEGIN
+DELETE FROM CG_AREA WHERE
+	ID_AREA = @ID_AREA
+
+END
+------------------------------------------------------------
+GO
+
+
+
+
+
+USE [dbCG]
+GO
+
+/****** Object:  View [dbo].[VW_CG_LOJA]    Script Date: 17/09/2017 20:52:01 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+ALTER VIEW [dbo].[VW_CG_LOJA]
+AS
+SELECT A.ID_LOJA,
+       A.SIGLA,
+       A.NOME,
+       A.ENDERECO,
+       A.COMPLEMENTO,
+       A.CEP,
+       A.CIDADE,
+       A.BAIRRO,
+       A.UF,
+       A.ID_TIPO_LOCAL,
+       B.DESC_ALOCACAO,
+       A.ID_RESPONSAVEL,
+       C.NOME AS RESPONSAVEL,
+       C.APELIDO,
+	  A.CODIGO, 
+	  A.TELEFONE,
+	  A.CELULAR, 
+	  A.ID_AREA,
+	  D.DESC_AREA,
+	  A.LOJA_FISICA,
+	  A.PARCERIA,
+	  D.ID_RESPONSAVEL AS ID_RESPONSAVEL_AREA,
+	  E.NOME AS RESPONSAVEL_AREA
+FROM 
+	CG_LOJA AS A (NOLOCK)
+LEFT JOIN 
+	dbo.CG_ALOCACAO AS B (NOLOCK)
+		ON A.ID_TIPO_LOCAL = B.ID_ALOCACAO
+LEFT JOIN 
+	dbo.CG_RESPONSAVEL AS C (NOLOCK)
+		ON A.ID_RESPONSAVEL = C.ID_RESPONSAVEL
+LEFT JOIN 
+    dbo.CG_AREA AS D (NOLOCK)
+		ON D.ID_AREA = A.ID_AREA
+LEFT JOIN 
+	dbo.CG_RESPONSAVEL AS E (NOLOCK)
+		ON D.ID_RESPONSAVEL = E.ID_RESPONSAVEL
+
+
+GO
+
+
+USE [dbCG]
+GO
+
+/****** Object:  View [dbo].[VW_CG_AREA]    Script Date: 17/09/2017 21:02:34 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER VIEW [dbo].[VW_CG_AREA]
+AS
+SELECT 
+a.ID_AREA, a.DESC_AREA, a.ID_RESPONSAVEL, B.NOME
+FROM CG_AREA a
+INNER JOIN CG_RESPONSAVEL b ON B.ID_RESPONSAVEL = A.ID_RESPONSAVEL;
+
+GO
+
+
+ALTER TABLE [dbo].[CG_LOJA]  WITH CHECK ADD  CONSTRAINT [FK_CG_LOJA_CG_AREA_01] FOREIGN KEY([ID_AREA])
+REFERENCES [dbo].[CG_AREA] ([ID_AREA])
+GO
+
+ALTER TABLE [dbo].[CG_LOJA] CHECK CONSTRAINT [FK_CG_LOJA_CG_AREA_01]
+GO

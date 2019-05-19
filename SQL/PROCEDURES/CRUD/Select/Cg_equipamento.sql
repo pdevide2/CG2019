@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_equipamentoASBEGINSELECT	id_equipamento,	id_tipo_equipamento,	desc_equipamento,	serie,	modelo,	id_fornecedor,	protocolo,	valor,	obsFROM	CG_EQUIPAMENTOEND------------------------------------------------------------

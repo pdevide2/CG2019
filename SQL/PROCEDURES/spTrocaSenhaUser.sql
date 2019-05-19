@@ -1,0 +1,16 @@
+CREATE PROCEDURE spTrocaSenhaUser
+@ID_USUARIO int,
+@NOVA_SENHA VARCHAR(50)
+AS
+BEGIN
+    declare @SENHA1 varbinary(8000)
+    SET @SENHA1 = [DBO].[fx_Encriptar](@NOVA_SENHA)
+
+    UPDATE CG_USUARIO
+    SET SENHA=@SENHA1
+    WHERE ID_USUARIO = @ID_USUARIO
+END
+GO
+
+
+

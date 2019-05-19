@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_movimento_chip_item	@ID_ROMANEIO As int,	@UNIQUE_KEYID As uniqueidentifierASBEGINDELETE FROM CG_MOVIMENTO_CHIP_ITEM WHERE	ID_ROMANEIO = @ID_ROMANEIO AND	UNIQUE_KEYID = @UNIQUE_KEYIDEND------------------------------------------------------------

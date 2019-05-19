@@ -1,0 +1,1 @@
+CREATE PROCEDURE spIns_Cg_perfil	@ID_PERFIL As int,	@DESC_PERFIL As varchar(50)ASBEGININSERT INTO CG_PERFIL (	id_perfil,	desc_perfil)VALUES (	@id_perfil,	@desc_perfil)END------------------------------------------------------------

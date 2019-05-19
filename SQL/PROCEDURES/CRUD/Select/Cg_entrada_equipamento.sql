@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_entrada_equipamentoASBEGINSELECT	id_romaneio,	data_movto,	id_lojaFROM	CG_ENTRADA_EQUIPAMENTOEND------------------------------------------------------------

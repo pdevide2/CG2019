@@ -1,0 +1,1 @@
+CREATE PROCEDURE spUpd_Cg_tabelas_pesquisa_dinamica	@ID_TABELA As int,	@TABELA As varchar(50),	@TIPO_TABELA As char(1)ASBEGINUPDATE CG_TABELAS_PESQUISA_DINAMICA SET	tabela = @tabela,	tipo_tabela = @tipo_tabelaWHERE	ID_TABELA = @ID_TABELAEND------------------------------------------------------------

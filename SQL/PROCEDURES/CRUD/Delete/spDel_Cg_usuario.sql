@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_usuario	@ID_USUARIO As intASBEGINDELETE FROM CG_USUARIO WHERE	ID_USUARIO = @ID_USUARIOEND------------------------------------------------------------

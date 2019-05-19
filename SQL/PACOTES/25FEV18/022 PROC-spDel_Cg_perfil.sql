@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_perfil	@ID_PERFIL As intASBEGINDELETE FROM CG_PERFIL WHERE	ID_PERFIL = @ID_PERFILEND------------------------------------------------------------

@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_chip	@ID_CHIP As intASBEGINDELETE FROM CG_CHIP WHERE	ID_CHIP = @ID_CHIPEND------------------------------------------------------------

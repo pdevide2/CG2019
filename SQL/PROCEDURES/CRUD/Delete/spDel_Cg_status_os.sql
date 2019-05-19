@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_status_os	@ID_STATUS As intASBEGINDELETE FROM CG_STATUS_OS WHERE	ID_STATUS = @ID_STATUSEND------------------------------------------------------------

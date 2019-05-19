@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_operadora	@ID_OPERADORA As intASBEGINDELETE FROM CG_OPERADORA WHERE	ID_OPERADORA = @ID_OPERADORAEND------------------------------------------------------------

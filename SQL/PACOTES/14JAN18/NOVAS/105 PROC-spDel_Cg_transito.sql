@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_transito	@ID_TRANSITO As intASBEGINDELETE FROM CG_TRANSITO WHERE	ID_TRANSITO = @ID_TRANSITOEND------------------------------------------------------------

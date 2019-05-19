@@ -1,0 +1,43 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="SQLServerConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=WIN-6D553OEIVVL\SQL2017DEV;Initial Catalog=dbCG;Persist Security Info=True;User ID=USER_CG;Password=c102030@&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=WIN-6D553OEIVVL\SQL2017DEV;Initial Catalog=dbCG;Persist Security Info=True;User ID=USER_CG;Password=c102030@</Value>
+    </Setting>
+    <Setting Name="ID_USER" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="DIRHOME" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\Workspace\Source\</Value>
+    </Setting>
+    <Setting Name="SQLServerConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=(local);Initial Catalog=dbCG;Persist Security Info=True;User ID=USER_CG;Password=c102030@&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(local);Initial Catalog=dbCG;Persist Security Info=True;User ID=USER_CG;Password=c102030@</Value>
+    </Setting>
+    <Setting Name="ID_MODULO" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PERMISSAO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">"S"</Value>
+    </Setting>
+    <Setting Name="LASTUSER" Type="System.String" Scope="User">
+      <Value Profile="(Default)">USUARIO</Value>
+    </Setting>
+    <Setting Name="EMAIL_ADMIN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cgsystem69@gmail.com</Value>
+    </Setting>
+    <Setting Name="EMAIL_ADMIN_PWD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">p98q2369</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

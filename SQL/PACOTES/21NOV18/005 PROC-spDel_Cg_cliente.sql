@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_cliente	@ID_CLIENTE As intASBEGINDELETE FROM CG_CLIENTE WHERE	ID_CLIENTE = @ID_CLIENTEEND------------------------------------------------------------

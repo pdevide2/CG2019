@@ -1,0 +1,52 @@
+USE [dbCG]
+GO
+
+/****** Object:  Table [dbo].[CG_CLIENTE]    Script Date: 03/11/2018 08:52:14 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[CG_CLIENTE](
+	[ID_CLIENTE] [int] NOT NULL,
+	[SIGLA] [varchar](50) NOT NULL,
+	[NOME] [varchar](50) NOT NULL,
+	[CEP] [varchar](9) NULL,
+	[ENDERECO] [varchar](70) NULL,
+	[COMPLEMENTO] [varchar](40) NULL,
+	[CIDADE] [varchar](50) NULL,
+	[BAIRRO] [varchar](50) NULL,
+	[UF] [char](2) NULL,
+	[EMAIL] [varchar](120) NULL,
+	[TELEFONE1] [varchar](20) NULL,
+	[CONTATO1] [varchar](50) NULL,
+	[TELEFONE2] [varchar](20) NULL,
+	[CONTATO2] [varchar](50) NULL,
+	[TELEFONE3] [varchar](20) NULL,
+	[CONTATO3] [varchar](50) NULL,
+	[TELEFONE4] [varchar](20) NULL,
+	[CONTATO4] [varchar](50) NULL,
+	[OBS] [varchar](250) NULL,
+	[CADASTRO] [datetime] NULL,
+	[ULTIMA_ATUALIZACAO] [datetime] NULL,
+	[ID_EMPRESA] [int] NOT NULL,
+	[PFPJ] INT NOT NULL CONSTRAINT DF_CG_CLIENTE_PFPJ DEFAULT (1), 
+	[CPF_CNPJ] VARCHAR(20) NULL,
+	[RG_IE] VARCHAR(25) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_CLIENTE] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+

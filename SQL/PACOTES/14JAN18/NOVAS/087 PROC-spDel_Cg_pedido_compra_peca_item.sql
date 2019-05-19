@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_pedido_compra_peca_item	@ID_PEDIDO As int,	@ID_PECA As intASBEGINDELETE FROM CG_PEDIDO_COMPRA_PECA_ITEM WHERE	ID_PEDIDO = @ID_PEDIDO AND	ID_PECA = @ID_PECAEND------------------------------------------------------------

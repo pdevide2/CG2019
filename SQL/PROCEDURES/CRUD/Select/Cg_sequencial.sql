@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_sequencialASBEGINSELECT	tabela,	keyidFROM	CG_SEQUENCIALEND------------------------------------------------------------

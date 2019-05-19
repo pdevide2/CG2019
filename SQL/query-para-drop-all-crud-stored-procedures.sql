@@ -1,0 +1,17 @@
+SELECT TAB1.*
+FROM (
+
+SELECT 'A' AS LETRA,id, name, COMANDO='IF EXISTS (SELECT 1 FROM SYSOBJECTS WHERE TYPE = '+char(39)+ 'P'+ char(39) +' AND NAME = '+char(39)+ name + char(39)+')'  FROM SYSOBJECTS WHERE TYPE='P' AND NAME LIKE 'spIns%' 
+union all 
+SELECT 'B' AS LETRA,id, name, COMANDO=char(9) + 'DROP PROCEDURE ' +name FROM SYSOBJECTS WHERE TYPE='P' AND NAME LIKE 'spIns%'
+union all
+SELECT 'C' AS LETRA,id, name, COMANDO='IF EXISTS (SELECT 1 FROM SYSOBJECTS WHERE TYPE = '+char(39)+ 'P'+ char(39) +' AND NAME = '+char(39)+ name + char(39)+')'  FROM SYSOBJECTS WHERE TYPE='P' AND NAME LIKE 'spUpd%' 
+union all 
+SELECT 'D' AS LETRA,id, name, COMANDO=char(9) + 'DROP PROCEDURE ' +name FROM SYSOBJECTS WHERE TYPE='P' AND NAME LIKE 'spUpd%'
+union all
+SELECT 'E' AS LETRA,id, name, COMANDO='IF EXISTS (SELECT 1 FROM SYSOBJECTS WHERE TYPE = '+char(39)+ 'P'+ char(39) +' AND NAME = '+char(39)+ name + char(39)+')'  FROM SYSOBJECTS WHERE TYPE='P' AND NAME LIKE 'spDel%' 
+union all 
+SELECT 'F' AS LETRA,id, name, COMANDO=char(9) + 'DROP PROCEDURE ' +name FROM SYSOBJECTS WHERE TYPE='P' AND NAME LIKE 'spDel%'
+
+) AS TAB1
+ORDER BY TAB1.id asc, LETRA

@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_loja	@ID_LOJA As intASBEGINDELETE FROM CG_LOJA WHERE	ID_LOJA = @ID_LOJAEND------------------------------------------------------------

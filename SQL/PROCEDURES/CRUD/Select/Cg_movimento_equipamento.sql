@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_movimento_equipamentoASBEGINSELECT	id_romaneio,	data_movto,	id_responsavel,	id_loja_origem,	id_loja_destino,	tipo_opFROM	CG_MOVIMENTO_EQUIPAMENTOEND------------------------------------------------------------

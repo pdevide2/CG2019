@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Romaneio_estoque_item	@ROMANEIO As int,	@UNIQUE_KEY As uniqueidentifierASBEGINDELETE FROM ROMANEIO_ESTOQUE_ITEM WHERE	ROMANEIO = @ROMANEIO AND	UNIQUE_KEY = @UNIQUE_KEYEND------------------------------------------------------------

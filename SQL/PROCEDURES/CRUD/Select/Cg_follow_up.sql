@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_follow_upASBEGINSELECT	id_os,	protocolo,	data_hora,	textoFROM	CG_FOLLOW_UPEND------------------------------------------------------------

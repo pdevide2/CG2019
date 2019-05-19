@@ -1,0 +1,5 @@
+   Private Sub dgvDados_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgvDados.CellFormatting
+        If Len(Trim(dgvDados.CurrentRow.Cells("id_destino").Value)) > 0 Then
+            dgvDados.Rows(dgvDados.CurrentRow.Index).DefaultCellStyle.BackColor = Color.Yellow
+        End If
+    End Sub

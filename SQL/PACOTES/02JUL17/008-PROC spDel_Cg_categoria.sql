@@ -1,0 +1,1 @@
+CREATE PROCEDURE spDel_Cg_categoria	@ID_CATEGORIA As intASBEGINDELETE FROM CG_CATEGORIA WHERE	ID_CATEGORIA = @ID_CATEGORIAEND------------------------------------------------------------

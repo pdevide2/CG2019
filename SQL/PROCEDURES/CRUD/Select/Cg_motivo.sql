@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_motivoASBEGINSELECT	id_motivo,	desc_motivoFROM	CG_MOTIVOEND------------------------------------------------------------

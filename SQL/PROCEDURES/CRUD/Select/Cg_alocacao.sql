@@ -1,0 +1,1 @@
+CREATE PROCEDURE spLista_Cg_alocacaoASBEGINSELECT	id_alocacao,	desc_alocacaoFROM	CG_ALOCACAOEND------------------------------------------------------------

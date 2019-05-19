@@ -1,0 +1,103 @@
+--EXEC spRpt_EstoqueChipTotalPorLoja 1, '-1'
+ALTER PROCEDURE spRpt_EstoqueChipTotalPorLoja 
+@COM_ESTOQUE BIT = NULL,
+@CLICADOS VARCHAR(2000) = NULL
+AS
+BEGIN
+
+DECLARE @RESULT TABLE (
+			 X BIT NULL, ID_LOJA INT NULL, 
+			 NOME VARCHAR(50) NULL, ESTOQUE INT NULL)
+
+IF @COM_ESTOQUE IS NULL
+    BEGIN
+	   INSERT INTO @RESULT (X, ID_LOJA, NOME, ESTOQUE) 
+	   SELECT  
+		  CAST(1 AS BIT) AS X,
+		  A.ID_LOJA, 
+		  A.NOME, 
+		  ISNULL(SUM(ESTOQUE),0) AS ESTOQUE
+	   FROM 
+		  CG_LOJA A 
+	   LEFT JOIN 
+		  VW_CG_ESTOQUE_CHIP B 
+			 ON B.ID_LOCAL = A.ID_LOJA
+	   WHERE 
+		  A.ID_LOJA <> 0
+	   GROUP BY 
+		  A.ID_LOJA, 
+		  A.NOME
+
+	   UNION 
+
+	   SELECT  
+		  CAST(1 AS BIT) AS X,
+		  A.ID_LOJA, 
+		  A.NOME, 
+		  ISNULL(COUNT(*),0) AS ESTOQUE
+	   FROM 
+		  CG_LOJA A 
+	   LEFT JOIN 
+		  CG_CHIP B 
+			 ON B.ID_LOCAL_ESTOQUE = A.ID_LOJA 
+	   WHERE 
+		  B.ID_LOCAL_ESTOQUE = 0
+	   GROUP BY 
+		  A.ID_LOJA, 
+		  A.NOME
+	   ORDER BY 
+		  A.NOME
+    END
+ELSE
+    BEGIN
+	   INSERT INTO @RESULT (X, ID_LOJA, NOME, ESTOQUE)
+	   SELECT  
+		  CAST(1 AS BIT) AS X,
+		  A.ID_LOJA, 
+		  A.NOME, 
+		  ISNULL(SUM(ESTOQUE),0) AS ESTOQUE
+	   FROM 
+		  CG_LOJA A 
+	   LEFT JOIN 
+		  VW_CG_ESTOQUE_CHIP B 
+			 ON B.ID_LOCAL = A.ID_LOJA
+	   WHERE 
+		  A.ID_LOJA <> 0
+	   GROUP BY 
+		  A.ID_LOJA, 
+		  A.NOME
+	   HAVING ISNULL(SUM(ESTOQUE),0) > 0
+
+	   UNION 
+
+	   SELECT  
+		  CAST(1 AS BIT) AS X,
+		  A.ID_LOJA, 
+		  A.NOME, 
+		  ISNULL(COUNT(*),0) AS ESTOQUE
+	   FROM 
+		  CG_LOJA A 
+	   LEFT JOIN 
+		  CG_CHIP B 
+			 ON B.ID_LOCAL_ESTOQUE = A.ID_LOJA 
+	   WHERE 
+		  B.ID_LOCAL_ESTOQUE = 0
+	   GROUP BY 
+		  A.ID_LOJA, 
+		  A.NOME
+	   HAVING ISNULL(COUNT(*),0) > 0
+	   ORDER BY 
+		  A.NOME
+    END
+    IF ISNULL(@CLICADOS,'') <> ''
+    BEGIN
+	   SELECT * FROM @RESULT 
+	   WHERE ID_LOJA
+			  IN (SELECT cast(splitdata as int) as splitdata FROM dbo.fnSplitString(@CLICADOS,','))
+    END
+    ELSE
+    BEGIN
+	   SELECT * FROM @RESULT 
+    END
+
+END

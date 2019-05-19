@@ -1,0 +1,43 @@
+USE [dbCG]
+GO
+
+/****** Object:  View [dbo].[VW_CG_OCORRENCIA]    Script Date: 12/08/2017 16:15:08 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER view [dbo].[VW_CG_OCORRENCIA]
+AS
+select  
+    A.ID_OCORRENCIA, 
+    A.DATA_OCORRENCIA, 
+    A.DESCRICAO, 
+    A.ID_EQUIPAMENTO, 
+    B.DESC_EQUIPAMENTO,
+    B.MODELO,
+    A.SERIE, 
+    A.ID_LOJA, 
+    C.CODIGO,
+    C.NOME,
+    A.HISTORICO, 
+    A.USER_INS, 
+    A.DATA_INS, 
+    A.USER_UPD, 
+    A.DATA_UPD,
+    A.OS_VINCULADA
+from CG_OCORRENCIA (nolock) A 
+LEFT JOIN 
+    CG_EQUIPAMENTO (nolock)  B
+	   ON B.ID_EQUIPAMENTO = A.ID_EQUIPAMENTO
+LEFT JOIN 
+    CG_LOJA (nolock)  C
+	   ON C.ID_LOJA = A.ID_LOJA
+
+
+
+
+GO
+
+
