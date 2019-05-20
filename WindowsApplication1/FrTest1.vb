@@ -6,7 +6,7 @@ Imports System.Data.SqlClient.SqlConnection
 
 Public Class FrTest1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
+        '//rotina para chamar o relatorio com os parametros associados
         escolhe()
     End Sub
 
@@ -93,10 +93,44 @@ Public Class FrTest1
                 '// Passa o parametro de grupo para quebra de banda do relatorio
                 'Report1.SetParameterValue("grupo", "[V_AREA.ID_EMPRESA]")
                 Case 7
-
+                    '// Cria dataset para substituir dentro do relatorio salvo
+                    dsRelatorio = CriaDataSet(QueryRelatorio(7), "CG_FINALIDADE")
+                    '// Carrega o template salvo do relatorio
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frFinalidades.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
+                '// Passa o parametro de grupo para quebra de banda do relatorio
+                'Report1.SetParameterValue("grupo", "[V_AREA.ID_EMPRESA]")
                 Case 8
+                    '// Cria dataset para substituir dentro do relatorio salvo
+                    'dsRelatorio = CriaDataSet(QueryRelatorio(8), "V_FORNECEDORES")
+
+                    '// Carrega o template salvo do relatorio
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frFornecedores.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    Dim table As TableDataSource
+                    table = Report1.GetDataSource("V_FORNECEDORES")
+                    table.SelectCommand = QueryRelatorio(8)
+
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
+                '// Passa o parametro de grupo para quebra de banda do relatorio
+                'Report1.SetParameterValue("grupo", "[V_AREA.ID_EMPRESA]")
 
                 Case 9
+                    '// Carrega o template salvo do relatorio
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frConsertos.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    Dim table As TableDataSource
+                    table = Report1.GetDataSource("CG_CONCERTO")
+                    table.SelectCommand = QueryRelatorio(9)
+
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
 
                 Case 10
 
@@ -240,6 +274,39 @@ Public Class FrTest1
                 sql = sql & "                          CG_EMPRESA ON VW_CG_EQUIPAMENTO.ID_EMPRESA = CG_EMPRESA.ID_EMPRESA "
                 sql = sql & " WHERE 1 = 1 " & TextoFiltro(6)
                 sql = sql & " ORDER BY VW_CG_EQUIPAMENTO.ID_TIPO_EQUIPAMENTO, VW_CG_EQUIPAMENTO.ID_EMPRESA, VW_CG_EQUIPAMENTO.SERIE "
+            Case 7
+                sql = "select * from CG_FINALIDADE ORDER BY ID_FINALIDADE"
+            Case 8
+                sql = " SELECT cg_fornecedor.id_fornecedor, "
+                sql = sql & "        cg_fornecedor.sigla, "
+                sql = sql & "        cg_fornecedor.nome, "
+                sql = sql & "        cg_fornecedor.cep, "
+                sql = sql & "        cg_fornecedor.endereco, "
+                sql = sql & "        cg_fornecedor.complemento, "
+                sql = sql & "        cg_fornecedor.cidade, "
+                sql = sql & "        cg_fornecedor.bairro, "
+                sql = sql & "        cg_fornecedor.uf, "
+                sql = sql & "        cg_fornecedor.email, "
+                sql = sql & "        cg_fornecedor.telefone, "
+                sql = sql & "        cg_fornecedor.contato, "
+                sql = sql & "        cg_fornecedor.whatsapp, "
+                sql = sql & "        cg_fornecedor.id_tipo_servico, "
+                sql = sql & "        cg_tipo_servico.desc_tipo_servico, "
+                sql = sql & "        cg_fornecedor.obs, "
+                sql = sql & "        cg_fornecedor.garantia_aquisicao, "
+                sql = sql & "        cg_fornecedor.garantia_assistencia, "
+                sql = sql & "        cg_fornecedor.id_empresa, "
+                sql = sql & "        cg_empresa.nome_empresa "
+                sql = sql & " FROM   cg_fornecedor "
+                sql = sql & "        INNER JOIN cg_empresa "
+                sql = sql & "                ON cg_fornecedor.id_empresa = cg_empresa.id_empresa "
+                sql = sql & "        INNER JOIN cg_tipo_servico "
+                sql = sql & "                ON cg_fornecedor.id_tipo_servico = cg_tipo_servico.id_tipo_servico "
+                sql = sql & " WHERE 1 = 1 " & TextoFiltro(8)
+                sql = sql & " ORDER BY cg_fornecedor.id_empresa, cg_fornecedor.sigla "
+            Case 9
+                sql = "select * from CG_CONCERTO ORDER BY DESC_CONCERTO"
+
         End Select
         Return sql
     End Function
@@ -266,6 +333,12 @@ Public Class FrTest1
                 retorno = retorno & " AND VW_CG_EQUIPAMENTO.ID_EMPRESA = " & Me.PesqFK1.txtId.Text
             End If
         End If
+        If intOpcao = 8 Then
+            If Not String.IsNullOrEmpty(Me.PesqFK1.txtId.Text) Then
+                retorno = retorno & " AND cg_fornecedor.ID_EMPRESA = " & Me.PesqFK1.txtId.Text
+            End If
+        End If
+
         Return retorno
     End Function
 
@@ -297,7 +370,7 @@ Public Class FrTest1
     Private Sub TvReport_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TvReport.AfterSelect
         '// Habilita /Desabilita o filtro empresa
         Select Case e.Node.Index
-            Case 1, 4, 5, 6
+            Case 1, 4, 5, 6, 8
                 Me.PesqFK1.Visible = True
 
             Case Else

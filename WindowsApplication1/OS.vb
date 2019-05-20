@@ -1,6 +1,11 @@
 ﻿
 Imports System.IO
 Imports System.Reflection
+Imports FastReport.Data
+Imports System.Configuration
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Data.SqlClient.SqlConnection
 
 Public Class OS
 
@@ -1230,13 +1235,32 @@ Public Class OS
             objParam.SerieNF = txtSerieNFe.Text.ToString
             objParam.GerarPDF = _gerarPDF
 
-            If _orientacao = 2 Then
-                ReportOSWordPaisagem(arqDestino, objParam, dgvDados)
-            Else
-                ReportOSWord(arqDestino, objParam, dgvDados)
-            End If
+            '//Aqui chamava as rotinas do relatório em formato MS-WORD
+            'If _orientacao = 2 Then
+            '    ReportOSWordPaisagem(arqDestino, objParam, dgvDados)
+            'Else
+            '    ReportOSWord(arqDestino, objParam, dgvDados)
+            'End If
 
+            '//Chamada da rotina em FastReport (inicio)
+            Dim dsRelatorio As DataSet
+            Dim sql As String = "select *, CASE GARANTIA WHEN 1 THEN 'X' ELSE ' ' END AS TEM_GARANTIA " &
+                    "from  VW_CG_OS_ITEM where ID_OS = " & txtCodigo.Text.ToString & " ORDER BY CAST(ITEM_ID AS INT) "
+            dsRelatorio = CriaDataSetOS(sql, "VW_CG_OS_ITEM")
+            Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frOS_retrato.frx")
+            '//parametros do relatorio
+            Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+            Report1.SetParameterValue("DATA", objParam.Data)
+            Report1.SetParameterValue("RESP_TRANSITO", objParam.Responsavel)
+            Report1.SetParameterValue("LOJA_ORIGEM", objParam.Loja)
+            Report1.SetParameterValue("FORNECEDOR", objParam.Fornecedor)
+            Report1.SetParameterValue("NF", objParam.NF)
+            Report1.SetParameterValue("SERIE_NF", objParam.SerieNF)
+            Report1.SetParameterValue("DATA_NF", objParam.Emissao)
 
+            Report1.Prepare()
+            Report1.Show()
+            '//Fim: FastReport
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -1364,4 +1388,37 @@ Public Class OS
         Next
 
     End Sub
+
+    Private Function CriaDataSetOS(sql As String, tabela_nome As String) As DataSet
+        '// define a string de conexão com o banco de dados
+        Dim strConn As String = StringConexaoDS()
+        '// define o objeto OledbConnection usando a string de conexão
+        Dim _providerName = "System.Data.SqlClient"
+        Dim conn As New SqlConnection
+        conn.ConnectionString = strConn
+
+        'Cria o DataAdapter
+        Dim adaptador As New SqlDataAdapter(sql, conn)
+        'Cria o DataSet
+        Dim dsBD As New DataSet()
+        adaptador.Fill(dsBD, tabela_nome)
+        Return dsBD
+
+    End Function
+
+    Function StringConexaoDS()
+
+        Dim strconn As String = String.Empty
+        If Environment.UserDomainName = "WIN-6D553OEIVVL" Then
+            'strconn = "Server=VMWIN7;Database=dbCG;Trusted_Connection=True;"
+            '// Conexao maquina de Desenvolvimento
+            strconn = "Data Source=.\SQL2017DEV;Initial Catalog=dbCG;Persist Security Info=True;User ID=USER_CG;Password=c102030@"
+        Else
+            '// Conexao no Sergio
+            'strconn = "Server=LISBOA;Database=dbCG;Trusted_Connection=True;"
+            strconn = "Data Source=(local);Initial Catalog=dbCG;Persist Security Info=True;User ID=USER_CG;Password=c102030@"
+        End If
+        Return strconn
+    End Function
+
 End Class

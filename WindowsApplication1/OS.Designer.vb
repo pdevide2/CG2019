@@ -88,6 +88,8 @@ Partial Class OS
         Me.CancelarToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.chkPDF = New System.Windows.Forms.CheckBox()
+        Me.Report1 = New FastReport.Report()
+        Me.DbCGDataSet1 = New WinCG.dbCGDataSet()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.ContextMenuStrip2.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -96,6 +98,8 @@ Partial Class OS
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.ContextMenuStrip3.SuspendLayout()
+        CType(Me.Report1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbCGDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ContextMenuStrip1
@@ -602,7 +606,7 @@ Partial Class OS
         '
         Me.btnReport.Image = CType(resources.GetObject("btnReport.Image"), System.Drawing.Image)
         Me.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnReport.Location = New System.Drawing.Point(739, 443)
+        Me.btnReport.Location = New System.Drawing.Point(731, 443)
         Me.btnReport.Name = "btnReport"
         Me.btnReport.Size = New System.Drawing.Size(147, 32)
         Me.btnReport.TabIndex = 27
@@ -662,11 +666,11 @@ Partial Class OS
         '
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(586, 443)
+        Me.Button1.Location = New System.Drawing.Point(731, 443)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(147, 32)
         Me.Button1.TabIndex = 28
-        Me.Button1.Text = "OS Paisagem"
+        Me.Button1.Text = "Relatório OS"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'chkPDF
@@ -674,12 +678,24 @@ Partial Class OS
         Me.chkPDF.AutoSize = True
         Me.chkPDF.Checked = True
         Me.chkPDF.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chkPDF.Location = New System.Drawing.Point(496, 454)
+        Me.chkPDF.Location = New System.Drawing.Point(641, 454)
         Me.chkPDF.Name = "chkPDF"
         Me.chkPDF.Size = New System.Drawing.Size(82, 17)
         Me.chkPDF.TabIndex = 29
         Me.chkPDF.Text = "Gerar PDF?"
         Me.chkPDF.UseVisualStyleBackColor = True
+        '
+        'Report1
+        '
+        Me.Report1.NeedRefresh = False
+        Me.Report1.ReportResourceString = resources.GetString("Report1.ReportResourceString")
+        Me.Report1.RegisterData(Me.DbCGDataSet1, "DbCGDataSet1")
+        '
+        'DbCGDataSet1
+        '
+        Me.DbCGDataSet1.DataSetName = "dbCGDataSet"
+        Me.DbCGDataSet1.EnforceConstraints = False
+        Me.DbCGDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'OS
         '
@@ -707,6 +723,8 @@ Partial Class OS
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.ContextMenuStrip3.ResumeLayout(False)
+        CType(Me.Report1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbCGDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -775,4 +793,6 @@ Partial Class OS
     Friend WithEvents btnOcorrenciasLoja As System.Windows.Forms.Button
     Friend WithEvents Button1 As Button
     Friend WithEvents chkPDF As CheckBox
+    Friend WithEvents Report1 As FastReport.Report
+    Friend WithEvents DbCGDataSet1 As dbCGDataSet
 End Class

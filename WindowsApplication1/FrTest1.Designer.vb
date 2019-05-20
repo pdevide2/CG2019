@@ -56,8 +56,8 @@ Partial Class FrTest1
         Me.TvReport = New System.Windows.Forms.TreeView()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.PesqFK1 = New WinCG.PesqFK()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.Report1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbCGDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -164,17 +164,6 @@ Partial Class FrTest1
         Me.Panel1.Size = New System.Drawing.Size(490, 446)
         Me.Panel1.TabIndex = 2
         '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(297, 467)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(490, 38)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Limpar Filtros"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'PesqFK1
         '
         Me.PesqFK1.CampoDesc = Nothing
@@ -198,6 +187,17 @@ Partial Class FrTest1
         Me.PesqFK1.TituloTela = Nothing
         Me.PesqFK1.View = Nothing
         Me.PesqFK1.Visible = False
+        '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(297, 467)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(490, 38)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "Limpar Filtros"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'FrTest1
         '
