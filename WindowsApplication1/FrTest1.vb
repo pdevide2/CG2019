@@ -135,12 +135,51 @@ Public Class FrTest1
                 Case 10
 
                 Case 11
+                    '// Carrega o template salvo do relatorio
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frMarcas.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    Dim table As TableDataSource
+                    table = Report1.GetDataSource("V_MARCA")
+                    table.SelectCommand = QueryRelatorio(11)
+
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
 
                 Case 12
+                    '// Carrega o template salvo do relatorio
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frModulos.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    Dim table As TableDataSource
+                    table = Report1.GetDataSource("V_MODULO")
+                    table.SelectCommand = QueryRelatorio(12)
 
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
                 Case 13
+                    '// Carrega o template salvo do relatorio
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frMotivos.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    Dim table As TableDataSource
+                    table = Report1.GetDataSource("V_MOTIVO")
+                    table.SelectCommand = QueryRelatorio(13)
+
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
 
                 Case 14
+                    '// Carrega o template salvo do relatorio
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frOperadoras.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    Dim table As TableDataSource
+                    table = Report1.GetDataSource("V_OPERADORA")
+                    table.SelectCommand = QueryRelatorio(14)
+
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
 
                 Case 15
 
@@ -306,6 +345,26 @@ Public Class FrTest1
                 sql = sql & " ORDER BY cg_fornecedor.id_empresa, cg_fornecedor.sigla "
             Case 9
                 sql = "select * from CG_CONCERTO ORDER BY DESC_CONCERTO"
+            Case 10 '//lojas
+
+            Case 11 '//marcas
+                sql = "select ID_MARCA, DESC_MARCA, CG_MARCA.ID_EMPRESA, CG_EMPRESA.NOME_EMPRESA "
+                sql = sql & " from cg_marca "
+                sql = sql & " INNER JOIN CG_EMPRESA ON CG_EMPRESA.ID_EMPRESA=CG_MARCA.ID_EMPRESA "
+                sql = sql & " WHERE 1 = 1 " & TextoFiltro(11)
+                sql = sql & " ORDER BY  CG_MARCA.ID_EMPRESA, DESC_MARCA "
+
+            Case 12 '//modulos
+                sql = "select ID_MODULO,DESC_MODULO,INATIVO from cg_modulo "
+                sql = sql & " ORDER BY ID_MODULO "
+
+            Case 13 '//motivos
+                sql = "select ID_MOTIVO, DESC_MOTIVO from cg_motivo "
+                sql = sql & " ORDER BY DESC_MOTIVO "
+
+            Case 14 '//operadoras
+                sql = "select ID_OPERADORA, DESC_OPERADORA from CG_OPERADORA "
+                sql = sql & " ORDER BY DESC_OPERADORA "
 
         End Select
         Return sql
@@ -336,6 +395,11 @@ Public Class FrTest1
         If intOpcao = 8 Then
             If Not String.IsNullOrEmpty(Me.PesqFK1.txtId.Text) Then
                 retorno = retorno & " AND cg_fornecedor.ID_EMPRESA = " & Me.PesqFK1.txtId.Text
+            End If
+        End If
+        If intOpcao = 11 Then
+            If Not String.IsNullOrEmpty(Me.PesqFK1.txtId.Text) Then
+                retorno = retorno & " AND CG_MARCA.ID_EMPRESA = " & Me.PesqFK1.txtId.Text
             End If
         End If
 
@@ -370,7 +434,7 @@ Public Class FrTest1
     Private Sub TvReport_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TvReport.AfterSelect
         '// Habilita /Desabilita o filtro empresa
         Select Case e.Node.Index
-            Case 1, 4, 5, 6, 8
+            Case 1, 4, 5, 6, 8, 11
                 Me.PesqFK1.Visible = True
 
             Case Else
