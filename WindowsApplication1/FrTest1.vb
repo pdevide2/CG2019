@@ -395,6 +395,16 @@ Public Class FrTest1
                 Case ReportOption.FollowUP '// 34
 
                 Case ReportOption.Ocorrencias '//  35
+                    '// Carrega o template salvo do relatorio
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frOcorrencias.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    Dim table As TableDataSource
+                    table = Report1.GetDataSource("V_OCORRENCIA")
+                    table.SelectCommand = QueryRelatorio(ReportOption.Ocorrencias)
+
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
 
                 Case ReportOption.TabelaServicos '//  36
 
@@ -715,6 +725,26 @@ Public Class FrTest1
             Case ReportOption.FollowUP '// 34
 
             Case ReportOption.Ocorrencias '//  35
+                sql = " SELECT id_ocorrencia, "
+                sql = sql & "        data_ocorrencia, "
+                sql = sql & "        descricao, "
+                sql = sql & "        id_equipamento, "
+                sql = sql & "        desc_equipamento, "
+                sql = sql & "        modelo, "
+                sql = sql & "        serie, "
+                sql = sql & "        id_loja, "
+                sql = sql & "        codigo, "
+                sql = sql & "        nome, "
+                sql = sql & "        historico, "
+                sql = sql & "        user_ins, "
+                sql = sql & "        data_ins, "
+                sql = sql & "        user_upd, "
+                sql = sql & "        data_upd, "
+                sql = sql & "        os_vinculada, "
+                sql = sql & " 	   CAST(REPLACE(SUBSTRING(OS_VINCULADA,1,CHARINDEX('|',OS_VINCULADA,1)),'|','') AS INT) AS OS_ID "
+                sql = sql & " FROM   vw_cg_ocorrencia "
+                sql = sql & " WHERE 1 = 1 " & TextoFiltro(ReportOption.Ocorrencias)
+                sql = sql & " ORDER  BY OS_ID "
 
             Case ReportOption.TabelaServicos '//  36
 
@@ -775,6 +805,12 @@ Public Class FrTest1
                 retorno = retorno & " AND  A.ID_PERFIL = " & PesqFK3.txtId.Text
             End If
         End If
+        If intOpcao = ReportOption.Ocorrencias Then
+            If Not String.IsNullOrEmpty(PesqFK4.txtId.Text) Then
+                retorno = retorno & " AND CAST(REPLACE(SUBSTRING(OS_VINCULADA,1,CHARINDEX('|',OS_VINCULADA,1)),'|','') AS INT) = " & PesqFK4.txtId.Text
+            End If
+        End If
+
         Return retorno
     End Function
 
@@ -815,10 +851,14 @@ Public Class FrTest1
                 Me.PesqFK2.Visible = True
             Case ReportOption.Perfil
                 Me.PesqFK3.Visible = True
+            Case ReportOption.Ocorrencias, ReportOption.OS
+                Me.PesqFK4.Visible = True
+
             Case Else
                 Me.PesqFK1.Visible = False
                 Me.PesqFK2.Visible = False
                 Me.PesqFK3.Visible = False
+                Me.PesqFK4.Visible = False
 
 
 
@@ -857,6 +897,25 @@ Public Class FrTest1
             .LabelBuscaId = "Código"
             .LabelBuscaDesc = "Nome"
             .TituloTela = "Pesquisa de Perfis de Acesso do Sistema"
+            '.FiltroSQL = " where id_empresa = " & Publico.Id_empresa
+            .lblLabelFK.Text = .LabelPesqFK
+
+            .PosValida = False
+        End With
+    End Sub
+
+    Private Sub PesqFK4_Load(sender As Object, e As EventArgs) Handles PesqFK4.Load
+        With PesqFK4
+            .LabelPesqFK = "OS"
+            .Tabela = "CG_OS"
+            .View = "CG_OS"
+            .CampoId = "ID_OS"
+            .CampoDesc = "DATA_MOVTO"
+            .ListaCampos = "ID_OS, DATA_MOVTO"
+            .ColunasFiltro = "ID_OS,DATA_MOVTO"  ' ComboBox de filtros
+            .LabelBuscaId = "Código"
+            .LabelBuscaDesc = "Data OS"
+            .TituloTela = "Pesquisa de OS"
             '.FiltroSQL = " where id_empresa = " & Publico.Id_empresa
             .lblLabelFK.Text = .LabelPesqFK
 
