@@ -389,6 +389,21 @@ Public Class FrTest1
                 Case ReportOption.EstoquePontoVenda '//  31
 
                 Case ReportOption.OS '//  32
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frOS_Pai_filha.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    'Dim table As TableDataSource
+                    'table = Report1.GetDataSource("V_PERFIL")
+                    'table.SelectCommand = QueryRelatorio(ReportOption.Perfil)
+
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
+                    If Not String.IsNullOrEmpty(PesqFK4.txtId.Text) Then
+                        Report1.SetParameterValue("OS_ID", CInt(PesqFK4.txtId.Text))
+                    Else
+                        'Report1.SetParameterValue("OS_ID", "[VW_CG_OS.ID_OS]")
+                        Report1.SetParameterValue("OS_ID", 0)
+                    End If
 
                 Case ReportOption.REtornoOS '//  33
 
@@ -839,6 +854,10 @@ Public Class FrTest1
         Me.PesqFK1.txtDesc.Text = ""
         Me.PesqFK2.txtId.Text = ""
         Me.PesqFK2.txtDesc.Text = ""
+        Me.PesqFK3.txtId.Text = ""
+        Me.PesqFK3.txtDesc.Text = ""
+        Me.PesqFK4.txtId.Text = ""
+        Me.PesqFK4.txtDesc.Text = ""
     End Sub
 
     Private Sub TvReport_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TvReport.AfterSelect
