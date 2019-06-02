@@ -410,6 +410,23 @@ Public Class FrTest1
                     End If
 
                 Case ReportOption.REtornoOS '//  33
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frOS_Pai_filha_Retorno.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    'Dim table As TableDataSource
+                    'table = Report1.GetDataSource("V_PERFIL")
+                    'table.SelectCommand = QueryRelatorio(ReportOption.Perfil)
+
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
+                    If Not String.IsNullOrEmpty(PesqFK4.txtId.Text) Then
+                        Report1.SetParameterValue("OS_ID", CInt(PesqFK4.txtId.Text))
+                    Else
+                        '// Não precisa passar nada, pois o valor default para o parametro setado 
+                        '// internamente no relatório é igual a [VW_CG_TABELA_SERVICOS_FORNECEDOR_ITEM.ID_FORNECEDOR]
+                        '// desta forma, o relatório imprime todas as TABELAS DOS FORNECEDORES
+                    End If
 
                 Case ReportOption.FollowUP '// 34
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frOS_FollowUp.frx")
@@ -435,6 +452,7 @@ Public Class FrTest1
 
                 Case ReportOption.TabelaServicos '//  36
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frTabelasPrecoServicos.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
                     '// Troca o dataset original do relatorio pelo criado em código 
                     'Dim table As TableDataSource
                     'table = Report1.GetDataSource("V_PERFIL")
@@ -900,7 +918,7 @@ Public Class FrTest1
                 Me.PesqFK2.Visible = True
             Case ReportOption.Perfil
                 Me.PesqFK3.Visible = True
-            Case ReportOption.Ocorrencias, ReportOption.OS, ReportOption.FollowUP
+            Case ReportOption.Ocorrencias, ReportOption.OS, ReportOption.FollowUP, ReportOption.REtornoOS
                 Me.PesqFK4.Visible = True
             Case ReportOption.TabelaServicos
                 Me.PesqFK5.Visible = True

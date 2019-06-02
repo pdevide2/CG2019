@@ -190,14 +190,14 @@ Partial Class Principal
         Me.ToolStripSeparator21 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator14 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripDropDownButton10 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.RelatóriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
         Me.lblUser = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblEmpresaLogada = New System.Windows.Forms.Label()
-        Me.ToolStripDropDownButton10 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.RelatóriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1387,6 +1387,29 @@ Partial Class Principal
         Me.ToolStripSeparator14.Name = "ToolStripSeparator14"
         Me.ToolStripSeparator14.Size = New System.Drawing.Size(6, 55)
         '
+        'ToolStripDropDownButton10
+        '
+        Me.ToolStripDropDownButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripDropDownButton10.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RelatóriosToolStripMenuItem})
+        Me.ToolStripDropDownButton10.Image = CType(resources.GetObject("ToolStripDropDownButton10.Image"), System.Drawing.Image)
+        Me.ToolStripDropDownButton10.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton10.Name = "ToolStripDropDownButton10"
+        Me.ToolStripDropDownButton10.Size = New System.Drawing.Size(61, 52)
+        Me.ToolStripDropDownButton10.Text = "ToolStripDropDownButton10"
+        '
+        'RelatóriosToolStripMenuItem
+        '
+        Me.RelatóriosToolStripMenuItem.Image = CType(resources.GetObject("RelatóriosToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.RelatóriosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.RelatóriosToolStripMenuItem.Name = "RelatóriosToolStripMenuItem"
+        Me.RelatóriosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RelatóriosToolStripMenuItem.Text = "Relatórios"
+        '
+        'ToolStripSeparator16
+        '
+        Me.ToolStripSeparator16.Name = "ToolStripSeparator16"
+        Me.ToolStripSeparator16.Size = New System.Drawing.Size(6, 55)
+        '
         'ToolStripButton8
         '
         Me.ToolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -1428,27 +1451,6 @@ Partial Class Principal
         Me.lblEmpresaLogada.Size = New System.Drawing.Size(11, 13)
         Me.lblEmpresaLogada.TabIndex = 8
         Me.lblEmpresaLogada.Text = "."
-        '
-        'ToolStripDropDownButton10
-        '
-        Me.ToolStripDropDownButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripDropDownButton10.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RelatóriosToolStripMenuItem})
-        Me.ToolStripDropDownButton10.Image = CType(resources.GetObject("ToolStripDropDownButton10.Image"), System.Drawing.Image)
-        Me.ToolStripDropDownButton10.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripDropDownButton10.Name = "ToolStripDropDownButton10"
-        Me.ToolStripDropDownButton10.Size = New System.Drawing.Size(61, 52)
-        Me.ToolStripDropDownButton10.Text = "ToolStripDropDownButton10"
-        '
-        'RelatóriosToolStripMenuItem
-        '
-        Me.RelatóriosToolStripMenuItem.Name = "RelatóriosToolStripMenuItem"
-        Me.RelatóriosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.RelatóriosToolStripMenuItem.Text = "Relatórios"
-        '
-        'ToolStripSeparator16
-        '
-        Me.ToolStripSeparator16.Name = "ToolStripSeparator16"
-        Me.ToolStripSeparator16.Size = New System.Drawing.Size(6, 55)
         '
         'Principal
         '
