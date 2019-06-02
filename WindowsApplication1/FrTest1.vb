@@ -401,14 +401,26 @@ Public Class FrTest1
                     If Not String.IsNullOrEmpty(PesqFK4.txtId.Text) Then
                         Report1.SetParameterValue("OS_ID", CInt(PesqFK4.txtId.Text))
                     Else
+                        '// Não precisa passar nada, pois o valor default para o parametro setado 
+                        '// internamente no relatório é igual a [VW_CG_OS.ID_OS]
+                        '// desta forma, o relatório imprime todas as OS
+
                         'Report1.SetParameterValue("OS_ID", "[VW_CG_OS.ID_OS]")
-                        Report1.SetParameterValue("OS_ID", 0)
+                        'Report1.SetParameterValue("OS_ID", 0)
                     End If
 
                 Case ReportOption.REtornoOS '//  33
 
                 Case ReportOption.FollowUP '// 34
-
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frOS_FollowUp.frx")
+                    Report1.SetParameterValue("usuario", UserName())
+                    If Not String.IsNullOrEmpty(PesqFK4.txtId.Text) Then
+                        Report1.SetParameterValue("OS_ID", CInt(PesqFK4.txtId.Text))
+                    Else
+                        '// Não precisa passar nada, pois o valor default para o parametro setado 
+                        '// internamente no relatório é igual a [CG_FOLLOW_UP.ID_OS]
+                        '// desta forma, o relatório imprime todas as MENSAGENS de follow Up das OS
+                    End If
                 Case ReportOption.Ocorrencias '//  35
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frOcorrencias.frx")
@@ -422,6 +434,22 @@ Public Class FrTest1
                     Report1.SetParameterValue("usuario", UserName())
 
                 Case ReportOption.TabelaServicos '//  36
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frTabelasPrecoServicos.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    'Dim table As TableDataSource
+                    'table = Report1.GetDataSource("V_PERFIL")
+                    'table.SelectCommand = QueryRelatorio(ReportOption.Perfil)
+
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
+                    If Not String.IsNullOrEmpty(PesqFK5.txtId.Text) Then
+                        Report1.SetParameterValue("FORNECEDOR_ID", CInt(PesqFK5.txtId.Text))
+                    Else
+                        '// Não precisa passar nada, pois o valor default para o parametro setado 
+                        '// internamente no relatório é igual a [VW_CG_TABELA_SERVICOS_FORNECEDOR_ITEM.ID_FORNECEDOR]
+                        '// desta forma, o relatório imprime todas as TABELAS DOS FORNECEDORES
+                    End If
 
                 Case Else
 
@@ -858,6 +886,8 @@ Public Class FrTest1
         Me.PesqFK3.txtDesc.Text = ""
         Me.PesqFK4.txtId.Text = ""
         Me.PesqFK4.txtDesc.Text = ""
+        Me.PesqFK5.txtId.Text = ""
+        Me.PesqFK5.txtDesc.Text = ""
     End Sub
 
     Private Sub TvReport_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TvReport.AfterSelect
@@ -870,14 +900,17 @@ Public Class FrTest1
                 Me.PesqFK2.Visible = True
             Case ReportOption.Perfil
                 Me.PesqFK3.Visible = True
-            Case ReportOption.Ocorrencias, ReportOption.OS
+            Case ReportOption.Ocorrencias, ReportOption.OS, ReportOption.FollowUP
                 Me.PesqFK4.Visible = True
+            Case ReportOption.TabelaServicos
+                Me.PesqFK5.Visible = True
 
             Case Else
                 Me.PesqFK1.Visible = False
                 Me.PesqFK2.Visible = False
                 Me.PesqFK3.Visible = False
                 Me.PesqFK4.Visible = False
+                Me.PesqFK5.Visible = False
 
 
 
@@ -935,6 +968,25 @@ Public Class FrTest1
             .LabelBuscaId = "Código"
             .LabelBuscaDesc = "Data OS"
             .TituloTela = "Pesquisa de OS"
+            '.FiltroSQL = " where id_empresa = " & Publico.Id_empresa
+            .lblLabelFK.Text = .LabelPesqFK
+
+            .PosValida = False
+        End With
+    End Sub
+
+    Private Sub PesqFK5_Load(sender As Object, e As EventArgs) Handles PesqFK5.Load
+        With PesqFK5
+            .LabelPesqFK = "Fornec."
+            .Tabela = "CG_FORNECEDOR"
+            .View = "CG_FORNECEDOR"
+            .CampoId = "ID_FORNECEDOR"
+            .CampoDesc = "SIGLA"
+            .ListaCampos = "ID_FORNECEDOR, SIGLA, NOME"
+            .ColunasFiltro = "ID_FORNECEDOR,SIGLA,NOME"  ' ComboBox de filtros
+            .LabelBuscaId = "Código"
+            .LabelBuscaDesc = "Sigla Fornec"
+            .TituloTela = "Pesquisa de Fornecedores"
             '.FiltroSQL = " where id_empresa = " & Publico.Id_empresa
             .lblLabelFK.Text = .LabelPesqFK
 

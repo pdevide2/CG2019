@@ -76,11 +76,12 @@ Partial Class FrTest1
         Me.TvReport = New System.Windows.Forms.TreeView()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PesqFK4 = New WinCG.PesqFK()
         Me.PesqFK3 = New WinCG.PesqFK()
         Me.PesqFK2 = New WinCG.PesqFK()
         Me.PesqFK1 = New WinCG.PesqFK()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.PesqFK4 = New WinCG.PesqFK()
+        Me.PesqFK5 = New WinCG.PesqFK()
         CType(Me.Report1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbCGDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -267,6 +268,7 @@ Partial Class FrTest1
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.PesqFK5)
         Me.Panel1.Controls.Add(Me.PesqFK4)
         Me.Panel1.Controls.Add(Me.PesqFK3)
         Me.Panel1.Controls.Add(Me.PesqFK2)
@@ -275,6 +277,30 @@ Partial Class FrTest1
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(490, 446)
         Me.Panel1.TabIndex = 2
+        '
+        'PesqFK4
+        '
+        Me.PesqFK4.CampoDesc = Nothing
+        Me.PesqFK4.CampoId = Nothing
+        Me.PesqFK4.Clicou = "0"
+        Me.PesqFK4.CodigoSelecionado = Nothing
+        Me.PesqFK4.ColunasFiltro = Nothing
+        Me.PesqFK4.DescricaoSelecionada = Nothing
+        Me.PesqFK4.FiltroSQL = Nothing
+        Me.PesqFK4.LabelBuscaDesc = Nothing
+        Me.PesqFK4.LabelBuscaId = Nothing
+        Me.PesqFK4.LabelPesqFK = "Tabela"
+        Me.PesqFK4.ListaCampos = Nothing
+        Me.PesqFK4.Location = New System.Drawing.Point(13, 118)
+        Me.PesqFK4.Name = "PesqFK4"
+        Me.PesqFK4.ObjModelFk = Nothing
+        Me.PesqFK4.PosValida = False
+        Me.PesqFK4.Size = New System.Drawing.Size(400, 25)
+        Me.PesqFK4.Tabela = Nothing
+        Me.PesqFK4.TabIndex = 3
+        Me.PesqFK4.TituloTela = Nothing
+        Me.PesqFK4.View = Nothing
+        Me.PesqFK4.Visible = False
         '
         'PesqFK3
         '
@@ -359,29 +385,29 @@ Partial Class FrTest1
         Me.Button2.Text = "Limpar Filtros"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'PesqFK4
+        'PesqFK5
         '
-        Me.PesqFK4.CampoDesc = Nothing
-        Me.PesqFK4.CampoId = Nothing
-        Me.PesqFK4.Clicou = "0"
-        Me.PesqFK4.CodigoSelecionado = Nothing
-        Me.PesqFK4.ColunasFiltro = Nothing
-        Me.PesqFK4.DescricaoSelecionada = Nothing
-        Me.PesqFK4.FiltroSQL = Nothing
-        Me.PesqFK4.LabelBuscaDesc = Nothing
-        Me.PesqFK4.LabelBuscaId = Nothing
-        Me.PesqFK4.LabelPesqFK = "Tabela"
-        Me.PesqFK4.ListaCampos = Nothing
-        Me.PesqFK4.Location = New System.Drawing.Point(13, 118)
-        Me.PesqFK4.Name = "PesqFK4"
-        Me.PesqFK4.ObjModelFk = Nothing
-        Me.PesqFK4.PosValida = False
-        Me.PesqFK4.Size = New System.Drawing.Size(400, 25)
-        Me.PesqFK4.Tabela = Nothing
-        Me.PesqFK4.TabIndex = 3
-        Me.PesqFK4.TituloTela = Nothing
-        Me.PesqFK4.View = Nothing
-        Me.PesqFK4.Visible = False
+        Me.PesqFK5.CampoDesc = Nothing
+        Me.PesqFK5.CampoId = Nothing
+        Me.PesqFK5.Clicou = "0"
+        Me.PesqFK5.CodigoSelecionado = Nothing
+        Me.PesqFK5.ColunasFiltro = Nothing
+        Me.PesqFK5.DescricaoSelecionada = Nothing
+        Me.PesqFK5.FiltroSQL = Nothing
+        Me.PesqFK5.LabelBuscaDesc = Nothing
+        Me.PesqFK5.LabelBuscaId = Nothing
+        Me.PesqFK5.LabelPesqFK = "Tabela"
+        Me.PesqFK5.ListaCampos = Nothing
+        Me.PesqFK5.Location = New System.Drawing.Point(14, 149)
+        Me.PesqFK5.Name = "PesqFK5"
+        Me.PesqFK5.ObjModelFk = Nothing
+        Me.PesqFK5.PosValida = False
+        Me.PesqFK5.Size = New System.Drawing.Size(400, 25)
+        Me.PesqFK5.Tabela = Nothing
+        Me.PesqFK5.TabIndex = 4
+        Me.PesqFK5.TituloTela = Nothing
+        Me.PesqFK5.View = Nothing
+        Me.PesqFK5.Visible = False
         '
         'FrTest1
         '
@@ -414,4 +440,5 @@ Partial Class FrTest1
     Friend WithEvents PesqFK2 As PesqFK
     Friend WithEvents PesqFK3 As PesqFK
     Friend WithEvents PesqFK4 As PesqFK
+    Friend WithEvents PesqFK5 As PesqFK
 End Class
