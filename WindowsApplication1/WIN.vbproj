@@ -84,7 +84,10 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="FastReport, Version=2019.2.15.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c" />
+    <Reference Include="FastReport, Version=2019.3.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\FastReports\FastReport.Net\FastReport.dll</HintPath>
+    </Reference>
     <Reference Include="FastReport.Bars, Version=2019.2.15.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c" />
     <Reference Include="FastReport.Editor, Version=2019.2.15.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -249,6 +252,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DataGridPrinter.vb" />
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmSelecionaItemPedidoVenda.designer.vb">
       <DependentUpon>FrmSelecionaItemPedidoVenda.vb</DependentUpon>
     </Compile>
@@ -887,6 +896,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultaEstoque.resx">
       <DependentUpon>ConsultaEstoque.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSelecionaItemPedidoVenda.resx">
       <DependentUpon>FrmSelecionaItemPedidoVenda.vb</DependentUpon>
