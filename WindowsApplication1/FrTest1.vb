@@ -381,6 +381,16 @@ Public Class FrTest1
                     Report1.SetParameterValue("usuario", UserName())
 
                 Case ReportOption.TransitoEstoque '//  28
+                    '// Carrega o template salvo do relatorio
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frMovimentoTransito.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    Dim table As TableDataSource
+                    table = Report1.GetDataSource("RPT_MOVIMENTO_TRANSITO_GERAL")
+                    table.SelectCommand = QueryRelatorio(ReportOption.TransitoEstoque)
+
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
 
                 Case ReportOption.EstoqueChip '//  29
 
@@ -772,6 +782,11 @@ Public Class FrTest1
                 sql = sql & " ORDER BY A.ID_PERFIL, B.ID_MODULO "
 
             Case ReportOption.TransitoEstoque '//  28
+                sql = " EXEC RPT_MOVIMENTO_TRANSITO_GERAL "
+                sql = sql & " @ID_TRANSITO = " & IIf(Not String.IsNullOrEmpty(Me.PesqFK6.txtId.Text), PesqFK6.txtId.Text, "null") & ", "
+                sql = sql & " @DATA1 = '" & Dtos(CDate(DateTimePicker1.Text)) & "', "
+                sql = sql & " @DATA2 = '" & Dtos(CDate(DateTimePicker2.Text)) & "', "
+                sql = sql & " @ID_EMPRESA =  " & IIf(Not String.IsNullOrEmpty(Me.PesqFK1.txtId.Text), PesqFK1.txtId.Text, "1")
 
             Case ReportOption.EstoqueChip '//  29
 
@@ -906,6 +921,8 @@ Public Class FrTest1
         Me.PesqFK4.txtDesc.Text = ""
         Me.PesqFK5.txtId.Text = ""
         Me.PesqFK5.txtDesc.Text = ""
+        Me.PesqFK6.txtId.Text = ""
+        Me.PesqFK6.txtDesc.Text = ""
     End Sub
 
     Private Sub TvReport_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TvReport.AfterSelect
@@ -922,6 +939,15 @@ Public Class FrTest1
                 Me.PesqFK4.Visible = True
             Case ReportOption.TabelaServicos
                 Me.PesqFK5.Visible = True
+            Case ReportOption.TransitoEstoque
+                Me.PesqFK6.Visible = True
+                Me.DateTimePicker1.Visible = True
+                Me.DateTimePicker2.Visible = True
+                Label1.Visible = True
+                Label2.Visible = True
+                Me.PesqFK6.Visible = True
+                Me.PesqFK1.Visible = True
+                Me.PesqFK1.Top = 241
 
             Case Else
                 Me.PesqFK1.Visible = False
@@ -929,7 +955,18 @@ Public Class FrTest1
                 Me.PesqFK3.Visible = False
                 Me.PesqFK4.Visible = False
                 Me.PesqFK5.Visible = False
+                Me.PesqFK6.Visible = False
+                Me.DateTimePicker1.Visible = False
+                Me.DateTimePicker2.Visible = False
+                Label1.Visible = False
+                Label2.Visible = False
 
+                Me.PesqFK1.Top = 24
+                Me.PesqFK2.Top = 56
+                Me.PesqFK3.Top = 87
+                Me.PesqFK4.Top = 118
+                Me.PesqFK5.Top = 149
+                Me.PesqFK6.Top = 180
 
 
         End Select
@@ -1005,6 +1042,25 @@ Public Class FrTest1
             .LabelBuscaId = "Código"
             .LabelBuscaDesc = "Sigla Fornec"
             .TituloTela = "Pesquisa de Fornecedores"
+            '.FiltroSQL = " where id_empresa = " & Publico.Id_empresa
+            .lblLabelFK.Text = .LabelPesqFK
+
+            .PosValida = False
+        End With
+    End Sub
+
+    Private Sub PesqFK6_Load(sender As Object, e As EventArgs) Handles PesqFK6.Load
+        With PesqFK6
+            .LabelPesqFK = "Transito"
+            .Tabela = "CG_TRANSITO"
+            .View = "CG_TRANSITO"
+            .CampoId = "ID_TRANSITO"
+            .CampoDesc = "NOME_TRANSITO"
+            .ListaCampos = "ID_TRANSITO, NOME_TRANSITO"
+            .ColunasFiltro = "ID_TRANSITO, NOME_TRANSITO"  ' ComboBox de filtros
+            .LabelBuscaId = "Código"
+            .LabelBuscaDesc = "Nome"
+            .TituloTela = "Pesquisa de Trnânsito"
             '.FiltroSQL = " where id_empresa = " & Publico.Id_empresa
             .lblLabelFK.Text = .LabelPesqFK
 
