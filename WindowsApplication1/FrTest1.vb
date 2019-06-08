@@ -393,8 +393,28 @@ Public Class FrTest1
                     Report1.SetParameterValue("usuario", UserName())
 
                 Case ReportOption.EstoqueChip '//  29
+                    '// Carrega o template salvo do relatorio
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frEstoqueChips.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    Dim table As TableDataSource
+                    table = Report1.GetDataSource("VW_CG_ESTOQUE_CHIP")
+                    table.SelectCommand = QueryRelatorio(ReportOption.EstoqueChip)
+
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
 
                 Case ReportOption.EstoqueEquipamentos '//  30
+                    '// Carrega o template salvo do relatorio
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frEstoqueEquipamentos.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    Dim table As TableDataSource
+                    table = Report1.GetDataSource("V_ESTOQUE_EQUIPAMENTOS")
+                    table.SelectCommand = QueryRelatorio(ReportOption.EstoqueEquipamentos)
+
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
 
                 Case ReportOption.EstoquePontoVenda '//  31
 
@@ -789,9 +809,78 @@ Public Class FrTest1
                 sql = sql & " @ID_EMPRESA =  " & IIf(Not String.IsNullOrEmpty(Me.PesqFK1.txtId.Text), PesqFK1.txtId.Text, "1")
 
             Case ReportOption.EstoqueChip '//  29
+                '// Variaveis dos filtros, default nome do campo, caso fique em branco, senão assume o valor do filtro escolhido
+                Dim pEmpresa As String = "VW_CG_ESTOQUE_CHIP.ID_EMPRESA"
+                Dim pLocal As String = "ID_LOCAL"
+                Dim pCodigo As String = "CODIGO"
+                Dim pData1 As String = "'" & Dtos(CDate(DateTimePicker1.Text)) & "'"
+                Dim pData2 As String = "'" & Dtos(CDate(DateTimePicker2.Text)) & "'"
+
+                If Not String.IsNullOrEmpty(PesqFK1.txtId.Text) Then
+                    pEmpresa = PesqFK1.txtId.Text
+                End If
+                If Not String.IsNullOrEmpty(Me.PesqFK6.txtId.Text) Then
+                    pLocal = Trim(PesqFK6.txtId.Text)
+                End If
+                If Not String.IsNullOrEmpty(Me.PesqFK7.txtId.Text) Then
+                    pCodigo = "'" & Trim(PesqFK7.txtId.Text) & "'"
+                End If
+
+                sql = " SELECT ID_CHIP, "
+                sql = sql & "        SIMID, "
+                sql = sql & "        ID_OPERADORA, "
+                sql = sql & "        DESC_OPERADORA, "
+                sql = sql & "        ESTOQUE, "
+                sql = sql & "        TRANSITO, "
+                sql = sql & "        CUSTO, "
+                sql = sql & "        ID_LOCAL, "
+                sql = sql & "        NOME, "
+                sql = sql & "        SIGLA, "
+                sql = sql & "        DATAMOV, "
+                sql = sql & "        ID_LOCAL_ESTOQUE, "
+                sql = sql & "        CODIGO, "
+                sql = sql & "        LOJA_FISICA, "
+                sql = sql & "        ID_AREA, "
+                sql = sql & "        TIPO_LOCAL, "
+                sql = sql & "        VW_CG_ESTOQUE_CHIP.ID_EMPRESA,  CG_EMPRESA.NOME_EMPRESA "
+                sql = sql & " FROM   VW_CG_ESTOQUE_CHIP "
+                sql = sql & " INNER JOIN CG_EMPRESA ON CG_EMPRESA.ID_EMPRESA = VW_CG_ESTOQUE_CHIP.ID_EMPRESA "
+                sql = sql & " WHERE	1=1 AND "
+                sql = sql & " 		(VW_CG_ESTOQUE_CHIP.ID_EMPRESA = " & pEmpresa & ") AND "
+                sql = sql & " 		(ID_LOCAL = " & pLocal & ") AND "
+                sql = sql & " 		(CODIGO = " & pCodigo & ") AND "
+                sql = sql & " 		(DATAMOV >= " & pData1 & " AND DATAMOV <= " & pData2 & ") "
 
             Case ReportOption.EstoqueEquipamentos '//  30
+                '// Variaveis dos filtros, default nome do campo, caso fique em branco, senão assume o valor do filtro escolhido
+                Dim pEmpresa As String = "A.ID_EMPRESA"
+                Dim pLocal As String = "A.ID_LOCAL"
+                Dim pCodigo As String = "CODIGO"
+                Dim pData1 As String = "'" & Dtos(CDate(DateTimePicker1.Text)) & "'"
+                Dim pData2 As String = "'" & Dtos(CDate(DateTimePicker2.Text)) & "'"
 
+                If Not String.IsNullOrEmpty(PesqFK1.txtId.Text) Then
+                    pEmpresa = PesqFK1.txtId.Text
+                End If
+                If Not String.IsNullOrEmpty(Me.PesqFK6.txtId.Text) Then
+                    pLocal = Trim(PesqFK6.txtId.Text)
+                End If
+                If Not String.IsNullOrEmpty(Me.PesqFK7.txtId.Text) Then
+                    pCodigo = "'" & Trim(PesqFK7.txtId.Text) & "'"
+                End If
+
+                sql = " select A.*, C.DESC_TIPO_EQUIPAMENTO, E.SIGLA_EMPRESA "
+                sql = sql & " from VW_CG_ESTOQUE_EQUIPAMENTO A "
+                sql = sql & " INNER JOIN CG_EQUIPAMENTO B ON B.ID_EQUIPAMENTO = A.ID_EQUIPAMENTO "
+                sql = sql & " INNER JOIN CG_TIPO_EQUIPAMENTO C ON C.ID_TIPO_EQUIPAMENTO = B.ID_TIPO_EQUIPAMENTO "
+                sql = sql & " INNER JOIN CG_EMPRESA E ON E.ID_EMPRESA = A.ID_EMPRESA "
+                sql = sql & " WHERE	1=1 AND "
+                sql = sql & " 		(A.ID_EMPRESA = " & pEmpresa & ") AND "
+                sql = sql & " 		(A.ID_LOCAL = " & pLocal & ") AND "
+                sql = sql & " 		(A.CODIGO = " & pCodigo & " ) AND "
+                sql = sql & " 		(A.DATAMOV BETWEEN  " & pData1 & " AND " & pData2 & ") "
+                sql = sql & " ORDER BY A.ID_EMPRESA ASC, C.DESC_TIPO_EQUIPAMENTO ASC, A.DATAMOV ASC "
+                My.Computer.Clipboard.SetText(sql)
             Case ReportOption.EstoquePontoVenda '//  31
 
             Case ReportOption.OS '//  32
@@ -910,6 +999,7 @@ Public Class FrTest1
 
     End Sub
 
+    '//Botao para Limpar os filtros
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.PesqFK1.txtId.Text = ""
         Me.PesqFK1.txtDesc.Text = ""
@@ -923,6 +1013,8 @@ Public Class FrTest1
         Me.PesqFK5.txtDesc.Text = ""
         Me.PesqFK6.txtId.Text = ""
         Me.PesqFK6.txtDesc.Text = ""
+        Me.PesqFK7.txtId.Text = ""
+        Me.PesqFK7.txtDesc.Text = ""
     End Sub
 
     Private Sub TvReport_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TvReport.AfterSelect
@@ -948,6 +1040,16 @@ Public Class FrTest1
                 Me.PesqFK6.Visible = True
                 Me.PesqFK1.Visible = True
                 Me.PesqFK1.Top = 241
+            Case ReportOption.EstoqueChip, ReportOption.EstoqueEquipamentos
+                Me.PesqFK6.Visible = True
+                Me.DateTimePicker1.Visible = True
+                Me.DateTimePicker2.Visible = True
+                Label1.Visible = True
+                Label2.Visible = True
+                Me.PesqFK6.Visible = True
+                Me.PesqFK1.Visible = True
+                Me.PesqFK1.Top = 241
+                Me.PesqFK7.Visible = True
 
             Case Else
                 Me.PesqFK1.Visible = False
@@ -956,6 +1058,8 @@ Public Class FrTest1
                 Me.PesqFK4.Visible = False
                 Me.PesqFK5.Visible = False
                 Me.PesqFK6.Visible = False
+                Me.PesqFK7.Visible = False
+
                 Me.DateTimePicker1.Visible = False
                 Me.DateTimePicker2.Visible = False
                 Label1.Visible = False
@@ -967,6 +1071,7 @@ Public Class FrTest1
                 Me.PesqFK4.Top = 118
                 Me.PesqFK5.Top = 149
                 Me.PesqFK6.Top = 180
+                Me.PesqFK7.Top = 246
 
 
         End Select
@@ -1066,5 +1171,25 @@ Public Class FrTest1
 
             .PosValida = False
         End With
+    End Sub
+
+    Private Sub PesqFK7_Load(sender As Object, e As EventArgs) Handles PesqFK7.Load
+        With PesqFK7
+            .LabelPesqFK = "Loja"
+            .Tabela = "CG_LOJA"
+            .View = "CG_LOJA"
+            .CampoId = "CODIGO"
+            .CampoDesc = "NOME"
+            .ListaCampos = "CODIGO,SIGLA,NOME,ID_EMPRESA"
+            .ColunasFiltro = "CODIGO,SIGLA,NOME,ID_EMPRESA"  ' ComboBox de filtros
+            .LabelBuscaId = "Código"
+            .LabelBuscaDesc = "Nome"
+            .TituloTela = "Pesquisa de Lojas"
+            '.FiltroSQL = " where id_empresa = " & Publico.Id_empresa
+            .lblLabelFK.Text = .LabelPesqFK
+
+            .PosValida = False
+        End With
+
     End Sub
 End Class

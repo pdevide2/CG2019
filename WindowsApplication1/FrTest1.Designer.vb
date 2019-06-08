@@ -76,11 +76,12 @@ Partial Class FrTest1
         Me.TvReport = New System.Windows.Forms.TreeView()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.PesqFK7 = New WinCG.PesqFK()
         Me.PesqFK6 = New WinCG.PesqFK()
         Me.PesqFK5 = New WinCG.PesqFK()
         Me.PesqFK4 = New WinCG.PesqFK()
@@ -273,6 +274,7 @@ Partial Class FrTest1
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.PesqFK7)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.DateTimePicker2)
@@ -288,34 +290,15 @@ Partial Class FrTest1
         Me.Panel1.Size = New System.Drawing.Size(490, 446)
         Me.Panel1.TabIndex = 2
         '
-        'Button2
+        'Label2
         '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(297, 467)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(490, 38)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Limpar Filtros"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(107, 211)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(110, 20)
-        Me.DateTimePicker1.TabIndex = 6
-        Me.DateTimePicker1.Visible = False
-        '
-        'DateTimePicker2
-        '
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(255, 211)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(110, 20)
-        Me.DateTimePicker2.TabIndex = 7
-        Me.DateTimePicker2.Visible = False
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(226, 217)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(22, 13)
+        Me.Label2.TabIndex = 9
+        Me.Label2.Text = "até"
+        Me.Label2.Visible = False
         '
         'Label1
         '
@@ -327,15 +310,58 @@ Partial Class FrTest1
         Me.Label1.Text = "Faixa de Datas:"
         Me.Label1.Visible = False
         '
-        'Label2
+        'DateTimePicker2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(226, 217)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(22, 13)
-        Me.Label2.TabIndex = 9
-        Me.Label2.Text = "até"
-        Me.Label2.Visible = False
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker2.Location = New System.Drawing.Point(255, 211)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(110, 20)
+        Me.DateTimePicker2.TabIndex = 7
+        Me.DateTimePicker2.Visible = False
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(107, 211)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(110, 20)
+        Me.DateTimePicker1.TabIndex = 6
+        Me.DateTimePicker1.Visible = False
+        '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(297, 467)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(490, 38)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "Limpar Filtros"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'PesqFK7
+        '
+        Me.PesqFK7.CampoDesc = Nothing
+        Me.PesqFK7.CampoId = Nothing
+        Me.PesqFK7.Clicou = "0"
+        Me.PesqFK7.CodigoSelecionado = Nothing
+        Me.PesqFK7.ColunasFiltro = Nothing
+        Me.PesqFK7.DescricaoSelecionada = Nothing
+        Me.PesqFK7.FiltroSQL = Nothing
+        Me.PesqFK7.LabelBuscaDesc = Nothing
+        Me.PesqFK7.LabelBuscaId = Nothing
+        Me.PesqFK7.LabelPesqFK = "Tabela"
+        Me.PesqFK7.ListaCampos = Nothing
+        Me.PesqFK7.Location = New System.Drawing.Point(14, 276)
+        Me.PesqFK7.Name = "PesqFK7"
+        Me.PesqFK7.ObjModelFk = Nothing
+        Me.PesqFK7.PosValida = False
+        Me.PesqFK7.Size = New System.Drawing.Size(400, 25)
+        Me.PesqFK7.Tabela = Nothing
+        Me.PesqFK7.TabIndex = 10
+        Me.PesqFK7.TituloTela = Nothing
+        Me.PesqFK7.View = Nothing
+        Me.PesqFK7.Visible = False
         '
         'PesqFK6
         '
@@ -519,4 +545,5 @@ Partial Class FrTest1
     Friend WithEvents Label1 As Label
     Friend WithEvents DateTimePicker2 As DateTimePicker
     Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents PesqFK7 As PesqFK
 End Class
