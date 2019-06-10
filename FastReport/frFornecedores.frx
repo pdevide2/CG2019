@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="05/19/2019 17:25:07" ReportInfo.Modified="06/09/2019 19:20:58" ReportInfo.CreatorVersion="2019.3.5.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/19/2019 17:25:07" ReportInfo.Modified="06/10/2019 18:17:29" ReportInfo.CreatorVersion="2019.3.5.0">
   <ScriptText>using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace FastReport
     private void Data1_BeforePrint(object sender, EventArgs e)
     {
       if (((Int32)Report.GetVariableValue(&quot;Row#&quot;)) % 2 == 0)
-        Data1.FillColor = Color.Gainsboro;
+        Data1.FillColor = Color.WhiteSmoke;
       else
         Data1.FillColor = Color.Beige;
 
@@ -31,7 +31,7 @@ namespace FastReport
 }
 </ScriptText>
   <Dictionary>
-    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqsrEzhd9+T4CJxZj90G866BYjqO7kQonjh7hVpOtnNHUzEiYmCSnoXPRGiDs0qQfjQpjwIgGxE+yC/ywFaXVAM26QiWzXqWRArjMlKX6UbQ42NgNOBYFe29ru5VQyuejR2i5610zuxYBr0ATXU33jvN2Wxzwk8sp1foM+MV1Qf6Ki2OGA7VvOkKE3DB0HtLUjl0JJNJaxoNKsrhjVhuhbqfPnAL+sIwF3hIwzKbnfjHY=">
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqsrEzhd9+T4CJxZj90G866BYjqO7kQonjh7hVpOtnNHUzEiYmCSnoXPRGiDs0qQfjQpjwIgGxE+yC/ywFaXVAM26QiWzXqWRArjMlKX6UbQ42NgNOBYFe29ru5VQyuejR2i5610zuxYBr0ATXU33jvN2Wxzwk8sp1foM+MV1Qf6Ki2OGA7VvOkKE3DB0HtLUjl0JJNJaxoNKsrhjVhuhbqTWhgHLhKlAs2qPW6ZGkyHA=">
       <TableDataSource Name="Table1" Alias="V_FORNECEDORES" DataType="System.Int32" Enabled="true" SelectCommand="SELECT cg_fornecedor.id_fornecedor, &#13;&#10;       cg_fornecedor.sigla, &#13;&#10;       cg_fornecedor.nome, &#13;&#10;       cg_fornecedor.cep, &#13;&#10;       cg_fornecedor.endereco, &#13;&#10;       cg_fornecedor.complemento, &#13;&#10;       cg_fornecedor.cidade, &#13;&#10;       cg_fornecedor.bairro, &#13;&#10;       cg_fornecedor.uf, &#13;&#10;       cg_fornecedor.email, &#13;&#10;       cg_fornecedor.telefone, &#13;&#10;       cg_fornecedor.contato, &#13;&#10;       cg_fornecedor.whatsapp, &#13;&#10;       cg_fornecedor.id_tipo_servico, &#13;&#10;       cg_tipo_servico.desc_tipo_servico,&#13;&#10;       cg_fornecedor.obs, &#13;&#10;       cg_fornecedor.garantia_aquisicao, &#13;&#10;       cg_fornecedor.garantia_assistencia, &#13;&#10;       cg_fornecedor.id_empresa, &#13;&#10;       cg_empresa.nome_empresa&#13;&#10;FROM   cg_fornecedor &#13;&#10;       INNER JOIN cg_empresa &#13;&#10;               ON cg_fornecedor.id_empresa = cg_empresa.id_empresa &#13;&#10;       INNER JOIN cg_tipo_servico &#13;&#10;               ON cg_fornecedor.id_tipo_servico = &#13;&#10;                  cg_tipo_servico.id_tipo_servico &#13;&#10;ORDER BY cg_fornecedor.id_empresa, cg_fornecedor.sigla">
         <Column Name="id_fornecedor" DataType="System.Int32"/>
         <Column Name="sigla" DataType="System.String"/>

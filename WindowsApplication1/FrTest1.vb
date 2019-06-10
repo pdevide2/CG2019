@@ -152,6 +152,8 @@ Public Class FrTest1
 
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frFornecedores.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_FORNECEDORES")
@@ -166,6 +168,8 @@ Public Class FrTest1
                 Case ReportOption.Conserto
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frConsertos.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("CG_CONCERTO")
@@ -178,6 +182,8 @@ Public Class FrTest1
                 Case ReportOption.Lojas
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frLojas.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_LOJA")
@@ -187,6 +193,8 @@ Public Class FrTest1
                 Case ReportOption.Marcas
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frMarcas.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_MARCA")
@@ -199,6 +207,8 @@ Public Class FrTest1
                 Case ReportOption.Modulos
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frModulos.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_MODULO")
@@ -211,6 +221,8 @@ Public Class FrTest1
                 Case ReportOption.Motivos
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frMotivos.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_MOTIVO")
@@ -223,6 +235,8 @@ Public Class FrTest1
                 Case ReportOption.Operadoras
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frOperadoras.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_OPERADORA")
@@ -235,6 +249,8 @@ Public Class FrTest1
                 Case ReportOption.Pecas
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frPecas.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_PECA")
@@ -247,6 +263,8 @@ Public Class FrTest1
                 Case ReportOption.Responsaveis
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frResponsaveis.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_RESPONSAVEL")
@@ -259,6 +277,8 @@ Public Class FrTest1
                 Case ReportOption.Sequenciais
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frSequenciais.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_SEQUENCIAL")
@@ -271,6 +291,8 @@ Public Class FrTest1
                 Case ReportOption.Status
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frStatus.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_STATUS")
@@ -283,6 +305,8 @@ Public Class FrTest1
                 Case ReportOption.StatusOS
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frStatusOS.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_STATUS_OS")
@@ -295,6 +319,8 @@ Public Class FrTest1
                 Case ReportOption.TabelasViews
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frTabelasViews.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_TABELA_VIEW")
@@ -307,6 +333,8 @@ Public Class FrTest1
                 Case ReportOption.TipoEquipamento
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frTipoEquipamentos.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_TIPO_EQUIPAMENTO")
@@ -319,6 +347,8 @@ Public Class FrTest1
                 Case ReportOption.TipoServico
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frTipoServicos.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_TIPO_SERVICO")
@@ -331,6 +361,8 @@ Public Class FrTest1
                 Case ReportOption.Transito
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frTransitos.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_TRANSITO")
@@ -343,6 +375,8 @@ Public Class FrTest1
                 Case ReportOption.Usuarios
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frUsuarios.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_USUARIO")
@@ -354,6 +388,8 @@ Public Class FrTest1
                 Case ReportOption.EmpresasVsPerfil '// 25
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frEmpresaVsPerfil.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_EMPRESA_PERFIL")
@@ -366,6 +402,8 @@ Public Class FrTest1
                 Case ReportOption.ParametrizacaoPesquisas '//  26
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frParameterQuerys.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_PARAMETER_QUERY")
@@ -378,6 +416,8 @@ Public Class FrTest1
                 Case ReportOption.Perfil '//  27
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frPefisAcesso.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_PERFIL")
@@ -390,6 +430,8 @@ Public Class FrTest1
                 Case ReportOption.TransitoEstoque '//  28
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frMovimentoTransito.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("RPT_MOVIMENTO_TRANSITO_GERAL")
@@ -402,6 +444,8 @@ Public Class FrTest1
                 Case ReportOption.EstoqueChip '//  29
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frEstoqueChips.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("VW_CG_ESTOQUE_CHIP")
@@ -414,6 +458,8 @@ Public Class FrTest1
                 Case ReportOption.EstoqueEquipamentos '//  30
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frEstoqueEquipamentos.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_ESTOQUE_EQUIPAMENTOS")
@@ -426,6 +472,8 @@ Public Class FrTest1
                 Case ReportOption.EstoquePontoVenda '//  31
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frEstoquePDV.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_MOVTO_PDV")
@@ -437,6 +485,8 @@ Public Class FrTest1
 
                 Case ReportOption.OS '//  32
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frOS_Pai_filha.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     'Dim table As TableDataSource
                     'table = Report1.GetDataSource("V_PERFIL")
@@ -477,6 +527,8 @@ Public Class FrTest1
 
                 Case ReportOption.FollowUP '// 34
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frOS_FollowUp.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     Report1.SetParameterValue("usuario", UserName())
                     If Not String.IsNullOrEmpty(PesqFK4.txtId.Text) Then
                         Report1.SetParameterValue("OS_ID", CInt(PesqFK4.txtId.Text))
@@ -488,6 +540,8 @@ Public Class FrTest1
                 Case ReportOption.Ocorrencias '//  35
                     '// Carrega o template salvo do relatorio
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frOcorrencias.frx")
+                    Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
                     '// Troca o dataset original do relatorio pelo criado em código 
                     Dim table As TableDataSource
                     table = Report1.GetDataSource("V_OCORRENCIA")
