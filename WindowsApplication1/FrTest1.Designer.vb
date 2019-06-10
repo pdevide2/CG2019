@@ -76,18 +76,18 @@ Partial Class FrTest1
         Me.TvReport = New System.Windows.Forms.TreeView()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PesqFK7 = New WinCG.PesqFK()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.PesqFK7 = New WinCG.PesqFK()
         Me.PesqFK6 = New WinCG.PesqFK()
         Me.PesqFK5 = New WinCG.PesqFK()
         Me.PesqFK4 = New WinCG.PesqFK()
         Me.PesqFK3 = New WinCG.PesqFK()
         Me.PesqFK2 = New WinCG.PesqFK()
         Me.PesqFK1 = New WinCG.PesqFK()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.Report1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbCGDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -290,6 +290,30 @@ Partial Class FrTest1
         Me.Panel1.Size = New System.Drawing.Size(490, 446)
         Me.Panel1.TabIndex = 2
         '
+        'PesqFK7
+        '
+        Me.PesqFK7.CampoDesc = Nothing
+        Me.PesqFK7.CampoId = Nothing
+        Me.PesqFK7.Clicou = "0"
+        Me.PesqFK7.CodigoSelecionado = Nothing
+        Me.PesqFK7.ColunasFiltro = Nothing
+        Me.PesqFK7.DescricaoSelecionada = Nothing
+        Me.PesqFK7.FiltroSQL = Nothing
+        Me.PesqFK7.LabelBuscaDesc = Nothing
+        Me.PesqFK7.LabelBuscaId = Nothing
+        Me.PesqFK7.LabelPesqFK = "Tabela"
+        Me.PesqFK7.ListaCampos = Nothing
+        Me.PesqFK7.Location = New System.Drawing.Point(14, 276)
+        Me.PesqFK7.Name = "PesqFK7"
+        Me.PesqFK7.ObjModelFk = Nothing
+        Me.PesqFK7.PosValida = False
+        Me.PesqFK7.Size = New System.Drawing.Size(400, 25)
+        Me.PesqFK7.Tabela = Nothing
+        Me.PesqFK7.TabIndex = 10
+        Me.PesqFK7.TituloTela = Nothing
+        Me.PesqFK7.View = Nothing
+        Me.PesqFK7.Visible = False
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -327,41 +351,6 @@ Partial Class FrTest1
         Me.DateTimePicker1.Size = New System.Drawing.Size(110, 20)
         Me.DateTimePicker1.TabIndex = 6
         Me.DateTimePicker1.Visible = False
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(297, 467)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(490, 38)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Limpar Filtros"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'PesqFK7
-        '
-        Me.PesqFK7.CampoDesc = Nothing
-        Me.PesqFK7.CampoId = Nothing
-        Me.PesqFK7.Clicou = "0"
-        Me.PesqFK7.CodigoSelecionado = Nothing
-        Me.PesqFK7.ColunasFiltro = Nothing
-        Me.PesqFK7.DescricaoSelecionada = Nothing
-        Me.PesqFK7.FiltroSQL = Nothing
-        Me.PesqFK7.LabelBuscaDesc = Nothing
-        Me.PesqFK7.LabelBuscaId = Nothing
-        Me.PesqFK7.LabelPesqFK = "Tabela"
-        Me.PesqFK7.ListaCampos = Nothing
-        Me.PesqFK7.Location = New System.Drawing.Point(14, 276)
-        Me.PesqFK7.Name = "PesqFK7"
-        Me.PesqFK7.ObjModelFk = Nothing
-        Me.PesqFK7.PosValida = False
-        Me.PesqFK7.Size = New System.Drawing.Size(400, 25)
-        Me.PesqFK7.Tabela = Nothing
-        Me.PesqFK7.TabIndex = 10
-        Me.PesqFK7.TituloTela = Nothing
-        Me.PesqFK7.View = Nothing
-        Me.PesqFK7.Visible = False
         '
         'PesqFK6
         '
@@ -506,6 +495,17 @@ Partial Class FrTest1
         Me.PesqFK1.TituloTela = Nothing
         Me.PesqFK1.View = Nothing
         Me.PesqFK1.Visible = False
+        '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(297, 467)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(490, 38)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "Limpar Filtros"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'FrTest1
         '

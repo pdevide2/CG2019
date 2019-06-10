@@ -122,7 +122,7 @@
   </metadata>
   <data name="Report1.ReportResourceString" xml:space="preserve">
     <value>﻿&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;Report ScriptLanguage="CSharp" ReportInfo.Created="05/13/2019 21:32:25" ReportInfo.Modified="06/08/2019 09:02:21" ReportInfo.CreatorVersion="2019.3.5.0"&gt;
+&lt;Report ScriptLanguage="CSharp" ReportInfo.Created="05/13/2019 21:32:25" ReportInfo.Modified="06/09/2019 15:28:08" ReportInfo.CreatorVersion="2019.3.5.0"&gt;
   &lt;Dictionary&gt;
     &lt;TableDataSource Name="V_EQUIPAMENTO" ReferenceName="DbCGDataSet1.V_EQUIPAMENTO" DataType="System.Int32" Enabled="true"&gt;
       &lt;Column Name="ID_EQUIPAMENTO" DataType="System.Int32"/&gt;
@@ -209,7 +209,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADe
-        CAAAAk1TRnQBSQFMAgEBAgEAAZABAAGQAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CAAAAk1TRnQBSQFMAgEBAgEAAZgBAAGYAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA

@@ -176,6 +176,13 @@ Public Class FrTest1
                     Report1.SetParameterValue("usuario", UserName())
 
                 Case ReportOption.Lojas
+                    '// Carrega o template salvo do relatorio
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frLojas.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    Dim table As TableDataSource
+                    table = Report1.GetDataSource("V_LOJA")
+                    table.SelectCommand = QueryRelatorio(ReportOption.Lojas)
+                    Report1.SetParameterValue("usuario", UserName())
 
                 Case ReportOption.Marcas
                     '// Carrega o template salvo do relatorio
@@ -417,6 +424,16 @@ Public Class FrTest1
                     Report1.SetParameterValue("usuario", UserName())
 
                 Case ReportOption.EstoquePontoVenda '//  31
+                    '// Carrega o template salvo do relatorio
+                    Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frEstoquePDV.frx")
+                    '// Troca o dataset original do relatorio pelo criado em código 
+                    Dim table As TableDataSource
+                    table = Report1.GetDataSource("V_MOVTO_PDV")
+                    table.SelectCommand = QueryRelatorio(ReportOption.EstoquePontoVenda)
+
+                    'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+                    '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+                    Report1.SetParameterValue("usuario", UserName())
 
                 Case ReportOption.OS '//  32
                     Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frOS_Pai_filha.frx")
@@ -643,6 +660,61 @@ Public Class FrTest1
             Case ReportOption.Conserto
                 sql = "select * from CG_CONCERTO ORDER BY DESC_CONCERTO"
             Case ReportOption.Lojas '//lojas
+
+                Dim pCodigo As String = "CG_LOJA.CODIGO"
+                If Not String.IsNullOrEmpty(Me.PesqFK7.txtId.Text) Then
+                    pCodigo = "'" & Trim(PesqFK7.txtId.Text) & "'"
+                End If
+
+                sql = " SELECT CG_LOJA.ID_LOJA, "
+                sql = sql & "        CG_LOJA.CODIGO, "
+                sql = sql & "        CG_LOJA.SIGLA, "
+                sql = sql & "        CG_LOJA.NOME, "
+                sql = sql & "        CG_LOJA.ENDERECO, "
+                sql = sql & "        CG_LOJA.COMPLEMENTO, "
+                sql = sql & "        CG_LOJA.CEP, "
+                sql = sql & "        CG_LOJA.CIDADE, "
+                sql = sql & "        CG_LOJA.BAIRRO, "
+                sql = sql & "        CG_LOJA.UF, "
+                sql = sql & "        CG_LOJA.ID_TIPO_LOCAL, "
+                sql = sql & "        CG_ALOCACAO.DESC_ALOCACAO, "
+                sql = sql & "        CG_LOJA.ID_RESPONSAVEL, "
+                sql = sql & "        CG_RESPONSAVEL.APELIDO, "
+                sql = sql & "        CG_LOJA.TELEFONE, "
+                sql = sql & "        CG_LOJA.CELULAR, "
+                sql = sql & "        CG_LOJA.ID_AREA, "
+                sql = sql & "        CG_AREA.DESC_AREA, "
+                sql = sql & "        CG_LOJA.ID_EMPRESA, "
+                sql = sql & "        CG_EMPRESA.NOME_EMPRESA, "
+                sql = sql & "        CG_LOJA.ID_TIPO_LOCAL_ESTOQUE, "
+                sql = sql & "        CG_TIPO_LOCAL_ESTOQUE.DESC_TIPO_LOCAL_ESTOQUE, "
+                sql = sql & "        CG_LOJA.INICIO_VIGENCIA, "
+                sql = sql & "        CG_LOJA.ULTIMA_ATUALIZACAO, "
+                sql = sql & "        CG_LOJA.TELEFONE2, "
+                sql = sql & "        CG_LOJA.CELULAR2, "
+                sql = sql & "        CG_LOJA.CELULAR3, "
+                sql = sql & "        CG_LOJA.CELULAR4, "
+                sql = sql & "        CG_LOJA.CELULAR5, "
+                sql = sql & "        CG_LOJA.CELULAR6, "
+                sql = sql & "        CG_LOJA.FOTO, "
+                sql = sql & "        CG_LOJA.INATIVO "
+                sql = sql & " FROM   CG_LOJA "
+                sql = sql & "        INNER JOIN CG_EMPRESA "
+                sql = sql & "                ON CG_LOJA.ID_EMPRESA = CG_EMPRESA.ID_EMPRESA "
+                sql = sql & "        INNER JOIN CG_ALOCACAO "
+                sql = sql & "                ON CG_LOJA.ID_TIPO_LOCAL = CG_ALOCACAO.ID_ALOCACAO "
+                sql = sql & "        INNER JOIN CG_RESPONSAVEL "
+                sql = sql & "                ON CG_LOJA.ID_RESPONSAVEL = CG_RESPONSAVEL.ID_RESPONSAVEL "
+                sql = sql & "        INNER JOIN CG_AREA "
+                sql = sql & "                ON CG_LOJA.ID_AREA = CG_AREA.ID_AREA "
+                sql = sql & "                   AND CG_LOJA.ID_EMPRESA = CG_AREA.ID_EMPRESA "
+                sql = sql & "                   AND CG_RESPONSAVEL.ID_RESPONSAVEL = CG_AREA.ID_RESPONSAVEL "
+                sql = sql & "        INNER JOIN CG_TIPO_LOCAL_ESTOQUE "
+                sql = sql & "                ON CG_LOJA.ID_TIPO_LOCAL_ESTOQUE = "
+                sql = sql & "                   CG_TIPO_LOCAL_ESTOQUE.ID_TIPO_LOCAL_ESTOQUE "
+                sql = sql & " WHERE  CG_LOJA.ID_LOJA > 0 AND CG_LOJA.CODIGO = " & pCodigo
+                sql = sql & " ORDER BY CODIGO "
+
 
             Case ReportOption.Marcas '//marcas
                 sql = "select ID_MARCA, DESC_MARCA, CG_MARCA.ID_EMPRESA, CG_EMPRESA.NOME_EMPRESA "
@@ -882,6 +954,66 @@ Public Class FrTest1
                 sql = sql & " ORDER BY A.ID_EMPRESA ASC, C.DESC_TIPO_EQUIPAMENTO ASC, A.DATAMOV ASC "
                 My.Computer.Clipboard.SetText(sql)
             Case ReportOption.EstoquePontoVenda '//  31
+                Dim pCodigo As String = "MOVTO_PDV.CODIGO"
+                If Not String.IsNullOrEmpty(Me.PesqFK7.txtId.Text) Then
+                    pCodigo = "'" & Trim(PesqFK7.txtId.Text) & "'"
+                End If
+
+                sql = " SELECT MOVTO_PDV.* "
+                sql = sql & " FROM ( "
+                sql = sql & " SELECT 'C' AS IDENTIF, "
+                sql = sql & " 	   A.ID_CHIP, "
+                sql = sql & "        A.ESTOQUE, "
+                sql = sql & "        A.ID_LOCAL, "
+                sql = sql & "        A.DATAMOV, "
+                sql = sql & "        A.ID_EMPRESA, "
+                sql = sql & "        E.NOME_EMPRESA, "
+                sql = sql & "        C.SIMID AS SIMID_SERIE, "
+                sql = sql & "        D.DESC_OPERADORA AS OPERADORA_MODELO, "
+                sql = sql & "        B.CODIGO, "
+                sql = sql & "        B.SIGLA, "
+                sql = sql & "        B.NOME, "
+                sql = sql & "        'CHIP ' + D.DESC_OPERADORA AS DESCRICAO, "
+                sql = sql & "        Space(50)                  AS TIPO_EQUIPAMENTO "
+                sql = sql & " FROM   CG_ESTOQUE_CHIP A "
+                sql = sql & "        INNER JOIN CG_EMPRESA E "
+                sql = sql & "                ON E.ID_EMPRESA = A.ID_EMPRESA "
+                sql = sql & "        INNER JOIN CG_LOJA B "
+                sql = sql & "                ON A.ID_LOCAL = B.ID_LOJA "
+                sql = sql & "        INNER JOIN CG_CHIP C "
+                sql = sql & "                ON C.ID_CHIP = A.ID_CHIP "
+                sql = sql & "        INNER JOIN CG_OPERADORA D "
+                sql = sql & "                ON D.ID_OPERADORA = C.ID_OPERADORA "
+                sql = sql & " WHERE  B.ID_TIPO_LOCAL_ESTOQUE = 10 "
+                sql = sql & "        AND A.TRANSITO = 0 "
+                sql = sql & " UNION ALL "
+                sql = sql & " SELECT 'E' AS IDENTIF, "
+                sql = sql & " 	   A.ID_EQUIPAMENTO, "
+                sql = sql & "        A.ESTOQUE, "
+                sql = sql & "        A.ID_LOCAL, "
+                sql = sql & "        A.DATAMOV, "
+                sql = sql & "        A.ID_EMPRESA, "
+                sql = sql & "        E.NOME_EMPRESA, "
+                sql = sql & "        C.SERIE, "
+                sql = sql & "        C.MODELO, "
+                sql = sql & "        B.CODIGO, "
+                sql = sql & "        B.SIGLA, "
+                sql = sql & "        B.NOME, "
+                sql = sql & "        C.DESC_EQUIPAMENTO, "
+                sql = sql & "        D.DESC_TIPO_EQUIPAMENTO "
+                sql = sql & " FROM   CG_ESTOQUE_EQUIPAMENTO A "
+                sql = sql & "        INNER JOIN CG_EMPRESA E "
+                sql = sql & "                ON E.ID_EMPRESA = A.ID_EMPRESA "
+                sql = sql & "        INNER JOIN CG_LOJA B "
+                sql = sql & "                ON A.ID_LOCAL = B.ID_LOJA "
+                sql = sql & "        INNER JOIN CG_EQUIPAMENTO C "
+                sql = sql & "                ON C.ID_EQUIPAMENTO = A.ID_EQUIPAMENTO "
+                sql = sql & "        INNER JOIN CG_TIPO_EQUIPAMENTO D "
+                sql = sql & "                ON D.ID_TIPO_EQUIPAMENTO = C.ID_TIPO_EQUIPAMENTO "
+                sql = sql & " WHERE  B.ID_TIPO_LOCAL_ESTOQUE = 10 "
+                sql = sql & "        AND A.TRANSITO = 0 ) MOVTO_PDV "
+                sql = sql & " WHERE MOVTO_PDV.CODIGO = " & pCodigo
+                sql = sql & " ORDER BY MOVTO_PDV.CODIGO, MOVTO_PDV.IDENTIF,MOVTO_PDV.DATAMOV "
 
             Case ReportOption.OS '//  32
 
@@ -1039,7 +1171,7 @@ Public Class FrTest1
                 Label2.Visible = True
                 Me.PesqFK6.Visible = True
                 Me.PesqFK1.Visible = True
-                Me.PesqFK1.Top = 241
+                Me.PesqFK1.Top = 281
             Case ReportOption.EstoqueChip, ReportOption.EstoqueEquipamentos
                 Me.PesqFK6.Visible = True
                 Me.DateTimePicker1.Visible = True
@@ -1048,8 +1180,13 @@ Public Class FrTest1
                 Label2.Visible = True
                 Me.PesqFK6.Visible = True
                 Me.PesqFK1.Visible = True
-                Me.PesqFK1.Top = 241
+                Me.PesqFK1.Top = 281
                 Me.PesqFK7.Visible = True
+
+            Case ReportOption.EstoquePontoVenda, ReportOption.Lojas
+                Me.PesqFK7.FiltroSQL = " where ID_TIPO_LOCAL_ESTOQUE=10 "
+                Me.PesqFK7.Visible = True
+
 
             Case Else
                 Me.PesqFK1.Visible = False
@@ -1059,6 +1196,7 @@ Public Class FrTest1
                 Me.PesqFK5.Visible = False
                 Me.PesqFK6.Visible = False
                 Me.PesqFK7.Visible = False
+                Me.PesqFK7.FiltroSQL = ""
 
                 Me.DateTimePicker1.Visible = False
                 Me.DateTimePicker2.Visible = False
@@ -1190,6 +1328,31 @@ Public Class FrTest1
 
             .PosValida = False
         End With
+
+    End Sub
+
+    Private Sub TvReport_BeforeSelect(sender As Object, e As TreeViewCancelEventArgs) Handles TvReport.BeforeSelect
+        Me.PesqFK1.Visible = False
+        Me.PesqFK2.Visible = False
+        Me.PesqFK3.Visible = False
+        Me.PesqFK4.Visible = False
+        Me.PesqFK5.Visible = False
+        Me.PesqFK6.Visible = False
+        Me.PesqFK7.Visible = False
+        Me.PesqFK7.FiltroSQL = ""
+
+        Me.DateTimePicker1.Visible = False
+        Me.DateTimePicker2.Visible = False
+        Label1.Visible = False
+        Label2.Visible = False
+
+        Me.PesqFK1.Top = 24
+        Me.PesqFK2.Top = 56
+        Me.PesqFK3.Top = 87
+        Me.PesqFK4.Top = 118
+        Me.PesqFK5.Top = 149
+        Me.PesqFK6.Top = 180
+        Me.PesqFK7.Top = 246
 
     End Sub
 End Class
