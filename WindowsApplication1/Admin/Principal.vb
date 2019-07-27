@@ -915,4 +915,11 @@
         'frm.MdiParent = Me
         frm.ShowDialog()
     End Sub
+
+    Private Sub AprovaçãoDePedidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AprovaçãoDePedidosToolStripMenuItem.Click
+        Dim frm As Object = Nothing
+        frm = New WinCG.PedidoVendasAprovacao
+        frm.MdiParent = Me
+        frm.Show()
+    End Sub
 End Class

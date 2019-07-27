@@ -160,29 +160,29 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alocacao.Designer.vb">
+    <Compile Include="Cadastros\Alocacao.Designer.vb">
       <DependentUpon>Alocacao.vb</DependentUpon>
     </Compile>
-    <Compile Include="Alocacao.vb">
+    <Compile Include="Cadastros\Alocacao.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlternarEmpresaLogin.Designer.vb">
+    <Compile Include="Admin\AlternarEmpresaLogin.Designer.vb">
       <DependentUpon>AlternarEmpresaLogin.vb</DependentUpon>
     </Compile>
-    <Compile Include="AlternarEmpresaLogin.vb">
+    <Compile Include="Admin\AlternarEmpresaLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="Chip.Designer.vb">
+    <Compile Include="Cadastros\Chip.Designer.vb">
       <DependentUpon>Chip.vb</DependentUpon>
     </Compile>
-    <Compile Include="Chip.vb">
+    <Compile Include="Cadastros\Chip.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Acessos.Designer.vb">
+    <Compile Include="Antigos\Acessos.Designer.vb">
       <DependentUpon>Acessos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Acessos.vb">
+    <Compile Include="Antigos\Acessos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Antigos\Consulta_Transacoes_Chip.Designer.vb">
@@ -197,200 +197,206 @@
     <Compile Include="Antigos\Consulta_Transacoes_Equipamento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Categoria.Designer.vb">
+    <Compile Include="Compras\Categoria.Designer.vb">
       <DependentUpon>Categoria.vb</DependentUpon>
     </Compile>
-    <Compile Include="Categoria.vb">
+    <Compile Include="Compras\Categoria.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Area.Designer.vb">
+    <Compile Include="Cadastros\Area.Designer.vb">
       <DependentUpon>Area.vb</DependentUpon>
     </Compile>
-    <Compile Include="Area.vb">
+    <Compile Include="Cadastros\Area.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadtransito.Designer.vb">
+    <Compile Include="Cadastros\Cadtransito.Designer.vb">
       <DependentUpon>Cadtransito.vb</DependentUpon>
     </Compile>
-    <Compile Include="Cadtransito.vb">
+    <Compile Include="Cadastros\Cadtransito.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaixaMovimentoTransito.Designer.vb">
+    <Compile Include="Estoque\BaixaMovimentoTransito.Designer.vb">
       <DependentUpon>BaixaMovimentoTransito.vb</DependentUpon>
     </Compile>
-    <Compile Include="BaixaMovimentoTransito.vb">
+    <Compile Include="Estoque\BaixaMovimentoTransito.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clientes.designer.vb">
+    <Compile Include="Vendas\Clientes.designer.vb">
       <DependentUpon>Clientes.vb</DependentUpon>
     </Compile>
-    <Compile Include="Clientes.vb">
+    <Compile Include="Vendas\Clientes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Concertos.designer.vb">
+    <Compile Include="OS\Concertos.designer.vb">
       <DependentUpon>Concertos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Concertos.vb">
+    <Compile Include="OS\Concertos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsultaMovimentoTransitoChip.Designer.vb">
+    <Compile Include="Estoque\ConsultaMovimentoTransitoChip.Designer.vb">
       <DependentUpon>ConsultaMovimentoTransitoChip.vb</DependentUpon>
     </Compile>
-    <Compile Include="ConsultaMovimentoTransitoChip.vb">
+    <Compile Include="Estoque\ConsultaMovimentoTransitoChip.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsultaMovimentoTransito.Designer.vb">
+    <Compile Include="Estoque\ConsultaMovimentoTransito.Designer.vb">
       <DependentUpon>ConsultaMovimentoTransito.vb</DependentUpon>
     </Compile>
-    <Compile Include="ConsultaMovimentoTransito.vb">
+    <Compile Include="Estoque\ConsultaMovimentoTransito.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsultaEstoque.Designer.vb">
+    <Compile Include="Estoque\ConsultaEstoque.Designer.vb">
       <DependentUpon>ConsultaEstoque.vb</DependentUpon>
     </Compile>
-    <Compile Include="ConsultaEstoque.vb">
+    <Compile Include="Estoque\ConsultaEstoque.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataGridPrinter.vb" />
-    <Compile Include="Form2.Designer.vb">
+    <Compile Include="Relatorios\DataGridPrinter.vb" />
+    <Compile Include="Geral\Form2.Designer.vb">
       <DependentUpon>Form2.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form2.vb">
+    <Compile Include="Geral\Form2.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSelecionaItemPedidoVenda.designer.vb">
+    <Compile Include="Selecionar\FrmSelecionaItemPedidoVenda.designer.vb">
       <DependentUpon>FrmSelecionaItemPedidoVenda.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSelecionaItemPedidoVenda.vb">
+    <Compile Include="Selecionar\FrmSelecionaItemPedidoVenda.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSelecionaItemTabelaNaoAlocado.designer.vb">
+    <Compile Include="Selecionar\FrmSelecionaItemTabelaNaoAlocado.designer.vb">
       <DependentUpon>FrmSelecionaItemTabelaNaoAlocado.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSelecionaItemTabelaNaoAlocado.vb">
+    <Compile Include="Selecionar\FrmSelecionaItemTabelaNaoAlocado.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSelecionaItemTransito.designer.vb">
+    <Compile Include="Selecionar\FrmSelecionaItemTransito.designer.vb">
       <DependentUpon>FrmSelecionaItemTransito.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSelecionaItemTransito.vb">
+    <Compile Include="Selecionar\FrmSelecionaItemTransito.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrTest1.Designer.vb">
+    <Compile Include="Relatorios\FrTest1.Designer.vb">
       <DependentUpon>FrTest1.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrTest1.vb">
+    <Compile Include="Relatorios\FrTest1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GeraTransitoGeral.designer.vb">
+    <Compile Include="Estoque\GeraTransitoGeral.designer.vb">
       <DependentUpon>GeraTransitoGeral.vb</DependentUpon>
     </Compile>
-    <Compile Include="GeraTransitoGeral.vb">
+    <Compile Include="Estoque\GeraTransitoGeral.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LojaHistorico.designer.vb">
+    <Compile Include="Cadastros\LojaHistorico.designer.vb">
       <DependentUpon>LojaHistorico.vb</DependentUpon>
     </Compile>
-    <Compile Include="LojaHistorico.vb">
+    <Compile Include="Cadastros\LojaHistorico.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MovEstoquePOS.Designer.vb">
+    <Compile Include="Estoque\MovEstoquePOS.Designer.vb">
       <DependentUpon>MovEstoquePOS.vb</DependentUpon>
     </Compile>
-    <Compile Include="MovEstoquePOS.vb">
+    <Compile Include="Estoque\MovEstoquePOS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PedidoVenda.designer.vb">
+    <Compile Include="Vendas\PedidoVenda.designer.vb">
       <DependentUpon>PedidoVenda.vb</DependentUpon>
     </Compile>
-    <Compile Include="PedidoVenda.vb">
+    <Compile Include="Vendas\PedidoVenda.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PedidoVenda_Edicao.designer.vb">
+    <Compile Include="Vendas\PedidoVendasAprovacao.Designer.vb">
+      <DependentUpon>PedidoVendasAprovacao.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Vendas\PedidoVendasAprovacao.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendas\PedidoVenda_Edicao.designer.vb">
       <DependentUpon>PedidoVenda_Edicao.vb</DependentUpon>
     </Compile>
-    <Compile Include="PedidoVenda_Edicao.vb">
+    <Compile Include="Vendas\PedidoVenda_Edicao.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatorios.Designer.vb">
+    <Compile Include="Relatorios\Relatorios.Designer.vb">
       <DependentUpon>Relatorios.vb</DependentUpon>
     </Compile>
-    <Compile Include="Relatorios.vb">
+    <Compile Include="Relatorios\Relatorios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportPreview.vb">
+    <Compile Include="Relatorios\ReportPreview.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TabelaPrecos.designer.vb">
+    <Compile Include="OS\TabelaPrecos.designer.vb">
       <DependentUpon>TabelaPrecos.vb</DependentUpon>
     </Compile>
-    <Compile Include="TabelaPrecos.vb">
+    <Compile Include="OS\TabelaPrecos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransferenciaCadastros.Designer.vb">
+    <Compile Include="Cadastros\TransferenciaCadastros.Designer.vb">
       <DependentUpon>TransferenciaCadastros.vb</DependentUpon>
     </Compile>
-    <Compile Include="TransferenciaCadastros.vb">
+    <Compile Include="Cadastros\TransferenciaCadastros.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransferenciaEstoque.Designer.vb">
+    <Compile Include="Estoque\TransferenciaEstoque.Designer.vb">
       <DependentUpon>TransferenciaEstoque.vb</DependentUpon>
     </Compile>
-    <Compile Include="TransferenciaEstoque.vb">
+    <Compile Include="Estoque\TransferenciaEstoque.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EntradaEstoque.Designer.vb">
+    <Compile Include="Estoque\EntradaEstoque.Designer.vb">
       <DependentUpon>EntradaEstoque.vb</DependentUpon>
     </Compile>
-    <Compile Include="EntradaEstoque.vb">
+    <Compile Include="Estoque\EntradaEstoque.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Perfil.Designer.vb">
+    <Compile Include="Admin\Perfil.Designer.vb">
       <DependentUpon>Perfil.vb</DependentUpon>
     </Compile>
-    <Compile Include="Perfil.vb">
+    <Compile Include="Admin\Perfil.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Empresa.Designer.vb">
+    <Compile Include="Admin\Empresa.Designer.vb">
       <DependentUpon>Empresa.vb</DependentUpon>
     </Compile>
-    <Compile Include="Empresa.vb">
+    <Compile Include="Admin\Empresa.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrystalReport1.vb">
+    <Compile Include="Relatorios\CrystalReport1.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FrmSelecionaChipTransito.Designer.vb">
+    <Compile Include="Selecionar\FrmSelecionaChipTransito.Designer.vb">
       <DependentUpon>FrmSelecionaChipTransito.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSelecionaChipTransito.vb">
+    <Compile Include="Selecionar\FrmSelecionaChipTransito.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GeraMovimentoTransito.Designer.vb">
+    <Compile Include="Estoque\GeraMovimentoTransito.Designer.vb">
       <DependentUpon>GeraMovimentoTransito.vb</DependentUpon>
     </Compile>
-    <Compile Include="GeraMovimentoTransito.vb">
+    <Compile Include="Estoque\GeraMovimentoTransito.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MovimentoEquipamentoQuarentena.Designer.vb">
+    <Compile Include="Estoque\MovimentoEquipamentoQuarentena.Designer.vb">
       <DependentUpon>MovimentoEquipamentoQuarentena.vb</DependentUpon>
     </Compile>
-    <Compile Include="MovimentoEquipamentoQuarentena.vb">
+    <Compile Include="Estoque\MovimentoEquipamentoQuarentena.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ocorrencia.Designer.vb">
+    <Compile Include="OS\Ocorrencia.Designer.vb">
       <DependentUpon>Ocorrencia.vb</DependentUpon>
     </Compile>
-    <Compile Include="Ocorrencia.vb">
+    <Compile Include="OS\Ocorrencia.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OcorrenciaVsLoja.designer.vb">
+    <Compile Include="OS\OcorrenciaVsLoja.designer.vb">
       <DependentUpon>OcorrenciaVsLoja.vb</DependentUpon>
     </Compile>
-    <Compile Include="OcorrenciaVsLoja.vb">
+    <Compile Include="OS\OcorrenciaVsLoja.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PesqFK.Designer.vb">
@@ -399,102 +405,102 @@
     <Compile Include="PesqFK.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PesquisaDinamica2.Designer.vb">
+    <Compile Include="Admin\PesquisaDinamica2.Designer.vb">
       <DependentUpon>PesquisaDinamica2.vb</DependentUpon>
     </Compile>
-    <Compile Include="PesquisaDinamica2.vb">
+    <Compile Include="Admin\PesquisaDinamica2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Publico.vb" />
-    <Compile Include="TabelasPesquisaDinamica.Designer.vb">
+    <Compile Include="Admin\TabelasPesquisaDinamica.Designer.vb">
       <DependentUpon>TabelasPesquisaDinamica.vb</DependentUpon>
     </Compile>
-    <Compile Include="TabelasPesquisaDinamica.vb">
+    <Compile Include="Admin\TabelasPesquisaDinamica.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ParametrosPesquisaDinamica.Designer.vb">
+    <Compile Include="Admin\ParametrosPesquisaDinamica.Designer.vb">
       <DependentUpon>ParametrosPesquisaDinamica.vb</DependentUpon>
     </Compile>
-    <Compile Include="ParametrosPesquisaDinamica.vb">
+    <Compile Include="Admin\ParametrosPesquisaDinamica.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PedidoCompraPeca.Designer.vb">
+    <Compile Include="Compras\PedidoCompraPeca.Designer.vb">
       <DependentUpon>PedidoCompraPeca.vb</DependentUpon>
     </Compile>
-    <Compile Include="PedidoCompraPeca.vb">
+    <Compile Include="Compras\PedidoCompraPeca.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Peca.Designer.vb">
+    <Compile Include="Compras\Peca.Designer.vb">
       <DependentUpon>Peca.vb</DependentUpon>
     </Compile>
-    <Compile Include="Peca.vb">
+    <Compile Include="Compras\Peca.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Finalidade.Designer.vb">
+    <Compile Include="Compras\Finalidade.Designer.vb">
       <DependentUpon>Finalidade.vb</DependentUpon>
     </Compile>
-    <Compile Include="Finalidade.vb">
+    <Compile Include="Compras\Finalidade.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Marca.Designer.vb">
+    <Compile Include="Compras\Marca.Designer.vb">
       <DependentUpon>Marca.vb</DependentUpon>
     </Compile>
-    <Compile Include="Marca.vb">
+    <Compile Include="Compras\Marca.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmailSenha.Designer.vb">
+    <Compile Include="Admin\EmailSenha.Designer.vb">
       <DependentUpon>EmailSenha.vb</DependentUpon>
     </Compile>
-    <Compile Include="EmailSenha.vb">
+    <Compile Include="Admin\EmailSenha.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCadPalavra.Designer.vb">
+    <Compile Include="Admin\frmCadPalavra.Designer.vb">
       <DependentUpon>frmCadPalavra.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmCadPalavra.vb">
+    <Compile Include="Admin\frmCadPalavra.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GmailModule.vb" />
-    <Compile Include="MovimentoEquipamentoInativo.Designer.vb">
+    <Compile Include="Geral\GmailModule.vb" />
+    <Compile Include="Estoque\MovimentoEquipamentoInativo.Designer.vb">
       <DependentUpon>MovimentoEquipamentoInativo.vb</DependentUpon>
     </Compile>
-    <Compile Include="MovimentoEquipamentoInativo.vb">
+    <Compile Include="Estoque\MovimentoEquipamentoInativo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MovimentoChipInativo.Designer.vb">
+    <Compile Include="Estoque\MovimentoChipInativo.Designer.vb">
       <DependentUpon>MovimentoChipInativo.vb</DependentUpon>
     </Compile>
-    <Compile Include="MovimentoChipInativo.vb">
+    <Compile Include="Estoque\MovimentoChipInativo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImportarCadastroLoja.Designer.vb">
+    <Compile Include="ImportaPlanilhas\ImportarCadastroLoja.Designer.vb">
       <DependentUpon>ImportarCadastroLoja.vb</DependentUpon>
     </Compile>
-    <Compile Include="ImportarCadastroLoja.vb">
+    <Compile Include="ImportaPlanilhas\ImportarCadastroLoja.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSelecionaEquipamentoDisponivelDevolucao.Designer.vb">
+    <Compile Include="Selecionar\FrmSelecionaEquipamentoDisponivelDevolucao.Designer.vb">
       <DependentUpon>FrmSelecionaEquipamentoDisponivelDevolucao.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSelecionaEquipamentoDisponivelDevolucao.vb">
+    <Compile Include="Selecionar\FrmSelecionaEquipamentoDisponivelDevolucao.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSelecionaChipDisponivelDevolucao.Designer.vb">
+    <Compile Include="Selecionar\FrmSelecionaChipDisponivelDevolucao.Designer.vb">
       <DependentUpon>FrmSelecionaChipDisponivelDevolucao.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSelecionaChipDisponivelDevolucao.vb">
+    <Compile Include="Selecionar\FrmSelecionaChipDisponivelDevolucao.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSelecionaEquipamentoNaoAlocado.Designer.vb">
+    <Compile Include="Selecionar\FrmSelecionaEquipamentoNaoAlocado.Designer.vb">
       <DependentUpon>FrmSelecionaEquipamentoNaoAlocado.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSelecionaEquipamentoNaoAlocado.vb">
+    <Compile Include="Selecionar\FrmSelecionaEquipamentoNaoAlocado.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSelecionaEstoqueNaoAlocado.Designer.vb">
+    <Compile Include="Selecionar\FrmSelecionaEstoqueNaoAlocado.Designer.vb">
       <DependentUpon>FrmSelecionaEstoqueNaoAlocado.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSelecionaEstoqueNaoAlocado.vb">
+    <Compile Include="Selecionar\FrmSelecionaEstoqueNaoAlocado.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="dbCGDataReport01.Designer.vb">
@@ -505,94 +511,94 @@
     <Compile Include="dbCGDataReport01.vb">
       <DependentUpon>dbCGDataReport01.xsd</DependentUpon>
     </Compile>
-    <Compile Include="rptEstoqueGeralEquipamentoPorLoja.Designer.vb">
+    <Compile Include="Relatorios\rptEstoqueGeralEquipamentoPorLoja.Designer.vb">
       <DependentUpon>rptEstoqueGeralEquipamentoPorLoja.vb</DependentUpon>
     </Compile>
-    <Compile Include="rptEstoqueGeralEquipamentoPorLoja.vb">
+    <Compile Include="Relatorios\rptEstoqueGeralEquipamentoPorLoja.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modelos.Designer.vb">
+    <Compile Include="Admin\Modelos.Designer.vb">
       <DependentUpon>Modelos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Modelos.vb">
+    <Compile Include="Admin\Modelos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImportarEntradaEquipamento.Designer.vb">
+    <Compile Include="ImportaPlanilhas\ImportarEntradaEquipamento.Designer.vb">
       <DependentUpon>ImportarEntradaEquipamento.vb</DependentUpon>
     </Compile>
-    <Compile Include="ImportarEntradaEquipamento.vb">
+    <Compile Include="ImportaPlanilhas\ImportarEntradaEquipamento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImportarEntradaChip.Designer.vb">
+    <Compile Include="ImportaPlanilhas\ImportarEntradaChip.Designer.vb">
       <DependentUpon>ImportarEntradaChip.vb</DependentUpon>
     </Compile>
-    <Compile Include="ImportarEntradaChip.vb">
+    <Compile Include="ImportaPlanilhas\ImportarEntradaChip.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImportarCadastroEquipamento.Designer.vb">
+    <Compile Include="ImportaPlanilhas\ImportarCadastroEquipamento.Designer.vb">
       <DependentUpon>ImportarCadastroEquipamento.vb</DependentUpon>
     </Compile>
-    <Compile Include="ImportarCadastroEquipamento.vb">
+    <Compile Include="ImportaPlanilhas\ImportarCadastroEquipamento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImportarCadastroChip.Designer.vb">
+    <Compile Include="ImportaPlanilhas\ImportarCadastroChip.Designer.vb">
       <DependentUpon>ImportarCadastroChip.vb</DependentUpon>
     </Compile>
-    <Compile Include="ImportarCadastroChip.vb">
+    <Compile Include="ImportaPlanilhas\ImportarCadastroChip.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSelecionaChipVsPOS.Designer.vb">
+    <Compile Include="Selecionar\FrmSelecionaChipVsPOS.Designer.vb">
       <DependentUpon>FrmSelecionaChipVsPOS.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSelecionaChipVsPOS.vb">
+    <Compile Include="Selecionar\FrmSelecionaChipVsPOS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pos_vinculo.Designer.vb">
+    <Compile Include="Antigos\Pos_vinculo.Designer.vb">
       <DependentUpon>Pos_vinculo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Pos_vinculo.vb">
+    <Compile Include="Antigos\Pos_vinculo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recebimento_OS.Designer.vb">
+    <Compile Include="OS\Recebimento_OS.Designer.vb">
       <DependentUpon>Recebimento_OS.vb</DependentUpon>
     </Compile>
-    <Compile Include="Recebimento_OS.vb">
+    <Compile Include="OS\Recebimento_OS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FollowUp_OS.Designer.vb">
+    <Compile Include="OS\FollowUp_OS.Designer.vb">
       <DependentUpon>FollowUp_OS.vb</DependentUpon>
     </Compile>
-    <Compile Include="FollowUp_OS.vb">
+    <Compile Include="OS\FollowUp_OS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OS_Edicao.Designer.vb">
+    <Compile Include="OS\OS_Edicao.Designer.vb">
       <DependentUpon>OS_Edicao.vb</DependentUpon>
     </Compile>
-    <Compile Include="OS_Edicao.vb">
+    <Compile Include="OS\OS_Edicao.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSelecionaEquipamentoOS.Designer.vb">
+    <Compile Include="Selecionar\FrmSelecionaEquipamentoOS.Designer.vb">
       <DependentUpon>FrmSelecionaEquipamentoOS.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSelecionaEquipamentoOS.vb">
+    <Compile Include="Selecionar\FrmSelecionaEquipamentoOS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OS.Designer.vb">
+    <Compile Include="OS\OS.Designer.vb">
       <DependentUpon>OS.vb</DependentUpon>
     </Compile>
-    <Compile Include="OS.vb">
+    <Compile Include="OS\OS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OLD_Estoque_equipamento.Designer.vb">
+    <Compile Include="Estoque\OLD_Estoque_equipamento.Designer.vb">
       <DependentUpon>OLD_Estoque_equipamento.vb</DependentUpon>
     </Compile>
-    <Compile Include="OLD_Estoque_equipamento.vb">
+    <Compile Include="Estoque\OLD_Estoque_equipamento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSelecionaEquipamento.Designer.vb">
+    <Compile Include="Selecionar\FrmSelecionaEquipamento.Designer.vb">
       <DependentUpon>FrmSelecionaEquipamento.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSelecionaEquipamento.vb">
+    <Compile Include="Selecionar\FrmSelecionaEquipamento.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Antigos\DevolucaoEquipamento.Designer.vb">
@@ -619,16 +625,16 @@
     <Compile Include="Antigos\EntradaEquipamento_Edicao.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MovimentoEquipamento.Designer.vb">
+    <Compile Include="Estoque\MovimentoEquipamento.Designer.vb">
       <DependentUpon>MovimentoEquipamento.vb</DependentUpon>
     </Compile>
-    <Compile Include="MovimentoEquipamento.vb">
+    <Compile Include="Estoque\MovimentoEquipamento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecebimentoEquipamento.Designer.vb">
+    <Compile Include="Estoque\RecebimentoEquipamento.Designer.vb">
       <DependentUpon>RecebimentoEquipamento.vb</DependentUpon>
     </Compile>
-    <Compile Include="RecebimentoEquipamento.vb">
+    <Compile Include="Estoque\RecebimentoEquipamento.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Antigos\DevolucaoChip_Edicao.Designer.vb">
@@ -643,22 +649,22 @@
     <Compile Include="Antigos\DevolucaoChip.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Estoque_chip.Designer.vb">
+    <Compile Include="Estoque\Estoque_chip.Designer.vb">
       <DependentUpon>Estoque_chip.vb</DependentUpon>
     </Compile>
-    <Compile Include="Estoque_chip.vb">
+    <Compile Include="Estoque\Estoque_chip.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSelecionaChip.Designer.vb">
+    <Compile Include="Selecionar\FrmSelecionaChip.Designer.vb">
       <DependentUpon>FrmSelecionaChip.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSelecionaChip.vb">
+    <Compile Include="Selecionar\FrmSelecionaChip.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MovimentoChip.Designer.vb">
+    <Compile Include="Estoque\MovimentoChip.Designer.vb">
       <DependentUpon>MovimentoChip.vb</DependentUpon>
     </Compile>
-    <Compile Include="MovimentoChip.vb">
+    <Compile Include="Estoque\MovimentoChip.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Antigos\EntradaChip.Designer.vb">
@@ -667,10 +673,10 @@
     <Compile Include="Antigos\EntradaChip.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Equipamento.Designer.vb">
+    <Compile Include="Cadastros\Equipamento.Designer.vb">
       <DependentUpon>Equipamento.vb</DependentUpon>
     </Compile>
-    <Compile Include="Equipamento.vb">
+    <Compile Include="Cadastros\Equipamento.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Antigos\EntradaChip_Edicao.Designer.vb">
@@ -679,59 +685,59 @@
     <Compile Include="Antigos\EntradaChip_Edicao.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecebimentoChip.Designer.vb">
+    <Compile Include="Estoque\RecebimentoChip.Designer.vb">
       <DependentUpon>RecebimentoChip.vb</DependentUpon>
     </Compile>
-    <Compile Include="RecebimentoChip.vb">
+    <Compile Include="Estoque\RecebimentoChip.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Responsavel.Designer.vb">
+    <Compile Include="Cadastros\Responsavel.Designer.vb">
       <DependentUpon>Responsavel.vb</DependentUpon>
     </Compile>
-    <Compile Include="Responsavel.vb">
+    <Compile Include="Cadastros\Responsavel.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm1.Designer.vb">
+    <Compile Include="Admin\LoginForm1.Designer.vb">
       <DependentUpon>LoginForm1.vb</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm1.vb">
+    <Compile Include="Admin\LoginForm1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Loja.Designer.vb">
+    <Compile Include="Cadastros\Loja.Designer.vb">
       <DependentUpon>Loja.vb</DependentUpon>
     </Compile>
-    <Compile Include="Loja.vb">
+    <Compile Include="Cadastros\Loja.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fornecedores.Designer.vb">
+    <Compile Include="Cadastros\Fornecedores.Designer.vb">
       <DependentUpon>Fornecedores.vb</DependentUpon>
     </Compile>
-    <Compile Include="Fornecedores.vb">
+    <Compile Include="Cadastros\Fornecedores.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="rptEstoqueGeralChipPorLoja.Designer.vb">
+    <Compile Include="Relatorios\rptEstoqueGeralChipPorLoja.Designer.vb">
       <DependentUpon>rptEstoqueGeralChipPorLoja.vb</DependentUpon>
     </Compile>
-    <Compile Include="rptEstoqueGeralChipPorLoja.vb">
+    <Compile Include="Relatorios\rptEstoqueGeralChipPorLoja.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings.vb" />
-    <Compile Include="TrocaSenha.Designer.vb">
+    <Compile Include="Admin\TrocaSenha.Designer.vb">
       <DependentUpon>TrocaSenha.vb</DependentUpon>
     </Compile>
-    <Compile Include="TrocaSenha.vb">
+    <Compile Include="Admin\TrocaSenha.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuario.Designer.vb">
+    <Compile Include="Admin\Usuario.Designer.vb">
       <DependentUpon>Usuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="Usuario.vb">
+    <Compile Include="Admin\Usuario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PesquisaDinamica.Designer.vb">
+    <Compile Include="Admin\PesquisaDinamica.Designer.vb">
       <DependentUpon>PesquisaDinamica.vb</DependentUpon>
     </Compile>
-    <Compile Include="PesquisaDinamica.vb">
+    <Compile Include="Admin\PesquisaDinamica.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Antigos\FornecedorTeste.Designer.vb">
@@ -740,43 +746,43 @@
     <Compile Include="Antigos\FornecedorTeste.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Motivo.Designer.vb">
+    <Compile Include="Cadastros\Motivo.Designer.vb">
       <DependentUpon>Motivo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Motivo.vb">
+    <Compile Include="Cadastros\Motivo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TipoServico.Designer.vb">
+    <Compile Include="Cadastros\TipoServico.Designer.vb">
       <DependentUpon>TipoServico.vb</DependentUpon>
     </Compile>
-    <Compile Include="TipoServico.vb">
+    <Compile Include="Cadastros\TipoServico.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TipoEquipamento.Designer.vb">
+    <Compile Include="Cadastros\TipoEquipamento.Designer.vb">
       <DependentUpon>TipoEquipamento.vb</DependentUpon>
     </Compile>
-    <Compile Include="TipoEquipamento.vb">
+    <Compile Include="Cadastros\TipoEquipamento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StatusOs.Designer.vb">
+    <Compile Include="Cadastros\StatusOs.Designer.vb">
       <DependentUpon>StatusOs.vb</DependentUpon>
     </Compile>
-    <Compile Include="StatusOs.vb">
+    <Compile Include="Cadastros\StatusOs.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Status.Designer.vb">
+    <Compile Include="Cadastros\Status.Designer.vb">
       <DependentUpon>Status.vb</DependentUpon>
     </Compile>
-    <Compile Include="Status.vb">
+    <Compile Include="Cadastros\Status.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="dbCGDataSet.vb">
       <DependentUpon>dbCGDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Sequencial.Designer.vb">
+    <Compile Include="Admin\Sequencial.Designer.vb">
       <DependentUpon>Sequencial.vb</DependentUpon>
     </Compile>
-    <Compile Include="Sequencial.vb">
+    <Compile Include="Admin\Sequencial.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="dbCGDataSet.Designer.vb">
@@ -784,41 +790,41 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbCGDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Modulo.Designer.vb">
+    <Compile Include="Admin\Modulo.Designer.vb">
       <DependentUpon>Modulo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Modulo.vb">
+    <Compile Include="Admin\Modulo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operadora.Designer.vb">
+    <Compile Include="Cadastros\Operadora.Designer.vb">
       <DependentUpon>Operadora.vb</DependentUpon>
     </Compile>
-    <Compile Include="Operadora.vb">
+    <Compile Include="Cadastros\Operadora.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PesquisaGeral.Designer.vb">
+    <Compile Include="Admin\PesquisaGeral.Designer.vb">
       <DependentUpon>PesquisaGeral.vb</DependentUpon>
     </Compile>
-    <Compile Include="PesquisaGeral.vb">
+    <Compile Include="Admin\PesquisaGeral.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cargo.Designer.vb">
+    <Compile Include="Cadastros\Cargo.Designer.vb">
       <DependentUpon>Cargo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Cargo.vb">
+    <Compile Include="Cadastros\Cargo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IUGlobal.vb" />
-    <Compile Include="modeloCadastro.Designer.vb">
+    <Compile Include="Geral\IUGlobal.vb" />
+    <Compile Include="Geral\modeloCadastro.Designer.vb">
       <DependentUpon>modeloCadastro.vb</DependentUpon>
     </Compile>
-    <Compile Include="modeloCadastro.vb">
+    <Compile Include="Geral\modeloCadastro.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal.vb">
+    <Compile Include="Admin\Principal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal.Designer.vb">
+    <Compile Include="Admin\Principal.Designer.vb">
       <DependentUpon>Principal.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -837,31 +843,31 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="UsuarioDuplicaPerfil.Designer.vb">
+    <Compile Include="Admin\UsuarioDuplicaPerfil.Designer.vb">
       <DependentUpon>UsuarioDuplicaPerfil.vb</DependentUpon>
     </Compile>
-    <Compile Include="UsuarioDuplicaPerfil.vb">
+    <Compile Include="Admin\UsuarioDuplicaPerfil.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WaitWindow.Designer.vb">
+    <Compile Include="Geral\WaitWindow.Designer.vb">
       <DependentUpon>WaitWindow.vb</DependentUpon>
     </Compile>
-    <Compile Include="WaitWindow.vb">
+    <Compile Include="Geral\WaitWindow.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WordReport.vb" />
+    <Compile Include="Geral\WordReport.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Alocacao.resx">
+    <EmbeddedResource Include="Cadastros\Alocacao.resx">
       <DependentUpon>Alocacao.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AlternarEmpresaLogin.resx">
+    <EmbeddedResource Include="Admin\AlternarEmpresaLogin.resx">
       <DependentUpon>AlternarEmpresaLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chip.resx">
+    <EmbeddedResource Include="Cadastros\Chip.resx">
       <DependentUpon>Chip.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Acessos.resx">
+    <EmbeddedResource Include="Antigos\Acessos.resx">
       <DependentUpon>Acessos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Antigos\Consulta_Transacoes_Chip.resx">
@@ -870,200 +876,203 @@
     <EmbeddedResource Include="Antigos\Consulta_Transacoes_Equipamento.resx">
       <DependentUpon>Consulta_Transacoes_Equipamento.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Categoria.resx">
+    <EmbeddedResource Include="Compras\Categoria.resx">
       <DependentUpon>Categoria.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Area.resx">
+    <EmbeddedResource Include="Cadastros\Area.resx">
       <DependentUpon>Area.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cadtransito.resx">
+    <EmbeddedResource Include="Cadastros\Cadtransito.resx">
       <DependentUpon>Cadtransito.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BaixaMovimentoTransito.resx">
+    <EmbeddedResource Include="Estoque\BaixaMovimentoTransito.resx">
       <DependentUpon>BaixaMovimentoTransito.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Clientes.resx">
+    <EmbeddedResource Include="Vendas\Clientes.resx">
       <DependentUpon>Clientes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Concertos.resx">
+    <EmbeddedResource Include="OS\Concertos.resx">
       <DependentUpon>Concertos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsultaMovimentoTransitoChip.resx">
+    <EmbeddedResource Include="Estoque\ConsultaMovimentoTransitoChip.resx">
       <DependentUpon>ConsultaMovimentoTransitoChip.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsultaMovimentoTransito.resx">
+    <EmbeddedResource Include="Estoque\ConsultaMovimentoTransito.resx">
       <DependentUpon>ConsultaMovimentoTransito.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsultaEstoque.resx">
+    <EmbeddedResource Include="Estoque\ConsultaEstoque.resx">
       <DependentUpon>ConsultaEstoque.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
+    <EmbeddedResource Include="Geral\Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelecionaItemPedidoVenda.resx">
+    <EmbeddedResource Include="Selecionar\FrmSelecionaItemPedidoVenda.resx">
       <DependentUpon>FrmSelecionaItemPedidoVenda.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelecionaItemTabelaNaoAlocado.resx">
+    <EmbeddedResource Include="Selecionar\FrmSelecionaItemTabelaNaoAlocado.resx">
       <DependentUpon>FrmSelecionaItemTabelaNaoAlocado.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelecionaItemTransito.resx">
+    <EmbeddedResource Include="Selecionar\FrmSelecionaItemTransito.resx">
       <DependentUpon>FrmSelecionaItemTransito.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrTest1.resx">
+    <EmbeddedResource Include="Relatorios\FrTest1.resx">
       <DependentUpon>FrTest1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GeraTransitoGeral.resx">
+    <EmbeddedResource Include="Estoque\GeraTransitoGeral.resx">
       <DependentUpon>GeraTransitoGeral.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LojaHistorico.resx">
+    <EmbeddedResource Include="Cadastros\LojaHistorico.resx">
       <DependentUpon>LojaHistorico.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MovEstoquePOS.resx">
+    <EmbeddedResource Include="Estoque\MovEstoquePOS.resx">
       <DependentUpon>MovEstoquePOS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PedidoVenda.resx">
+    <EmbeddedResource Include="Vendas\PedidoVenda.resx">
       <DependentUpon>PedidoVenda.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PedidoVenda_Edicao.resx">
+    <EmbeddedResource Include="Vendas\PedidoVendasAprovacao.resx">
+      <DependentUpon>PedidoVendasAprovacao.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendas\PedidoVenda_Edicao.resx">
       <DependentUpon>PedidoVenda_Edicao.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Relatorios.resx">
+    <EmbeddedResource Include="Relatorios\Relatorios.resx">
       <DependentUpon>Relatorios.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportPreview.resx">
+    <EmbeddedResource Include="Relatorios\ReportPreview.resx">
       <DependentUpon>ReportPreview.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TabelaPrecos.resx">
+    <EmbeddedResource Include="OS\TabelaPrecos.resx">
       <DependentUpon>TabelaPrecos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransferenciaCadastros.resx">
+    <EmbeddedResource Include="Cadastros\TransferenciaCadastros.resx">
       <DependentUpon>TransferenciaCadastros.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransferenciaEstoque.resx">
+    <EmbeddedResource Include="Estoque\TransferenciaEstoque.resx">
       <DependentUpon>TransferenciaEstoque.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EntradaEstoque.resx">
+    <EmbeddedResource Include="Estoque\EntradaEstoque.resx">
       <DependentUpon>EntradaEstoque.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Perfil.resx">
+    <EmbeddedResource Include="Admin\Perfil.resx">
       <DependentUpon>Perfil.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Empresa.resx">
+    <EmbeddedResource Include="Admin\Empresa.resx">
       <DependentUpon>Empresa.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport1.rpt">
+    <EmbeddedResource Include="Relatorios\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelecionaChipTransito.resx">
+    <EmbeddedResource Include="Selecionar\FrmSelecionaChipTransito.resx">
       <DependentUpon>FrmSelecionaChipTransito.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GeraMovimentoTransito.resx">
+    <EmbeddedResource Include="Estoque\GeraMovimentoTransito.resx">
       <DependentUpon>GeraMovimentoTransito.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MovimentoEquipamentoQuarentena.resx">
+    <EmbeddedResource Include="Estoque\MovimentoEquipamentoQuarentena.resx">
       <DependentUpon>MovimentoEquipamentoQuarentena.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ocorrencia.resx">
+    <EmbeddedResource Include="OS\Ocorrencia.resx">
       <DependentUpon>Ocorrencia.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OcorrenciaVsLoja.resx">
+    <EmbeddedResource Include="OS\OcorrenciaVsLoja.resx">
       <DependentUpon>OcorrenciaVsLoja.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PesqFK.resx">
       <DependentUpon>PesqFK.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PesquisaDinamica2.resx">
+    <EmbeddedResource Include="Admin\PesquisaDinamica2.resx">
       <DependentUpon>PesquisaDinamica2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TabelasPesquisaDinamica.resx">
+    <EmbeddedResource Include="Admin\TabelasPesquisaDinamica.resx">
       <DependentUpon>TabelasPesquisaDinamica.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ParametrosPesquisaDinamica.resx">
+    <EmbeddedResource Include="Admin\ParametrosPesquisaDinamica.resx">
       <DependentUpon>ParametrosPesquisaDinamica.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PedidoCompraPeca.resx">
+    <EmbeddedResource Include="Compras\PedidoCompraPeca.resx">
       <DependentUpon>PedidoCompraPeca.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Peca.resx">
+    <EmbeddedResource Include="Compras\Peca.resx">
       <DependentUpon>Peca.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Finalidade.resx">
+    <EmbeddedResource Include="Compras\Finalidade.resx">
       <DependentUpon>Finalidade.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Marca.resx">
+    <EmbeddedResource Include="Compras\Marca.resx">
       <DependentUpon>Marca.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmailSenha.resx">
+    <EmbeddedResource Include="Admin\EmailSenha.resx">
       <DependentUpon>EmailSenha.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCadPalavra.resx">
+    <EmbeddedResource Include="Admin\frmCadPalavra.resx">
       <DependentUpon>frmCadPalavra.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MovimentoEquipamentoInativo.resx">
+    <EmbeddedResource Include="Estoque\MovimentoEquipamentoInativo.resx">
       <DependentUpon>MovimentoEquipamentoInativo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MovimentoChipInativo.resx">
+    <EmbeddedResource Include="Estoque\MovimentoChipInativo.resx">
       <DependentUpon>MovimentoChipInativo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImportarCadastroLoja.resx">
+    <EmbeddedResource Include="ImportaPlanilhas\ImportarCadastroLoja.resx">
       <DependentUpon>ImportarCadastroLoja.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelecionaEquipamentoDisponivelDevolucao.resx">
+    <EmbeddedResource Include="Selecionar\FrmSelecionaEquipamentoDisponivelDevolucao.resx">
       <DependentUpon>FrmSelecionaEquipamentoDisponivelDevolucao.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelecionaChipDisponivelDevolucao.resx">
+    <EmbeddedResource Include="Selecionar\FrmSelecionaChipDisponivelDevolucao.resx">
       <DependentUpon>FrmSelecionaChipDisponivelDevolucao.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelecionaEquipamentoNaoAlocado.resx">
+    <EmbeddedResource Include="Selecionar\FrmSelecionaEquipamentoNaoAlocado.resx">
       <DependentUpon>FrmSelecionaEquipamentoNaoAlocado.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelecionaEstoqueNaoAlocado.resx">
+    <EmbeddedResource Include="Selecionar\FrmSelecionaEstoqueNaoAlocado.resx">
       <DependentUpon>FrmSelecionaEstoqueNaoAlocado.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptEstoqueGeralEquipamentoPorLoja.resx">
+    <EmbeddedResource Include="Relatorios\rptEstoqueGeralEquipamentoPorLoja.resx">
       <DependentUpon>rptEstoqueGeralEquipamentoPorLoja.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modelos.resx">
+    <EmbeddedResource Include="Admin\Modelos.resx">
       <DependentUpon>Modelos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImportarEntradaEquipamento.resx">
+    <EmbeddedResource Include="ImportaPlanilhas\ImportarEntradaEquipamento.resx">
       <DependentUpon>ImportarEntradaEquipamento.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImportarEntradaChip.resx">
+    <EmbeddedResource Include="ImportaPlanilhas\ImportarEntradaChip.resx">
       <DependentUpon>ImportarEntradaChip.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImportarCadastroEquipamento.resx">
+    <EmbeddedResource Include="ImportaPlanilhas\ImportarCadastroEquipamento.resx">
       <DependentUpon>ImportarCadastroEquipamento.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelecionaChipVsPOS.resx">
+    <EmbeddedResource Include="Selecionar\FrmSelecionaChipVsPOS.resx">
       <DependentUpon>FrmSelecionaChipVsPOS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImportarCadastroChip.resx">
+    <EmbeddedResource Include="ImportaPlanilhas\ImportarCadastroChip.resx">
       <DependentUpon>ImportarCadastroChip.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pos_vinculo.resx">
+    <EmbeddedResource Include="Antigos\Pos_vinculo.resx">
       <DependentUpon>Pos_vinculo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recebimento_OS.resx">
+    <EmbeddedResource Include="OS\Recebimento_OS.resx">
       <DependentUpon>Recebimento_OS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FollowUp_OS.resx">
+    <EmbeddedResource Include="OS\FollowUp_OS.resx">
       <DependentUpon>FollowUp_OS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OS_Edicao.resx">
+    <EmbeddedResource Include="OS\OS_Edicao.resx">
       <DependentUpon>OS_Edicao.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelecionaEquipamentoOS.resx">
+    <EmbeddedResource Include="Selecionar\FrmSelecionaEquipamentoOS.resx">
       <DependentUpon>FrmSelecionaEquipamentoOS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OS.resx">
+    <EmbeddedResource Include="OS\OS.resx">
       <DependentUpon>OS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OLD_Estoque_equipamento.resx">
+    <EmbeddedResource Include="Estoque\OLD_Estoque_equipamento.resx">
       <DependentUpon>OLD_Estoque_equipamento.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelecionaEquipamento.resx">
+    <EmbeddedResource Include="Selecionar\FrmSelecionaEquipamento.resx">
       <DependentUpon>FrmSelecionaEquipamento.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Antigos\DevolucaoEquipamento.resx">
@@ -1078,10 +1087,10 @@
     <EmbeddedResource Include="Antigos\EntradaEquipamento_Edicao.resx">
       <DependentUpon>EntradaEquipamento_Edicao.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MovimentoEquipamento.resx">
+    <EmbeddedResource Include="Estoque\MovimentoEquipamento.resx">
       <DependentUpon>MovimentoEquipamento.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecebimentoEquipamento.resx">
+    <EmbeddedResource Include="Estoque\RecebimentoEquipamento.resx">
       <DependentUpon>RecebimentoEquipamento.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Antigos\DevolucaoChip_Edicao.resx">
@@ -1090,88 +1099,88 @@
     <EmbeddedResource Include="Antigos\DevolucaoChip.resx">
       <DependentUpon>DevolucaoChip.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Estoque_chip.resx">
+    <EmbeddedResource Include="Estoque\Estoque_chip.resx">
       <DependentUpon>Estoque_chip.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelecionaChip.resx">
+    <EmbeddedResource Include="Selecionar\FrmSelecionaChip.resx">
       <DependentUpon>FrmSelecionaChip.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MovimentoChip.resx">
+    <EmbeddedResource Include="Estoque\MovimentoChip.resx">
       <DependentUpon>MovimentoChip.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Antigos\EntradaChip.resx">
       <DependentUpon>EntradaChip.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Equipamento.resx">
+    <EmbeddedResource Include="Cadastros\Equipamento.resx">
       <DependentUpon>Equipamento.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Antigos\EntradaChip_Edicao.resx">
       <DependentUpon>EntradaChip_Edicao.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecebimentoChip.resx">
+    <EmbeddedResource Include="Estoque\RecebimentoChip.resx">
       <DependentUpon>RecebimentoChip.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Responsavel.resx">
+    <EmbeddedResource Include="Cadastros\Responsavel.resx">
       <DependentUpon>Responsavel.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm1.resx">
+    <EmbeddedResource Include="Admin\LoginForm1.resx">
       <DependentUpon>LoginForm1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Loja.resx">
+    <EmbeddedResource Include="Cadastros\Loja.resx">
       <DependentUpon>Loja.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fornecedores.resx">
+    <EmbeddedResource Include="Cadastros\Fornecedores.resx">
       <DependentUpon>Fornecedores.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptEstoqueGeralChipPorLoja.resx">
+    <EmbeddedResource Include="Relatorios\rptEstoqueGeralChipPorLoja.resx">
       <DependentUpon>rptEstoqueGeralChipPorLoja.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TrocaSenha.resx">
+    <EmbeddedResource Include="Admin\TrocaSenha.resx">
       <DependentUpon>TrocaSenha.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuario.resx">
+    <EmbeddedResource Include="Admin\Usuario.resx">
       <DependentUpon>Usuario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PesquisaDinamica.resx">
+    <EmbeddedResource Include="Admin\PesquisaDinamica.resx">
       <DependentUpon>PesquisaDinamica.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Antigos\FornecedorTeste.resx">
       <DependentUpon>FornecedorTeste.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Motivo.resx">
+    <EmbeddedResource Include="Cadastros\Motivo.resx">
       <DependentUpon>Motivo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TipoServico.resx">
+    <EmbeddedResource Include="Cadastros\TipoServico.resx">
       <DependentUpon>TipoServico.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TipoEquipamento.resx">
+    <EmbeddedResource Include="Cadastros\TipoEquipamento.resx">
       <DependentUpon>TipoEquipamento.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StatusOs.resx">
+    <EmbeddedResource Include="Cadastros\StatusOs.resx">
       <DependentUpon>StatusOs.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Status.resx">
+    <EmbeddedResource Include="Cadastros\Status.resx">
       <DependentUpon>Status.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sequencial.resx">
+    <EmbeddedResource Include="Admin\Sequencial.resx">
       <DependentUpon>Sequencial.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modulo.resx">
+    <EmbeddedResource Include="Admin\Modulo.resx">
       <DependentUpon>Modulo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operadora.resx">
+    <EmbeddedResource Include="Cadastros\Operadora.resx">
       <DependentUpon>Operadora.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PesquisaGeral.resx">
+    <EmbeddedResource Include="Admin\PesquisaGeral.resx">
       <DependentUpon>PesquisaGeral.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cargo.resx">
+    <EmbeddedResource Include="Cadastros\Cargo.resx">
       <DependentUpon>Cargo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="modeloCadastro.resx">
+    <EmbeddedResource Include="Geral\modeloCadastro.resx">
       <DependentUpon>modeloCadastro.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal.resx">
+    <EmbeddedResource Include="Admin\Principal.resx">
       <DependentUpon>Principal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -1180,10 +1189,10 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsuarioDuplicaPerfil.resx">
+    <EmbeddedResource Include="Admin\UsuarioDuplicaPerfil.resx">
       <DependentUpon>UsuarioDuplicaPerfil.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WaitWindow.resx">
+    <EmbeddedResource Include="Geral\WaitWindow.resx">
       <DependentUpon>WaitWindow.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -1318,6 +1327,7 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
