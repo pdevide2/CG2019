@@ -152,7 +152,7 @@ Public Class PedidoVenda
 
     Public Overrides Sub Gravar(acao As Integer)
         'MyBase.Gravar(acao)
-
+        'Grava somente os itens com Status = 1
         If Not ValidaCampos() Then
             Exit Sub
         End If
@@ -164,6 +164,7 @@ Public Class PedidoVenda
         Dim objPedidoVendaItem As New DTO.Cg_pedidovenda_itens
 
         Dim llErro As Boolean = True
+        Dim intStatus_Item As Integer = 1
 
         Try
 
@@ -179,12 +180,17 @@ Public Class PedidoVenda
 
                 If Not row.IsNewRow Then
 
+                    If String.IsNullOrEmpty(row.Cells("STATUS_ITEM").Value) Then
+                        intStatus_Item = 1
+                    Else
+                        intStatus_Item = CInt(row.Cells("STATUS_ITEM").Value)
+                    End If
                     'Carrega os dados no objeto Model para passagem de parametro
                     objPedidoVendaItem.Id_pedido = CInt(txtCodigo.Text)
                     objPedidoVendaItem.Id_equipamento = CInt(row.Cells("id_equipamento").Value)
                     objPedidoVendaItem.Qtde = 1
                     objPedidoVendaItem.Preco_venda = Convert.ToDouble(Replace(row.Cells("preco_venda").Value, ".", ","))
-                    objPedidoVendaItem.Status_item = 1
+                    objPedidoVendaItem.Status_item = intStatus_Item  '1
                     objPedidoVendaItem.Data_baixa = Nothing
                     objPedidoVendaItem.Cancel = CBool(row.Cells("cancel").Value)
                     'Operação de delete/insert/update

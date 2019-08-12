@@ -257,7 +257,24 @@
     'Alimenta o DataGridView da tela pai e fecha o form depois
     Private Sub AdicionaEscolhidos()
 
-        Dim intReg As Integer = Me.GridPai.RowCount
+        Dim intReg As Integer
+        Dim valorMaior As Integer = 0
+        Dim valorLido As Integer = 0
+        For Each row As DataGridViewRow In Me.GridPai.Rows
+
+            If Not row.IsNewRow Then
+
+                'Carrega os dados no objeto Model para passagem de parametro
+                valorLido = CInt(row.Cells("ITEM_ID").Value)
+                If valorLido > valorMaior Then
+                    valorMaior = valorLido
+                End If
+
+            End If
+
+        Next
+
+        intReg = valorMaior
         Dim blnSt As Boolean = False
 
         Try
@@ -274,7 +291,7 @@
                             'Le os dados da lista de array e converte tudo para String, coluna por coluna e 
                             'armazena no array de Strings strLinha, que posteriormente será adicionado no Grid
                             intReg += 1
-
+                            'intReg = proximoIdOS(GridPai)
                             strLinha = {"Editar", _
                                         "Ocorrência", _
                                         Me.ChavePai, _
@@ -406,4 +423,6 @@
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+
+
 End Class

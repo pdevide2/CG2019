@@ -994,4 +994,5 @@ Module IUGlobal
         Return objPermissaoModulo1
     End Function
 
+
 End Module
