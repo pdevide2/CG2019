@@ -172,6 +172,7 @@
     <Compile Include="Os_retornoBLL.vb" />
     <Compile Include="Parametro_pesquisa_dinamicaBLL.vb" />
     <Compile Include="PecaBLL.vb" />
+    <Compile Include="PedidoVendaAprovarBLL.vb" />
     <Compile Include="PedidovendaBLL.vb" />
     <Compile Include="Pedidovenda_itensBLL.vb" />
     <Compile Include="Pedido_compra_pecaBLL.vb" />

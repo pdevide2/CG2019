@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="Cg_acesso.vb" />
     <Compile Include="Cg_alocacao.vb" />
+    <Compile Include="Cg_AprovaPedidoVenda.vb" />
     <Compile Include="Cg_area.vb" />
     <Compile Include="Cg_cargo.vb" />
     <Compile Include="Cg_categoria.vb" />

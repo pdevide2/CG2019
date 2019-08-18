@@ -239,6 +239,7 @@ Public Class PedidoVenda
             txtStatus.Text = "EM ABERTO" '& strId_Controle.Substring(strId_Controle.Length - 4, 4)
             txtData.Text = ShortDate()
             txtUltimaAlteracao.Text = Hoje()
+            txtPrevisaoEntrega.Text = SomaData("D", 1, ShortDate())
             Habilita_Controles(True) 'modo digitação
             CarregaGrid()
 
@@ -437,7 +438,7 @@ Public Class PedidoVenda
         For ixx = 1 To 10
             dgvDados.Columns(ixx).ReadOnly = True 'Todas as colunas Textbox são ReadOnly
         Next
-        dgvDados.Columns(11).ReadOnly = False ' coluna cancel
+        dgvDados.Columns(11).ReadOnly = True ' coluna cancel
 
         dgvDados.AllowUserToAddRows = False     'bloqueia adição de novas linhas
         dgvDados.AllowUserToDeleteRows = False  'bloqueia exclusão de linhas
@@ -511,6 +512,12 @@ Public Class PedidoVenda
         'If cboStatus.Text.Equals("EM PROCESSO") Then
         '    _modoedicao = Operacao.Consulta
         'End If
+        If _modoedicao = Operacao.Alterar Then
+            If CInt(dgvDados.CurrentRow.Cells("status_item").Value) > 1 Then
+                MessageBox.Show("Alteração não permitida para este item!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                _modoedicao = Operacao.Consulta
+            End If
+        End If
         Dim frm As New WinCG.PedidoVenda_Edicao(_modoedicao, dgvDados, CInt(txtCodigo.Text), _linhaGrid)
         frm.ShowDialog()
 

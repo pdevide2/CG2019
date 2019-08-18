@@ -60,6 +60,10 @@
         End Set
     End Property
 
+    'Cria uma lista de inteiros com os valores lidos do Grid da tela Pai do campo ITEM_ID
+    'Quando inclui um novo item, é feita uma pesquisa do range de 1 a 1000 e o numero não
+    'encontrado é retornado na função buscaDisponivel() para ser o proximo SEQUENCIAL do campo ITEM_ID
+    Dim listaCodigos As List(Of Integer)
 
     Public Sub New(ByVal _id As Integer, ByVal _idlojaorigem As Integer, ByRef _gridDados As DataGridView)
 
@@ -258,23 +262,6 @@
     Private Sub AdicionaEscolhidos()
 
         Dim intReg As Integer
-        Dim valorMaior As Integer = 0
-        Dim valorLido As Integer = 0
-        For Each row As DataGridViewRow In Me.GridPai.Rows
-
-            If Not row.IsNewRow Then
-
-                'Carrega os dados no objeto Model para passagem de parametro
-                valorLido = CInt(row.Cells("ITEM_ID").Value)
-                If valorLido > valorMaior Then
-                    valorMaior = valorLido
-                End If
-
-            End If
-
-        Next
-
-        intReg = valorMaior
         Dim blnSt As Boolean = False
 
         Try
@@ -290,21 +277,22 @@
 
                             'Le os dados da lista de array e converte tudo para String, coluna por coluna e 
                             'armazena no array de Strings strLinha, que posteriormente será adicionado no Grid
-                            intReg += 1
-                            'intReg = proximoIdOS(GridPai)
-                            strLinha = {"Editar", _
-                                        "Ocorrência", _
-                                        Me.ChavePai, _
-                                        intReg.ToString, _
-                                        row.Cells(1).Value.ToString, _
-                                        row.Cells(4).Value.ToString, _
-                                        row.Cells(2).Value.ToString, _
-                                        row.Cells(3).Value.ToString, _
-                                        SomaData("D", 7, Hoje()).ToString("dd/MM/yyyy"), _
-                                        "Com Defeito. Enviado para assistência técnica em " & CDate(Hoje()).ToString("dd/MM/yyyy"), _
-                                        blnSt.ToString, _
-                                        row.Cells(7).Value.ToString, _
-                                        row.Cells(8).Value.ToString, _
+                            'intReg += 1
+                            intReg = buscaDisponivel()
+
+                            strLinha = {"Editar",
+                                        "Ocorrência",
+                                        Me.ChavePai,
+                                        intReg.ToString,
+                                        row.Cells(1).Value.ToString,
+                                        row.Cells(4).Value.ToString,
+                                        row.Cells(2).Value.ToString,
+                                        row.Cells(3).Value.ToString,
+                                        SomaData("D", 7, Hoje()).ToString("dd/MM/yyyy"),
+                                        "Com Defeito. Enviado para assistência técnica em " & CDate(Hoje()).ToString("dd/MM/yyyy"),
+                                        blnSt.ToString,
+                                        row.Cells(7).Value.ToString,
+                                        row.Cells(8).Value.ToString,
                                         row.Cells(9).Value.ToString}
 
                             Me.GridPai.Rows.Add(strLinha)
@@ -424,5 +412,47 @@
         End Try
     End Sub
 
+    Private Sub criarLista()
+
+        listaCodigos = New List(Of Integer)()
+
+        'listaCodigos.Add(New ListOfOSItem(1))
+
+        For Each row As DataGridViewRow In Me.GridPai.Rows
+
+            If Not row.IsNewRow Then
+
+                'Carrega os dados no objeto Model para passagem de parametro
+                listaCodigos.Add(CInt(row.Cells("ITEM_ID").Value))
+
+            End If
+
+        Next
+
+    End Sub
+
+    Private Function buscaDisponivel() As Integer
+
+        criarLista()
+
+        Dim retCodigo As Integer
+
+        For i = 1 To 1000
+
+            retCodigo = listaCodigos.IndexOf(i)
+
+            If retCodigo = -1 Then
+
+                retCodigo = i
+
+                Exit For
+
+            End If
+
+        Next
+
+        Return retCodigo
+
+    End Function
 
 End Class
