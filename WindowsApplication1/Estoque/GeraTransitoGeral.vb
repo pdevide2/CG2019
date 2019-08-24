@@ -673,4 +673,11 @@
 
         Me.Close()
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'Adiciona item de pedido de vendas com Status = 2 (aprovado pela gerencia)
+        Dim frm As New WinCG.frmSelecionaItemTransito(PesqFkTransito.txtId.Text, dgvDados2, "spSelecionaEstoqueEQUIPAMENTOLoja", True)
+        frm.ShowDialog()
+
+    End Sub
 End Class

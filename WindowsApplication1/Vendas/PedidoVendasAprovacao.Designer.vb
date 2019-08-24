@@ -32,9 +32,9 @@ Partial Class PedidoVendasAprovacao
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.rbAnalise = New System.Windows.Forms.RadioButton()
-        Me.rbAprovar = New System.Windows.Forms.RadioButton()
         Me.rbReprovar = New System.Windows.Forms.RadioButton()
+        Me.rbAprovar = New System.Windows.Forms.RadioButton()
+        Me.rbAnalise = New System.Windows.Forms.RadioButton()
         Me.txtPedido = New System.Windows.Forms.TextBox()
         Me.txtItem = New System.Windows.Forms.TextBox()
         Me.txtIdEquipamento = New System.Windows.Forms.TextBox()
@@ -43,6 +43,12 @@ Partial Class PedidoVendasAprovacao
         Me.txtPrecoVenda = New System.Windows.Forms.TextBox()
         Me.txtDataCadastro = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtCliente = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtDescEquipamento = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtDescTipoEquipamento = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -119,7 +125,7 @@ Partial Class PedidoVendasAprovacao
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(233, 91)
+        Me.Label5.Location = New System.Drawing.Point(233, 210)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(31, 13)
         Me.Label5.TabIndex = 8
@@ -128,7 +134,7 @@ Partial Class PedidoVendasAprovacao
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(490, 91)
+        Me.Label6.Location = New System.Drawing.Point(490, 210)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(69, 13)
         Me.Label6.TabIndex = 9
@@ -139,24 +145,24 @@ Partial Class PedidoVendasAprovacao
         Me.GroupBox1.Controls.Add(Me.rbReprovar)
         Me.GroupBox1.Controls.Add(Me.rbAprovar)
         Me.GroupBox1.Controls.Add(Me.rbAnalise)
-        Me.GroupBox1.Location = New System.Drawing.Point(234, 177)
+        Me.GroupBox1.Location = New System.Drawing.Point(234, 296)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(327, 63)
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Status do Item"
         '
-        'rbAnalise
+        'rbReprovar
         '
-        Me.rbAnalise.AutoSize = True
-        Me.rbAnalise.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbAnalise.Location = New System.Drawing.Point(6, 28)
-        Me.rbAnalise.Name = "rbAnalise"
-        Me.rbAnalise.Size = New System.Drawing.Size(106, 21)
-        Me.rbAnalise.TabIndex = 0
-        Me.rbAnalise.TabStop = True
-        Me.rbAnalise.Text = "Em Análise"
-        Me.rbAnalise.UseVisualStyleBackColor = True
+        Me.rbReprovar.AutoSize = True
+        Me.rbReprovar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbReprovar.Location = New System.Drawing.Point(223, 28)
+        Me.rbReprovar.Name = "rbReprovar"
+        Me.rbReprovar.Size = New System.Drawing.Size(93, 21)
+        Me.rbReprovar.TabIndex = 2
+        Me.rbReprovar.TabStop = True
+        Me.rbReprovar.Text = "Reprovar"
+        Me.rbReprovar.UseVisualStyleBackColor = True
         '
         'rbAprovar
         '
@@ -170,17 +176,17 @@ Partial Class PedidoVendasAprovacao
         Me.rbAprovar.Text = "Aprovar"
         Me.rbAprovar.UseVisualStyleBackColor = True
         '
-        'rbReprovar
+        'rbAnalise
         '
-        Me.rbReprovar.AutoSize = True
-        Me.rbReprovar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbReprovar.Location = New System.Drawing.Point(223, 28)
-        Me.rbReprovar.Name = "rbReprovar"
-        Me.rbReprovar.Size = New System.Drawing.Size(93, 21)
-        Me.rbReprovar.TabIndex = 2
-        Me.rbReprovar.TabStop = True
-        Me.rbReprovar.Text = "Reprovar"
-        Me.rbReprovar.UseVisualStyleBackColor = True
+        Me.rbAnalise.AutoSize = True
+        Me.rbAnalise.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbAnalise.Location = New System.Drawing.Point(6, 28)
+        Me.rbAnalise.Name = "rbAnalise"
+        Me.rbAnalise.Size = New System.Drawing.Size(106, 21)
+        Me.rbAnalise.TabIndex = 0
+        Me.rbAnalise.TabStop = True
+        Me.rbAnalise.Text = "Em Análise"
+        Me.rbAnalise.UseVisualStyleBackColor = True
         '
         'txtPedido
         '
@@ -221,7 +227,7 @@ Partial Class PedidoVendasAprovacao
         'txtSerie
         '
         Me.txtSerie.Enabled = False
-        Me.txtSerie.Location = New System.Drawing.Point(320, 87)
+        Me.txtSerie.Location = New System.Drawing.Point(320, 206)
         Me.txtSerie.Name = "txtSerie"
         Me.txtSerie.Size = New System.Drawing.Size(164, 20)
         Me.txtSerie.TabIndex = 15
@@ -229,7 +235,7 @@ Partial Class PedidoVendasAprovacao
         'txtPrecoVenda
         '
         Me.txtPrecoVenda.Enabled = False
-        Me.txtPrecoVenda.Location = New System.Drawing.Point(566, 87)
+        Me.txtPrecoVenda.Location = New System.Drawing.Point(566, 206)
         Me.txtPrecoVenda.Name = "txtPrecoVenda"
         Me.txtPrecoVenda.Size = New System.Drawing.Size(100, 20)
         Me.txtPrecoVenda.TabIndex = 16
@@ -237,7 +243,7 @@ Partial Class PedidoVendasAprovacao
         'txtDataCadastro
         '
         Me.txtDataCadastro.Enabled = False
-        Me.txtDataCadastro.Location = New System.Drawing.Point(320, 124)
+        Me.txtDataCadastro.Location = New System.Drawing.Point(320, 243)
         Me.txtDataCadastro.Name = "txtDataCadastro"
         Me.txtDataCadastro.Size = New System.Drawing.Size(137, 20)
         Me.txtDataCadastro.TabIndex = 18
@@ -245,17 +251,74 @@ Partial Class PedidoVendasAprovacao
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(233, 128)
+        Me.Label7.Location = New System.Drawing.Point(233, 247)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(75, 13)
         Me.Label7.TabIndex = 17
         Me.Label7.Text = "Data Cadastro"
+        '
+        'txtCliente
+        '
+        Me.txtCliente.Enabled = False
+        Me.txtCliente.Location = New System.Drawing.Point(320, 91)
+        Me.txtCliente.Name = "txtCliente"
+        Me.txtCliente.Size = New System.Drawing.Size(445, 20)
+        Me.txtCliente.TabIndex = 20
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(233, 95)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(39, 13)
+        Me.Label8.TabIndex = 19
+        Me.Label8.Text = "Cliente"
+        '
+        'txtDescEquipamento
+        '
+        Me.txtDescEquipamento.Enabled = False
+        Me.txtDescEquipamento.Location = New System.Drawing.Point(320, 132)
+        Me.txtDescEquipamento.Name = "txtDescEquipamento"
+        Me.txtDescEquipamento.Size = New System.Drawing.Size(445, 20)
+        Me.txtDescEquipamento.TabIndex = 22
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(233, 136)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(74, 13)
+        Me.Label9.TabIndex = 21
+        Me.Label9.Text = "Desc. Equipto"
+        '
+        'txtDescTipoEquipamento
+        '
+        Me.txtDescTipoEquipamento.Enabled = False
+        Me.txtDescTipoEquipamento.Location = New System.Drawing.Point(320, 171)
+        Me.txtDescTipoEquipamento.Name = "txtDescTipoEquipamento"
+        Me.txtDescTipoEquipamento.Size = New System.Drawing.Size(445, 20)
+        Me.txtDescTipoEquipamento.TabIndex = 24
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(233, 175)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(67, 13)
+        Me.Label10.TabIndex = 23
+        Me.Label10.Text = "Tipo Equipto"
         '
         'PedidoVendasAprovacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(779, 475)
+        Me.Controls.Add(Me.txtDescTipoEquipamento)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.txtDescEquipamento)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.txtCliente)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtDataCadastro)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txtPrecoVenda)
@@ -304,4 +367,10 @@ Partial Class PedidoVendasAprovacao
     Friend WithEvents txtPrecoVenda As TextBox
     Friend WithEvents txtDataCadastro As TextBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents txtCliente As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents txtDescEquipamento As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txtDescTipoEquipamento As TextBox
+    Friend WithEvents Label10 As Label
 End Class

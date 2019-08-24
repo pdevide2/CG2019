@@ -196,6 +196,7 @@
     </Compile>
     <Compile Include="ParametrosReportPreview.vb" />
     <Compile Include="Parametros_report_os.vb" />
+    <Compile Include="PedidoVendaItemInfo.vb" />
     <Compile Include="PermissaoModulo.vb" />
     <Compile Include="PesquisaFK.vb" />
   </ItemGroup>

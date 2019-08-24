@@ -33,6 +33,7 @@ Partial Class GeraTransitoGeral
         Me.dgvDados2 = New System.Windows.Forms.DataGridView()
         Me.btnAdicionaPOS = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -109,6 +110,7 @@ Partial Class GeraTransitoGeral
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Button2)
         Me.GroupBox2.Controls.Add(Me.btnExcluiPOS)
         Me.GroupBox2.Controls.Add(Me.dgvDados2)
         Me.GroupBox2.Controls.Add(Me.btnAdicionaPOS)
@@ -162,6 +164,17 @@ Partial Class GeraTransitoGeral
         Me.Button1.Text = "Confirmar"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Button2
+        '
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(567, 166)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(222, 23)
+        Me.Button2.TabIndex = 29
+        Me.Button2.Text = "Adicionar Item de Pedido de Venda"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'GeraTransitoGeral
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -195,4 +208,5 @@ Partial Class GeraTransitoGeral
     Friend WithEvents dgvDados2 As DataGridView
     Friend WithEvents btnAdicionaPOS As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 End Class

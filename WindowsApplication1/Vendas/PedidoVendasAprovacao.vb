@@ -34,6 +34,9 @@
     End Sub
 
     Private Sub DgvDados_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDados.CellEnter
+
+        Dim BLLInfo As New BLL.Pedidovenda_itensBLL
+
         txtPedido.Text = dgvDados.CurrentRow.Cells("ID_PEDIDO").Value
         txtItem.Text = dgvDados.CurrentRow.Cells("item").Value
         txtIdEquipamento.Text = dgvDados.CurrentRow.Cells("id_equipamento").Value
@@ -41,6 +44,13 @@
         txtSerie.Text = dgvDados.CurrentRow.Cells("serie").Value
         txtPrecoVenda.Text = dgvDados.CurrentRow.Cells("preco_venda").Value
         txtDataCadastro.Text = dgvDados.CurrentRow.Cells("data_cadastro").Value
+
+        Dim objInfoItem = BLLInfo.InfoPedidoVendaItemBLL(CInt(txtPedido.Text), CInt(txtIdEquipamento.Text))
+
+        txtCliente.Text = objInfoItem.NomeCliente
+        txtDescEquipamento.Text = objInfoItem.DescEquipamento
+        txtDescTipoEquipamento.Text = objInfoItem.DescTipoEquipamento
+
 
         If CInt(dgvDados.CurrentRow.Cells("status_item").Value) = 1 Then
             rbAnalise.Checked = True

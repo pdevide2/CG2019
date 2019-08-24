@@ -97,6 +97,23 @@
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
+    'Construtor para selecionar somente itens aprovados de Pedidos de Venda
+    Public Sub New(ByVal _transito As String, ByRef _gridDados As DataGridView, _procSQL As String, ByVal blnSelecionaPedidoVenda As Boolean)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+
+
+        Me.GridPai = _gridDados
+        Me.LojaOrigem = "1"
+        Me.ProcSQL = _procSQL
+        Me.Transito = _transito
+        CarregaComboEmpresa()
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
+
     Public Sub Carregar()
         Dim sql As String
         sql = "EXEC " & Me.ProcSQL & " "
