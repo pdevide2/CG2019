@@ -240,37 +240,47 @@ Public Class ConsultaMovimentoTransito
 
 
     Private Sub dgvDados_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles dgvDados.RowPrePaint
-        Dim _id_dest As String
-        _id_dest = IIf(IsDBNull(dgvDados.Rows(e.RowIndex).Cells("ID_DESTINO").Value), "", "*")
+        Try
+            Dim _id_dest As String
+            _id_dest = IIf(IsDBNull(dgvDados.Rows(e.RowIndex).Cells("ID_DESTINO").Value), "", "*")
 
-        If String.IsNullOrWhiteSpace(_id_dest) Then
-            For ixx = 0 To dgvDados.ColumnCount - 1
-                dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.Red
-                dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.White
-            Next
-        Else
-            For ixx = 0 To dgvDados.ColumnCount - 1
-                dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.Black
-                dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.White
-            Next
-        End If
+            If String.IsNullOrWhiteSpace(_id_dest) Then
+                For ixx = 0 To dgvDados.ColumnCount - 1
+                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.Red
+                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.White
+                Next
+            Else
+                For ixx = 0 To dgvDados.ColumnCount - 1
+                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.Black
+                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.White
+                Next
+            End If
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub dgvDados2_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles dgvDados2.RowPrePaint
-        Dim _id_dest As String
-        _id_dest = IIf(IsDBNull(dgvDados2.Rows(e.RowIndex).Cells("ID_DESTINO").Value), "", "*")
+        Try
+            Dim _id_dest As String
+            _id_dest = IIf(IsDBNull(dgvDados2.Rows(e.RowIndex).Cells("ID_DESTINO").Value), "", "*")
 
-        If String.IsNullOrWhiteSpace(_id_dest) Then
-            For ixx = 0 To dgvDados.ColumnCount - 1
-                dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.Red
-                dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.White
-            Next
-        Else
-            For ixx = 0 To dgvDados.ColumnCount - 1
-                dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.Black
-                dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.White
-            Next
-        End If
+            If String.IsNullOrWhiteSpace(_id_dest) Then
+                For ixx = 0 To dgvDados.ColumnCount - 1
+                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.Red
+                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.White
+                Next
+            Else
+                For ixx = 0 To dgvDados.ColumnCount - 1
+                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.Black
+                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.White
+                Next
+            End If
+
+        Catch ex As Exception
+
+        End Try
     End Sub
     Private Sub UpdateFont()
 

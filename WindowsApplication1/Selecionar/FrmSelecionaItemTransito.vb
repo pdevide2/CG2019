@@ -80,7 +80,15 @@
             _idLoja = value
         End Set
     End Property
-
+    Private _isSalesOrder As Boolean
+    Public Property IsSalesOrder() As Boolean
+        Get
+            Return _isSalesOrder
+        End Get
+        Set(ByVal value As Boolean)
+            _isSalesOrder = value
+        End Set
+    End Property
 
     Public Sub New(ByVal _transito As String, ByRef _gridDados As DataGridView, _procSQL As String)
 
@@ -93,6 +101,7 @@
         Me.LojaOrigem = "0"
         Me.ProcSQL = _procSQL
         Me.Transito = _transito
+        Me.IsSalesOrder = False
         CarregaComboEmpresa()
         ' Add any initialization after the InitializeComponent() call.
 
@@ -109,6 +118,8 @@
         Me.LojaOrigem = "1"
         Me.ProcSQL = _procSQL
         Me.Transito = _transito
+        Me.IsSalesOrder = True 'Na hora de gerar o transito, marca que a origem é de Pedido de Venda, pois na baixa do Transito tem que 
+        'Selecionar um cliente ao inves de uma Loja
         CarregaComboEmpresa()
         ' Add any initialization after the InitializeComponent() call.
 
@@ -292,7 +303,9 @@
 
                             'Le os dados da lista de array e converte tudo para String, coluna por coluna e 
                             'armazena no array de Strings strLinha, que posteriormente será adicionado no Grid
-                            strLinha = {"Visualizar",
+                            If IsSalesOrder = False Then
+
+                                strLinha = {"Visualizar",
                                         row.Cells(1).Value.ToString,
                                         row.Cells(2).Value.ToString,
                                         row.Cells(3).Value.ToString,
@@ -301,7 +314,19 @@
                                         row.Cells(6).Value.ToString,
                                         PesqFKLojaOrigem.txtId.Text,
                                         Label3.Text}
+                            Else
+                                strLinha = {"Visualizar",
+                                        row.Cells(1).Value.ToString,
+                                        row.Cells(2).Value.ToString,
+                                        row.Cells(3).Value.ToString,
+                                        row.Cells(4).Value.ToString,
+                                        "1",
+                                        row.Cells(6).Value.ToString,
+                                        PesqFKLojaOrigem.txtId.Text,
+                                        Label3.Text,
+                                        True}
 
+                            End If
                             If validaDuplicidade(row.Cells(1).Value.ToString) = False Then
                                 Me.GridPai.Rows.Add(strLinha)
                             Else

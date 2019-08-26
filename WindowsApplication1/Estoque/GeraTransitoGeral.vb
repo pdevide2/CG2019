@@ -318,7 +318,7 @@
                     sql += ",[USER_INS]"
                     sql += ",[DATA_LANCTO]"
                     sql += ",[ID_DESTINO]"
-                    sql += ",[DATA_MOV_DESTINO], [ID_EMPRESA])"
+                    sql += ",[DATA_MOV_DESTINO], [ID_EMPRESA], [PEDIDO_VENDA])"
                     sql += " VALUES(" & PesqFkTransito.txtId.Text & ","
                     sql += row.Cells("ID_LOJA").Value & ","
                     sql += row.Cells("ID_EQUIPAMENTO").Value & " ,"
@@ -326,7 +326,7 @@
                     sql += ACE_CODIGO.ToString & " ,"
                     sql += "GETDATE(),"
                     sql += "NULL,"
-                    sql += "NULL, " & row.Cells("ID_EMPRESA").Value & ")"
+                    sql += "NULL, " & row.Cells("ID_EMPRESA").Value & ", " & IIf(CBool(row.Cells("sales_order").Value) = True, "1", "0") & ")"
 
                     bllGlobal.GravarGenericoBLL(sql)
 
@@ -498,7 +498,7 @@
         Dim sql As String
 
         sql = "select 'Visualizar' as botao, ID_EQUIPAMENTO,SERIE,DESC_EQUIPAMENTO,MODELO,"
-        sql += "ESTOQUE AS QTD,VALOR, ID_LOCAL_ESTOQUE AS ID_LOJA, ID_EMPRESA "
+        sql += "ESTOQUE AS QTD,VALOR, ID_LOCAL_ESTOQUE AS ID_LOJA, ID_EMPRESA, CAST(0 AS BIT) AS SALES_ORDER "
         sql += " from VW_CG_ESTOQUE_EQUIPAMENTO "
 
         Me.Comando = sql
@@ -515,6 +515,7 @@
         Dim colValor As DataGridViewTextBoxColumn
         Dim colLoja As DataGridViewTextBoxColumn
         Dim colEmpresa As DataGridViewTextBoxColumn
+        Dim colSalesOrder As DataGridViewCheckBoxColumn
 
         '*******>> Configura as colunas
         'coluna botao
@@ -562,6 +563,11 @@
         colEmpresa.HeaderText = "Empresa"
         colEmpresa.Name = "ID_EMPRESA"
 
+        colSalesOrder = New DataGridViewCheckBoxColumn
+        colSalesOrder.HeaderText = "Pedido Venda"
+        colSalesOrder.Name = "sales_order"
+
+
         'Reset no Grid
         dgvDados2.DataSource = Nothing
         dgvDados2.Rows.Clear()
@@ -572,7 +578,7 @@
 
         'Adicionar estas colunas para a coleçao do DataGridView
         dgvDados2.Columns.AddRange(New DataGridViewColumn() {colBotao, colId_Equipamento, colSerie, colDescricao,
-                                                            colModelo, colQtd, colValor, colLoja, colEmpresa})
+                                                            colModelo, colQtd, colValor, colLoja, colEmpresa, colSalesOrder})
 
         'dgvDados.DataSource = myRow
         Popula_Grid("E")
@@ -676,7 +682,7 @@
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'Adiciona item de pedido de vendas com Status = 2 (aprovado pela gerencia)
-        Dim frm As New WinCG.frmSelecionaItemTransito(PesqFkTransito.txtId.Text, dgvDados2, "spSelecionaEstoqueEQUIPAMENTOLoja", True)
+        Dim frm As New WinCG.frmSelecionaItemTransito(PesqFkTransito.txtId.Text, dgvDados2, "spSelecionaEstoqueEquipPedidoVenda", True)
         frm.ShowDialog()
 
     End Sub

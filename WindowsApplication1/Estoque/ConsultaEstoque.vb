@@ -345,81 +345,91 @@ Public Class ConsultaEstoque
 
     Private Sub dgvDados_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles dgvDados.RowPrePaint
         'Exit Sub
-        If dgvDados.Rows(e.RowIndex).Cells("TIPO_LOCAL").Value = "T" Then
-            For ixx = 0 To dgvDados.ColumnCount - 1
-                dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
-                dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Green
-            Next
-        Else
-            Dim _id_local_estoque As String = ""
-            For ixx = 0 To dgvDados.ColumnCount - 1
-
-                _id_local_estoque = Trim(dgvDados.Rows(e.RowIndex).Cells("ID_LOCAL_ESTOQUE").Value)
-
-                If _id_local_estoque = "7" Then '--> QUARENTENA
+        Try
+            If dgvDados.Rows(e.RowIndex).Cells("TIPO_LOCAL").Value = "T" Then
+                For ixx = 0 To dgvDados.ColumnCount - 1
                     dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
-                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Red
+                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Green
+                Next
+            Else
+                Dim _id_local_estoque As String = ""
+                For ixx = 0 To dgvDados.ColumnCount - 1
 
-                ElseIf _id_local_estoque = "2" Then '--> ASSISTENCIA TECNICA
-                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
-                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Brown
+                    _id_local_estoque = Trim(dgvDados.Rows(e.RowIndex).Cells("ID_LOCAL_ESTOQUE").Value)
 
-                ElseIf _id_local_estoque = "9" Then '--> DEVOLVEU FORNECEDOR
-                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
-                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Blue
+                    If _id_local_estoque = "7" Then '--> QUARENTENA
+                        dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
+                        dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Red
 
-                ElseIf _id_local_estoque = "8" Then '--> INATIVO
-                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
-                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Black
+                    ElseIf _id_local_estoque = "2" Then '--> ASSISTENCIA TECNICA
+                        dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
+                        dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Brown
 
-                Else ' TODOS OS OUTROS TIPOS DE LOCAL
-                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.Black
-                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.White
+                    ElseIf _id_local_estoque = "9" Then '--> DEVOLVEU FORNECEDOR
+                        dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
+                        dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Blue
 
-                End If
+                    ElseIf _id_local_estoque = "8" Then '--> INATIVO
+                        dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
+                        dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Black
 
-            Next
+                    Else ' TODOS OS OUTROS TIPOS DE LOCAL
+                        dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.Black
+                        dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.White
 
-        End If
+                    End If
+
+                Next
+
+            End If
+
+        Catch ex As Exception
+
+        End Try
     End Sub
     Private Sub dgvDados2_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles dgvDados2.RowPrePaint
         'Exit Sub
-        If dgvDados2.Rows(e.RowIndex).Cells("TIPO_LOCAL").Value = "T" Then
-            For ixx = 0 To dgvDados2.ColumnCount - 1
-                dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
-                dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Green
-            Next
-        Else
-            Dim _id_local_estoque As String = ""
-            For ixx = 0 To dgvDados2.ColumnCount - 1
-
-                _id_local_estoque = Trim(dgvDados2.Rows(e.RowIndex).Cells("ID_LOCAL_ESTOQUE").Value)
-
-                If _id_local_estoque = "7" Then '--> QUARENTENA
+        Try
+            If dgvDados2.Rows(e.RowIndex).Cells("TIPO_LOCAL").Value = "T" Then
+                For ixx = 0 To dgvDados2.ColumnCount - 1
                     dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
-                    dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Red
+                    dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Green
+                Next
+            Else
+                Dim _id_local_estoque As String = ""
+                For ixx = 0 To dgvDados2.ColumnCount - 1
 
-                ElseIf _id_local_estoque = "2" Then '--> ASSISTENCIA TECNICA
-                    dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
-                    dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Brown
+                    _id_local_estoque = Trim(dgvDados2.Rows(e.RowIndex).Cells("ID_LOCAL_ESTOQUE").Value)
 
-                ElseIf _id_local_estoque = "9" Then '--> DEVOLVEU FORNECEDOR
-                    dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
-                    dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Blue
+                    If _id_local_estoque = "7" Then '--> QUARENTENA
+                        dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
+                        dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Red
 
-                ElseIf _id_local_estoque = "8" Then '--> INATIVO
-                    dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
-                    dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Black
+                    ElseIf _id_local_estoque = "2" Then '--> ASSISTENCIA TECNICA
+                        dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
+                        dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Brown
 
-                Else ' TODOS OS OUTROS TIPOS DE LOCAL
-                    dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.Black
-                    dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.White
+                    ElseIf _id_local_estoque = "9" Then '--> DEVOLVEU FORNECEDOR
+                        dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
+                        dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Blue
 
-                End If
+                    ElseIf _id_local_estoque = "8" Then '--> INATIVO
+                        dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
+                        dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Black
 
-            Next
+                    Else ' TODOS OS OUTROS TIPOS DE LOCAL
+                        dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.Black
+                        dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.White
 
-        End If
+                    End If
+
+                Next
+
+            End If
+
+        Catch ex As Exception
+
+        End Try
     End Sub
     Private Sub UpdateFont()
 
@@ -624,9 +634,11 @@ Public Class ConsultaEstoque
 
     Private Sub dgvDados2_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDados2.CellEnter
         Dim linhaAtual = dgvDados2.CurrentRow.Index
+        Dim strOSNum As String
         Try
-            If CInt(dgvDados2.Rows(linhaAtual).Cells("ID_LOCAL_ESTOQUE").Value) = 2 Then
-                txtOS.Text = dgvDados2.Rows(linhaAtual).Cells("ID_OS").Value
+            If dgvDados2.Rows(linhaAtual).Cells("TIPO_LOCAL").Value = "L" And CInt(dgvDados2.Rows(linhaAtual).Cells("ID_LOCAL_ESTOQUE").Value) = 2 Then
+                strOSNum = IIf(String.IsNullOrEmpty(dgvDados2.Rows(linhaAtual).Cells("ID_OS").Value), "", dgvDados2.Rows(linhaAtual).Cells("ID_OS").Value)
+                txtOS.Text = strOSNum
             Else
                 txtOS.Text = ""
             End If
