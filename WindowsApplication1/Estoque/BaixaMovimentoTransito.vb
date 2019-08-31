@@ -1,6 +1,7 @@
 ﻿Public Class BaixaMovimentoTransito
     Private blnSalvouChip As Boolean = False
     Private blnSalvouPOS As Boolean = False
+    Private strFiltroLoja As String = "ID_LOJA"
 
     Private _filtro As String
     Public Property Filtro() As String
@@ -262,7 +263,9 @@
                         sql += ",[USER_INS]"
                         sql += ",[DATA_LANCTO]"
                         sql += ",[ID_DESTINO]"
-                        sql += ",[DATA_MOV_DESTINO], [ID_EMPRESA])"
+                        sql += ",[DATA_MOV_DESTINO] "
+                        sql += ",[ID_EMPRESA] "
+                        sql += ",[PEDIDO_VENDA])"
                         sql += " VALUES(" & PesqFKTransito.txtId.Text & ","
                         sql += row.Cells("ID_DESTINO").Value & ","
                         sql += row.Cells("ID_EQUIPAMENTO").Value & " ,"
@@ -270,7 +273,9 @@
                         sql += ACE_CODIGO.ToString & " ,"
                         sql += "GETDATE(),"
                         sql += row.Cells("ID_DESTINO").Value & " ,"
-                        sql += "GETDATE(), " & row.Cells("ID_EMPRESA").Value & ")"
+                        sql += "GETDATE(), "
+                        sql += row.Cells("ID_EMPRESA").Value
+                        sql += ", " & IIf(CBool(row.Cells("PEDIDO_VENDA").Value) = True, "1", "0") & ")"
 
                         bllGlobal.GravarGenericoBLL(sql)
 
@@ -433,7 +438,8 @@
                             myRow(ixx)("qtd").ToString,
                             myRow(ixx)("valor").ToString,
                             myRow(ixx)("id_empresa").ToString,
-                            myRow(ixx)("id_destino").ToString}
+                            myRow(ixx)("id_destino").ToString,
+                            myRow(ixx)("pedido_venda")}
 
             End If
             If Me.TipoEstoque = "C" Then
@@ -471,14 +477,16 @@
     Public Sub Carregar_POS()
         Dim sql As String
 
-        sql = "select ID_EQUIPAMENTO,SERIE,DESC_EQUIPAMENTO,MODELO,"
-        sql += "1 AS QTD, VALOR , ID_LOCAL_ESTOQUE AS ID_TRANSITO, TIPO_LOCAL, ID_EMPRESA, "
-        sql += " SPACE(10) as ID_DESTINO "
-        sql += " from VW_CG_EQUIPAMENTO "
+        sql = "select a.ID_EQUIPAMENTO,a.SERIE,a.DESC_EQUIPAMENTO,MODELO,"
+        sql += "1 AS QTD, a.VALOR , a.ID_LOCAL_ESTOQUE AS ID_TRANSITO, a.TIPO_LOCAL, a.ID_EMPRESA, "
+        sql += " SPACE(10) as ID_DESTINO, B.PEDIDO_VENDA "
+        sql += " from VW_CG_EQUIPAMENTO A "
+        sql += " INNER Join CG_ESTOQUE_EQUIPAMENTO B ON B.ID_EQUIPAMENTO = A.ID_EQUIPAMENTO "
+
 
         Me.Comando = sql
         Me.ColunaFiltro = "ID_ROMANEIO"
-        Me.Filtro = " WHERE TIPO_LOCAL = 'T' AND ID_LOCAL_ESTOQUE = " & PesqFKTransito.txtId.Text
+        Me.Filtro = " WHERE a.TIPO_LOCAL = 'T' AND a.ID_LOCAL_ESTOQUE = " & PesqFKTransito.txtId.Text
 
         'Declara as variáveis do Tipo Coluna
         Dim colId_Equipamento As DataGridViewTextBoxColumn
@@ -489,6 +497,7 @@
         Dim colValor As DataGridViewTextBoxColumn
         Dim colEmpresaOrigem As DataGridViewTextBoxColumn
         Dim colDestino As DataGridViewTextBoxColumn
+        Dim colPedidoVenda As DataGridViewCheckBoxColumn
 
         '*******>> Configura as colunas
 
@@ -532,6 +541,10 @@
         colDestino.HeaderText = "ID Destino"
         colDestino.Name = "ID_DESTINO"
 
+        colPedidoVenda = New DataGridViewCheckBoxColumn
+        colPedidoVenda.HeaderText = "Pedido Venda"
+        colPedidoVenda.Name = "pedido_venda"
+
         'Reset no Grid
         dgvDados2.DataSource = Nothing
         dgvDados2.Rows.Clear()
@@ -542,7 +555,7 @@
 
         'Adicionar estas colunas para a coleçao do DataGridView
         dgvDados2.Columns.AddRange(New DataGridViewColumn() {colId_Equipamento, colSerie, colDescricao,
-                                                            colModelo, colQtd, colValor, colEmpresaOrigem, colDestino})
+                                                            colModelo, colQtd, colValor, colEmpresaOrigem, colDestino, colPedidoVenda})
 
         'dgvDados.DataSource = myRow
         Me.TipoEstoque = "E"
@@ -574,7 +587,7 @@
         dgvDados2.Columns(7).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
 
         dgvDados2.Columns(0).Visible = False
-
+        dgvDados2.Columns(4).Width = 60
 
     End Sub
 
@@ -607,11 +620,15 @@
     Private Sub AtualizaPanelLoja2()
         Dim _idLoja As String = dgvDados2.CurrentRow.Cells("id_destino").Value
         Try
+            'Define se vai trazer todas as lojas ou somente a loja ESTOQUE NO CLIENTE
+            strFiltroLoja = IIf(CBool(dgvDados2.CurrentRow.Cells("pedido_venda").Value) = True, "10", "ID_LOJA")
+            Me.PesqFKLojaDestinoPOS.FiltroSQL = " where id_empresa = " & Publico.Id_empresa & " and id_loja = " & strFiltroLoja
+
             If Len(Trim(_idLoja)) = 0 Then
                 _idLoja = "-1"
             End If
             Dim bllGlobal As New BLL.GlobalBLL
-            Dim sql As String = "SELECT CODIGO,ID_LOJA,NOME " & _
+            Dim sql As String = "SELECT CODIGO,ID_LOJA,NOME " &
                                 "FROM CG_LOJA  WHERE ID_LOJA = " & _idLoja
             Dim dt As DataTable
             dt = bllGlobal.SqlExecDT(sql)
@@ -756,7 +773,7 @@
             .LabelBuscaId = "Código"
             .LabelBuscaDesc = "Nome"
             .TituloTela = "Pesquisa de Lojas"
-            .FiltroSQL = " where id_empresa = " & Publico.Id_empresa
+            .FiltroSQL = " where id_empresa = " & Publico.Id_empresa & " and id_loja = " & strFiltroLoja
             .lblLabelFK.Text = .LabelPesqFK
 
             .PosValida = True
@@ -836,9 +853,17 @@
                 Dim blnChamar As Boolean = True
                 _rowindex = dgvDados2.CurrentRow.Index
 
-                PesqFKLojaDestinoPOS.FiltroSQL = IIf(TransitoInterno() = True,
-                                              " WHERE ID_EMPRESA = " & dgvDados2.CurrentRow.Cells("id_empresa").Value & " AND ID_TIPO_LOCAL_ESTOQUE IN (1,7,8,9,10) ",
-                                              " WHERE ID_EMPRESA = " & dgvDados2.CurrentRow.Cells("id_empresa").Value & " AND ID_TIPO_LOCAL_ESTOQUE IN (1,10) ")
+
+                strFiltroLoja = IIf(CBool(dgvDados2.CurrentRow.Cells("pedido_venda").Value) = True, "10", "ID_LOJA")
+
+                If strFiltroLoja = "10" Then
+                    Me.PesqFKLojaDestinoPOS.FiltroSQL = " where id_empresa = " & Publico.Id_empresa & " and id_loja = " & strFiltroLoja
+
+                Else
+                    PesqFKLojaDestinoPOS.FiltroSQL = IIf(TransitoInterno() = True,
+                                                  " WHERE ID_EMPRESA = " & dgvDados2.CurrentRow.Cells("id_empresa").Value & " AND ID_TIPO_LOCAL_ESTOQUE IN (1,7,8,9,10) ",
+                                                  " WHERE ID_EMPRESA = " & dgvDados2.CurrentRow.Cells("id_empresa").Value & " AND ID_TIPO_LOCAL_ESTOQUE IN (1,10) ")
+                End If
 
                 If Not String.IsNullOrWhiteSpace(dgvDados2.CurrentRow.Cells("id_destino").Value.ToString) Then
 
