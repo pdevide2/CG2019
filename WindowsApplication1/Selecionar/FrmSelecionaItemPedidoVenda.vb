@@ -337,7 +337,7 @@
             If Not row.IsNewRow Then
 
                 'Carrega os dados no objeto Model para passagem de parametro
-                If _id = row.Cells(1).Value Then
+                If _id = row.Cells(2).Value Then
                     blnRet = True 'duplicado
                 End If
 
@@ -355,7 +355,7 @@
             If Not row.IsNewRow Then
 
                 'Carrega os dados no objeto Model para passagem de parametro
-                strLista += row.Cells(1).Value & ","
+                strLista += row.Cells(2).Value & ","
 
             End If
 

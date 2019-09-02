@@ -174,6 +174,15 @@ Public Class PedidoVenda
             objPedidoVenda.Previsao_entrega = CDate(txtPrevisaoEntrega.Text)
             objPedidoVenda.Status_pedido = txtStatus.Text
 
+            If String.IsNullOrEmpty(txtQtdePedida.Text) Then
+                objPedidoVenda.Tot_qtde_entregar = 0
+                objPedidoVenda.Tot_qtde_original = 0
+            Else
+                objPedidoVenda.Tot_qtde_entregar = CInt(txtQtdeEntregue.Text)
+                objPedidoVenda.Tot_qtde_original = CInt(txtQtdePedida.Text)
+            End If
+
+
             bll.GravarBLL(acao, objPedidoVenda)
 
             For Each row As DataGridViewRow In dgvDados.Rows

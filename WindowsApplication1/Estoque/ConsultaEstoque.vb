@@ -351,6 +351,11 @@ Public Class ConsultaEstoque
                     dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
                     dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Green
                 Next
+            ElseIf dgvDados.Rows(e.RowIndex).Cells("TIPO_LOCAL").Value = "C" Then
+                For ixx = 0 To dgvDados.ColumnCount - 1
+                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
+                    dgvDados.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Blue
+                Next
             Else
                 Dim _id_local_estoque As String = ""
                 For ixx = 0 To dgvDados.ColumnCount - 1
@@ -395,6 +400,12 @@ Public Class ConsultaEstoque
                     dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
                     dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Green
                 Next
+            ElseIf dgvDados2.Rows(e.RowIndex).Cells("TIPO_LOCAL").Value = "C" Then
+                For ixx = 0 To dgvDados2.ColumnCount - 1
+                    dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.ForeColor = Color.White
+                    dgvDados2.Rows(e.RowIndex).Cells(ixx).Style.BackColor = Color.Blue
+                Next
+
             Else
                 Dim _id_local_estoque As String = ""
                 For ixx = 0 To dgvDados2.ColumnCount - 1

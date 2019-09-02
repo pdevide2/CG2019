@@ -105,9 +105,9 @@ Partial Class PedidoVenda
         Label1.AutoSize = True
         Label1.Location = New System.Drawing.Point(381, 14)
         Label1.Name = "Label1"
-        Label1.Size = New System.Drawing.Size(76, 13)
+        Label1.Size = New System.Drawing.Size(82, 13)
         Label1.TabIndex = 63
-        Label1.Text = "Qtde Entregue"
+        Label1.Text = "Qtde a Entregar"
         '
         'Label2
         '
