@@ -1,7 +1,7 @@
 ﻿Public Class BaixaMovimentoTransito
     Private blnSalvouChip As Boolean = False
     Private blnSalvouPOS As Boolean = False
-    Private strFiltroLoja As String = "ID_LOJA"
+    Private strFiltroLoja As String = "= ID_LOJA"
 
     Private _filtro As String
     Public Property Filtro() As String
@@ -621,8 +621,8 @@
         Dim _idLoja As String = dgvDados2.CurrentRow.Cells("id_destino").Value
         Try
             'Define se vai trazer todas as lojas ou somente a loja ESTOQUE NO CLIENTE
-            strFiltroLoja = IIf(CBool(dgvDados2.CurrentRow.Cells("pedido_venda").Value) = True, "10", "ID_LOJA")
-            Me.PesqFKLojaDestinoPOS.FiltroSQL = " where id_empresa = " & Publico.Id_empresa & " and id_loja = " & strFiltroLoja
+            strFiltroLoja = IIf(CBool(dgvDados2.CurrentRow.Cells("pedido_venda").Value) = True, "in (1,10)", " = ID_LOJA")
+            Me.PesqFKLojaDestinoPOS.FiltroSQL = " where id_empresa = " & Publico.Id_empresa & " and id_loja " & strFiltroLoja
 
             If Len(Trim(_idLoja)) = 0 Then
                 _idLoja = "-1"
@@ -773,7 +773,7 @@
             .LabelBuscaId = "Código"
             .LabelBuscaDesc = "Nome"
             .TituloTela = "Pesquisa de Lojas"
-            .FiltroSQL = " where id_empresa = " & Publico.Id_empresa & " and id_loja = " & strFiltroLoja
+            .FiltroSQL = " where id_empresa = " & Publico.Id_empresa & " and id_loja " & strFiltroLoja
             .lblLabelFK.Text = .LabelPesqFK
 
             .PosValida = True
@@ -854,10 +854,12 @@
                 _rowindex = dgvDados2.CurrentRow.Index
 
 
-                strFiltroLoja = IIf(CBool(dgvDados2.CurrentRow.Cells("pedido_venda").Value) = True, "10", "ID_LOJA")
+                'strFiltroLoja = IIf(CBool(dgvDados2.CurrentRow.Cells("pedido_venda").Value) = True, "10", "ID_LOJA")
+                strFiltroLoja = IIf(CBool(dgvDados2.CurrentRow.Cells("pedido_venda").Value) = True, "in (1,10)", " = ID_LOJA")
 
-                If strFiltroLoja = "10" Then
-                    Me.PesqFKLojaDestinoPOS.FiltroSQL = " where id_empresa = " & Publico.Id_empresa & " and id_loja = " & strFiltroLoja
+
+                If strFiltroLoja = "in (1,10)" Then
+                    Me.PesqFKLojaDestinoPOS.FiltroSQL = " where id_empresa = " & Publico.Id_empresa & " and id_loja  " & strFiltroLoja
 
                 Else
                     PesqFKLojaDestinoPOS.FiltroSQL = IIf(TransitoInterno() = True,
