@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/03/2019 22:36:54" ReportInfo.Modified="09/03/2019 22:52:20" ReportInfo.CreatorVersion="2019.3.5.0">
+  <Styles>
+    <Style Name="regular1" Font="Arial Narrow, 8pt"/>
+    <Style Name="bold1" Font="Arial Narrow, 8pt, style=Bold"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqsrEzhd9+T4CJxZj90G866BYjqO7kQonjh7hVpOtnNHUzEiYmCSnoXPRGiDs0qQfjQpjwIgGxE+yC/ywFaXVAM26QiWzXqWRArjMlKX6UbQ42NgNOBYFe29ru5VQyuejR2i5610zuxYBr0ATXU33jvGKd3XbpASD7oR1TksvqSZSbL1zpswsCbJVVmjLQ57xjoA7Xc9pKUWRI9R+T2N6TPmIvdWRA59iPVl2I5jhMpoA=">
+      <TableDataSource Name="Table" Alias="V_PEDIDO" DataType="System.Int32" Enabled="true" SelectCommand="SELECT	A.ID_PEDIDO, A.PREVISAO_ENTREGA, A.OBS, A.TOT_QTDE_ORIGINAL, &#13;&#10;		A.DATA, A.ID_CLIENTE, C.NOME, C.CONTATO1, C.TELEFONE1,&#13;&#10;		B.ID_EQUIPAMENTO, D.SERIE, D.MODELO, D.DESC_EQUIPAMENTO, B.PRECO_VENDA&#13;&#10;FROM CG_PEDIDOVENDA A &#13;&#10;INNER JOIN CG_PEDIDOVENDA_ITENS B ON B.ID_PEDIDO = A.ID_PEDIDO&#13;&#10;INNER JOIN CG_CLIENTE C ON C.ID_CLIENTE = A.ID_CLIENTE&#13;&#10;INNER JOIN CG_EQUIPAMENTO D ON D.ID_EQUIPAMENTO = B.ID_EQUIPAMENTO&#13;&#10;WHERE A.ID_PEDIDO = 39">
+        <Column Name="ID_PEDIDO" DataType="System.Int32"/>
+        <Column Name="PREVISAO_ENTREGA" DataType="System.DateTime"/>
+        <Column Name="OBS" DataType="System.String"/>
+        <Column Name="TOT_QTDE_ORIGINAL" DataType="System.Int32"/>
+        <Column Name="DATA" DataType="System.DateTime"/>
+        <Column Name="ID_CLIENTE" DataType="System.Int32"/>
+        <Column Name="NOME" DataType="System.String"/>
+        <Column Name="CONTATO1" DataType="System.String"/>
+        <Column Name="TELEFONE1" DataType="System.String"/>
+        <Column Name="ID_EQUIPAMENTO" DataType="System.Int32"/>
+        <Column Name="SERIE" DataType="System.String"/>
+        <Column Name="MODELO" DataType="System.String"/>
+        <Column Name="DESC_EQUIPAMENTO" DataType="System.String"/>
+        <Column Name="PRECO_VENDA" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8"/>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="28.35"/>
+    <GroupHeaderBand Name="GroupHeader1" Top="74.15" Width="718.2" Height="75.6" Style="bold1" Condition="[V_PEDIDO.ID_PEDIDO]">
+      <TextObject Name="Text2" Left="9.45" Width="66.15" Height="18.9" Text="PEDIDO" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text1" Left="85.05" Width="75.6" Height="18.9" Text="[V_PEDIDO.ID_PEDIDO]" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="9.45" Top="56.7" Width="122.85" Height="18.9" Text="SERIE" Font="Arial Narrow, 8pt, style=Bold" Style="bold1"/>
+      <TextObject Name="Text6" Left="132.3" Top="56.7" Width="151.2" Height="18.9" Text="MODELO" Font="Arial Narrow, 8pt, style=Bold" Style="bold1"/>
+      <TextObject Name="Text8" Left="292.95" Top="56.7" Width="122.85" Height="18.9" Text="DESC_EQUIPAMENTO" Font="Arial Narrow, 8pt, style=Bold" Style="bold1"/>
+      <TextObject Name="Text10" Left="548.1" Top="56.7" Width="37.8" Height="18.9" Text="QTDE" Font="Arial Narrow, 8pt, style=Bold" Style="bold1"/>
+      <TextObject Name="Text12" Left="604.8" Top="56.7" Width="94.5" Height="18.9" Text="PRECO_VENDA" HorzAlign="Right" Font="Arial Narrow, 8pt, style=Bold" Style="bold1"/>
+      <TextObject Name="Text14" Left="179.55" Width="94.5" Height="18.9" Text="Previsão Entrega" HorzAlign="Right" Font="Arial Narrow, 8pt, style=Bold" Style="bold1"/>
+      <TextObject Name="Text13" Left="283.5" Width="94.5" Height="18.9" Text="[V_PEDIDO.PREVISAO_ENTREGA]" Format="Date" Format.Format="d" Font="Arial Narrow, 8pt" Style="regular1"/>
+      <DataBand Name="Data1" Top="153.75" Width="718.2" Height="28.35" CanGrow="true" CanShrink="true" DataSource="Table">
+        <TextObject Name="Text3" Left="9.45" Top="9.45" Width="122.85" Height="18.9" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[V_PEDIDO.SERIE]" Font="Arial Narrow, 8pt" Style="regular1"/>
+        <TextObject Name="Text5" Left="132.3" Top="9.45" Width="151.2" Height="18.9" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[V_PEDIDO.MODELO]" Font="Arial Narrow, 8pt" Style="regular1"/>
+        <TextObject Name="Text7" Left="292.95" Top="9.45" Width="245.7" Height="18.9" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[V_PEDIDO.DESC_EQUIPAMENTO]" Font="Arial Narrow, 8pt" Style="regular1"/>
+        <TextObject Name="Text9" Left="548.1" Top="9.45" Width="37.8" Height="18.9" Text="1" HorzAlign="Right" Font="Arial Narrow, 8pt" Style="regular1"/>
+        <TextObject Name="Text11" Left="604.8" Top="9.45" Width="94.5" Height="18.9" Text="[V_PEDIDO.PRECO_VENDA]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Arial Narrow, 8pt" Trimming="EllipsisCharacter" Style="regular1"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="186.1" Width="718.2" Height="37.8"/>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="227.9" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

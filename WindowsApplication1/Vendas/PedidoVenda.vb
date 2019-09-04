@@ -1,5 +1,9 @@
 ﻿Imports System.IO
-
+Imports FastReport.Data
+Imports System.Configuration
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Data.SqlClient.SqlConnection
 Public Class PedidoVenda
 
     Private imagemAUsar As Image
@@ -231,6 +235,10 @@ Public Class PedidoVenda
             MessageBox.Show("Alteração não permitida, Pedido já baixado totalmente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
+        If txtStatus.Text <> "EM ABERTO" Then
+            MessageBox.Show("Status do Item não permite mais alteração no Pedido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
         MyBase.Alterar()
         Habilita_Controles(True) 'modo digitação
         CarregaGrid()
@@ -259,6 +267,12 @@ Public Class PedidoVenda
     End Sub
 
     Public Overrides Sub ExcluirPorId()
+
+        If txtStatus.Text <> "EM ABERTO" Then
+            MessageBox.Show("Status do Item não permite exclusão", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
+
         MyBase.ExcluirPorId()
         Dim bll As New BLL.PedidovendaBLL
         Try
@@ -589,9 +603,14 @@ Public Class PedidoVenda
 
     Private Sub btnExclui_Click(sender As Object, e As EventArgs) Handles btnExclui.Click
         If dgvDados.RowCount > 0 Then
-
-            If dgvDados.SelectedRows.Count > 0 AndAlso Not dgvDados.SelectedRows(0).Index = dgvDados.Rows.Count Then
-                dgvDados.CurrentRow.Cells("cancel").Value = True
+            If CInt(dgvDados.CurrentRow.Cells("status_item").Value) > 1 Then
+                MessageBox.Show("Status do Item não permite mais Cancelamento!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Exit Sub
+            End If
+            If flagAcao <> Operacao.Consulta And flagAcao <> Operacao.Leitura Then
+                If dgvDados.SelectedRows.Count > 0 AndAlso Not dgvDados.SelectedRows(0).Index = dgvDados.Rows.Count Then
+                    dgvDados.CurrentRow.Cells("cancel").Value = True
+                End If
             End If
 
         End If
@@ -612,4 +631,58 @@ Public Class PedidoVenda
 
         End If
     End Sub
+
+    Private Sub BtnRecibo_Click(sender As Object, e As EventArgs) Handles btnRecibo.Click
+        ImprimeRecibo()
+    End Sub
+    Private Sub ImprimeRecibo()
+        Try
+            '// Carrega o template salvo do relatorio
+            Report1.Load(My.Settings.DIRHOME & "CG\CG\FastReport\frReciboPedido.frx")
+            Report1.Dictionary.Connections(0).ConnectionString = StringConexao()
+
+            '// Troca o dataset original do relatorio pelo criado em código 
+            Dim table As TableDataSource
+            table = Report1.GetDataSource("V_PEDIDO")
+            table.SelectCommand = QueryRelatorio(1)
+
+            'Report1.RegisterData(dsRelatorio, "DbCGDataSet1")
+            '// Passa o parametro do usuario logado pra imprimir no rodapé do relatorio
+            Report1.SetParameterValue("usuario", UserName())
+            Report1.Prepare()
+            Report1.Show()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End Try
+
+    End Sub
+    Function StringConexao()
+
+        Dim strconn As String = String.Empty
+        If Environment.UserDomainName = "WIN-6D553OEIVVL" Then
+            'strconn = "Server=VMWIN7;Database=dbCG;Trusted_Connection=True;"
+            '// Conexao maquina de Desenvolvimento
+            strconn = "Data Source=.\SQL2017DEV;Initial Catalog=dbCG;Persist Security Info=True;User ID=USER_CG;Password=c102030@"
+        Else
+            '// Conexao no Sergio
+            'strconn = "Server=LISBOA;Database=dbCG;Trusted_Connection=True;"
+            strconn = "Data Source=LISBOA;Initial Catalog=dbCG;Persist Security Info=True;User ID=USER_CG;Password=c102030@"
+        End If
+        Return strconn
+    End Function
+    Private Function QueryRelatorio(idRelatorio As Integer) As String
+        Dim sql As String
+
+        sql = " SELECT	A.ID_PEDIDO, A.PREVISAO_ENTREGA, A.OBS, A.TOT_QTDE_ORIGINAL, "
+        sql += " 		A.DATA, A.ID_CLIENTE, C.NOME, C.CONTATO1, C.TELEFONE1,  "
+        sql += " 		B.ID_EQUIPAMENTO, D.SERIE, D.MODELO, D.DESC_EQUIPAMENTO, B.PRECO_VENDA "
+        sql += " FROM CG_PEDIDOVENDA A  "
+        sql += " INNER JOIN CG_PEDIDOVENDA_ITENS B ON B.ID_PEDIDO = A.ID_PEDIDO "
+        sql += " INNER JOIN CG_CLIENTE C ON C.ID_CLIENTE = A.ID_CLIENTE "
+        sql += " INNER JOIN CG_EQUIPAMENTO D ON D.ID_EQUIPAMENTO = B.ID_EQUIPAMENTO "
+        sql += " WHERE A.ID_PEDIDO = " & txtCodigo.Text
+        Return sql
+
+    End Function
 End Class

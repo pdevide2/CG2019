@@ -168,4 +168,33 @@
   <metadata name="ofd.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>119, 17</value>
   </metadata>
+  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>189, 17</value>
+  </metadata>
+  <data name="btnRecibo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADVUExURf7+/v///yEhICEhIfn5+QICAjY2Naenpr8SGw0NDbcSGpyqqrsSGv36+vz398ASG6sC
+        D3h4dyoqKrUCEM8MHHJ6eRUWFcUQG9/c2k5OTe/v79BwclJSUtYIHfnW1/W4urkgK9ZWW+KMjOmhouKG
+        h9djabUiLunk5OKlpvLg39UAEt7Y2cvMzPS5vNwxOt88Rs9IUm9vbt9ydssYJbW0s/bMzsIhKtITIqcH
+        EddtcMRERu7AwMYtHOSWloCDg85kbcQsNZCQkL0qJ0A/Pl9fXrKxsdJdYwPmnJkAAAF/SURBVDhPjZJp
+        Q4IwGIA5FAehCBiTRMojj8rKM020Y9n//0m97zbBs3r84ngexjZQVOUP/hXkDhBGAkE3MvYpSMeBoJDX
+        NUTHH/wNhtJx0kDXTEnelY7DAz5BsL6Q7C1CzgD3D5dvNcGitupLnc2gm5eLssBHWsWDQINgXp4DZcsm
+        hJL2UTCMVy1g9WrZdpIk/jILTM0DmLv+ADb9zySxLNv/Fg+BYKMbjLEwDKMvgHU7cwsC5720DSYsikCH
+        ITM8TctXO+iJM0uDTeDhPoMg4Md1HIhtaoEJSWDqXQjA0+edgL8B9nBfBfo99IT6Le7TAA6qecOBXRLi
+        +A0xgQzwHNy2T2yEgCe30u8Hvg8SNB3FW58t0nRL07g3cwBKm6nfDXAYg0VGXCIiwEWKz2Q6lsXeGmAG
+        eFniQkxpBWmIIQZVA9+VN5FXlmMeVOQ+IFByVwgfIlOwdUCcFAaHDF7Q16/54FSgxKDvsqM+weDxSdx/
+        LlCK22/2XJCh/oqq/gC2qSkMXXOv7AAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="Report1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>288, 17</value>
+  </metadata>
+  <data name="Report1.ReportResourceString" xml:space="preserve">
+    <value>﻿&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Report ScriptLanguage="CSharp" ReportInfo.Created="09/03/2019 21:58:04" ReportInfo.Modified="09/03/2019 21:58:09" ReportInfo.CreatorVersion="2019.3.5.0"&gt;
+  &lt;Dictionary/&gt;
+&lt;/Report&gt;
+</value>
+  </data>
 </root>

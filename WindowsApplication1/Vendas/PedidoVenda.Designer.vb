@@ -51,6 +51,8 @@ Partial Class PedidoVenda
         Me.txtObservacao = New System.Windows.Forms.TextBox()
         Me.ofd = New System.Windows.Forms.OpenFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.btnRecibo = New System.Windows.Forms.Button()
+        Me.Report1 = New FastReport.Report()
         Label3 = New System.Windows.Forms.Label()
         Label4 = New System.Windows.Forms.Label()
         Label5 = New System.Windows.Forms.Label()
@@ -62,6 +64,7 @@ Partial Class PedidoVenda
         Me.TabPage2.SuspendLayout()
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
+        CType(Me.Report1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label3
@@ -343,15 +346,33 @@ Partial Class PedidoVenda
         Me.ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*"
         Me.ofd.InitialDirectory = "C:\"
         '
+        'btnRecibo
+        '
+        Me.btnRecibo.Image = CType(resources.GetObject("btnRecibo.Image"), System.Drawing.Image)
+        Me.btnRecibo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnRecibo.Location = New System.Drawing.Point(603, 425)
+        Me.btnRecibo.Name = "btnRecibo"
+        Me.btnRecibo.Size = New System.Drawing.Size(119, 32)
+        Me.btnRecibo.TabIndex = 2
+        Me.btnRecibo.Text = "Recibo"
+        Me.btnRecibo.UseVisualStyleBackColor = True
+        '
+        'Report1
+        '
+        Me.Report1.NeedRefresh = False
+        Me.Report1.ReportResourceString = resources.GetString("Report1.ReportResourceString")
+        '
         'PedidoVenda
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(726, 461)
+        Me.Controls.Add(Me.btnRecibo)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "PedidoVenda"
         Me.Text = "Pedido de Vendas de POS"
         Me.Controls.SetChildIndex(Me.TabControl1, 0)
+        Me.Controls.SetChildIndex(Me.btnRecibo, 0)
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
@@ -360,6 +381,7 @@ Partial Class PedidoVenda
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
+        CType(Me.Report1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -385,4 +407,6 @@ Partial Class PedidoVenda
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents btnExclui As Button
     Friend WithEvents btnAdiciona As Button
+    Friend WithEvents btnRecibo As Button
+    Friend WithEvents Report1 As FastReport.Report
 End Class
