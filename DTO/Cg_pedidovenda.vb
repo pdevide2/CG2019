@@ -7,7 +7,7 @@ Public Class Cg_pedidovenda
     Dim _data_baixa As Date?
     Dim _tot_qtde_original As Integer
     Dim _tot_qtde_entregar As Integer
-
+    Dim _obs As String
 
     Property Id_pedido() As Integer
         Get
@@ -72,5 +72,12 @@ Public Class Cg_pedidovenda
         End Set
     End Property
 
-
+    Property Obs() As String
+        Get
+            Return _obs
+        End Get
+        Set(ByVal value As String)
+            _obs = value
+        End Set
+    End Property
 End Class

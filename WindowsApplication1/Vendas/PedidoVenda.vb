@@ -103,7 +103,7 @@ Public Class PedidoVenda
             txtUltimaAlteracao.Text = Me.LinhaGrid.Cells("ultima_alteracao").Value.ToString
             txtQtdePedida.Text = Me.LinhaGrid.Cells("tot_qtde_original").Value.ToString
             txtQtdeEntregue.Text = Me.LinhaGrid.Cells("tot_qtde_entregar").Value.ToString
-
+            txtObservacao.Text = Me.LinhaGrid.Cells("obs").Value.ToString
             CarregaGrid()
 
             If TabControl1.SelectedIndex = 1 Then
@@ -186,6 +186,7 @@ Public Class PedidoVenda
                 objPedidoVenda.Tot_qtde_original = CInt(txtQtdePedida.Text)
             End If
 
+            objPedidoVenda.obs = txtObservacao.Text
 
             bll.GravarBLL(acao, objPedidoVenda)
 
@@ -488,7 +489,6 @@ Public Class PedidoVenda
 
         dgvDados.Columns(1).Visible = False
         dgvDados.Columns(2).Visible = False
-
         Me.dgvDados.DefaultCellStyle.Font = New Font("Tahoma", 10.0F, GraphicsUnit.Pixel)
 
     End Sub
@@ -516,7 +516,7 @@ Public Class PedidoVenda
                         myRow(ixx)(8).ToString,
                         myRow(ixx)(9).ToString,
                         myRow(ixx)(10).ToString,
-                        myRow(ixx)(11).ToString()}
+                        myRow(ixx)(11).ToString}
 
             If _tipoEstoque = "C" Then
                 dgvDados.Rows.Add(strLinha)

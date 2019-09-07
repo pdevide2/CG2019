@@ -1,0 +1,30 @@
+USE [dbCG]
+GO
+
+/****** Object:  View [dbo].[VW_CG_PEDIDOVENDA]    Script Date: 07/09/2019 09:22:56 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER VIEW [dbo].[VW_CG_PEDIDOVENDA]
+AS
+select 
+		a.ID_PEDIDO, 
+		a.STATUS_PEDIDO, 
+		a.ID_CLIENTE, 
+		b.NOME,
+		a.DATA, 
+		a.PREVISAO_ENTREGA, 
+		a.DATA_BAIXA, 
+		a.TOT_QTDE_ORIGINAL, 
+		a.TOT_QTDE_ENTREGAR, 
+		a.ULTIMA_ALTERACAO,
+		CAST(a.obs as varchar(1000)) as OBS
+from CG_PEDIDOVENDA a
+inner join CG_CLIENTE b 
+		ON b.ID_CLIENTE=a.ID_CLIENTE
+GO
+
+

@@ -137,6 +137,10 @@ Partial Class Principal
         Me.ToolStripDropDownButton7 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidoDeVendaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem34 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AprovaçãoDePedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem35 = New System.Windows.Forms.ToolStripSeparator()
+        Me.DevoluçãoDePedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator15 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton9 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.EntradaDeEstoqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -198,8 +202,6 @@ Partial Class Principal
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblEmpresaLogada = New System.Windows.Forms.Label()
-        Me.ToolStripMenuItem34 = New System.Windows.Forms.ToolStripSeparator()
-        Me.AprovaçãoDePedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -988,7 +990,7 @@ Partial Class Principal
         'ToolStripDropDownButton7
         '
         Me.ToolStripDropDownButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripDropDownButton7.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.PedidoDeVendaToolStripMenuItem, Me.ToolStripMenuItem34, Me.AprovaçãoDePedidosToolStripMenuItem})
+        Me.ToolStripDropDownButton7.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.PedidoDeVendaToolStripMenuItem, Me.ToolStripMenuItem34, Me.AprovaçãoDePedidosToolStripMenuItem, Me.ToolStripMenuItem35, Me.DevoluçãoDePedidosToolStripMenuItem})
         Me.ToolStripDropDownButton7.Image = CType(resources.GetObject("ToolStripDropDownButton7.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton7.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton7.Name = "ToolStripDropDownButton7"
@@ -997,15 +999,45 @@ Partial Class Principal
         '
         'ClientesToolStripMenuItem
         '
+        Me.ClientesToolStripMenuItem.Image = CType(resources.GetObject("ClientesToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ClientesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
-        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(208, 38)
         Me.ClientesToolStripMenuItem.Text = "Clientes"
         '
         'PedidoDeVendaToolStripMenuItem
         '
+        Me.PedidoDeVendaToolStripMenuItem.Image = CType(resources.GetObject("PedidoDeVendaToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.PedidoDeVendaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.PedidoDeVendaToolStripMenuItem.Name = "PedidoDeVendaToolStripMenuItem"
-        Me.PedidoDeVendaToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.PedidoDeVendaToolStripMenuItem.Size = New System.Drawing.Size(208, 38)
         Me.PedidoDeVendaToolStripMenuItem.Text = "Pedido de Venda"
+        '
+        'ToolStripMenuItem34
+        '
+        Me.ToolStripMenuItem34.Name = "ToolStripMenuItem34"
+        Me.ToolStripMenuItem34.Size = New System.Drawing.Size(205, 6)
+        '
+        'AprovaçãoDePedidosToolStripMenuItem
+        '
+        Me.AprovaçãoDePedidosToolStripMenuItem.Image = CType(resources.GetObject("AprovaçãoDePedidosToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.AprovaçãoDePedidosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.AprovaçãoDePedidosToolStripMenuItem.Name = "AprovaçãoDePedidosToolStripMenuItem"
+        Me.AprovaçãoDePedidosToolStripMenuItem.Size = New System.Drawing.Size(208, 38)
+        Me.AprovaçãoDePedidosToolStripMenuItem.Text = "Aprovação de Pedidos"
+        '
+        'ToolStripMenuItem35
+        '
+        Me.ToolStripMenuItem35.Name = "ToolStripMenuItem35"
+        Me.ToolStripMenuItem35.Size = New System.Drawing.Size(205, 6)
+        '
+        'DevoluçãoDePedidosToolStripMenuItem
+        '
+        Me.DevoluçãoDePedidosToolStripMenuItem.Image = CType(resources.GetObject("DevoluçãoDePedidosToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.DevoluçãoDePedidosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.DevoluçãoDePedidosToolStripMenuItem.Name = "DevoluçãoDePedidosToolStripMenuItem"
+        Me.DevoluçãoDePedidosToolStripMenuItem.Size = New System.Drawing.Size(208, 38)
+        Me.DevoluçãoDePedidosToolStripMenuItem.Text = "Devolução de Pedidos"
         '
         'ToolStripSeparator15
         '
@@ -1454,17 +1486,6 @@ Partial Class Principal
         Me.lblEmpresaLogada.TabIndex = 8
         Me.lblEmpresaLogada.Text = "."
         '
-        'ToolStripMenuItem34
-        '
-        Me.ToolStripMenuItem34.Name = "ToolStripMenuItem34"
-        Me.ToolStripMenuItem34.Size = New System.Drawing.Size(189, 6)
-        '
-        'AprovaçãoDePedidosToolStripMenuItem
-        '
-        Me.AprovaçãoDePedidosToolStripMenuItem.Name = "AprovaçãoDePedidosToolStripMenuItem"
-        Me.AprovaçãoDePedidosToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.AprovaçãoDePedidosToolStripMenuItem.Text = "Aprovação de Pedidos"
-        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1668,4 +1689,6 @@ Partial Class Principal
     Friend WithEvents ToolStripSeparator16 As ToolStripSeparator
     Friend WithEvents ToolStripMenuItem34 As ToolStripSeparator
     Friend WithEvents AprovaçãoDePedidosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem35 As ToolStripSeparator
+    Friend WithEvents DevoluçãoDePedidosToolStripMenuItem As ToolStripMenuItem
 End Class

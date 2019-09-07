@@ -922,4 +922,11 @@
         frm.MdiParent = Me
         frm.Show()
     End Sub
+
+    Private Sub DevoluçãoDePedidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DevoluçãoDePedidosToolStripMenuItem.Click
+        Dim frm As Object = Nothing
+        frm = New WinCG.PedidoVendaDevolucao
+        frm.MdiParent = Me
+        frm.Show()
+    End Sub
 End Class

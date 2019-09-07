@@ -30,6 +30,8 @@ Public Class PedidovendaBLL
         listaParametros.Add(DAL.DALGenerico.CriarParametro("@DATA_BAIXA", DbType.DateTime, oPedidovenda.Data_baixa))
         listaParametros.Add(DAL.DALGenerico.CriarParametro("@TOT_QTDE_ORIGINAL", DbType.Int32, oPedidovenda.Tot_qtde_original))
         listaParametros.Add(DAL.DALGenerico.CriarParametro("@TOT_QTDE_ENTREGAR", DbType.Int32, oPedidovenda.Tot_qtde_entregar))
+        listaParametros.Add(DAL.DALGenerico.CriarParametro("@OBS", DbType.String, oPedidovenda.Obs))
+
 
         Try
 
