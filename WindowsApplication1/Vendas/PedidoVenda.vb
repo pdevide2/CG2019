@@ -296,8 +296,8 @@ Public Class PedidoVenda
         TabControl1.TabPages(0).Enabled = False
         TabControl1.TabPages(1).Enabled = True
         TabControl1.TabPages(2).Enabled = False
-
-
+        btnAdiciona.Enabled = False
+        btnExclui.Enabled = False
 
         If acao = Operacao.Novo Or acao = Operacao.Alterar Then
             PesqFKCliente.btnPesq.Enabled = True
@@ -305,6 +305,9 @@ Public Class PedidoVenda
             TabControl1.TabPages(0).Enabled = True
             TabControl1.TabPages(1).Enabled = True
             TabControl1.TabPages(2).Enabled = True
+
+            btnAdiciona.Enabled = True
+            btnExclui.Enabled = True
 
         End If
 

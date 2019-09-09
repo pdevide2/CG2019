@@ -75,6 +75,9 @@
         MovEstoque = 73
         Clientes = 74
         PedidoVenda = 75
+        AprovacaoPedidoVenda = 76
+        DevolucaoPedidoVenda = 77
+
     End Enum
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -425,6 +428,14 @@
         ' 74 - CADASTRO DE CLIENTES
         If ACE_MODULO = 75 Then
             frm = New WinCG.PedidoVenda(oPermissao)
+        End If
+        ' 76 - aprovação de pedidos de venda
+        If ACE_MODULO = 76 Then
+            frm = New WinCG.PedidoVendasAprovacao()
+        End If
+        ' 77 - devolução de pedidos de venda
+        If ACE_MODULO = 77 Then
+            frm = New WinCG.PedidoVendaDevolucao()
         End If
 
         frm.MdiParent = Me
@@ -917,16 +928,10 @@
     End Sub
 
     Private Sub AprovaçãoDePedidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AprovaçãoDePedidosToolStripMenuItem.Click
-        Dim frm As Object = Nothing
-        frm = New WinCG.PedidoVendasAprovacao
-        frm.MdiParent = Me
-        frm.Show()
+        ChamaMenu(Modulo.AprovacaoPedidoVenda)
     End Sub
 
     Private Sub DevoluçãoDePedidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DevoluçãoDePedidosToolStripMenuItem.Click
-        Dim frm As Object = Nothing
-        frm = New WinCG.PedidoVendaDevolucao
-        frm.MdiParent = Me
-        frm.Show()
+        ChamaMenu(Modulo.DevolucaoPedidoVenda)
     End Sub
 End Class
