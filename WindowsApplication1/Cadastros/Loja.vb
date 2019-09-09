@@ -209,7 +209,7 @@ Public Class Loja
     End Sub
     Public Overrides Sub Alterar()
         'If CInt(txtCodigo.Text) < 10 Then
-        If Me.Id_Tipo_Local_Estoque < 13 Then
+        If CInt(txtCodigo.Text) < 13 Then
             MessageBox.Show("Alteração não permitida, loja utilizada na parametrização de movimento de estoque", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
             flagAcao = Operacao.Consulta
             Me.Acao = flagAcao
