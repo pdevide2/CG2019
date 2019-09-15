@@ -161,6 +161,7 @@ Public Class ConsultaEstoque
 
             'Copia conteudo da query para a Clipboard (Area de Transferência)
             'My.Computer.Clipboard.SetText(sql)
+            'MessageBox.Show("PEGA")
             If iqq = 1 Then
                 dgvDados.DataSource = BLL.GlobalBLL.PesquisarFkBLL(sql).Tables(0)
                 dgvDados.Columns(0).Visible = False
