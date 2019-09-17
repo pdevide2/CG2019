@@ -455,17 +455,20 @@
     End Sub
     Private Sub CarregaComboEmpresa()
 
-        Dim sql As String = "select CONVERT(VARCHAR(4), ID_EMPRESA)+'|'+SIGLA_EMPRESA AS SIGLA, ID_EMPRESA from CG_EMPRESA ORDER BY ID_EMPRESA"
+        'Dim sql As String = "select CONVERT(VARCHAR(4), ID_EMPRESA)+'|'+SIGLA_EMPRESA AS SIGLA, ID_EMPRESA from CG_EMPRESA ORDER BY ID_EMPRESA"
+        Dim sql As String = "select CONVERT(VARCHAR(4), ID_EMPRESA)+'|'+SIGLA_EMPRESA AS SIGLA, ID_EMPRESA, "
+        sql += "(ROW_NUMBER() OVER(ORDER BY id_empresa ASC)-1) AS indice  from CG_EMPRESA ORDER BY ID_EMPRESA"
         Dim bllGlobal As New BLL.GlobalBLL
         Dim dt = bllGlobal.SqlExecDT(sql)
         Me.ComboBox1.DataSource = dt
         Me.ComboBox1.DisplayMember = "SIGLA"
-        Me.ComboBox1.ValueMember = "ID_EMPRESA"
+        Me.ComboBox1.ValueMember = "indice"
         Me.ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
 
         If ComboBox1.Items.Count > 0 Then
             Me.ComboBox1.SelectedIndex = (ComboBox1.Items.Count - 1)
-            Me.ComboBox1.SelectedIndex = 0 'primeira opção - default
+            'Me.ComboBox1.SelectedIndex = 0 'primeira opção - default
+            Me.ComboBox1.SelectedIndex = (Publico.Id_empresa - 1)
         End If
 
     End Sub
@@ -493,6 +496,7 @@
             FiltroLojaEmpresa()
 
             .lblLabelFK.Text = .LabelPesqFK
+            .FiltroSQL = " WHERE id_empresa = " & IIf(String.IsNullOrEmpty(PesqFK1.txtId.Text), "0", PesqFK1.txtId.Text)
 
             .PosValida = False
 
@@ -565,5 +569,46 @@
         _id_Empresa_Selecionada = arr1(0)
         Label3.Text = _id_Empresa_Selecionada
         FiltroLojaEmpresa()
+    End Sub
+
+    Private Sub PesqFK1_Load(sender As Object, e As EventArgs) Handles PesqFK1.Load
+        With Me.PesqFK1
+
+            .LabelPesqFK = "Empresa"
+            .Tabela = "cg_empresa"
+            .View = "cg_empresa"
+            .CampoId = "id_empresa"
+            .CampoDesc = "SIGLA_EMPRESA"
+            .ListaCampos = "id_empresa, SIGLA_EMPRESA"
+            .ColunasFiltro = "id_empresa, SIGLA_EMPRESA"  ' ComboBox de filtros
+            .LabelBuscaId = "Código"
+            .LabelBuscaDesc = "Nome"
+            .TituloTela = "Pesquisa de Empresas"
+
+            'If TransitoInterno() = True Then 'Transito interno
+            '    .FiltroSQL = " WHERE ID_EMPRESA = " & Label3.Text & " AND ID_TIPO_LOCAL_ESTOQUE IN (1,7,8,9,10) "
+            'Else 'Demais transitos
+            '    .FiltroSQL = " WHERE ID_EMPRESA = " & Label3.Text & " AND ID_TIPO_LOCAL_ESTOQUE IN (1,10) "
+            'End If
+
+            FiltroLojaEmpresa()
+
+            .lblLabelFK.Text = .LabelPesqFK
+
+            .PosValida = True
+            .OrderByQuery = " order by id_empresa "
+            'Ajustes de layout
+            .lblLabelFK.Left = 0
+            .txtId.Left += 9
+            .txtId.Width -= 5
+            .txtDesc.Left = .txtId.Left + .txtId.Width + 3
+            .txtDesc.Width += 20
+            .btnPesq.Left = .txtDesc.Left + .txtDesc.Width + 3
+
+        End With
+    End Sub
+
+    Private Sub PesqFK1_Leave(sender As Object, e As EventArgs) Handles PesqFK1.Leave
+        PesqFKLojaOrigem.FiltroSQL = " WHERE id_empresa = " & CInt(PesqFK1.txtId.Text)
     End Sub
 End Class

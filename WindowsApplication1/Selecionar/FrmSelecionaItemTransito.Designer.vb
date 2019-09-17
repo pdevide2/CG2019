@@ -37,11 +37,12 @@ Partial Class frmSelecionaItemTransito
         Me.optFilter2 = New System.Windows.Forms.RadioButton()
         Me.optFilter1 = New System.Windows.Forms.RadioButton()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.PesqFKLojaOrigem = New WinCG.PesqFK()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.PesqFK1 = New WinCG.PesqFK()
+        Me.PesqFKLojaOrigem = New WinCG.PesqFK()
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -183,29 +184,6 @@ Partial Class frmSelecionaItemTransito
         Me.Panel2.Size = New System.Drawing.Size(264, 31)
         Me.Panel2.TabIndex = 15
         '
-        'PesqFKLojaOrigem
-        '
-        Me.PesqFKLojaOrigem.CampoDesc = Nothing
-        Me.PesqFKLojaOrigem.CampoId = Nothing
-        Me.PesqFKLojaOrigem.Clicou = "0"
-        Me.PesqFKLojaOrigem.CodigoSelecionado = Nothing
-        Me.PesqFKLojaOrigem.ColunasFiltro = Nothing
-        Me.PesqFKLojaOrigem.DescricaoSelecionada = Nothing
-        Me.PesqFKLojaOrigem.FiltroSQL = Nothing
-        Me.PesqFKLojaOrigem.LabelBuscaDesc = Nothing
-        Me.PesqFKLojaOrigem.LabelBuscaId = Nothing
-        Me.PesqFKLojaOrigem.LabelPesqFK = Nothing
-        Me.PesqFKLojaOrigem.ListaCampos = Nothing
-        Me.PesqFKLojaOrigem.Location = New System.Drawing.Point(16, 57)
-        Me.PesqFKLojaOrigem.Name = "PesqFKLojaOrigem"
-        Me.PesqFKLojaOrigem.ObjModelFk = Nothing
-        Me.PesqFKLojaOrigem.PosValida = False
-        Me.PesqFKLojaOrigem.Size = New System.Drawing.Size(498, 25)
-        Me.PesqFKLojaOrigem.Tabela = Nothing
-        Me.PesqFKLojaOrigem.TabIndex = 32
-        Me.PesqFKLojaOrigem.TituloTela = Nothing
-        Me.PesqFKLojaOrigem.View = Nothing
-        '
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
@@ -213,6 +191,7 @@ Partial Class frmSelecionaItemTransito
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(149, 21)
         Me.ComboBox1.TabIndex = 34
+        Me.ComboBox1.Visible = False
         '
         'Label2
         '
@@ -240,12 +219,62 @@ Partial Class frmSelecionaItemTransito
         Me.Label3.Size = New System.Drawing.Size(39, 13)
         Me.Label3.TabIndex = 36
         Me.Label3.Text = "Label3"
+        Me.Label3.Visible = False
+        '
+        'PesqFK1
+        '
+        Me.PesqFK1.CampoDesc = Nothing
+        Me.PesqFK1.CampoId = Nothing
+        Me.PesqFK1.Clicou = "0"
+        Me.PesqFK1.CodigoSelecionado = Nothing
+        Me.PesqFK1.ColunasFiltro = Nothing
+        Me.PesqFK1.DescricaoSelecionada = Nothing
+        Me.PesqFK1.FiltroSQL = Nothing
+        Me.PesqFK1.LabelBuscaDesc = Nothing
+        Me.PesqFK1.LabelBuscaId = Nothing
+        Me.PesqFK1.LabelPesqFK = Nothing
+        Me.PesqFK1.ListaCampos = Nothing
+        Me.PesqFK1.Location = New System.Drawing.Point(16, 42)
+        Me.PesqFK1.Name = "PesqFK1"
+        Me.PesqFK1.ObjModelFk = Nothing
+        Me.PesqFK1.OrderByQuery = Nothing
+        Me.PesqFK1.PosValida = False
+        Me.PesqFK1.Size = New System.Drawing.Size(498, 25)
+        Me.PesqFK1.Tabela = Nothing
+        Me.PesqFK1.TabIndex = 37
+        Me.PesqFK1.TituloTela = Nothing
+        Me.PesqFK1.View = Nothing
+        '
+        'PesqFKLojaOrigem
+        '
+        Me.PesqFKLojaOrigem.CampoDesc = Nothing
+        Me.PesqFKLojaOrigem.CampoId = Nothing
+        Me.PesqFKLojaOrigem.Clicou = "0"
+        Me.PesqFKLojaOrigem.CodigoSelecionado = Nothing
+        Me.PesqFKLojaOrigem.ColunasFiltro = Nothing
+        Me.PesqFKLojaOrigem.DescricaoSelecionada = Nothing
+        Me.PesqFKLojaOrigem.FiltroSQL = Nothing
+        Me.PesqFKLojaOrigem.LabelBuscaDesc = Nothing
+        Me.PesqFKLojaOrigem.LabelBuscaId = Nothing
+        Me.PesqFKLojaOrigem.LabelPesqFK = Nothing
+        Me.PesqFKLojaOrigem.ListaCampos = Nothing
+        Me.PesqFKLojaOrigem.Location = New System.Drawing.Point(16, 73)
+        Me.PesqFKLojaOrigem.Name = "PesqFKLojaOrigem"
+        Me.PesqFKLojaOrigem.ObjModelFk = Nothing
+        Me.PesqFKLojaOrigem.OrderByQuery = Nothing
+        Me.PesqFKLojaOrigem.PosValida = False
+        Me.PesqFKLojaOrigem.Size = New System.Drawing.Size(498, 25)
+        Me.PesqFKLojaOrigem.Tabela = Nothing
+        Me.PesqFKLojaOrigem.TabIndex = 32
+        Me.PesqFKLojaOrigem.TituloTela = Nothing
+        Me.PesqFKLojaOrigem.View = Nothing
         '
         'frmSelecionaItemTransito
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(607, 522)
+        Me.Controls.Add(Me.PesqFK1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ComboBox1)
@@ -292,4 +321,5 @@ Partial Class frmSelecionaItemTransito
     Friend WithEvents Label2 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Label3 As Label
+    Friend WithEvents PesqFK1 As PesqFK
 End Class

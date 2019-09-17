@@ -74,6 +74,16 @@ Public Class PesquisaDinamica2
         End Set
     End Property
 
+
+    Private _orderByQuery As String
+    Public Property OrderByQuery() As String
+        Get
+            Return _orderByQuery
+        End Get
+        Set(ByVal value As String)
+            _orderByQuery = value
+        End Set
+    End Property
     Public Sub New()
 
         ' This call is required by the designer.
@@ -100,6 +110,7 @@ Public Class PesquisaDinamica2
         Me.Comando = oPesquisa.ComandoSQL
         Me.Filtro = oPesquisa.FiltroSQL
         Me.ColunasFiltro = oPesquisa.ColunasFiltro
+        Me.OrderByQuery = IIf(String.IsNullOrEmpty(oPesquisa.OrderByQuery), "", oPesquisa.OrderByQuery)
 
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -113,7 +124,7 @@ Public Class PesquisaDinamica2
         If Len(Trim(Me.Filtro)) = 0 Then
             Me.Filtro = " Where 1 = 0 " 'Traz a estrutura apenas
         End If
-        Carregar(Me.Comando & Me.Filtro)
+        Carregar(Me.Comando & Me.Filtro & Me.OrderByQuery)
         PreencheCombo()
         TextBox1.Focus()
 
@@ -283,4 +294,7 @@ Public Class PesquisaDinamica2
         End With
     End Sub
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        MessageBox.Show(Me.Filtro)
+    End Sub
 End Class

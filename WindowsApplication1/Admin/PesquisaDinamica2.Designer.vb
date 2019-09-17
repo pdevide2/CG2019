@@ -34,6 +34,7 @@ Partial Class PesquisaDinamica2
         Me.btnNovo = New System.Windows.Forms.Button()
         Me.cboCampo = New System.Windows.Forms.ComboBox()
         Me.lblFiltrar = New System.Windows.Forms.Label()
+        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -148,12 +149,24 @@ Partial Class PesquisaDinamica2
         Me.lblFiltrar.TabIndex = 11
         Me.lblFiltrar.Text = "Pesquisar por"
         '
+        'Button4
+        '
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
+        Me.Button4.Location = New System.Drawing.Point(618, 4)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(64, 64)
+        Me.Button4.TabIndex = 13
+        Me.Button4.Text = "Info Filtros"
+        Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'PesquisaDinamica2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(694, 434)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.cboCampo)
         Me.Controls.Add(Me.lblFiltrar)
         Me.Controls.Add(Me.btnNovo)
@@ -184,4 +197,5 @@ Partial Class PesquisaDinamica2
     Friend WithEvents btnNovo As System.Windows.Forms.Button
     Friend WithEvents cboCampo As System.Windows.Forms.ComboBox
     Friend WithEvents lblFiltrar As System.Windows.Forms.Label
+    Friend WithEvents Button4 As Button
 End Class

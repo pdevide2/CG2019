@@ -135,5 +135,13 @@ Public Class PesquisaFK
         End Set
     End Property
 
-
+    Private _orderByQuery As String
+    Public Property OrderByQuery() As String
+        Get
+            Return _orderByQuery
+        End Get
+        Set(ByVal value As String)
+            _orderByQuery = value
+        End Set
+    End Property
 End Class

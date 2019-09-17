@@ -146,6 +146,16 @@
             _tituloTela = value
         End Set
     End Property
+
+    Private _orderBy As String
+    Public Property OrderByQuery() As String
+        Get
+            Return _orderBy
+        End Get
+        Set(ByVal value As String)
+            _orderBy = value
+        End Set
+    End Property
     Public Overridable Sub btnPesq_Click(sender As Object, e As EventArgs) Handles btnPesq.Click
         Me.ObjModelFk = New DTO.PesquisaFK
 
@@ -171,6 +181,10 @@
             Me.FiltroSQL = " WHERE (1=1) "
         End If
         Me.ObjModelFk.FiltroSQL = Me.FiltroSQL '" where (1=1) "
+
+        If Not String.IsNullOrEmpty(Me.OrderByQuery) Then
+            Me.ObjModelFk.OrderByQuery = Me.OrderByQuery
+        End If
 
         PesquisaFK2(Me.ObjModelFk)
 
