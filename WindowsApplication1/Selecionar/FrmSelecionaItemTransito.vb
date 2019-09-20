@@ -90,6 +90,8 @@
         End Set
     End Property
 
+    Dim listaProdutos As New List(Of String)
+
     Public Sub New(ByVal _transito As String, ByRef _gridDados As DataGridView, _procSQL As String)
 
         ' This call is required by the designer.
@@ -283,6 +285,18 @@
     End Sub
 
     Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
+        If listaProdutos.Count > 0 Then
+            Dim blnAchou As Boolean = False
+            pesquisaNoGrid.Text = ""
+            Carregar()
+
+            For Each row As DataGridViewRow In dgvDados.Rows
+                blnAchou = listaProdutos.Contains(row.Cells("simid").Value)
+                'blnAchou = listaProdutos.IndexOf(row.Cells("simid").Value)
+                row.Cells(0).Value = blnAchou
+            Next
+
+        End If
         AdicionaEscolhidos()
         Sair()
     End Sub
@@ -610,5 +624,14 @@
 
     Private Sub PesqFK1_Leave(sender As Object, e As EventArgs) Handles PesqFK1.Leave
         PesqFKLojaOrigem.FiltroSQL = " WHERE id_empresa = " & CInt(PesqFK1.txtId.Text)
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'Dim listaProdutos As New List(Of String)
+        If dgvDados.CurrentRow.Cells(0).Value = True Then
+            listaProdutos.Add(dgvDados.CurrentRow.Cells("SIMID").Value)
+            Dim frm As New WaitWindow(dgvDados.CurrentRow.Cells("SIMID").Value & " adicionado...", 1)
+            frm.Show()
+        End If
     End Sub
 End Class
