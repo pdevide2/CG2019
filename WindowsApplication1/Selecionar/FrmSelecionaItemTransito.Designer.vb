@@ -41,9 +41,11 @@ Partial Class frmSelecionaItemTransito
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.lstItens = New System.Windows.Forms.ListBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.PesqFK1 = New WinCG.PesqFK()
         Me.PesqFKLojaOrigem = New WinCG.PesqFK()
-        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -222,6 +224,32 @@ Partial Class frmSelecionaItemTransito
         Me.Label3.Text = "Label3"
         Me.Label3.Visible = False
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(436, 151)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(166, 23)
+        Me.Button2.TabIndex = 38
+        Me.Button2.Text = "Guardar item selecionado"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'lstItens
+        '
+        Me.lstItens.FormattingEnabled = True
+        Me.lstItens.Location = New System.Drawing.Point(608, 34)
+        Me.lstItens.Name = "lstItens"
+        Me.lstItens.Size = New System.Drawing.Size(169, 485)
+        Me.lstItens.TabIndex = 39
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(611, 18)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(137, 13)
+        Me.Label4.TabIndex = 40
+        Me.Label4.Text = "Lista de SIMID adicionados"
+        '
         'PesqFK1
         '
         Me.PesqFK1.CampoDesc = Nothing
@@ -270,20 +298,13 @@ Partial Class frmSelecionaItemTransito
         Me.PesqFKLojaOrigem.TituloTela = Nothing
         Me.PesqFKLojaOrigem.View = Nothing
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(436, 151)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(166, 23)
-        Me.Button2.TabIndex = 38
-        Me.Button2.Text = "Guardar item selecionado"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'frmSelecionaItemTransito
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(607, 522)
+        Me.ClientSize = New System.Drawing.Size(789, 522)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.lstItens)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.PesqFK1)
         Me.Controls.Add(Me.Label3)
@@ -334,4 +355,6 @@ Partial Class frmSelecionaItemTransito
     Friend WithEvents Label3 As Label
     Friend WithEvents PesqFK1 As PesqFK
     Friend WithEvents Button2 As Button
+    Friend WithEvents lstItens As ListBox
+    Friend WithEvents Label4 As Label
 End Class

@@ -179,6 +179,8 @@
     <Compile Include="Cg_movimento_equipamento_inativo_item.vb" />
     <Compile Include="Cg_entrada_estoque.vb" />
     <Compile Include="ColunasImpressao.vb" />
+    <Compile Include="ListaTransitoChip.vb" />
+    <Compile Include="ListaTransitoEquipamento.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

@@ -90,7 +90,8 @@
         End Set
     End Property
 
-    Dim listaProdutos As New List(Of String)
+    Dim listaChips As New List(Of DTO.ListaTransitoChip)
+    Dim listaEquipamentos As New List(Of DTO.ListaTransitoEquipamento)
 
     Public Sub New(ByVal _transito As String, ByRef _gridDados As DataGridView, _procSQL As String)
 
@@ -285,19 +286,20 @@
     End Sub
 
     Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
-        If listaProdutos.Count > 0 Then
-            Dim blnAchou As Boolean = False
-            pesquisaNoGrid.Text = ""
-            Carregar()
-
-            For Each row As DataGridViewRow In dgvDados.Rows
-                blnAchou = listaProdutos.Contains(row.Cells("simid").Value)
-                'blnAchou = listaProdutos.IndexOf(row.Cells("simid").Value)
-                row.Cells(0).Value = blnAchou
-            Next
-
+        If Me.TipoEstoque = "C" Then
+            If listaChips.Count > 0 Then
+                AdicionaEscolhidosLista()
+            Else
+                AdicionaEscolhidos()
+            End If
+        Else
+            If listaEquipamentos.Count > 0 Then
+                AdicionaEscolhidosLista()
+            Else
+                AdicionaEscolhidos()
+            End If
         End If
-        AdicionaEscolhidos()
+
         Sair()
     End Sub
 
@@ -364,6 +366,78 @@
 
         Catch ex As Exception
             MessageBox.Show("Erro ao selecionar chip: " & ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+
+        End Try
+
+
+
+    End Sub
+    Private Sub AdicionaEscolhidosLista()
+
+        Try
+
+            If TipoEstoque = "C" Then
+                For Each item In listaChips
+                    Dim strLinha As String()
+                    strLinha = {"Visualizar",
+                            item.IdChip,
+                            item.SIMID,
+                            item.IdOperadora,
+                            item.DescOperadora,
+                            "1",
+                            item.Valor,
+                            item.IdLocalEstoque,
+                            item.IdEmpresa}
+                    If validaDuplicidade(item.IdChip) = False Then
+                        Me.GridPai.Rows.Add(strLinha)
+                    Else
+                        MessageBox.Show(IIf(Me.TipoEstoque = "C", "SIMID ", "POS Série ") &
+                                        item.SIMID & " não incluído, pois já " &
+                                        "está inserido!", "Aviso", MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation)
+                    End If
+                Next
+            Else
+                For Each item In listaEquipamentos
+                    Dim strLinha As String()
+                    If IsSalesOrder = False Then
+                        strLinha = {"Visualizar",
+                            item.IdEquipamento,
+                            item.Serie,
+                            item.DescEquipamento,
+                            item.Modelo,
+                            "1",
+                            item.Valor,
+                            item.IdLocalEstoque,
+                            item.IdEmpresa}
+                    Else
+                        strLinha = {"Visualizar",
+                            item.IdEquipamento,
+                            item.Serie,
+                            item.DescEquipamento,
+                            item.Modelo,
+                            "1",
+                            item.Valor,
+                            item.IdLocalEstoque,
+                            item.IdEmpresa,
+                            True}
+                    End If
+
+                    If validaDuplicidade(item.IdEquipamento) = False Then
+                        Me.GridPai.Rows.Add(strLinha)
+                    Else
+                        MessageBox.Show(IIf(Me.TipoEstoque = "C", "SIMID ", "POS Série ") &
+                                        item.Serie & " não incluído, pois já " &
+                                        "está inserido!", "Aviso", MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation)
+                    End If
+                Next
+
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Erro ao selecionar item: " & ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
 
         End Try
@@ -569,12 +643,16 @@
         If Me.TipoEstoque = "C" Then
             Me.Text = "Seleção de Chip"
             Label1.Text = "SIMID"
+            Label4.Text = "Lista de SIMID adicionados"
         Else
             Me.Text = "Seleção de Equipamento (POS)"
             Label1.Text = "Série#"
+            Label4.Text = "Lista de POS adicionados"
         End If
         'CarregaComboEmpresa()
         Carregar()
+        lstItens.Items.Clear()
+
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
@@ -624,14 +702,58 @@
 
     Private Sub PesqFK1_Leave(sender As Object, e As EventArgs) Handles PesqFK1.Leave
         PesqFKLojaOrigem.FiltroSQL = " WHERE id_empresa = " & CInt(PesqFK1.txtId.Text)
+        Label3.Text = PesqFK1.txtId.Text
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'Dim listaProdutos As New List(Of String)
-        If dgvDados.CurrentRow.Cells(0).Value = True Then
-            listaProdutos.Add(dgvDados.CurrentRow.Cells("SIMID").Value)
-            Dim frm As New WaitWindow(dgvDados.CurrentRow.Cells("SIMID").Value & " adicionado...", 1)
-            frm.Show()
-        End If
+        For Each row As DataGridViewRow In dgvDados.Rows
+
+
+            If row.Cells(0).Value = True And Not row.IsNewRow Then
+                If Me.TipoEstoque = "C" Then
+                    Dim listOfSimid As New DTO.ListaTransitoChip
+
+
+                    listOfSimid.IdChip = row.Cells(1).Value
+                    listOfSimid.SIMID = row.Cells(2).Value
+                    listOfSimid.IdOperadora = row.Cells(3).Value
+                    listOfSimid.DescOperadora = row.Cells(4).Value
+                    listOfSimid.Qtde = row.Cells(5).Value
+                    listOfSimid.Valor = row.Cells(6).Value
+                    listOfSimid.IdLocalEstoque = PesqFKLojaOrigem.txtId.Text
+                    listOfSimid.IdEmpresa = PesqFK1.txtId.Text
+                    listOfSimid.SalesOrder = False
+
+                    listaChips.Add(listOfSimid)
+                    lstItens.Items.Add(listOfSimid.SIMID)
+                    'Dim frm As New WaitWindow(dgvDados.CurrentRow.Cells("SIMID").Value & " adicionado...", 1)
+                    'frm.Show()
+
+                Else
+                    Dim listOfEquip As New DTO.ListaTransitoEquipamento
+
+
+                    listOfEquip.IdEquipamento = row.Cells(1).Value
+                    listOfEquip.Serie = row.Cells(2).Value
+                    listOfEquip.DescEquipamento = row.Cells(3).Value
+                    listOfEquip.Modelo = row.Cells(4).Value
+                    listOfEquip.Qtde = row.Cells(5).Value
+                    listOfEquip.Valor = row.Cells(6).Value
+                    listOfEquip.IdLocalEstoque = PesqFKLojaOrigem.txtId.Text
+                    listOfEquip.IdEmpresa = PesqFK1.txtId.Text
+                    listOfEquip.SalesOrder = Me.IsSalesOrder
+
+                    listaEquipamentos.Add(listOfEquip)
+                    lstItens.Items.Add(listOfEquip.Serie)
+
+                    'Dim frm As New WaitWindow(dgvDados.CurrentRow.Cells("SIMID").Value & " adicionado...", 1)
+                    'frm.Show()
+
+
+                End If
+            End If
+        Next
+
     End Sub
 End Class
