@@ -318,6 +318,12 @@
     <Compile Include="Vendas\PedidoVendasAprovacao.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Vendas\PedidoVendasAprovacao2.designer.vb">
+      <DependentUpon>PedidoVendasAprovacao2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Vendas\PedidoVendasAprovacao2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Vendas\PedidoVenda_Edicao.designer.vb">
       <DependentUpon>PedidoVenda_Edicao.vb</DependentUpon>
     </Compile>
@@ -941,6 +947,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vendas\PedidoVendasAprovacao.resx">
       <DependentUpon>PedidoVendasAprovacao.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendas\PedidoVendasAprovacao2.resx">
+      <DependentUpon>PedidoVendasAprovacao2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vendas\PedidoVenda_Edicao.resx">
       <DependentUpon>PedidoVenda_Edicao.vb</DependentUpon>

@@ -431,7 +431,7 @@
         End If
         ' 76 - aprovação de pedidos de venda
         If ACE_MODULO = 76 Then
-            frm = New WinCG.PedidoVendasAprovacao()
+            frm = New WinCG.PedidoVendasAprovacao2()
         End If
         ' 77 - devolução de pedidos de venda
         If ACE_MODULO = 77 Then
