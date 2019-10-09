@@ -105,7 +105,7 @@
         Me.ProcSQL = _procSQL
         Me.Transito = _transito
         Me.IsSalesOrder = False
-        CarregaComboEmpresa()
+        'CarregaComboEmpresa()
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
@@ -123,7 +123,7 @@
         Me.Transito = _transito
         Me.IsSalesOrder = True 'Na hora de gerar o transito, marca que a origem é de Pedido de Venda, pois na baixa do Transito tem que 
         'Selecionar um cliente ao inves de uma Loja
-        CarregaComboEmpresa()
+        'CarregaComboEmpresa()
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
