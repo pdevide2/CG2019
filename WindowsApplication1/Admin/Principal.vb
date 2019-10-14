@@ -403,7 +403,7 @@
         End If
         ' 69 - TRANSFERENCIA DE ESTOQUE
         If ACE_MODULO = 69 Then
-            frm = New WinCG.TransferenciaEstoque(oPermissao)
+            frm = New WinCG.TransferenciaEstoque2(oPermissao)
         End If
         ' 70 - TRANSFERENCIA DE CADASTROS BASICOS ENTRE EMPRESAS
         If ACE_MODULO = 70 Then

@@ -221,6 +221,12 @@
     <Compile Include="Estoque\BaixaMovimentoTransito.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Estoque\TransferenciaEstoque2.designer.vb">
+      <DependentUpon>TransferenciaEstoque2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estoque\TransferenciaEstoque2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Vendas\Clientes.designer.vb">
       <DependentUpon>Clientes.vb</DependentUpon>
     </Compile>
@@ -899,6 +905,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Estoque\BaixaMovimentoTransito.resx">
       <DependentUpon>BaixaMovimentoTransito.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estoque\TransferenciaEstoque2.resx">
+      <DependentUpon>TransferenciaEstoque2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vendas\Clientes.resx">
       <DependentUpon>Clientes.vb</DependentUpon>
