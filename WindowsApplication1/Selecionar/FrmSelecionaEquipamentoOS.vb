@@ -64,6 +64,7 @@
     'Quando inclui um novo item, é feita uma pesquisa do range de 1 a 1000 e o numero não
     'encontrado é retornado na função buscaDisponivel() para ser o proximo SEQUENCIAL do campo ITEM_ID
     Dim listaCodigos As List(Of Integer)
+    Dim listaEquipamentos As New List(Of DTO.ListaItensOS)
 
     Public Sub New(ByVal _id As Integer, ByVal _idlojaorigem As Integer, ByRef _gridDados As DataGridView)
 
@@ -79,6 +80,63 @@
 
     End Sub
     Public Sub Carregar()
+        Dim sql As String
+        sql = "EXEC spSelecionaEquipamento_OS "
+        Me.Comando = sql
+        'Pega todos os Equipamentos no estoque da Loja Origem selecionado na tela pai e 
+        'elimina da seleção todos que já foram selecionados no grid da tela pai
+        Dim txtLike As String = Trim(Me.pesquisaNoGrid.Text)
+        Dim strOpt As String = IIf(optPesq1.Checked, "1", "2")
+        Me.Filtro = Me.LojaOrigem & ",'" & listaIdIncluidos() & "', '" & txtLike & "', " & strOpt
+
+        dgvDados.DataSource = BLL.GlobalBLL.PesquisarFkBLL(Me.Comando & Me.Filtro).Tables(0)
+
+        dgvDados.Columns(0).ReadOnly = False ' coluna do Botão
+
+        For ixx = 1 To 9
+            dgvDados.Columns(ixx).ReadOnly = True 'Todas as colunas Textbox são ReadOnly
+        Next
+
+        dgvDados.AllowUserToAddRows = False     'bloqueia adição de novas linhas
+        dgvDados.AllowUserToDeleteRows = False  'bloqueia exclusão de linhas
+        'dgvDados.AutoResizeColumns()            'Autofit nas colunas para Exibição
+
+        dgvDados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None 'DataGridViewAutoSizeColumnsMode.AllCells
+        dgvDados.MultiSelect = False
+        'dgvDados.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvDados.AllowUserToResizeColumns = False
+        dgvDados.EnableHeadersVisualStyles = False
+
+        dgvDados.Columns("selecao").Width = 60
+        dgvDados.Columns("id_equipamento").Width = 70
+        dgvDados.Columns("serie").Width = 90
+        dgvDados.Columns("modelo").Width = 90
+        dgvDados.Columns("desc_equipamento").Width = 200
+        dgvDados.Columns("id_local_estoque").Width = 60
+        dgvDados.Columns("valor").Width = 100
+        dgvDados.Columns("id_tipo_equipamento").Width = 100
+        dgvDados.Columns("desc_tipo_equipamento").Width = 100
+        dgvDados.Columns("garantia").Width = 60
+
+
+        'Alinhamento dos dados nas colunas do Grid
+        dgvDados.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        dgvDados.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+        dgvDados.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+        dgvDados.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+        dgvDados.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        dgvDados.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        dgvDados.Columns(7).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        dgvDados.Columns(8).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+        dgvDados.Columns(9).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+
+        If dgvDados.RowCount = 0 Then
+            MessageBox.Show("Não existem equipamentos no estoque da loja selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+
+
+    End Sub
+    Public Sub Carregar_OLD()
         Dim sql As String
         sql = "EXEC spSelecionaEquipamento_OS "
         Me.Comando = sql
@@ -175,7 +233,7 @@
         dgvDados.AutoGenerateColumns = False
 
         'Adicionar estas colunas para a coleçao do DataGridView
-        dgvDados.Columns.AddRange(New DataGridViewColumn() {coluna0, coluna1, coluna2, coluna3, _
+        dgvDados.Columns.AddRange(New DataGridViewColumn() {coluna0, coluna1, coluna2, coluna3,
                                                             coluna4, coluna5, coluna6, coluna7, coluna8, coluna9})
 
         'dgvDados.DataSource = myRow
@@ -189,18 +247,30 @@
 
         dgvDados.AllowUserToAddRows = False     'bloqueia adição de novas linhas
         dgvDados.AllowUserToDeleteRows = False  'bloqueia exclusão de linhas
-        dgvDados.AutoResizeColumns()            'Autofit nas colunas para Exibição
+        'dgvDados.AutoResizeColumns()            'Autofit nas colunas para Exibição
 
-        dgvDados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        dgvDados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None 'DataGridViewAutoSizeColumnsMode.AllCells
         dgvDados.MultiSelect = False
         'dgvDados.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvDados.AllowUserToResizeColumns = False
         dgvDados.EnableHeadersVisualStyles = False
 
+        dgvDados.Columns("selecao").Width = 60
+        dgvDados.Columns("id_equipamento").Width = 70
+        dgvDados.Columns("serie").Width = 90
+        dgvDados.Columns("modelo").Width = 90
+        dgvDados.Columns("desc_equipamento").Width = 200
+        dgvDados.Columns("id_local_estoque").Width = 60
+        dgvDados.Columns("valor").Width = 100
+        dgvDados.Columns("id_tipo_equipamento").Width = 100
+        dgvDados.Columns("desc_tipo_equipamento").Width = 100
+        dgvDados.Columns("garantia").Width = 60
+
+
         'Alinhamento dos dados nas colunas do Grid
         dgvDados.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         dgvDados.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-        dgvDados.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        dgvDados.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
         dgvDados.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
         dgvDados.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         dgvDados.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
@@ -225,15 +295,15 @@
 
             'Le os dados da lista de array e converte tudo para String, coluna por coluna e 
             'armazena no array de Strings strLinha, que posteriormente será adicionado no Grid
-            strLinha = {myRow(ixx)(0).ToString, _
-                        myRow(ixx)(1).ToString, _
-                        myRow(ixx)(2).ToString, _
-                        myRow(ixx)(3).ToString, _
-                        myRow(ixx)(4).ToString, _
-                        myRow(ixx)(5).ToString, _
-                        myRow(ixx)(6).ToString, _
-                        myRow(ixx)(7).ToString, _
-                        myRow(ixx)(8).ToString, _
+            strLinha = {myRow(ixx)(0).ToString,
+                        myRow(ixx)(1).ToString,
+                        myRow(ixx)(2).ToString,
+                        myRow(ixx)(3).ToString,
+                        myRow(ixx)(4).ToString,
+                        myRow(ixx)(5).ToString,
+                        myRow(ixx)(6).ToString,
+                        myRow(ixx)(7).ToString,
+                        myRow(ixx)(8).ToString,
                         myRow(ixx)(9).ToString}
 
             dgvDados.Rows.Add(strLinha)
@@ -254,10 +324,49 @@
     End Sub
 
     Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
-        AdicionaEscolhidos()
+        If listaEquipamentos.Count > 0 Then
+            AdicionaEscolhidosLista()
+        Else
+            AdicionaEscolhidos()
+        End If
         Sair()
     End Sub
+    Private Sub AdicionaEscolhidosLista()
+        Dim intReg As Integer
+        Dim blnSt As Boolean = False
 
+        Try
+
+            For Each item In listaEquipamentos
+
+                intReg = buscaDisponivel()
+                Dim strLinha As String()
+                strLinha = {"Editar",
+                            "Ocorrência",
+                            item.IdOS,
+                            intReg.ToString,
+                            item.IdEquipamento,
+                            item.DescEquipamento,
+                            item.Serie,
+                            item.Modelo,
+                            item.PrevisaoRetorno,
+                            item.DescDefeito,
+                            item.ConsertoOk,
+                            item.IdTipoEquip,
+                            item.DescTipoEquipamento,
+                            item.Garantia}
+
+                Me.GridPai.Rows.Add(strLinha)
+            Next
+
+
+        Catch ex As Exception
+            MessageBox.Show("Erro ao selecionar item: " & ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+
+        End Try
+
+    End Sub
     'Alimenta o DataGridView da tela pai e fecha o form depois
     Private Sub AdicionaEscolhidos()
 
@@ -455,4 +564,39 @@
 
     End Function
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim intReg As Integer
+        Dim blnSt As Boolean = False
+
+        For Each row As DataGridViewRow In dgvDados.Rows
+
+
+            If row.Cells(0).Value = True And Not row.IsNewRow Then
+                Dim listOfEquip As New DTO.ListaItensOS
+                intReg = 0 'buscaDisponivel()
+
+                listOfEquip.IdOS = Me.ChavePai
+                listOfEquip.ItemId = intReg.ToString
+                listOfEquip.IdEquipamento = row.Cells("id_equipamento").Value
+                listOfEquip.DescEquipamento = row.Cells("desc_equipamento").Value
+                listOfEquip.Serie = row.Cells("serie").Value
+                listOfEquip.Modelo = row.Cells("modelo").Value
+                listOfEquip.PrevisaoRetorno = SomaData("D", 7, Hoje()).ToString("dd/MM/yyyy")
+                listOfEquip.DescDefeito = "Com Defeito. Enviado para assistência técnica em " & CDate(Hoje()).ToString("dd/MM/yyyy")
+                listOfEquip.ConsertoOk = blnSt.ToString
+                listOfEquip.IdTipoEquip = row.Cells("id_tipo_equipamento").Value
+                listOfEquip.DescTipoEquipamento = row.Cells("desc_tipo_equipamento").Value
+                listOfEquip.Garantia = row.Cells("garantia").Value
+
+
+                listaEquipamentos.Add(listOfEquip)
+                lstItens.Items.Add(listOfEquip.Serie)
+
+                'Dim frm As New WaitWindow(dgvDados.CurrentRow.Cells("SIMID").Value & " adicionado...", 1)
+                'frm.Show()
+
+            End If
+        Next
+
+    End Sub
 End Class

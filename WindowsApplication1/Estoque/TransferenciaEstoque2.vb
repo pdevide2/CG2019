@@ -62,6 +62,9 @@
         End Set
     End Property
 
+    Dim listaChips As New List(Of DTO.ListaTransfChip)
+    Dim listaEquipamentos As New List(Of DTO.ListaTransfEquipamento)
+
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tsNavega.Visible = False
         Me.Height -= 40
@@ -90,7 +93,22 @@
         Me.ColunaFiltro = "ID_ROMANEIO"
         Me.Filtro = ""
 
-        dgvDados.DataSource = BLL.GlobalBLL.PesquisarFkBLL(sql).Tables(0)
+        Dim dt = BLL.GlobalBLL.PesquisarFkBLL(sql).Tables(0)
+        Dim strFilter = ""
+        If Not String.IsNullOrEmpty(txtPesquisaSimid.Text) Then
+            If optPesqSimid1.Checked Then
+                strFilter = "simid like'" + Trim(txtPesquisaSimid.Text) + "%'"
+            End If
+            If optPesqSimid2.Checked Then
+                strFilter = "simid like'%" + Trim(txtPesquisaSimid.Text) + "%'"
+            End If
+        End If
+        dt.DefaultView.RowFilter = strFilter
+        dgvDados.DataSource = dt
+
+
+
+        'dgvDados.DataSource = BLL.GlobalBLL.PesquisarFkBLL(sql).Tables(0)
 
         dgvDados.Columns("selecao").HeaderText = "Selecione"
         dgvDados.Columns("id_chip").HeaderText = "Id Chip"
@@ -154,7 +172,20 @@
         Me.ColunaFiltro = "ID_ROMANEIO"
         Me.Filtro = ""
 
-        dgvDados2.DataSource = BLL.GlobalBLL.PesquisarFkBLL(sql).Tables(0)
+        Dim dt = BLL.GlobalBLL.PesquisarFkBLL(sql).Tables(0)
+        Dim strFilter = ""
+        If Not String.IsNullOrEmpty(txtPesquisaSerie.Text) Then
+            If optPesqSerie1.Checked Then
+                strFilter = "serie like'" + Trim(txtPesquisaSerie.Text) + "%'"
+            End If
+            If optPesqSerie2.Checked Then
+                strFilter = "serie like'%" + Trim(txtPesquisaSerie.Text) + "%'"
+            End If
+        End If
+        dt.DefaultView.RowFilter = strFilter
+        dgvDados2.DataSource = dt
+
+        'dgvDados2.DataSource = BLL.GlobalBLL.PesquisarFkBLL(sql).Tables(0)
 
         dgvDados2.Columns("selecao").HeaderText = "Selecione"
         dgvDados2.Columns("id_equipamento").HeaderText = "Id Equip."
@@ -270,6 +301,7 @@
 
     End Function
 
+
     Public Overrides Sub Gravar(acao As Integer)
         'MyBase.Gravar(acao)
 
@@ -325,24 +357,42 @@
             Next
 
             'Percorre todo o DataGridView e insere os dados
-            For Each row As DataGridViewRow In dgvDados.Rows
+            'For Each row As DataGridViewRow In dgvDados.Rows
 
-                If Not row.IsNewRow Then
+            '    If Not row.IsNewRow Then
 
-                    'Carrega os dados no objeto Model para passagem de parametro
-                    objEntradaChipItem.Id_chip = CInt(row.Cells(1).Value)
-                    objEntradaChipItem.Simid = row.Cells(2).Value
-                    objEntradaChipItem.Qtd = CInt(row.Cells(5).Value)
-                    objEntradaChipItem.Valor = Convert.ToDouble(Replace(row.Cells(6).Value, ".", ","))
-                    objEntradaChipItem.Id_romaneio = CInt(txtCodigo.Text)
-                    objEntradaChipItem.Unique_keyid = row.Cells(8).Value
-                    objEntradaChipItem.Id_empresa = Publico.Id_empresa
+            '        'Carrega os dados no objeto Model para passagem de parametro
+            '        objEntradaChipItem.Id_chip = CInt(row.Cells(1).Value)
+            '        objEntradaChipItem.Simid = row.Cells(2).Value
+            '        objEntradaChipItem.Qtd = CInt(row.Cells(5).Value)
+            '        objEntradaChipItem.Valor = Convert.ToDouble(Replace(row.Cells(6).Value, ".", ","))
+            '        objEntradaChipItem.Id_romaneio = CInt(txtCodigo.Text)
+            '        objEntradaChipItem.Unique_keyid = row.Cells(8).Value
+            '        objEntradaChipItem.Id_empresa = Publico.Id_empresa
 
 
-                    'Operação de delete/insert
-                    bllFilha.GravarBLL(Operacao.Novo, objEntradaChipItem)
+            '        'Operação de delete/insert
+            '        bllFilha.GravarBLL(Operacao.Novo, objEntradaChipItem)
 
-                End If
+            '    End If
+
+            'Next
+            For Each item In listaChips
+
+
+                'Carrega os dados no objeto Model para passagem de parametro
+                objEntradaChipItem.Id_chip = item.IdChip 'CInt(row.Cells(1).Value)
+                objEntradaChipItem.Simid = item.SIMID 'row.Cells(2).Value
+                objEntradaChipItem.Qtd = item.Qtde 'CInt(row.Cells(5).Value)
+                objEntradaChipItem.Valor = Convert.ToDouble(Replace(item.Valor, ".", ","))
+                objEntradaChipItem.Id_romaneio = CInt(txtCodigo.Text)
+                objEntradaChipItem.Unique_keyid = "" 'row.Cells(8).Value
+                objEntradaChipItem.Id_empresa = Publico.Id_empresa
+
+
+                'Operação de delete/insert
+                bllFilha.GravarBLL(Operacao.Novo, objEntradaChipItem)
+
 
             Next
 
@@ -551,50 +601,166 @@
     'End Sub
 
     Private Sub btnProcurarSimid_Click(sender As Object, e As EventArgs) Handles btnProcurarSimid.Click
-        Dim texto As String = Nothing
-        Dim intEscolha As Integer = IIf(optPesqSimid1.Checked = True, 0, 1)
+        'Dim texto As String = Nothing
+        'Dim intEscolha As Integer = IIf(optPesqSimid1.Checked = True, 0, 1)
 
-        If txtPesquisaSimid.Text <> String.Empty Then
-            'Percorre todas as linhas do Grid e compara o conteudo do textbox de Pesquisa
-            'com o conteudo da coluna SIMID do grid. Se a condição for satisfeita seleciona a linha e sai da rotina
-            For Each linha As DataGridViewRow In dgvDados.Rows
-                texto = linha.Cells(2).Value 'Pesquisa na coluna de SIMID
-                If PesquisaString(texto.ToLower, txtPesquisaSimid.Text.ToLower, intEscolha) Then
-                    linha.Selected = True
-                    Dim linhaAtual = dgvDados.CurrentRow.Index
-                    dgvDados.CurrentCell = dgvDados.Rows(linhaAtual).Cells(0)
-                    dgvDados.Focus()
-                    Exit Sub
-                End If
-            Next
-        End If
+        'If txtPesquisaSimid.Text <> String.Empty Then
+        '    'Percorre todas as linhas do Grid e compara o conteudo do textbox de Pesquisa
+        '    'com o conteudo da coluna SIMID do grid. Se a condição for satisfeita seleciona a linha e sai da rotina
+        '    For Each linha As DataGridViewRow In dgvDados.Rows
+        '        texto = linha.Cells(2).Value 'Pesquisa na coluna de SIMID
+        '        If PesquisaString(texto.ToLower, txtPesquisaSimid.Text.ToLower, intEscolha) Then
+        '            linha.Selected = True
+        '            Dim linhaAtual = dgvDados.CurrentRow.Index
+        '            dgvDados.CurrentCell = dgvDados.Rows(linhaAtual).Cells(0)
+        '            dgvDados.Focus()
+        '            Exit Sub
+        '        End If
+        '    Next
+        'End If
+        CarregarChip()
     End Sub
 
     Private Sub btnProcurarSerie_Click(sender As Object, e As EventArgs) Handles btnProcurarSerie.Click
-        Dim texto As String = Nothing
-        Dim intEscolha As Integer = IIf(optPesqSerie1.Checked = True, 0, 1)
+        'Dim texto As String = Nothing
+        'Dim intEscolha As Integer = IIf(optPesqSerie1.Checked = True, 0, 1)
 
-        If txtPesquisaSerie.Text <> String.Empty Then
-            'Percorre todas as linhas do Grid e compara o conteudo do textbox de Pesquisa
-            'com o conteudo da coluna SIMID do grid. Se a condição for satisfeita seleciona a linha e sai da rotina
-            For Each linha As DataGridViewRow In dgvDados2.Rows
-                texto = linha.Cells(2).Value 'Pesquisa na coluna de SIMID
-                If PesquisaString(texto.ToLower, txtPesquisaSerie.Text.ToLower, intEscolha) Then
-                    linha.Selected = True
-                    Dim linhaAtual = dgvDados2.CurrentRow.Index
-                    dgvDados2.CurrentCell = dgvDados2.Rows(linhaAtual).Cells(0)
-                    dgvDados2.Focus()
-                    Exit Sub
-                End If
-            Next
-        End If
-
+        'If txtPesquisaSerie.Text <> String.Empty Then
+        '    'Percorre todas as linhas do Grid e compara o conteudo do textbox de Pesquisa
+        '    'com o conteudo da coluna SIMID do grid. Se a condição for satisfeita seleciona a linha e sai da rotina
+        '    For Each linha As DataGridViewRow In dgvDados2.Rows
+        '        texto = linha.Cells(2).Value 'Pesquisa na coluna de SIMID
+        '        If PesquisaString(texto.ToLower, txtPesquisaSerie.Text.ToLower, intEscolha) Then
+        '            linha.Selected = True
+        '            Dim linhaAtual = dgvDados2.CurrentRow.Index
+        '            dgvDados2.CurrentCell = dgvDados2.Rows(linhaAtual).Cells(0)
+        '            dgvDados2.Focus()
+        '            Exit Sub
+        '        End If
+        '    Next
+        'End If
+        CarregarEquipamento()
     End Sub
 
     Private Sub btnTransferir_Click(sender As Object, e As EventArgs) Handles btnTransferir.Click
-        TransferirEstoque()
+        TransferirEstoqueLista()
     End Sub
+    Private Sub TransferirEstoqueLista()
+        If Not ValidaDados() Then
+            Exit Sub
+        End If
 
+        Dim bllGlobal As New BLL.GlobalBLL
+        Me.KeyId = bllGlobal.NovaChaveBLL(Me.Tabela)
+        If Me.KeyId > 0 Then
+            txtCodigo.Text = Me.KeyId.ToString() 'Chave do Romaneio
+        End If
+
+        Dim bllPai As New BLL.Entrada_EstoqueBLL
+        Dim objEntradaEstoque As New DTO.Cg_entrada_estoque
+
+        Dim bllFilha As New BLL.Entrada_chip_itemBLL
+        Dim objEntradaChipItem As New DTO.Cg_entrada_chip_item
+
+        Dim bllFilha2 As New BLL.Entrada_equipamento_itemBLL
+        Dim objEntradaEquipamentoItem As New DTO.Cg_entrada_equipamento_item
+
+        Try
+            objEntradaEstoque.Id_romaneio = CInt(txtCodigo.Text)
+            objEntradaEstoque.Data_movto = ShortDate() 'CDate(txtDataMovto.Text)
+            objEntradaEstoque.Id_loja = CInt(getCodigoMatriz())
+
+            objEntradaEstoque.User_ins = ACE_CODIGO
+            objEntradaEstoque.Data_ins = Hoje()
+            objEntradaEstoque.User_upd = ACE_CODIGO
+            objEntradaEstoque.Data_upd = Hoje()
+            objEntradaEstoque.Id_empresa = CInt(PesqFKEmpresaDestino.txtId.Text)
+
+
+            bllPai.GravarBLL(Operacao.Novo, objEntradaEstoque)
+
+            'Método de Delete => Insert
+            'Pesquisa pelos itens já existente e exclui tudo, para incluir os
+            'itens que estão ativos no Grid
+            Dim strItens As ArrayList, strItens2 As ArrayList
+            Dim sqlquery As String, sqlquery2 As String
+            sqlquery = "select ID_ROMANEIO, UNIQUE_KEYID, ID_CHIP, SIMID, QTD, VALOR "
+            sqlquery += "FROM CG_ENTRADA_CHIP_ITEM WHERE ID_ROMANEIO = " & objEntradaEstoque.Id_romaneio.ToString
+
+            strItens = BLL.GlobalBLL.PesquisarFkListaBLL(sqlquery)
+
+            sqlquery2 = "select ID_ROMANEIO, UNIQUE_KEYID, ID_EQUIPAMENTO, SERIE, QTD, VALOR "
+            sqlquery2 += "FROM CG_ENTRADA_EQUIPAMENTO_ITEM WHERE ID_ROMANEIO = " & objEntradaEstoque.Id_romaneio.ToString
+
+            strItens2 = BLL.GlobalBLL.PesquisarFkListaBLL(sqlquery2)
+
+            'Percorre o array e exclui item a item 
+            objEntradaChipItem.Id_romaneio = objEntradaEstoque.Id_romaneio
+            Dim intParam1 As Integer, strParam2 As String
+            For ixx = 0 To strItens.Count - 1
+                intParam1 = strItens(ixx)(0)
+                strParam2 = strItens(ixx)(1).ToString
+                bllFilha.ExcluirBLL(intParam1, strParam2)
+            Next
+
+            For Each item In listaChips
+
+
+                'Carrega os dados no objeto Model para passagem de parametro
+                objEntradaChipItem.Id_chip = item.IdChip 'CInt(row.Cells(1).Value)
+                objEntradaChipItem.Simid = item.SIMID 'row.Cells(2).Value
+                objEntradaChipItem.Qtd = item.Qtde 'CInt(row.Cells(5).Value)
+                objEntradaChipItem.Valor = Convert.ToDouble(Replace(item.Valor, ".", ","))
+                objEntradaChipItem.Id_romaneio = CInt(txtCodigo.Text)
+                objEntradaChipItem.Unique_keyid = NovoKeyId() 'row.Cells(8).Value
+                objEntradaChipItem.Id_empresa = objEntradaEstoque.Id_empresa
+
+
+                'Operação de delete/insert
+                bllFilha.GravarBLL(Operacao.Novo, objEntradaChipItem)
+
+
+            Next
+
+            'Percorre o array e exclui item a item 
+            objEntradaEquipamentoItem.Id_romaneio = objEntradaEstoque.Id_romaneio
+            Dim intParametro1 As Integer, strParametro2 As String
+            For ixx = 0 To strItens2.Count - 1
+                intParametro1 = strItens2(ixx)(0)
+                strParametro2 = strItens2(ixx)(1).ToString
+                bllFilha2.ExcluirBLL(intParametro1, strParametro2)
+            Next
+
+            For Each item In listaEquipamentos
+
+                'Carrega os dados no objeto Model para passagem de parametro
+                objEntradaEquipamentoItem.Id_equipamento = CInt(item.IdEquipamento)
+                objEntradaEquipamentoItem.Serie = item.Serie
+                objEntradaEquipamentoItem.Qtd = CInt(item.Qtde)
+                objEntradaEquipamentoItem.Valor = Convert.ToDouble(Replace(item.Valor, ".", ","))
+                objEntradaEquipamentoItem.Id_romaneio = CInt(txtCodigo.Text)
+                objEntradaEquipamentoItem.Unique_keyid = NovoKeyId() 'row.Cells(8).Value
+                objEntradaEquipamentoItem.Id_empresa = objEntradaEstoque.Id_empresa 'Publico.Id_empresa
+
+                'Operação de delete/insert
+                bllFilha2.GravarBLL(Operacao.Novo, objEntradaEquipamentoItem)
+
+            Next
+
+
+            'MessageBox.Show(IIf(Acao = Operacao.Alterar, "Registro modificado", "Registro incluído") & " com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Transferência efetuada com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            flagAcao = Operacao.Consulta
+
+        Catch ex As Exception
+            MessageBox.Show("Erro ao gravar cadastro: " & ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+
+            Habilita_Controles(False) 'modo leitura
+
+        End Try
+
+    End Sub
     Private Sub TransferirEstoque()
 
         If Not ValidaDados() Then
@@ -773,4 +939,72 @@
         'txtDescLoja.Text = strLoja(0)(1).ToString
         Return ret
     End Function
+
+    Private Sub btnGuardaChip_Click(sender As Object, e As EventArgs) Handles btnGuardaChip.Click
+        'Dim listaProdutos As New List(Of String)
+        For Each row As DataGridViewRow In dgvDados.Rows
+
+
+            If row.Cells(0).Value = True And Not row.IsNewRow Then
+                Dim listOfSimid As New DTO.ListaTransfChip
+
+
+                listOfSimid.IdChip = row.Cells(1).Value
+                listOfSimid.SIMID = row.Cells(2).Value
+                listOfSimid.IdOperadora = row.Cells(3).Value
+                listOfSimid.DescOperadora = row.Cells(4).Value
+                listOfSimid.Qtde = row.Cells(5).Value
+                listOfSimid.Valor = row.Cells(6).Value
+
+                listaChips.Add(listOfSimid)
+                ListBox1.Items.Add(listOfSimid.SIMID)
+
+            End If
+        Next
+
+    End Sub
+
+    Private Sub btnGuardaPOS_Click(sender As Object, e As EventArgs) Handles btnGuardaPOS.Click
+        For Each row As DataGridViewRow In dgvDados2.Rows
+
+
+            If row.Cells(0).Value = True And Not row.IsNewRow Then
+                Dim listOfEquip As New DTO.ListaTransfEquipamento
+
+
+                listOfEquip.IdEquipamento = row.Cells(1).Value
+                listOfEquip.Serie = row.Cells(2).Value
+                listOfEquip.DescEquipamento = row.Cells(3).Value
+                listOfEquip.Modelo = row.Cells(4).Value
+                listOfEquip.Qtde = row.Cells(5).Value
+                listOfEquip.Valor = row.Cells(6).Value
+
+                listaEquipamentos.Add(listOfEquip)
+                ListBox2.Items.Add(listOfEquip.Serie)
+
+            End If
+        Next
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        txtPesquisaSimid.Text = ""
+        CarregarChip()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        txtPesquisaSerie.Text = ""
+        CarregarEquipamento()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ListBox1.Items.Clear()
+        listaChips.Clear()
+
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        ListBox2.Items.Clear()
+        listaEquipamentos.Clear()
+
+    End Sub
 End Class

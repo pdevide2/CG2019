@@ -34,12 +34,16 @@ Partial Class TransferenciaEstoque2
         Me.btnAdiciona = New System.Windows.Forms.Button()
         Me.btnExclui = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnGuardaChip = New System.Windows.Forms.Button()
         Me.btnProcurarSimid = New System.Windows.Forms.Button()
         Me.optPesqSimid2 = New System.Windows.Forms.RadioButton()
         Me.optPesqSimid1 = New System.Windows.Forms.RadioButton()
         Me.txtPesquisaSimid = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnGuardaPOS = New System.Windows.Forms.Button()
         Me.btnProcurarSerie = New System.Windows.Forms.Button()
         Me.optPesqSerie2 = New System.Windows.Forms.RadioButton()
         Me.optPesqSerie1 = New System.Windows.Forms.RadioButton()
@@ -51,6 +55,12 @@ Partial Class TransferenciaEstoque2
         Me.btnAdicionaPOS = New System.Windows.Forms.Button()
         Me.btnTransferir = New System.Windows.Forms.Button()
         Me.PesqFKEmpresaDestino = New WinCG.PesqFK()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgvDados2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -161,6 +171,8 @@ Partial Class TransferenciaEstoque2
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.btnGuardaChip)
         Me.GroupBox1.Controls.Add(Me.btnProcurarSimid)
         Me.GroupBox1.Controls.Add(Me.optPesqSimid2)
         Me.GroupBox1.Controls.Add(Me.optPesqSimid1)
@@ -173,9 +185,27 @@ Partial Class TransferenciaEstoque2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Chip"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(583, 189)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 5
+        Me.Button1.Text = "Exibir Todos"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnGuardaChip
+        '
+        Me.btnGuardaChip.Location = New System.Drawing.Point(678, 189)
+        Me.btnGuardaChip.Name = "btnGuardaChip"
+        Me.btnGuardaChip.Size = New System.Drawing.Size(161, 23)
+        Me.btnGuardaChip.TabIndex = 4
+        Me.btnGuardaChip.Text = "Guardar SIMID selecionados"
+        Me.btnGuardaChip.UseVisualStyleBackColor = True
+        '
         'btnProcurarSimid
         '
-        Me.btnProcurarSimid.Location = New System.Drawing.Point(569, 192)
+        Me.btnProcurarSimid.Location = New System.Drawing.Point(502, 189)
         Me.btnProcurarSimid.Name = "btnProcurarSimid"
         Me.btnProcurarSimid.Size = New System.Drawing.Size(75, 23)
         Me.btnProcurarSimid.TabIndex = 3
@@ -186,7 +216,7 @@ Partial Class TransferenciaEstoque2
         '
         Me.optPesqSimid2.AutoSize = True
         Me.optPesqSimid2.Checked = True
-        Me.optPesqSimid2.Location = New System.Drawing.Point(445, 192)
+        Me.optPesqSimid2.Location = New System.Drawing.Point(378, 192)
         Me.optPesqSimid2.Name = "optPesqSimid2"
         Me.optPesqSimid2.Size = New System.Drawing.Size(108, 17)
         Me.optPesqSimid2.TabIndex = 2
@@ -197,7 +227,7 @@ Partial Class TransferenciaEstoque2
         'optPesqSimid1
         '
         Me.optPesqSimid1.AutoSize = True
-        Me.optPesqSimid1.Location = New System.Drawing.Point(330, 192)
+        Me.optPesqSimid1.Location = New System.Drawing.Point(263, 192)
         Me.optPesqSimid1.Name = "optPesqSimid1"
         Me.optPesqSimid1.Size = New System.Drawing.Size(100, 17)
         Me.optPesqSimid1.TabIndex = 2
@@ -206,9 +236,9 @@ Partial Class TransferenciaEstoque2
         '
         'txtPesquisaSimid
         '
-        Me.txtPesquisaSimid.Location = New System.Drawing.Point(128, 191)
+        Me.txtPesquisaSimid.Location = New System.Drawing.Point(128, 190)
         Me.txtPesquisaSimid.Name = "txtPesquisaSimid"
-        Me.txtPesquisaSimid.Size = New System.Drawing.Size(162, 20)
+        Me.txtPesquisaSimid.Size = New System.Drawing.Size(122, 20)
         Me.txtPesquisaSimid.TabIndex = 1
         '
         'Label1
@@ -222,6 +252,8 @@ Partial Class TransferenciaEstoque2
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Button2)
+        Me.GroupBox2.Controls.Add(Me.btnGuardaPOS)
         Me.GroupBox2.Controls.Add(Me.btnProcurarSerie)
         Me.GroupBox2.Controls.Add(Me.optPesqSerie2)
         Me.GroupBox2.Controls.Add(Me.optPesqSerie1)
@@ -235,9 +267,27 @@ Partial Class TransferenciaEstoque2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "POS"
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(590, 192)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 6
+        Me.Button2.Text = "Exibir Todos"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'btnGuardaPOS
+        '
+        Me.btnGuardaPOS.Location = New System.Drawing.Point(678, 192)
+        Me.btnGuardaPOS.Name = "btnGuardaPOS"
+        Me.btnGuardaPOS.Size = New System.Drawing.Size(161, 23)
+        Me.btnGuardaPOS.TabIndex = 19
+        Me.btnGuardaPOS.Text = "Guardar Equip. selecionados"
+        Me.btnGuardaPOS.UseVisualStyleBackColor = True
+        '
         'btnProcurarSerie
         '
-        Me.btnProcurarSerie.Location = New System.Drawing.Point(569, 193)
+        Me.btnProcurarSerie.Location = New System.Drawing.Point(504, 192)
         Me.btnProcurarSerie.Name = "btnProcurarSerie"
         Me.btnProcurarSerie.Size = New System.Drawing.Size(75, 23)
         Me.btnProcurarSerie.TabIndex = 4
@@ -248,7 +298,7 @@ Partial Class TransferenciaEstoque2
         '
         Me.optPesqSerie2.AutoSize = True
         Me.optPesqSerie2.Checked = True
-        Me.optPesqSerie2.Location = New System.Drawing.Point(451, 195)
+        Me.optPesqSerie2.Location = New System.Drawing.Point(386, 195)
         Me.optPesqSerie2.Name = "optPesqSerie2"
         Me.optPesqSerie2.Size = New System.Drawing.Size(108, 17)
         Me.optPesqSerie2.TabIndex = 17
@@ -259,7 +309,7 @@ Partial Class TransferenciaEstoque2
         'optPesqSerie1
         '
         Me.optPesqSerie1.AutoSize = True
-        Me.optPesqSerie1.Location = New System.Drawing.Point(336, 195)
+        Me.optPesqSerie1.Location = New System.Drawing.Point(271, 195)
         Me.optPesqSerie1.Name = "optPesqSerie1"
         Me.optPesqSerie1.Size = New System.Drawing.Size(100, 17)
         Me.optPesqSerie1.TabIndex = 18
@@ -268,9 +318,9 @@ Partial Class TransferenciaEstoque2
         '
         'txtPesquisaSerie
         '
-        Me.txtPesquisaSerie.Location = New System.Drawing.Point(134, 194)
+        Me.txtPesquisaSerie.Location = New System.Drawing.Point(134, 193)
         Me.txtPesquisaSerie.Name = "txtPesquisaSerie"
-        Me.txtPesquisaSerie.Size = New System.Drawing.Size(162, 20)
+        Me.txtPesquisaSerie.Size = New System.Drawing.Size(122, 20)
         Me.txtPesquisaSerie.TabIndex = 16
         '
         'Label2
@@ -328,9 +378,10 @@ Partial Class TransferenciaEstoque2
         '
         'btnTransferir
         '
-        Me.btnTransferir.Location = New System.Drawing.Point(791, 13)
+        Me.btnTransferir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTransferir.Location = New System.Drawing.Point(931, 5)
         Me.btnTransferir.Name = "btnTransferir"
-        Me.btnTransferir.Size = New System.Drawing.Size(75, 23)
+        Me.btnTransferir.Size = New System.Drawing.Size(119, 29)
         Me.btnTransferir.TabIndex = 16
         Me.btnTransferir.Text = "Transferir"
         Me.btnTransferir.UseVisualStyleBackColor = True
@@ -340,7 +391,9 @@ Partial Class TransferenciaEstoque2
         Me.PesqFKEmpresaDestino.CampoDesc = Nothing
         Me.PesqFKEmpresaDestino.CampoId = Nothing
         Me.PesqFKEmpresaDestino.Clicou = "0"
+        Me.PesqFKEmpresaDestino.CodigoSelecionado = Nothing
         Me.PesqFKEmpresaDestino.ColunasFiltro = Nothing
+        Me.PesqFKEmpresaDestino.DescricaoSelecionada = Nothing
         Me.PesqFKEmpresaDestino.FiltroSQL = Nothing
         Me.PesqFKEmpresaDestino.LabelBuscaDesc = Nothing
         Me.PesqFKEmpresaDestino.LabelBuscaId = Nothing
@@ -349,6 +402,7 @@ Partial Class TransferenciaEstoque2
         Me.PesqFKEmpresaDestino.Location = New System.Drawing.Point(19, 11)
         Me.PesqFKEmpresaDestino.Name = "PesqFKEmpresaDestino"
         Me.PesqFKEmpresaDestino.ObjModelFk = Nothing
+        Me.PesqFKEmpresaDestino.OrderByQuery = Nothing
         Me.PesqFKEmpresaDestino.PosValida = False
         Me.PesqFKEmpresaDestino.Size = New System.Drawing.Size(583, 25)
         Me.PesqFKEmpresaDestino.Tabela = Nothing
@@ -356,11 +410,69 @@ Partial Class TransferenciaEstoque2
         Me.PesqFKEmpresaDestino.TituloTela = Nothing
         Me.PesqFKEmpresaDestino.View = Nothing
         '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Location = New System.Drawing.Point(872, 61)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(178, 160)
+        Me.ListBox1.TabIndex = 19
+        '
+        'ListBox2
+        '
+        Me.ListBox2.FormattingEnabled = True
+        Me.ListBox2.Location = New System.Drawing.Point(872, 288)
+        Me.ListBox2.Name = "ListBox2"
+        Me.ListBox2.Size = New System.Drawing.Size(178, 160)
+        Me.ListBox2.TabIndex = 20
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(869, 42)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(146, 13)
+        Me.Label3.TabIndex = 21
+        Me.Label3.Text = "Adiciona SIMID selecionados"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(869, 271)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(157, 13)
+        Me.Label4.TabIndex = 22
+        Me.Label4.Text = "Adiciona Equiptos selecionados"
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(901, 226)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(127, 23)
+        Me.Button3.TabIndex = 23
+        Me.Button3.Text = "Zerar Lista de SIMID"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(897, 454)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(131, 23)
+        Me.Button4.TabIndex = 24
+        Me.Button4.Text = "Zerar Lista de Equiptos"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'TransferenciaEstoque2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(874, 534)
+        Me.ClientSize = New System.Drawing.Size(1062, 534)
+        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.ListBox2)
+        Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.PesqFKEmpresaDestino)
         Me.Controls.Add(Me.btnTransferir)
         Me.Controls.Add(Me.btnExcluiPOS)
@@ -397,6 +509,12 @@ Partial Class TransferenciaEstoque2
         Me.Controls.SetChildIndex(Me.btnExcluiPOS, 0)
         Me.Controls.SetChildIndex(Me.btnTransferir, 0)
         Me.Controls.SetChildIndex(Me.PesqFKEmpresaDestino, 0)
+        Me.Controls.SetChildIndex(Me.ListBox1, 0)
+        Me.Controls.SetChildIndex(Me.ListBox2, 0)
+        Me.Controls.SetChildIndex(Me.Label3, 0)
+        Me.Controls.SetChildIndex(Me.Label4, 0)
+        Me.Controls.SetChildIndex(Me.Button3, 0)
+        Me.Controls.SetChildIndex(Me.Button4, 0)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -435,4 +553,14 @@ Partial Class TransferenciaEstoque2
     Friend WithEvents btnProcurarSimid As System.Windows.Forms.Button
     Friend WithEvents btnProcurarSerie As System.Windows.Forms.Button
     Friend WithEvents PesqFKEmpresaDestino As WinCG.PesqFK
+    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents ListBox2 As ListBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents btnGuardaChip As Button
+    Friend WithEvents btnGuardaPOS As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
 End Class

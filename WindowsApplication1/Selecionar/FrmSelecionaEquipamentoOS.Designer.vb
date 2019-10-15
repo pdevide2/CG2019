@@ -32,6 +32,9 @@ Partial Class frmSelecionaEquipamentoOS
         Me.btnSelecionar = New System.Windows.Forms.Button()
         Me.btnPesquisa = New System.Windows.Forms.Button()
         Me.lblWait = New System.Windows.Forms.Label()
+        Me.lstItens = New System.Windows.Forms.ListBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -132,11 +135,40 @@ Partial Class frmSelecionaEquipamentoOS
         Me.lblWait.Text = "Aguarde o Processamento por favor..."
         Me.lblWait.Visible = False
         '
+        'lstItens
+        '
+        Me.lstItens.FormattingEnabled = True
+        Me.lstItens.Location = New System.Drawing.Point(608, 46)
+        Me.lstItens.Name = "lstItens"
+        Me.lstItens.Size = New System.Drawing.Size(169, 342)
+        Me.lstItens.TabIndex = 40
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(608, 22)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(143, 13)
+        Me.Label4.TabIndex = 41
+        Me.Label4.Text = "Lista de Equipto adicionados"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(436, 46)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(166, 23)
+        Me.Button2.TabIndex = 42
+        Me.Button2.Text = "Guardar item selecionado"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'frmSelecionaEquipamentoOS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(607, 398)
+        Me.ClientSize = New System.Drawing.Size(784, 398)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.lstItens)
         Me.Controls.Add(Me.lblWait)
         Me.Controls.Add(Me.btnPesquisa)
         Me.Controls.Add(Me.btnSelecionar)
@@ -165,4 +197,7 @@ Partial Class frmSelecionaEquipamentoOS
     Friend WithEvents btnSelecionar As System.Windows.Forms.Button
     Friend WithEvents btnPesquisa As System.Windows.Forms.Button
     Friend WithEvents lblWait As System.Windows.Forms.Label
+    Friend WithEvents lstItens As ListBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Button2 As Button
 End Class
