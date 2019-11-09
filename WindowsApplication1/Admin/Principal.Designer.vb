@@ -202,6 +202,8 @@ Partial Class Principal
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblEmpresaLogada = New System.Windows.Forms.Label()
+        Me.ToolStripMenuItem36 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1047,7 +1049,7 @@ Partial Class Principal
         'ToolStripDropDownButton9
         '
         Me.ToolStripDropDownButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripDropDownButton9.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EntradaDeEstoqueToolStripMenuItem, Me.GerarTransitoEstoqueToolStripMenuItem, Me.BaixarTransitoEstoqueToolStripMenuItem, Me.MovimentaçãoDoEstoqueToolStripMenuItem, Me.ToolStripMenuItem30, Me.ConsultarTransitoEstoqueToolStripMenuItem, Me.ToolStripMenuItem31, Me.ConsultaDeEstoqueGeralToolStripMenuItem, Me.ToolStripMenuItem32, Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem})
+        Me.ToolStripDropDownButton9.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EntradaDeEstoqueToolStripMenuItem, Me.GerarTransitoEstoqueToolStripMenuItem, Me.BaixarTransitoEstoqueToolStripMenuItem, Me.MovimentaçãoDoEstoqueToolStripMenuItem, Me.ToolStripMenuItem30, Me.ConsultarTransitoEstoqueToolStripMenuItem, Me.ToolStripMenuItem31, Me.ConsultaDeEstoqueGeralToolStripMenuItem, Me.ToolStripMenuItem32, Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem, Me.ToolStripMenuItem36, Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem})
         Me.ToolStripDropDownButton9.Image = CType(resources.GetObject("ToolStripDropDownButton9.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton9.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton9.Name = "ToolStripDropDownButton9"
@@ -1059,7 +1061,7 @@ Partial Class Principal
         Me.EntradaDeEstoqueToolStripMenuItem.Image = CType(resources.GetObject("EntradaDeEstoqueToolStripMenuItem.Image"), System.Drawing.Image)
         Me.EntradaDeEstoqueToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.EntradaDeEstoqueToolStripMenuItem.Name = "EntradaDeEstoqueToolStripMenuItem"
-        Me.EntradaDeEstoqueToolStripMenuItem.Size = New System.Drawing.Size(289, 22)
+        Me.EntradaDeEstoqueToolStripMenuItem.Size = New System.Drawing.Size(304, 22)
         Me.EntradaDeEstoqueToolStripMenuItem.Text = "Entrada de Estoque"
         '
         'GerarTransitoEstoqueToolStripMenuItem
@@ -1067,7 +1069,7 @@ Partial Class Principal
         Me.GerarTransitoEstoqueToolStripMenuItem.Image = CType(resources.GetObject("GerarTransitoEstoqueToolStripMenuItem.Image"), System.Drawing.Image)
         Me.GerarTransitoEstoqueToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.GerarTransitoEstoqueToolStripMenuItem.Name = "GerarTransitoEstoqueToolStripMenuItem"
-        Me.GerarTransitoEstoqueToolStripMenuItem.Size = New System.Drawing.Size(289, 22)
+        Me.GerarTransitoEstoqueToolStripMenuItem.Size = New System.Drawing.Size(304, 22)
         Me.GerarTransitoEstoqueToolStripMenuItem.Text = "Gerar Transito Estoque"
         '
         'BaixarTransitoEstoqueToolStripMenuItem
@@ -1075,7 +1077,7 @@ Partial Class Principal
         Me.BaixarTransitoEstoqueToolStripMenuItem.Image = Global.WinCG.My.Resources.Resources.ok16
         Me.BaixarTransitoEstoqueToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.BaixarTransitoEstoqueToolStripMenuItem.Name = "BaixarTransitoEstoqueToolStripMenuItem"
-        Me.BaixarTransitoEstoqueToolStripMenuItem.Size = New System.Drawing.Size(289, 22)
+        Me.BaixarTransitoEstoqueToolStripMenuItem.Size = New System.Drawing.Size(304, 22)
         Me.BaixarTransitoEstoqueToolStripMenuItem.Text = "Baixar Transito Estoque"
         '
         'MovimentaçãoDoEstoqueToolStripMenuItem
@@ -1083,46 +1085,46 @@ Partial Class Principal
         Me.MovimentaçãoDoEstoqueToolStripMenuItem.Image = CType(resources.GetObject("MovimentaçãoDoEstoqueToolStripMenuItem.Image"), System.Drawing.Image)
         Me.MovimentaçãoDoEstoqueToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.MovimentaçãoDoEstoqueToolStripMenuItem.Name = "MovimentaçãoDoEstoqueToolStripMenuItem"
-        Me.MovimentaçãoDoEstoqueToolStripMenuItem.Size = New System.Drawing.Size(289, 22)
+        Me.MovimentaçãoDoEstoqueToolStripMenuItem.Size = New System.Drawing.Size(304, 22)
         Me.MovimentaçãoDoEstoqueToolStripMenuItem.Text = "Movimentação do Estoque de POS"
         '
         'ToolStripMenuItem30
         '
         Me.ToolStripMenuItem30.Name = "ToolStripMenuItem30"
-        Me.ToolStripMenuItem30.Size = New System.Drawing.Size(286, 6)
+        Me.ToolStripMenuItem30.Size = New System.Drawing.Size(301, 6)
         '
         'ConsultarTransitoEstoqueToolStripMenuItem
         '
         Me.ConsultarTransitoEstoqueToolStripMenuItem.Image = CType(resources.GetObject("ConsultarTransitoEstoqueToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ConsultarTransitoEstoqueToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ConsultarTransitoEstoqueToolStripMenuItem.Name = "ConsultarTransitoEstoqueToolStripMenuItem"
-        Me.ConsultarTransitoEstoqueToolStripMenuItem.Size = New System.Drawing.Size(289, 22)
+        Me.ConsultarTransitoEstoqueToolStripMenuItem.Size = New System.Drawing.Size(304, 22)
         Me.ConsultarTransitoEstoqueToolStripMenuItem.Text = "Consultar Transito Estoque"
         '
         'ToolStripMenuItem31
         '
         Me.ToolStripMenuItem31.Name = "ToolStripMenuItem31"
-        Me.ToolStripMenuItem31.Size = New System.Drawing.Size(286, 6)
+        Me.ToolStripMenuItem31.Size = New System.Drawing.Size(301, 6)
         '
         'ConsultaDeEstoqueGeralToolStripMenuItem
         '
         Me.ConsultaDeEstoqueGeralToolStripMenuItem.Image = Global.WinCG.My.Resources.Resources.search16
         Me.ConsultaDeEstoqueGeralToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ConsultaDeEstoqueGeralToolStripMenuItem.Name = "ConsultaDeEstoqueGeralToolStripMenuItem"
-        Me.ConsultaDeEstoqueGeralToolStripMenuItem.Size = New System.Drawing.Size(289, 22)
+        Me.ConsultaDeEstoqueGeralToolStripMenuItem.Size = New System.Drawing.Size(304, 22)
         Me.ConsultaDeEstoqueGeralToolStripMenuItem.Text = "Consulta de Estoque Geral"
         '
         'ToolStripMenuItem32
         '
         Me.ToolStripMenuItem32.Name = "ToolStripMenuItem32"
-        Me.ToolStripMenuItem32.Size = New System.Drawing.Size(286, 6)
+        Me.ToolStripMenuItem32.Size = New System.Drawing.Size(301, 6)
         '
         'TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem
         '
         Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem.Image = CType(resources.GetObject("TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem.Image"), System.Drawing.Image)
         Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem.Name = "TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem"
-        Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem.Size = New System.Drawing.Size(289, 22)
+        Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem.Size = New System.Drawing.Size(304, 22)
         Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem.Text = "Transferência de Estoque entre Empresas"
         '
         'ToolStripSeparator20
@@ -1486,6 +1488,19 @@ Partial Class Principal
         Me.lblEmpresaLogada.TabIndex = 8
         Me.lblEmpresaLogada.Text = "."
         '
+        'ToolStripMenuItem36
+        '
+        Me.ToolStripMenuItem36.Name = "ToolStripMenuItem36"
+        Me.ToolStripMenuItem36.Size = New System.Drawing.Size(301, 6)
+        '
+        'AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem
+        '
+        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Image = CType(resources.GetObject("AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Name = "AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem"
+        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Size = New System.Drawing.Size(304, 22)
+        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Text = "Aprovação de Transferência entre Empresas"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1691,4 +1706,6 @@ Partial Class Principal
     Friend WithEvents AprovaçãoDePedidosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem35 As ToolStripSeparator
     Friend WithEvents DevoluçãoDePedidosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem36 As ToolStripSeparator
+    Friend WithEvents AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem As ToolStripMenuItem
 End Class

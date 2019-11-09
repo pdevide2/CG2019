@@ -77,6 +77,7 @@
         PedidoVenda = 75
         AprovacaoPedidoVenda = 76
         DevolucaoPedidoVenda = 77
+        AprovacaoTransferencia = 78
 
     End Enum
 
@@ -436,6 +437,10 @@
         ' 77 - devolução de pedidos de venda
         If ACE_MODULO = 77 Then
             frm = New WinCG.PedidoVendaDevolucao()
+        End If
+        ' 78 - devolução de pedidos de venda
+        If ACE_MODULO = 78 Then
+            frm = New WinCG.TransferenciaEmpresasAprovacao()
         End If
 
         frm.MdiParent = Me
@@ -933,5 +938,9 @@
 
     Private Sub DevoluçãoDePedidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DevoluçãoDePedidosToolStripMenuItem.Click
         ChamaMenu(Modulo.DevolucaoPedidoVenda)
+    End Sub
+
+    Private Sub AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Click
+        ChamaMenu(Modulo.AprovacaoTransferencia)
     End Sub
 End Class
