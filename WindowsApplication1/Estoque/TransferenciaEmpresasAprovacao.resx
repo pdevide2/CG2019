@@ -202,7 +202,7 @@
         VzQ1Z/GwP4Nu9qLlaJ9oCOIfqXTMv61vT00AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnReprovaTudoSimid.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAABkRJREFUWEfF
         lnlQlGUcxy2zMXPS0mFqpmasHEs5lsWMwzMNdMapJnGY0BQRITDvg8q01PJImYxLQBYEBW/HNEVBEAV2
@@ -234,7 +234,7 @@
         MZd4hxhPjDhsNfAMMZZgpyU74Zj4iLNnYauBfy3+YuC/B6P+AL9KnRsu3B45AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnAprovaTudoSimid.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAABqNJREFUWEfF
         lwtQVFUYx7PsZTVZOU6NNTZND1lYMEKkNDUtH1lZmmmoiM+y0qystDRLw0e+ABFRWdQStSzspagQT4Fd

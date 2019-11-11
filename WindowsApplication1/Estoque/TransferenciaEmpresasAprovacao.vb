@@ -37,7 +37,8 @@
         sql += " 		a.VALOR, "
         sql += " 		a.ID_EMPRESA, "
         sql += " 		a.MOVIMENTO_CONFERIDO, "
-        sql += " 		a.REPROVADO "
+        sql += " 		a.REPROVADO, "
+        sql += " 		status_item = 1 "
         sql += " from Cg_Log_entrada_equipamento_item a "
         sql += " inner join CG_EQUIPAMENTO b "
         sql += " 	on b.ID_EQUIPAMENTO = a.ID_EQUIPAMENTO "
@@ -46,7 +47,7 @@
 
 
         dgvDados2.DataSource = BLL.GlobalBLL.PesquisarFkBLL(sql).Tables(0)
-        For i = 0 To 10
+        For i = 0 To 11
             dgvDados2.Columns(i).ReadOnly = True
             If i >= 2 Then
                 dgvDados2.Columns(i).Visible = False
@@ -70,7 +71,8 @@
         sql += " 		a.VALOR, "
         sql += " 		a.ID_EMPRESA, "
         sql += " 		a.MOVIMENTO_CONFERIDO, "
-        sql += " 		a.REPROVADO  "
+        sql += " 		a.REPROVADO, "
+        sql += " 		status_item = 1 "
         sql += " from Cg_Log_entrada_chip_item a "
         sql += " inner join CG_CHIP b "
         sql += " 	on b.ID_CHIP = a.ID_CHIP "
@@ -101,21 +103,19 @@
     End Sub
     Private Sub LimparPainel()
         txtRomaneio.Text = ""
-
         txtSimid.Text = ""
         txtOperadora.Text = ""
-        'txtSerie.Text = ""
-        'txtPrecoVenda.Text = ""
-        'txtDataCadastro.Text = ""
-
-        'txtCliente.Text = ""
-        'txtDescEquipamento.Text = ""
-        'txtDescTipoEquipamento.Text = ""
-
+        txtSerie.Text = ""
+        txtModelo.Text = ""
+        txtDescEquip.Text = ""
 
         rbAnalise.Checked = True
         rbAprovar.Checked = False
         rbReprovar.Checked = False
+
+        rbAnalise2.Checked = True
+        rbAprovar2.Checked = False
+        rbReprovar2.Checked = False
 
 
     End Sub
@@ -127,57 +127,46 @@
         txtSimid.Text = dgvDados.CurrentRow.Cells("simid").Value
         txtOperadora.Text = dgvDados.CurrentRow.Cells("DESC_OPERADORA").Value
 
-        'txtPedido.Text = dgvDados.CurrentRow.Cells("ID_PEDIDO").Value
-        'txtItem.Text = dgvDados.CurrentRow.Cells("item").Value
-        'txtIdEquipamento.Text = dgvDados.CurrentRow.Cells("id_equipamento").Value
-        'txtModelo.Text = dgvDados.CurrentRow.Cells("modelo").Value
-        ''txtSerie.Text = dgvDados.CurrentRow.Cells("serie").Value
-        'txtPrecoVenda.Text = dgvDados.CurrentRow.Cells("preco_venda").Value
-        'txtDataCadastro.Text = dgvDados.CurrentRow.Cells("data_cadastro").Value
-
-        'Dim objInfoItem = BLLInfo.InfoPedidoVendaItemBLL(CInt(txtPedido.Text), CInt(txtIdEquipamento.Text))
-
-        'txtCliente.Text = objInfoItem.NomeCliente
-        'txtDescEquipamento.Text = objInfoItem.DescEquipamento
-        'txtDescTipoEquipamento.Text = objInfoItem.DescTipoEquipamento
 
 
-        'If CInt(dgvDados.CurrentRow.Cells("status_item").Value) = 1 Then
-        '    rbAnalise.Checked = True
-        '    rbAprovar.Checked = False
-        '    rbReprovar.Checked = False
-        'End If
+        If CInt(dgvDados.CurrentRow.Cells("status_item").Value) = 1 Then
+            rbAnalise2.Checked = True
+            rbAprovar2.Checked = False
+            rbReprovar2.Checked = False
+        End If
 
-        'If CInt(dgvDados.CurrentRow.Cells("status_item").Value) = 2 Then
-        '    rbAnalise.Checked = False
-        '    rbAprovar.Checked = True
-        '    rbReprovar.Checked = False
-        'End If
+        If CInt(dgvDados.CurrentRow.Cells("status_item").Value) = 2 Then
+            rbAnalise2.Checked = False
+            rbAprovar2.Checked = True
+            rbReprovar2.Checked = False
+        End If
 
-        'If CInt(dgvDados.CurrentRow.Cells("status_item").Value) = 3 Then
-        '    rbAnalise.Checked = False
-        '    rbAprovar.Checked = False
-        '    rbReprovar.Checked = True
-        'End If
+        If CInt(dgvDados.CurrentRow.Cells("status_item").Value) = 3 Then
+            rbAnalise2.Checked = False
+            rbAprovar2.Checked = False
+            rbReprovar2.Checked = True
+        End If
 
     End Sub
 
     Private Sub RbAnalise_CheckedChanged(sender As Object, e As EventArgs) Handles rbAnalise.CheckedChanged
-        If rbAnalise.Checked And dgvDados.Rows.Count > 0 Then
-            dgvDados.CurrentRow.Cells("status_item").Value = "1"
+        If rbAnalise.Checked And dgvDados2.Rows.Count > 0 Then
+            dgvDados2.CurrentRow.Cells("status_item").Value = "1"
+
         End If
     End Sub
 
     Private Sub RbAprovar_CheckedChanged(sender As Object, e As EventArgs) Handles rbAprovar.CheckedChanged
-        If rbAprovar.Checked And dgvDados.Rows.Count > 0 Then
-            dgvDados.CurrentRow.Cells("status_item").Value = "2"
+        If rbAprovar.Checked And dgvDados2.Rows.Count > 0 Then
+            dgvDados2.CurrentRow.Cells("status_item").Value = "2"
+
         End If
 
     End Sub
 
     Private Sub RbReprovar_CheckedChanged(sender As Object, e As EventArgs) Handles rbReprovar.CheckedChanged
-        If rbReprovar.Checked And dgvDados.Rows.Count > 0 Then
-            dgvDados.CurrentRow.Cells("status_item").Value = "3"
+        If rbReprovar.Checked And dgvDados2.Rows.Count > 0 Then
+            dgvDados2.CurrentRow.Cells("status_item").Value = "3"
         End If
 
     End Sub
@@ -192,8 +181,8 @@
 
     Private Sub Gravar(acao As Integer)
 
-        Dim bllFilha As New BLL.PedidoVendaAprovarBLL
-        Dim objPedidoVendaItem As New DTO.Cg_AprovaPedidoVenda
+        Dim bllFilha As New BLL.TransferenciaEmpresaAprovarBLL
+        Dim objTransferencia As New DTO.Cg_AprovaTransferenciaEmpresa
 
         Dim llErro As Boolean = True
         Dim intStatus_Item As Integer = 1
@@ -206,12 +195,27 @@
                 If Not row.IsNewRow Then
 
                     'Carrega os dados no objeto Model para passagem de parametro
-                    objPedidoVendaItem.Id_pedido = CInt(row.Cells("id_pedido").Value)
-                    objPedidoVendaItem.Id_equipamento = CInt(row.Cells("id_equipamento").Value)
-                    objPedidoVendaItem.Status_item = CInt(row.Cells("status_item").Value)
-                    objPedidoVendaItem.Cancel = False
+                    objTransferencia.Id_romaneio = CInt(row.Cells("id_romaneio").Value)
+                    objTransferencia.Id_item = CInt(row.Cells("id_chip").Value)
+                    objTransferencia.Status_item = CInt(row.Cells("status_item").Value)
+                    objTransferencia.TipoItem = 1
                     'Operação de delete/insert/update
-                    bllFilha.GravarBLL(2, objPedidoVendaItem)
+                    bllFilha.GravarBLL(2, objTransferencia)
+
+                End If
+
+            Next
+            For Each row As DataGridViewRow In dgvDados2.Rows
+
+                If Not row.IsNewRow Then
+
+                    'Carrega os dados no objeto Model para passagem de parametro
+                    objTransferencia.Id_romaneio = CInt(row.Cells("id_romaneio").Value)
+                    objTransferencia.Id_item = CInt(row.Cells("id_equipamento").Value)
+                    objTransferencia.Status_item = CInt(row.Cells("status_item").Value)
+                    objTransferencia.TipoItem = 2
+                    'Operação de delete/insert/update
+                    bllFilha.GravarBLL(2, objTransferencia)
 
                 End If
 
@@ -250,10 +254,10 @@
 
     Private Sub BtnAprovaTudo_Click(sender As Object, e As EventArgs) Handles btnAprovaTudo.Click
 
-        For Each row In dgvDados.Rows
-            row.cells("status_item").value = "2"
+        For Each row In dgvDados2.Rows
+            row.cells("status_item").value = 2
         Next
-        dgvDados.Focus()
+        dgvDados2.Focus()
 
     End Sub
 
@@ -262,17 +266,76 @@
     End Sub
 
     Private Sub BtnReprovaTudo_Click(sender As Object, e As EventArgs) Handles btnReprovaTudo.Click
-
-        For Each row In dgvDados.Rows
-            row.cells("status_item").value = "3"
+        For Each row In dgvDados2.Rows
+            row.cells("status_item").value = 3
         Next
-        dgvDados.Focus()
+        dgvDados2.Focus()
     End Sub
 
     Private Sub dgvDados2_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDados2.CellEnter
         txtSerie.Text = dgvDados2.CurrentRow.Cells("serie").Value
         txtModelo.Text = dgvDados2.CurrentRow.Cells("modelo").Value
         txtDescEquip.Text = dgvDados2.CurrentRow.Cells("DESC_EQUIPAMENTO").Value
+
+        If CInt(dgvDados2.CurrentRow.Cells("status_item").Value) = 1 Then
+            rbAnalise.Checked = True
+            rbAprovar.Checked = False
+            rbReprovar.Checked = False
+        End If
+
+        If CInt(dgvDados2.CurrentRow.Cells("status_item").Value) = 2 Then
+            rbAnalise.Checked = False
+            rbAprovar.Checked = True
+            rbReprovar.Checked = False
+        End If
+
+        If CInt(dgvDados2.CurrentRow.Cells("status_item").Value) = 3 Then
+            rbAnalise.Checked = False
+            rbAprovar.Checked = False
+            rbReprovar.Checked = True
+        End If
+
+
+    End Sub
+
+    Private Sub btnAprovaTudoSimid_Click(sender As Object, e As EventArgs) Handles btnAprovaTudoSimid.Click
+        For Each row In dgvDados.Rows
+            row.cells("status_item").value = 2
+        Next
+        'rbAprovar2.Checked = True
+        dgvDados.Focus()
+
+    End Sub
+
+    Private Sub btnReprovaTudoSimid_Click(sender As Object, e As EventArgs) Handles btnReprovaTudoSimid.Click
+        For Each row In dgvDados.Rows
+            row.cells("status_item").value = 3
+        Next
+        'rbReprovar2.Checked = True
+        dgvDados.Focus()
+
+    End Sub
+
+    Private Sub rbAnalise2_CheckedChanged(sender As Object, e As EventArgs) Handles rbAnalise2.CheckedChanged
+        If rbAnalise2.Checked And dgvDados.Rows.Count > 0 Then
+            dgvDados.CurrentRow.Cells("status_item").Value = "1"
+
+        End If
+
+    End Sub
+
+    Private Sub rbAprovar2_CheckedChanged(sender As Object, e As EventArgs) Handles rbAprovar2.CheckedChanged
+        If rbAprovar2.Checked And dgvDados.Rows.Count > 0 Then
+            dgvDados.CurrentRow.Cells("status_item").Value = "2"
+
+        End If
+
+    End Sub
+
+    Private Sub rbReprovar2_CheckedChanged(sender As Object, e As EventArgs) Handles rbReprovar2.CheckedChanged
+        If rbReprovar2.Checked And dgvDados.Rows.Count > 0 Then
+            dgvDados.CurrentRow.Cells("status_item").Value = "3"
+        End If
 
     End Sub
 End Class

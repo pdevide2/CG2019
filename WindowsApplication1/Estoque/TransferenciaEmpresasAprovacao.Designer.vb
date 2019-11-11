@@ -54,8 +54,8 @@ Partial Class TransferenciaEmpresasAprovacao
         Me.rbReprovar2 = New System.Windows.Forms.RadioButton()
         Me.rbAprovar2 = New System.Windows.Forms.RadioButton()
         Me.rbAnalise2 = New System.Windows.Forms.RadioButton()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnReprovaTudoSimid = New System.Windows.Forms.Button()
+        Me.btnAprovaTudoSimid = New System.Windows.Forms.Button()
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvPedido, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -383,37 +383,37 @@ Partial Class TransferenciaEmpresasAprovacao
         Me.rbAnalise2.Text = "Em Análise"
         Me.rbAnalise2.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnReprovaTudoSimid
         '
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button2.Location = New System.Drawing.Point(734, 165)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(159, 55)
-        Me.Button2.TabIndex = 41
-        Me.Button2.Text = "Reprovar Todos                 SIMID"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnReprovaTudoSimid.Image = CType(resources.GetObject("btnReprovaTudoSimid.Image"), System.Drawing.Image)
+        Me.btnReprovaTudoSimid.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnReprovaTudoSimid.Location = New System.Drawing.Point(734, 165)
+        Me.btnReprovaTudoSimid.Name = "btnReprovaTudoSimid"
+        Me.btnReprovaTudoSimid.Size = New System.Drawing.Size(159, 55)
+        Me.btnReprovaTudoSimid.TabIndex = 41
+        Me.btnReprovaTudoSimid.Text = "Reprovar Todos                 SIMID"
+        Me.btnReprovaTudoSimid.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnReprovaTudoSimid.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnAprovaTudoSimid
         '
-        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button3.Location = New System.Drawing.Point(734, 104)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(159, 55)
-        Me.Button3.TabIndex = 40
-        Me.Button3.Text = "Aprovar Todos                 SIMID"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnAprovaTudoSimid.Image = CType(resources.GetObject("btnAprovaTudoSimid.Image"), System.Drawing.Image)
+        Me.btnAprovaTudoSimid.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAprovaTudoSimid.Location = New System.Drawing.Point(734, 104)
+        Me.btnAprovaTudoSimid.Name = "btnAprovaTudoSimid"
+        Me.btnAprovaTudoSimid.Size = New System.Drawing.Size(159, 55)
+        Me.btnAprovaTudoSimid.TabIndex = 40
+        Me.btnAprovaTudoSimid.Text = "Aprovar Todos                 SIMID"
+        Me.btnAprovaTudoSimid.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAprovaTudoSimid.UseVisualStyleBackColor = True
         '
         'TransferenciaEmpresasAprovacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(905, 453)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.btnReprovaTudoSimid)
+        Me.Controls.Add(Me.btnAprovaTudoSimid)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.txtDescEquip)
         Me.Controls.Add(Me.Label7)
@@ -487,6 +487,6 @@ Partial Class TransferenciaEmpresasAprovacao
     Friend WithEvents rbReprovar2 As RadioButton
     Friend WithEvents rbAprovar2 As RadioButton
     Friend WithEvents rbAnalise2 As RadioButton
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnReprovaTudoSimid As Button
+    Friend WithEvents btnAprovaTudoSimid As Button
 End Class

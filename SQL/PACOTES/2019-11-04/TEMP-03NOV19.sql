@@ -1,6 +1,7 @@
 SELECT * FROM CG_ENTRADA_ESTOQUE ORDER BY ID_ROMANEIO DESC
 
-SELECT * FROM VW_CG_ENTRADA_ESTOQUE_NAO_CONFERIDO
+SELECT a.id_romaneio,a.data_movto, a.id_loja, a.romaneio_estoque, a.id_empresa 
+FROM VW_CG_ENTRADA_ESTOQUE_NAO_CONFERIDO a
 
 select	a.ID_ROMANEIO, 
 		a.UNIQUE_KEYID, 
@@ -17,6 +18,7 @@ from Cg_Log_entrada_equipamento_item a
 inner join CG_EQUIPAMENTO b 
 	on b.ID_EQUIPAMENTO = a.ID_EQUIPAMENTO
 WHERE a.MOVIMENTO_CONFERIDO=0
+and a.ID_ROMANEIO = 2654
 
 select	a.ID_ROMANEIO, 
 		a.UNIQUE_KEYID, 
@@ -35,6 +37,7 @@ inner join CG_CHIP b
 inner join CG_OPERADORA c
 	on c.ID_OPERADORA = b.ID_OPERADORA
 WHERE a.MOVIMENTO_CONFERIDO=0
+and a.ID_ROMANEIO = 2654
 
 select * from Cg_entrada_equipamento_item order by id_romaneio desc
 

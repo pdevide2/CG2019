@@ -187,6 +187,7 @@
     <Compile Include="Tabela_servicos_fornecedor_itemBLL.vb" />
     <Compile Include="Tipo_equipamentoBLL.vb" />
     <Compile Include="Tipo_servicoBLL.vb" />
+    <Compile Include="TransferenciaEmpresaAprovarBLL.vb" />
     <Compile Include="UsuarioBLL.vb" />
   </ItemGroup>
   <ItemGroup>
