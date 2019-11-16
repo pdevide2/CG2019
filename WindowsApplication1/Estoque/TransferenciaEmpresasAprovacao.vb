@@ -20,6 +20,7 @@
         Dim sql As String = ""
         Dim _pedidoPai As String
 
+        LimparItens()
         If dgvPedido.Rows.Count = 0 Then
             _pedidoPai = "0"
             LimparPainel()
@@ -36,18 +37,23 @@
         sql += " 		a.QTD, "
         sql += " 		a.VALOR, "
         sql += " 		a.ID_EMPRESA, "
+        sql += "        emp1.NOME_EMPRESA, "
         sql += " 		a.MOVIMENTO_CONFERIDO, "
         sql += " 		a.REPROVADO, "
+        sql += " 		b.ID_EMPRESA as ID_ORIGEM, "
+        sql += " 		emp2.NOME_EMPRESA as EMPRESA_ORIGEM, "
         sql += " 		status_item = 1 "
         sql += " from Cg_Log_entrada_equipamento_item a "
         sql += " inner join CG_EQUIPAMENTO b "
         sql += " 	on b.ID_EQUIPAMENTO = a.ID_EQUIPAMENTO "
+        sql += " inner join CG_EMPRESA emp1 on emp1.ID_EMPRESA = a.ID_EMPRESA "
+        sql += " inner join CG_EMPRESA emp2 on emp2.ID_EMPRESA = b.ID_EMPRESA "
         sql += " WHERE a.MOVIMENTO_CONFERIDO=0 "
         sql += " and a.ID_ROMANEIO = " & _pedidoPai
 
 
         dgvDados2.DataSource = BLL.GlobalBLL.PesquisarFkBLL(sql).Tables(0)
-        For i = 0 To 11
+        For i = 0 To 14
             dgvDados2.Columns(i).ReadOnly = True
             If i >= 2 Then
                 dgvDados2.Columns(i).Visible = False
@@ -70,14 +76,19 @@
         sql += " 		a.QTD, "
         sql += " 		a.VALOR, "
         sql += " 		a.ID_EMPRESA, "
+        sql += "        emp1.NOME_EMPRESA, "
         sql += " 		a.MOVIMENTO_CONFERIDO, "
         sql += " 		a.REPROVADO, "
+        sql += " 		b.ID_EMPRESA as ID_ORIGEM, "
+        sql += " 		emp2.NOME_EMPRESA as EMPRESA_ORIGEM, "
         sql += " 		status_item = 1 "
         sql += " from Cg_Log_entrada_chip_item a "
         sql += " inner join CG_CHIP b "
         sql += " 	on b.ID_CHIP = a.ID_CHIP "
         sql += " inner join CG_OPERADORA c "
         sql += " 	on c.ID_OPERADORA = b.ID_OPERADORA "
+        sql += " inner join CG_EMPRESA emp1 on emp1.ID_EMPRESA = a.ID_EMPRESA "
+        sql += " inner join CG_EMPRESA emp2 on emp2.ID_EMPRESA = b.ID_EMPRESA "
         sql += " WHERE a.MOVIMENTO_CONFERIDO=0 "
         sql += " and a.ID_ROMANEIO = " & _pedidoPai
 
@@ -127,6 +138,8 @@
         txtSimid.Text = dgvDados.CurrentRow.Cells("simid").Value
         txtOperadora.Text = dgvDados.CurrentRow.Cells("DESC_OPERADORA").Value
 
+        txtOrigem.Text = dgvDados.CurrentRow.Cells("EMPRESA_ORIGEM").Value
+        txtDestino.Text = dgvDados.CurrentRow.Cells("NOME_EMPRESA").Value
 
 
         If CInt(dgvDados.CurrentRow.Cells("status_item").Value) = 1 Then
@@ -251,7 +264,18 @@
     Private Sub DgvPedido_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPedido.CellEnter
         CarregaItens()
     End Sub
+    Private Sub LimparItens()
+        txtSerie.Text = ""
+        txtModelo.Text = ""
+        txtDescEquip.Text = ""
+        txtOrigem.Text = ""
+        txtDestino.Text = ""
+        txtRomaneio.Text = ""
+        txtSimid.Text = ""
+        txtOperadora.Text = ""
 
+
+    End Sub
     Private Sub BtnAprovaTudo_Click(sender As Object, e As EventArgs) Handles btnAprovaTudo.Click
 
         For Each row In dgvDados2.Rows
@@ -276,6 +300,9 @@
         txtSerie.Text = dgvDados2.CurrentRow.Cells("serie").Value
         txtModelo.Text = dgvDados2.CurrentRow.Cells("modelo").Value
         txtDescEquip.Text = dgvDados2.CurrentRow.Cells("DESC_EQUIPAMENTO").Value
+        txtOrigem.Text = dgvDados2.CurrentRow.Cells("EMPRESA_ORIGEM").Value
+        txtDestino.Text = dgvDados2.CurrentRow.Cells("NOME_EMPRESA").Value
+        txtRomaneio.Text = dgvDados2.CurrentRow.Cells("ID_ROMANEIO").Value
 
         If CInt(dgvDados2.CurrentRow.Cells("status_item").Value) = 1 Then
             rbAnalise.Checked = True

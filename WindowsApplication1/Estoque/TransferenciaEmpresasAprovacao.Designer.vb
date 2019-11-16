@@ -56,6 +56,10 @@ Partial Class TransferenciaEmpresasAprovacao
         Me.rbAnalise2 = New System.Windows.Forms.RadioButton()
         Me.btnReprovaTudoSimid = New System.Windows.Forms.Button()
         Me.btnAprovaTudoSimid = New System.Windows.Forms.Button()
+        Me.txtOrigem = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtDestino = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.dgvDados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvPedido, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,7 +73,7 @@ Partial Class TransferenciaEmpresasAprovacao
         Me.dgvDados.AllowUserToDeleteRows = False
         Me.dgvDados.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.dgvDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvDados.Location = New System.Drawing.Point(171, 33)
+        Me.dgvDados.Location = New System.Drawing.Point(171, 41)
         Me.dgvDados.Name = "dgvDados"
         Me.dgvDados.Size = New System.Drawing.Size(182, 177)
         Me.dgvDados.TabIndex = 1
@@ -79,7 +83,7 @@ Partial Class TransferenciaEmpresasAprovacao
         Me.btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnOk.Image = Global.WinCG.My.Resources.Resources.save16
         Me.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnOk.Location = New System.Drawing.Point(699, 427)
+        Me.btnOk.Location = New System.Drawing.Point(699, 442)
         Me.btnOk.Name = "btnOk"
         Me.btnOk.Size = New System.Drawing.Size(96, 23)
         Me.btnOk.TabIndex = 2
@@ -91,7 +95,7 @@ Partial Class TransferenciaEmpresasAprovacao
         Me.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnCancel.Image = Global.WinCG.My.Resources.Resources.Undo16
         Me.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancel.Location = New System.Drawing.Point(598, 427)
+        Me.btnCancel.Location = New System.Drawing.Point(598, 442)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(96, 23)
         Me.btnCancel.TabIndex = 3
@@ -101,7 +105,7 @@ Partial Class TransferenciaEmpresasAprovacao
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(356, 33)
+        Me.Label1.Location = New System.Drawing.Point(356, 45)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(68, 13)
         Me.Label1.TabIndex = 4
@@ -110,7 +114,7 @@ Partial Class TransferenciaEmpresasAprovacao
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(359, 73)
+        Me.Label3.Location = New System.Drawing.Point(356, 84)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 13)
         Me.Label3.TabIndex = 6
@@ -119,7 +123,7 @@ Partial Class TransferenciaEmpresasAprovacao
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(621, 73)
+        Me.Label4.Location = New System.Drawing.Point(621, 85)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(57, 13)
         Me.Label4.TabIndex = 7
@@ -130,7 +134,7 @@ Partial Class TransferenciaEmpresasAprovacao
         Me.GroupBox1.Controls.Add(Me.rbReprovar)
         Me.GroupBox1.Controls.Add(Me.rbAprovar)
         Me.GroupBox1.Controls.Add(Me.rbAnalise)
-        Me.GroupBox1.Location = New System.Drawing.Point(362, 326)
+        Me.GroupBox1.Location = New System.Drawing.Point(362, 338)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(327, 63)
         Me.GroupBox1.TabIndex = 10
@@ -178,15 +182,15 @@ Partial Class TransferenciaEmpresasAprovacao
         Me.txtRomaneio.Enabled = False
         Me.txtRomaneio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRomaneio.ForeColor = System.Drawing.Color.DarkBlue
-        Me.txtRomaneio.Location = New System.Drawing.Point(449, 29)
+        Me.txtRomaneio.Location = New System.Drawing.Point(449, 41)
         Me.txtRomaneio.Name = "txtRomaneio"
-        Me.txtRomaneio.Size = New System.Drawing.Size(100, 20)
+        Me.txtRomaneio.Size = New System.Drawing.Size(79, 20)
         Me.txtRomaneio.TabIndex = 11
         '
         'txtSimid
         '
         Me.txtSimid.Enabled = False
-        Me.txtSimid.Location = New System.Drawing.Point(449, 69)
+        Me.txtSimid.Location = New System.Drawing.Point(449, 81)
         Me.txtSimid.Name = "txtSimid"
         Me.txtSimid.Size = New System.Drawing.Size(136, 20)
         Me.txtSimid.TabIndex = 13
@@ -194,7 +198,7 @@ Partial Class TransferenciaEmpresasAprovacao
         'txtOperadora
         '
         Me.txtOperadora.Enabled = False
-        Me.txtOperadora.Location = New System.Drawing.Point(695, 69)
+        Me.txtOperadora.Location = New System.Drawing.Point(695, 81)
         Me.txtOperadora.Name = "txtOperadora"
         Me.txtOperadora.Size = New System.Drawing.Size(199, 20)
         Me.txtOperadora.TabIndex = 14
@@ -205,7 +209,7 @@ Partial Class TransferenciaEmpresasAprovacao
         Me.dgvPedido.AllowUserToDeleteRows = False
         Me.dgvPedido.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPedido.Location = New System.Drawing.Point(12, 33)
+        Me.dgvPedido.Location = New System.Drawing.Point(12, 41)
         Me.dgvPedido.Name = "dgvPedido"
         Me.dgvPedido.Size = New System.Drawing.Size(151, 389)
         Me.dgvPedido.TabIndex = 25
@@ -232,7 +236,7 @@ Partial Class TransferenciaEmpresasAprovacao
         '
         Me.btnAprovaTudo.Image = CType(resources.GetObject("btnAprovaTudo.Image"), System.Drawing.Image)
         Me.btnAprovaTudo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAprovaTudo.Location = New System.Drawing.Point(734, 299)
+        Me.btnAprovaTudo.Location = New System.Drawing.Point(734, 311)
         Me.btnAprovaTudo.Name = "btnAprovaTudo"
         Me.btnAprovaTudo.Size = New System.Drawing.Size(159, 55)
         Me.btnAprovaTudo.TabIndex = 28
@@ -244,7 +248,7 @@ Partial Class TransferenciaEmpresasAprovacao
         '
         Me.btnReprovaTudo.Image = CType(resources.GetObject("btnReprovaTudo.Image"), System.Drawing.Image)
         Me.btnReprovaTudo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnReprovaTudo.Location = New System.Drawing.Point(734, 360)
+        Me.btnReprovaTudo.Location = New System.Drawing.Point(734, 372)
         Me.btnReprovaTudo.Name = "btnReprovaTudo"
         Me.btnReprovaTudo.Size = New System.Drawing.Size(159, 55)
         Me.btnReprovaTudo.TabIndex = 29
@@ -257,7 +261,7 @@ Partial Class TransferenciaEmpresasAprovacao
         Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(800, 427)
+        Me.Button1.Location = New System.Drawing.Point(800, 442)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(96, 23)
         Me.Button1.TabIndex = 30
@@ -270,7 +274,7 @@ Partial Class TransferenciaEmpresasAprovacao
         Me.dgvDados2.AllowUserToDeleteRows = False
         Me.dgvDados2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.dgvDados2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvDados2.Location = New System.Drawing.Point(171, 245)
+        Me.dgvDados2.Location = New System.Drawing.Point(171, 253)
         Me.dgvDados2.Name = "dgvDados2"
         Me.dgvDados2.Size = New System.Drawing.Size(182, 177)
         Me.dgvDados2.TabIndex = 31
@@ -287,7 +291,7 @@ Partial Class TransferenciaEmpresasAprovacao
         'txtModelo
         '
         Me.txtModelo.Enabled = False
-        Me.txtModelo.Location = New System.Drawing.Point(694, 245)
+        Me.txtModelo.Location = New System.Drawing.Point(694, 257)
         Me.txtModelo.Name = "txtModelo"
         Me.txtModelo.Size = New System.Drawing.Size(199, 20)
         Me.txtModelo.TabIndex = 36
@@ -295,7 +299,7 @@ Partial Class TransferenciaEmpresasAprovacao
         'txtSerie
         '
         Me.txtSerie.Enabled = False
-        Me.txtSerie.Location = New System.Drawing.Point(448, 245)
+        Me.txtSerie.Location = New System.Drawing.Point(448, 257)
         Me.txtSerie.Name = "txtSerie"
         Me.txtSerie.Size = New System.Drawing.Size(136, 20)
         Me.txtSerie.TabIndex = 35
@@ -303,7 +307,7 @@ Partial Class TransferenciaEmpresasAprovacao
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(620, 249)
+        Me.Label5.Location = New System.Drawing.Point(620, 261)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(42, 13)
         Me.Label5.TabIndex = 34
@@ -312,7 +316,7 @@ Partial Class TransferenciaEmpresasAprovacao
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(358, 249)
+        Me.Label6.Location = New System.Drawing.Point(358, 261)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(73, 13)
         Me.Label6.TabIndex = 33
@@ -321,7 +325,7 @@ Partial Class TransferenciaEmpresasAprovacao
         'txtDescEquip
         '
         Me.txtDescEquip.Enabled = False
-        Me.txtDescEquip.Location = New System.Drawing.Point(448, 273)
+        Me.txtDescEquip.Location = New System.Drawing.Point(448, 285)
         Me.txtDescEquip.Name = "txtDescEquip"
         Me.txtDescEquip.Size = New System.Drawing.Size(445, 20)
         Me.txtDescEquip.TabIndex = 38
@@ -329,7 +333,7 @@ Partial Class TransferenciaEmpresasAprovacao
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(358, 277)
+        Me.Label7.Location = New System.Drawing.Point(358, 289)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(80, 13)
         Me.Label7.TabIndex = 37
@@ -340,7 +344,7 @@ Partial Class TransferenciaEmpresasAprovacao
         Me.GroupBox2.Controls.Add(Me.rbReprovar2)
         Me.GroupBox2.Controls.Add(Me.rbAprovar2)
         Me.GroupBox2.Controls.Add(Me.rbAnalise2)
-        Me.GroupBox2.Location = New System.Drawing.Point(361, 110)
+        Me.GroupBox2.Location = New System.Drawing.Point(361, 122)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(327, 63)
         Me.GroupBox2.TabIndex = 39
@@ -387,7 +391,7 @@ Partial Class TransferenciaEmpresasAprovacao
         '
         Me.btnReprovaTudoSimid.Image = CType(resources.GetObject("btnReprovaTudoSimid.Image"), System.Drawing.Image)
         Me.btnReprovaTudoSimid.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnReprovaTudoSimid.Location = New System.Drawing.Point(734, 165)
+        Me.btnReprovaTudoSimid.Location = New System.Drawing.Point(734, 177)
         Me.btnReprovaTudoSimid.Name = "btnReprovaTudoSimid"
         Me.btnReprovaTudoSimid.Size = New System.Drawing.Size(159, 55)
         Me.btnReprovaTudoSimid.TabIndex = 41
@@ -399,7 +403,7 @@ Partial Class TransferenciaEmpresasAprovacao
         '
         Me.btnAprovaTudoSimid.Image = CType(resources.GetObject("btnAprovaTudoSimid.Image"), System.Drawing.Image)
         Me.btnAprovaTudoSimid.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAprovaTudoSimid.Location = New System.Drawing.Point(734, 104)
+        Me.btnAprovaTudoSimid.Location = New System.Drawing.Point(734, 116)
         Me.btnAprovaTudoSimid.Name = "btnAprovaTudoSimid"
         Me.btnAprovaTudoSimid.Size = New System.Drawing.Size(159, 55)
         Me.btnAprovaTudoSimid.TabIndex = 40
@@ -407,11 +411,53 @@ Partial Class TransferenciaEmpresasAprovacao
         Me.btnAprovaTudoSimid.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAprovaTudoSimid.UseVisualStyleBackColor = True
         '
+        'txtOrigem
+        '
+        Me.txtOrigem.Enabled = False
+        Me.txtOrigem.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtOrigem.ForeColor = System.Drawing.Color.DarkBlue
+        Me.txtOrigem.Location = New System.Drawing.Point(694, 12)
+        Me.txtOrigem.Name = "txtOrigem"
+        Me.txtOrigem.Size = New System.Drawing.Size(199, 20)
+        Me.txtOrigem.TabIndex = 43
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(637, 15)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(40, 13)
+        Me.Label2.TabIndex = 42
+        Me.Label2.Text = "Origem"
+        '
+        'txtDestino
+        '
+        Me.txtDestino.Enabled = False
+        Me.txtDestino.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDestino.ForeColor = System.Drawing.Color.DarkBlue
+        Me.txtDestino.Location = New System.Drawing.Point(694, 42)
+        Me.txtDestino.Name = "txtDestino"
+        Me.txtDestino.Size = New System.Drawing.Size(199, 20)
+        Me.txtDestino.TabIndex = 45
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(634, 44)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(43, 13)
+        Me.Label8.TabIndex = 44
+        Me.Label8.Text = "Destino"
+        '
         'TransferenciaEmpresasAprovacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(905, 453)
+        Me.ClientSize = New System.Drawing.Size(905, 468)
+        Me.Controls.Add(Me.txtDestino)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.txtOrigem)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnReprovaTudoSimid)
         Me.Controls.Add(Me.btnAprovaTudoSimid)
         Me.Controls.Add(Me.GroupBox2)
@@ -489,4 +535,8 @@ Partial Class TransferenciaEmpresasAprovacao
     Friend WithEvents rbAnalise2 As RadioButton
     Friend WithEvents btnReprovaTudoSimid As Button
     Friend WithEvents btnAprovaTudoSimid As Button
+    Friend WithEvents txtOrigem As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtDestino As TextBox
+    Friend WithEvents Label8 As Label
 End Class
