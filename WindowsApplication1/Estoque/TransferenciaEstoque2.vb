@@ -717,7 +717,7 @@
 
 
                 'Operação de delete/insert
-                bllFilha.GravarBLL(Operacao.Novo, objEntradaChipItem)
+                bllFilha.GravarBLL(Operacao.Novo, objEntradaChipItem, True)
 
 
             Next
@@ -743,7 +743,7 @@
                 objEntradaEquipamentoItem.Id_empresa = objEntradaEstoque.Id_empresa 'Publico.Id_empresa
 
                 'Operação de delete/insert
-                bllFilha2.GravarBLL(Operacao.Novo, objEntradaEquipamentoItem)
+                bllFilha2.GravarBLL(Operacao.Novo, objEntradaEquipamentoItem, True)
 
             Next
 
