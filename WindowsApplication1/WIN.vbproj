@@ -221,6 +221,12 @@
     <Compile Include="Estoque\BaixaMovimentoTransito.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Estoque\MovEstoqueChip.designer.vb">
+      <DependentUpon>MovEstoqueChip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estoque\MovEstoqueChip.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Estoque\TransferenciaEmpresasAprovacao.designer.vb">
       <DependentUpon>TransferenciaEmpresasAprovacao.vb</DependentUpon>
     </Compile>
@@ -911,6 +917,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Estoque\BaixaMovimentoTransito.resx">
       <DependentUpon>BaixaMovimentoTransito.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estoque\MovEstoqueChip.resx">
+      <DependentUpon>MovEstoqueChip.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Estoque\TransferenciaEmpresasAprovacao.resx">
       <DependentUpon>TransferenciaEmpresasAprovacao.vb</DependentUpon>
