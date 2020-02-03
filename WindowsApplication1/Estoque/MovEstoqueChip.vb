@@ -7,15 +7,15 @@
         Carrega()
     End Sub
 
-    Private Sub optDefeito_CheckedChanged(sender As Object, e As EventArgs) Handles optDefeito.CheckedChanged
+    Private Sub optDefeito_CheckedChanged(sender As Object, e As EventArgs)
         Carrega()
     End Sub
 
-    Private Sub optLaudo_CheckedChanged(sender As Object, e As EventArgs) Handles optLaudo.CheckedChanged
+    Private Sub optLaudo_CheckedChanged(sender As Object, e As EventArgs)
         Carrega()
     End Sub
 
-    Private Sub optEstqPeca_CheckedChanged(sender As Object, e As EventArgs) Handles optEstqPeca.CheckedChanged
+    Private Sub optEstqPeca_CheckedChanged(sender As Object, e As EventArgs)
         Carrega()
     End Sub
 
@@ -24,23 +24,22 @@
     End Sub
     Private Sub Carrega()
         Dim sql As String, optSelect As Integer = 0
-        sql = "select ORIGEM, ID_EQUIPAMENTO, SERIE, MODELO, DESC_EQUIPAMENTO, "
-        sql += "ID_EMPRESA, ID_TIPO_LOCAL_ESTOQUE from VW_CG_ORIGEM_ESTOQUE_POS "
+        sql = "select ORIGEM, ID_CHIP, SIMID, ID_OPERADORA, DESC_OPERADORA, ID_EMPRESA, ID_TIPO_LOCAL_ESTOQUE from VW_CG_ORIGEM_ESTOQUE_CHIP "
 
         If optMatriz.Checked Then
             optSelect = 1
         End If
-        If optDefeito.Checked Then
-            optSelect = 2
-        End If
-        If optLaudo.Checked Then
-            optSelect = 3
-        End If
-        If optEstqPeca.Checked Then
-            optSelect = 4
-        End If
+        'If optDefeito.Checked Then
+        '    optSelect = 2
+        'End If
+        'If optLaudo.Checked Then
+        '    optSelect = 3
+        'End If
+        'If optEstqPeca.Checked Then
+        '    optSelect = 4
+        'End If
         If optInativo.Checked Then
-            optSelect = 5
+            optSelect = 2
         End If
 
         '==>Código ID_TIPO_LOCAL_ESTOQUE para FILTRO 
@@ -54,13 +53,13 @@
         Select Case optSelect
             Case 1
                 lnIdTipoLocalEstoque = 1
+            'Case 2
+            '    lnIdTipoLocalEstoque = 3
+            'Case 3
+            '    lnIdTipoLocalEstoque = 4
+            'Case 4
+            '    lnIdTipoLocalEstoque = 5
             Case 2
-                lnIdTipoLocalEstoque = 3
-            Case 3
-                lnIdTipoLocalEstoque = 4
-            Case 4
-                lnIdTipoLocalEstoque = 5
-            Case 5
                 lnIdTipoLocalEstoque = 8
         End Select
 
@@ -85,34 +84,34 @@
         dt.Columns.Add("Nome", GetType(String))
 
         If pIdTipoLocalEstoque = 1 Then
-            dt.Rows.Add(3, "COM DEFEITO")
-            dt.Rows.Add(4, "LAUDO")
-            dt.Rows.Add(5, "ESTOQUE DE PEÇAS")
+            'dt.Rows.Add(3, "COM DEFEITO")
+            'dt.Rows.Add(4, "LAUDO")
+            'dt.Rows.Add(5, "ESTOQUE DE PEÇAS")
             dt.Rows.Add(8, "INATIVO")
         End If
-        If pIdTipoLocalEstoque = 3 Then
-            dt.Rows.Add(1, "MATRIZ")
-            dt.Rows.Add(4, "LAUDO")
-            dt.Rows.Add(5, "ESTOQUE DE PEÇAS")
-            dt.Rows.Add(8, "INATIVO")
-        End If
-        If pIdTipoLocalEstoque = 4 Then
-            dt.Rows.Add(1, "MATRIZ")
-            dt.Rows.Add(3, "COM DEFEITO")
-            dt.Rows.Add(5, "ESTOQUE DE PEÇAS")
-            dt.Rows.Add(8, "INATIVO")
-        End If
-        If pIdTipoLocalEstoque = 5 Then
-            dt.Rows.Add(1, "MATRIZ")
-            dt.Rows.Add(3, "COM DEFEITO")
-            dt.Rows.Add(4, "LAUDO")
-            dt.Rows.Add(8, "INATIVO")
-        End If
+        'If pIdTipoLocalEstoque = 3 Then
+        '    dt.Rows.Add(1, "MATRIZ")
+        '    dt.Rows.Add(4, "LAUDO")
+        '    dt.Rows.Add(5, "ESTOQUE DE PEÇAS")
+        '    dt.Rows.Add(8, "INATIVO")
+        'End If
+        'If pIdTipoLocalEstoque = 4 Then
+        '    dt.Rows.Add(1, "MATRIZ")
+        '    dt.Rows.Add(3, "COM DEFEITO")
+        '    dt.Rows.Add(5, "ESTOQUE DE PEÇAS")
+        '    dt.Rows.Add(8, "INATIVO")
+        'End If
+        'If pIdTipoLocalEstoque = 5 Then
+        '    dt.Rows.Add(1, "MATRIZ")
+        '    dt.Rows.Add(3, "COM DEFEITO")
+        '    dt.Rows.Add(4, "LAUDO")
+        '    dt.Rows.Add(8, "INATIVO")
+        'End If
         If pIdTipoLocalEstoque = 8 Then
             dt.Rows.Add(1, "MATRIZ")
-            dt.Rows.Add(3, "COM DEFEITO")
-            dt.Rows.Add(4, "LAUDO")
-            dt.Rows.Add(5, "ESTOQUE DE PEÇAS")
+            'dt.Rows.Add(3, "COM DEFEITO")
+            'dt.Rows.Add(4, "LAUDO")
+            'dt.Rows.Add(5, "ESTOQUE DE PEÇAS")
         End If
 
         ComboBox1.DataSource = dt
@@ -121,11 +120,11 @@
     End Sub
     Private Sub UpdateFont()
 
-
+        'ORIGEM, ID_CHIP, SIMID, ID_OPERADORA, DESC_OPERADORA, ID_EMPRESA, ID_TIPO_LOCAL_ESTOQUE
         Dim colHeader() As String
         Me.dgvDados.DefaultCellStyle.Font = New Font("Tahoma", 10.0F, GraphicsUnit.Pixel)
-        colHeader = {"Origem", "Id Equipamento", "Série", "Modelo",
-                         "Descrição Equipamento", "Id Empresa", "Id Tipo Local Estoque"}
+        colHeader = {"Origem", "Id Chip", "SIMID", "Id Operadora",
+                         "Descrição Operadora", "Id Empresa", "Id Tipo Local Estoque"}
         For ixx = 0 To dgvDados.ColumnCount - 1
             dgvDados.Columns(ixx).HeaderText = colHeader(ixx)
         Next
@@ -178,14 +177,14 @@
     Private Sub Transfere(ByVal pIdEquipamento As Integer, ByVal pIdLocalPara As Integer, pTipoLocal As String)
         Try
             Dim sqlEmpty As String, sql As String = ""
-            sqlEmpty = "EXEC spTransfere_Estoque_POS {0},{1},{2},{3},'{4}',{5}"
+            sqlEmpty = "EXEC spTransfere_Estoque_Chip {0},{1},{2},{3},'{4}',{5}"
             sql = sqlEmpty
             sql = String.Format(sql, pIdEquipamento.ToString, "1", "0", pIdLocalPara.ToString, pTipoLocal, "1")
 
             Dim bllGlobal As New BLL.GlobalBLL
             bllGlobal.GravarGenericoBLL(sql)
             MessageBox.Show("Transferência Efetuada com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
+            Carrega()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try

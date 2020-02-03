@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ConsultaEstoque
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class ConsultaEstoque
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConsultaEstoque))
         Me.btnExcel = New System.Windows.Forms.Button()
@@ -45,9 +45,8 @@ Partial Class ConsultaEstoque
         Me.Button3 = New System.Windows.Forms.Button()
         Me.lblTotalRegistros = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PesqFKTransito = New WinCG.PesqFK()
-        Me.PesqFKLoja = New WinCG.PesqFK()
-        Me.PesqFKArea = New WinCG.PesqFK()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.btnProcurarSimid = New System.Windows.Forms.Button()
@@ -66,8 +65,13 @@ Partial Class ConsultaEstoque
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dgvDados2 = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.PesqFKTransito = New WinCG.PesqFK()
+        Me.PesqFKLoja = New WinCG.PesqFK()
+        Me.PesqFKArea = New WinCG.PesqFK()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -83,7 +87,7 @@ Partial Class ConsultaEstoque
         '
         Me.btnExcel.Image = CType(resources.GetObject("btnExcel.Image"), System.Drawing.Image)
         Me.btnExcel.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnExcel.Location = New System.Drawing.Point(10, 511)
+        Me.btnExcel.Location = New System.Drawing.Point(1196, 413)
         Me.btnExcel.Name = "btnExcel"
         Me.btnExcel.Size = New System.Drawing.Size(108, 40)
         Me.btnExcel.TabIndex = 1
@@ -94,7 +98,7 @@ Partial Class ConsultaEstoque
         '
         Me.btnRefresh.Image = CType(resources.GetObject("btnRefresh.Image"), System.Drawing.Image)
         Me.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnRefresh.Location = New System.Drawing.Point(12, 556)
+        Me.btnRefresh.Location = New System.Drawing.Point(1196, 459)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(108, 40)
         Me.btnRefresh.TabIndex = 2
@@ -105,7 +109,7 @@ Partial Class ConsultaEstoque
         '
         Me.btnLimpar.Image = CType(resources.GetObject("btnLimpar.Image"), System.Drawing.Image)
         Me.btnLimpar.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnLimpar.Location = New System.Drawing.Point(10, 465)
+        Me.btnLimpar.Location = New System.Drawing.Point(1196, 367)
         Me.btnLimpar.Name = "btnLimpar"
         Me.btnLimpar.Size = New System.Drawing.Size(108, 40)
         Me.btnLimpar.TabIndex = 6
@@ -114,7 +118,7 @@ Partial Class ConsultaEstoque
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(62, 7)
+        Me.TextBox1.Location = New System.Drawing.Point(17, 23)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(74, 20)
         Me.TextBox1.TabIndex = 41
@@ -122,7 +126,7 @@ Partial Class ConsultaEstoque
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(14, 10)
+        Me.Label2.Location = New System.Drawing.Point(14, 7)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(30, 13)
         Me.Label2.TabIndex = 40
@@ -161,17 +165,17 @@ Partial Class ConsultaEstoque
         'chkDevolveu
         '
         Me.chkDevolveu.AutoSize = True
-        Me.chkDevolveu.Location = New System.Drawing.Point(6, 83)
+        Me.chkDevolveu.Location = New System.Drawing.Point(6, 86)
         Me.chkDevolveu.Name = "chkDevolveu"
-        Me.chkDevolveu.Size = New System.Drawing.Size(129, 17)
+        Me.chkDevolveu.Size = New System.Drawing.Size(111, 17)
         Me.chkDevolveu.TabIndex = 49
-        Me.chkDevolveu.Text = "Devolveu Fornecedor"
+        Me.chkDevolveu.Text = "Devolveu Fornec."
         Me.chkDevolveu.UseVisualStyleBackColor = True
         '
         'radFisica
         '
         Me.radFisica.AutoSize = True
-        Me.radFisica.Location = New System.Drawing.Point(130, 19)
+        Me.radFisica.Location = New System.Drawing.Point(14, 43)
         Me.radFisica.Name = "radFisica"
         Me.radFisica.Size = New System.Drawing.Size(77, 17)
         Me.radFisica.TabIndex = 51
@@ -182,7 +186,7 @@ Partial Class ConsultaEstoque
         '
         Me.radAmbos.AutoSize = True
         Me.radAmbos.Checked = True
-        Me.radAmbos.Location = New System.Drawing.Point(14, 19)
+        Me.radAmbos.Location = New System.Drawing.Point(14, 25)
         Me.radAmbos.Name = "radAmbos"
         Me.radAmbos.Size = New System.Drawing.Size(111, 17)
         Me.radAmbos.TabIndex = 50
@@ -193,7 +197,7 @@ Partial Class ConsultaEstoque
         'radNaoFisica
         '
         Me.radNaoFisica.AutoSize = True
-        Me.radNaoFisica.Location = New System.Drawing.Point(212, 19)
+        Me.radNaoFisica.Location = New System.Drawing.Point(14, 63)
         Me.radNaoFisica.Name = "radNaoFisica"
         Me.radNaoFisica.Size = New System.Drawing.Size(77, 17)
         Me.radNaoFisica.TabIndex = 52
@@ -203,7 +207,7 @@ Partial Class ConsultaEstoque
         'radLoja
         '
         Me.radLoja.AutoSize = True
-        Me.radLoja.Location = New System.Drawing.Point(131, 18)
+        Me.radLoja.Location = New System.Drawing.Point(16, 55)
         Me.radLoja.Name = "radLoja"
         Me.radLoja.Size = New System.Drawing.Size(45, 17)
         Me.radLoja.TabIndex = 58
@@ -214,7 +218,7 @@ Partial Class ConsultaEstoque
         '
         Me.radLojaTransito.AutoSize = True
         Me.radLojaTransito.Checked = True
-        Me.radLojaTransito.Location = New System.Drawing.Point(15, 18)
+        Me.radLojaTransito.Location = New System.Drawing.Point(16, 36)
         Me.radLojaTransito.Name = "radLojaTransito"
         Me.radLojaTransito.Size = New System.Drawing.Size(88, 17)
         Me.radLojaTransito.TabIndex = 57
@@ -225,7 +229,7 @@ Partial Class ConsultaEstoque
         'radTransito
         '
         Me.radTransito.AutoSize = True
-        Me.radTransito.Location = New System.Drawing.Point(213, 18)
+        Me.radTransito.Location = New System.Drawing.Point(16, 75)
         Me.radTransito.Name = "radTransito"
         Me.radTransito.Size = New System.Drawing.Size(63, 17)
         Me.radTransito.TabIndex = 59
@@ -237,9 +241,9 @@ Partial Class ConsultaEstoque
         Me.GroupBox1.Controls.Add(Me.radAmbos)
         Me.GroupBox1.Controls.Add(Me.radNaoFisica)
         Me.GroupBox1.Controls.Add(Me.radFisica)
-        Me.GroupBox1.Location = New System.Drawing.Point(563, 488)
+        Me.GroupBox1.Location = New System.Drawing.Point(1182, 268)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(325, 43)
+        Me.GroupBox1.Size = New System.Drawing.Size(125, 93)
         Me.GroupBox1.TabIndex = 60
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo de Loja"
@@ -249,9 +253,9 @@ Partial Class ConsultaEstoque
         Me.GroupBox2.Controls.Add(Me.radTransito)
         Me.GroupBox2.Controls.Add(Me.radLoja)
         Me.GroupBox2.Controls.Add(Me.radLojaTransito)
-        Me.GroupBox2.Location = New System.Drawing.Point(563, 549)
+        Me.GroupBox2.Location = New System.Drawing.Point(1185, 144)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(325, 43)
+        Me.GroupBox2.Size = New System.Drawing.Size(125, 117)
         Me.GroupBox2.TabIndex = 61
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Tipo de Local de Estoque"
@@ -263,9 +267,9 @@ Partial Class ConsultaEstoque
         Me.GroupBox3.Controls.Add(Me.chkQuarentena)
         Me.GroupBox3.Controls.Add(Me.chkInativo)
         Me.GroupBox3.Controls.Add(Me.chkDevolveu)
-        Me.GroupBox3.Location = New System.Drawing.Point(904, 492)
+        Me.GroupBox3.Location = New System.Drawing.Point(1185, 12)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(275, 103)
+        Me.GroupBox3.Size = New System.Drawing.Size(122, 131)
         Me.GroupBox3.TabIndex = 62
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Exibir"
@@ -273,18 +277,18 @@ Partial Class ConsultaEstoque
         'chkAssistencia
         '
         Me.chkAssistencia.AutoSize = True
-        Me.chkAssistencia.Location = New System.Drawing.Point(142, 23)
+        Me.chkAssistencia.Location = New System.Drawing.Point(6, 109)
         Me.chkAssistencia.Name = "chkAssistencia"
-        Me.chkAssistencia.Size = New System.Drawing.Size(121, 17)
+        Me.chkAssistencia.Size = New System.Drawing.Size(98, 17)
         Me.chkAssistencia.TabIndex = 50
-        Me.chkAssistencia.Text = "Assistência Tecnica"
+        Me.chkAssistencia.Text = "Assist. Tecnica"
         Me.chkAssistencia.UseVisualStyleBackColor = True
         '
         'Button3
         '
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button3.Location = New System.Drawing.Point(1185, 552)
+        Me.Button3.Location = New System.Drawing.Point(1196, 552)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(108, 40)
         Me.Button3.TabIndex = 63
@@ -304,6 +308,10 @@ Partial Class ConsultaEstoque
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Label7)
+        Me.Panel1.Controls.Add(Me.Label6)
+        Me.Panel1.Controls.Add(Me.ComboBox2)
+        Me.Panel1.Controls.Add(Me.ComboBox1)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.TextBox2)
         Me.Panel1.Controls.Add(Me.PesqFKTransito)
@@ -311,79 +319,26 @@ Partial Class ConsultaEstoque
         Me.Panel1.Controls.Add(Me.PesqFKArea)
         Me.Panel1.Controls.Add(Me.TextBox1)
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Location = New System.Drawing.Point(133, 458)
+        Me.Panel1.Location = New System.Drawing.Point(10, 457)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(416, 138)
+        Me.Panel1.Size = New System.Drawing.Size(1166, 135)
         Me.Panel1.TabIndex = 68
         '
-        'PesqFKTransito
+        'Label5
         '
-        Me.PesqFKTransito.CampoDesc = "DESC_CARGO"
-        Me.PesqFKTransito.CampoId = "ID_CARGO"
-        Me.PesqFKTransito.Clicou = "0"
-        Me.PesqFKTransito.CodigoSelecionado = Nothing
-        Me.PesqFKTransito.ColunasFiltro = "DESC_CARGO"
-        Me.PesqFKTransito.DescricaoSelecionada = Nothing
-        Me.PesqFKTransito.FiltroSQL = Nothing
-        Me.PesqFKTransito.LabelBuscaDesc = "Descrição"
-        Me.PesqFKTransito.LabelBuscaId = "Código"
-        Me.PesqFKTransito.LabelPesqFK = "Transito"
-        Me.PesqFKTransito.ListaCampos = "DESC_CARGO,ID_CARGO"
-        Me.PesqFKTransito.Location = New System.Drawing.Point(8, 108)
-        Me.PesqFKTransito.Name = "PesqFKTransito"
-        Me.PesqFKTransito.ObjModelFk = Nothing
-        Me.PesqFKTransito.PosValida = False
-        Me.PesqFKTransito.Size = New System.Drawing.Size(399, 28)
-        Me.PesqFKTransito.Tabela = "CG_CARGO"
-        Me.PesqFKTransito.TabIndex = 68
-        Me.PesqFKTransito.TituloTela = "Pesquisa de Cargos"
-        Me.PesqFKTransito.View = "CG_CARGO"
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(21, 52)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(23, 13)
+        Me.Label5.TabIndex = 70
+        Me.Label5.Text = "Até"
         '
-        'PesqFKLoja
+        'TextBox2
         '
-        Me.PesqFKLoja.CampoDesc = "DESC_CARGO"
-        Me.PesqFKLoja.CampoId = "ID_CARGO"
-        Me.PesqFKLoja.Clicou = "0"
-        Me.PesqFKLoja.CodigoSelecionado = Nothing
-        Me.PesqFKLoja.ColunasFiltro = "DESC_CARGO"
-        Me.PesqFKLoja.DescricaoSelecionada = Nothing
-        Me.PesqFKLoja.FiltroSQL = Nothing
-        Me.PesqFKLoja.LabelBuscaDesc = "Descrição"
-        Me.PesqFKLoja.LabelBuscaId = "Código"
-        Me.PesqFKLoja.LabelPesqFK = "Loja"
-        Me.PesqFKLoja.ListaCampos = "DESC_CARGO,ID_CARGO"
-        Me.PesqFKLoja.Location = New System.Drawing.Point(8, 40)
-        Me.PesqFKLoja.Name = "PesqFKLoja"
-        Me.PesqFKLoja.ObjModelFk = Nothing
-        Me.PesqFKLoja.PosValida = False
-        Me.PesqFKLoja.Size = New System.Drawing.Size(399, 28)
-        Me.PesqFKLoja.Tabela = "CG_CARGO"
-        Me.PesqFKLoja.TabIndex = 65
-        Me.PesqFKLoja.TituloTela = "Pesquisa de Cargos"
-        Me.PesqFKLoja.View = "CG_CARGO"
-        '
-        'PesqFKArea
-        '
-        Me.PesqFKArea.CampoDesc = "DESC_CARGO"
-        Me.PesqFKArea.CampoId = "ID_CARGO"
-        Me.PesqFKArea.Clicou = "0"
-        Me.PesqFKArea.CodigoSelecionado = Nothing
-        Me.PesqFKArea.ColunasFiltro = "DESC_CARGO"
-        Me.PesqFKArea.DescricaoSelecionada = Nothing
-        Me.PesqFKArea.FiltroSQL = Nothing
-        Me.PesqFKArea.LabelBuscaDesc = "Descrição"
-        Me.PesqFKArea.LabelBuscaId = "Código"
-        Me.PesqFKArea.LabelPesqFK = "Área"
-        Me.PesqFKArea.ListaCampos = "DESC_CARGO,ID_CARGO"
-        Me.PesqFKArea.Location = New System.Drawing.Point(8, 74)
-        Me.PesqFKArea.Name = "PesqFKArea"
-        Me.PesqFKArea.ObjModelFk = Nothing
-        Me.PesqFKArea.PosValida = False
-        Me.PesqFKArea.Size = New System.Drawing.Size(399, 28)
-        Me.PesqFKArea.Tabela = "CG_CARGO"
-        Me.PesqFKArea.TabIndex = 67
-        Me.PesqFKArea.TituloTela = "Pesquisa de Cargos"
-        Me.PesqFKArea.View = "CG_CARGO"
+        Me.TextBox2.Location = New System.Drawing.Point(17, 73)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(74, 20)
+        Me.TextBox2.TabIndex = 69
         '
         'TabControl1
         '
@@ -392,7 +347,7 @@ Partial Class ConsultaEstoque
         Me.TabControl1.Location = New System.Drawing.Point(-2, 2)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1308, 450)
+        Me.TabControl1.Size = New System.Drawing.Size(1178, 450)
         Me.TabControl1.TabIndex = 69
         '
         'TabPage1
@@ -406,7 +361,7 @@ Partial Class ConsultaEstoque
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1300, 424)
+        Me.TabPage1.Size = New System.Drawing.Size(1170, 424)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Chip"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -466,7 +421,7 @@ Partial Class ConsultaEstoque
         Me.dgvDados.Location = New System.Drawing.Point(8, 36)
         Me.dgvDados.Name = "dgvDados"
         Me.dgvDados.ReadOnly = True
-        Me.dgvDados.Size = New System.Drawing.Size(1281, 380)
+        Me.dgvDados.Size = New System.Drawing.Size(1134, 380)
         Me.dgvDados.TabIndex = 1
         '
         'TabPage2
@@ -482,14 +437,14 @@ Partial Class ConsultaEstoque
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1300, 424)
+        Me.TabPage2.Size = New System.Drawing.Size(1170, 424)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "POS"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'txtOS
         '
-        Me.txtOS.Location = New System.Drawing.Point(1189, 12)
+        Me.txtOS.Location = New System.Drawing.Point(1046, 8)
         Me.txtOS.Name = "txtOS"
         Me.txtOS.ReadOnly = True
         Me.txtOS.Size = New System.Drawing.Size(100, 20)
@@ -498,7 +453,7 @@ Partial Class ConsultaEstoque
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(1144, 15)
+        Me.Label4.Location = New System.Drawing.Point(1001, 11)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(41, 13)
         Me.Label4.TabIndex = 22
@@ -559,48 +514,138 @@ Partial Class ConsultaEstoque
         Me.dgvDados2.Location = New System.Drawing.Point(8, 36)
         Me.dgvDados2.Name = "dgvDados2"
         Me.dgvDados2.ReadOnly = True
-        Me.dgvDados2.Size = New System.Drawing.Size(1281, 380)
+        Me.dgvDados2.Size = New System.Drawing.Size(1134, 380)
         Me.dgvDados2.TabIndex = 2
         '
         'Button1
         '
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(1185, 498)
+        Me.Button1.Location = New System.Drawing.Point(1196, 505)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(108, 40)
         Me.Button1.TabIndex = 70
         Me.Button1.Text = "    Imprimir"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'TextBox2
+        'PesqFKTransito
         '
-        Me.TextBox2.Location = New System.Drawing.Point(195, 7)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(74, 20)
-        Me.TextBox2.TabIndex = 69
+        Me.PesqFKTransito.CampoDesc = "DESC_CARGO"
+        Me.PesqFKTransito.CampoId = "ID_CARGO"
+        Me.PesqFKTransito.Clicou = "0"
+        Me.PesqFKTransito.CodigoSelecionado = Nothing
+        Me.PesqFKTransito.ColunasFiltro = "DESC_CARGO"
+        Me.PesqFKTransito.DescricaoSelecionada = Nothing
+        Me.PesqFKTransito.FiltroSQL = Nothing
+        Me.PesqFKTransito.LabelBuscaDesc = "Descrição"
+        Me.PesqFKTransito.LabelBuscaId = "Código"
+        Me.PesqFKTransito.LabelPesqFK = "Transito"
+        Me.PesqFKTransito.ListaCampos = "DESC_CARGO,ID_CARGO"
+        Me.PesqFKTransito.Location = New System.Drawing.Point(101, 69)
+        Me.PesqFKTransito.Name = "PesqFKTransito"
+        Me.PesqFKTransito.ObjModelFk = Nothing
+        Me.PesqFKTransito.OrderByQuery = Nothing
+        Me.PesqFKTransito.PosValida = False
+        Me.PesqFKTransito.Size = New System.Drawing.Size(399, 28)
+        Me.PesqFKTransito.Tabela = "CG_CARGO"
+        Me.PesqFKTransito.TabIndex = 68
+        Me.PesqFKTransito.TituloTela = "Pesquisa de Cargos"
+        Me.PesqFKTransito.View = "CG_CARGO"
         '
-        'Label5
+        'PesqFKLoja
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(151, 10)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(23, 13)
-        Me.Label5.TabIndex = 70
-        Me.Label5.Text = "Até"
+        Me.PesqFKLoja.CampoDesc = "DESC_CARGO"
+        Me.PesqFKLoja.CampoId = "ID_CARGO"
+        Me.PesqFKLoja.Clicou = "0"
+        Me.PesqFKLoja.CodigoSelecionado = Nothing
+        Me.PesqFKLoja.ColunasFiltro = "DESC_CARGO"
+        Me.PesqFKLoja.DescricaoSelecionada = Nothing
+        Me.PesqFKLoja.FiltroSQL = Nothing
+        Me.PesqFKLoja.LabelBuscaDesc = "Descrição"
+        Me.PesqFKLoja.LabelBuscaId = "Código"
+        Me.PesqFKLoja.LabelPesqFK = "Loja"
+        Me.PesqFKLoja.ListaCampos = "DESC_CARGO,ID_CARGO"
+        Me.PesqFKLoja.Location = New System.Drawing.Point(101, 4)
+        Me.PesqFKLoja.Name = "PesqFKLoja"
+        Me.PesqFKLoja.ObjModelFk = Nothing
+        Me.PesqFKLoja.OrderByQuery = Nothing
+        Me.PesqFKLoja.PosValida = False
+        Me.PesqFKLoja.Size = New System.Drawing.Size(399, 28)
+        Me.PesqFKLoja.Tabela = "CG_CARGO"
+        Me.PesqFKLoja.TabIndex = 65
+        Me.PesqFKLoja.TituloTela = "Pesquisa de Cargos"
+        Me.PesqFKLoja.View = "CG_CARGO"
+        '
+        'PesqFKArea
+        '
+        Me.PesqFKArea.CampoDesc = "DESC_CARGO"
+        Me.PesqFKArea.CampoId = "ID_CARGO"
+        Me.PesqFKArea.Clicou = "0"
+        Me.PesqFKArea.CodigoSelecionado = Nothing
+        Me.PesqFKArea.ColunasFiltro = "DESC_CARGO"
+        Me.PesqFKArea.DescricaoSelecionada = Nothing
+        Me.PesqFKArea.FiltroSQL = Nothing
+        Me.PesqFKArea.LabelBuscaDesc = "Descrição"
+        Me.PesqFKArea.LabelBuscaId = "Código"
+        Me.PesqFKArea.LabelPesqFK = "Área"
+        Me.PesqFKArea.ListaCampos = "DESC_CARGO,ID_CARGO"
+        Me.PesqFKArea.Location = New System.Drawing.Point(101, 38)
+        Me.PesqFKArea.Name = "PesqFKArea"
+        Me.PesqFKArea.ObjModelFk = Nothing
+        Me.PesqFKArea.OrderByQuery = Nothing
+        Me.PesqFKArea.PosValida = False
+        Me.PesqFKArea.Size = New System.Drawing.Size(399, 28)
+        Me.PesqFKArea.Tabela = "CG_CARGO"
+        Me.PesqFKArea.TabIndex = 67
+        Me.PesqFKArea.TituloTela = "Pesquisa de Cargos"
+        Me.PesqFKArea.View = "CG_CARGO"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(661, 7)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(188, 21)
+        Me.ComboBox1.TabIndex = 71
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(664, 44)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(185, 21)
+        Me.ComboBox2.TabIndex = 72
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(597, 10)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(42, 13)
+        Me.Label6.TabIndex = 73
+        Me.Label6.Text = "Modelo"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(597, 47)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(57, 13)
+        Me.Label7.TabIndex = 74
+        Me.Label7.Text = "Operadora"
         '
         'ConsultaEstoque
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1306, 598)
+        Me.ClientSize = New System.Drawing.Size(1313, 598)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblTotalRegistros)
         Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnLimpar)
         Me.Controls.Add(Me.btnRefresh)
@@ -672,4 +717,8 @@ Partial Class ConsultaEstoque
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

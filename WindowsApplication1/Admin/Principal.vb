@@ -78,6 +78,8 @@
         AprovacaoPedidoVenda = 76
         DevolucaoPedidoVenda = 77
         AprovacaoTransferencia = 78
+        MovEstoqueChip = 79
+
 
     End Enum
 
@@ -442,7 +444,10 @@
         If ACE_MODULO = 78 Then
             frm = New WinCG.TransferenciaEmpresasAprovacao()
         End If
-
+        ' 79 - MOVIMENTAÇÃO DE ESTOQUE DE CHIP
+        If ACE_MODULO = 79 Then
+            frm = New WinCG.MovEstoqueChip
+        End If
         frm.MdiParent = Me
         frm.Show()
 
@@ -942,5 +947,10 @@
 
     Private Sub AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Click
         ChamaMenu(Modulo.AprovacaoTransferencia)
+    End Sub
+
+    Private Sub MovimentaçãoDoEstoqueDeChipToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MovimentaçãoDoEstoqueDeChipToolStripMenuItem.Click
+        ChamaMenu(Modulo.MovEstoqueChip)
+
     End Sub
 End Class

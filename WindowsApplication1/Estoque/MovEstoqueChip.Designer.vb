@@ -24,9 +24,6 @@ Partial Class MovEstoqueChip
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.optInativo = New System.Windows.Forms.RadioButton()
-        Me.optEstqPeca = New System.Windows.Forms.RadioButton()
-        Me.optLaudo = New System.Windows.Forms.RadioButton()
-        Me.optDefeito = New System.Windows.Forms.RadioButton()
         Me.optMatriz = New System.Windows.Forms.RadioButton()
         Me.dgvDados = New System.Windows.Forms.DataGridView()
         Me.btnProcurarSerie = New System.Windows.Forms.Button()
@@ -50,13 +47,10 @@ Partial Class MovEstoqueChip
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.optInativo)
-        Me.GroupBox1.Controls.Add(Me.optEstqPeca)
-        Me.GroupBox1.Controls.Add(Me.optLaudo)
-        Me.GroupBox1.Controls.Add(Me.optDefeito)
         Me.GroupBox1.Controls.Add(Me.optMatriz)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 10)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(484, 47)
+        Me.GroupBox1.Size = New System.Drawing.Size(226, 47)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Selecione a Origem do Estoque:"
@@ -64,46 +58,13 @@ Partial Class MovEstoqueChip
         'optInativo
         '
         Me.optInativo.AutoSize = True
-        Me.optInativo.Location = New System.Drawing.Point(419, 22)
+        Me.optInativo.Location = New System.Drawing.Point(83, 22)
         Me.optInativo.Name = "optInativo"
         Me.optInativo.Size = New System.Drawing.Size(57, 17)
         Me.optInativo.TabIndex = 4
         Me.optInativo.TabStop = True
         Me.optInativo.Text = "Inativo"
         Me.optInativo.UseVisualStyleBackColor = True
-        '
-        'optEstqPeca
-        '
-        Me.optEstqPeca.AutoSize = True
-        Me.optEstqPeca.Location = New System.Drawing.Point(281, 22)
-        Me.optEstqPeca.Name = "optEstqPeca"
-        Me.optEstqPeca.Size = New System.Drawing.Size(112, 17)
-        Me.optEstqPeca.TabIndex = 3
-        Me.optEstqPeca.TabStop = True
-        Me.optEstqPeca.Text = "Estoque de Peças"
-        Me.optEstqPeca.UseVisualStyleBackColor = True
-        '
-        'optLaudo
-        '
-        Me.optLaudo.AutoSize = True
-        Me.optLaudo.Location = New System.Drawing.Point(200, 22)
-        Me.optLaudo.Name = "optLaudo"
-        Me.optLaudo.Size = New System.Drawing.Size(55, 17)
-        Me.optLaudo.TabIndex = 2
-        Me.optLaudo.TabStop = True
-        Me.optLaudo.Text = "Laudo"
-        Me.optLaudo.UseVisualStyleBackColor = True
-        '
-        'optDefeito
-        '
-        Me.optDefeito.AutoSize = True
-        Me.optDefeito.Location = New System.Drawing.Point(91, 22)
-        Me.optDefeito.Name = "optDefeito"
-        Me.optDefeito.Size = New System.Drawing.Size(83, 17)
-        Me.optDefeito.TabIndex = 1
-        Me.optDefeito.TabStop = True
-        Me.optDefeito.Text = "Com Defeito"
-        Me.optDefeito.UseVisualStyleBackColor = True
         '
         'optMatriz
         '
@@ -170,9 +131,9 @@ Partial Class MovEstoqueChip
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(9, 67)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(49, 13)
+        Me.Label3.Size = New System.Drawing.Size(37, 13)
         Me.Label3.TabIndex = 22
-        Me.Label3.Text = "Nº. Série"
+        Me.Label3.Text = "SIMID"
         '
         'Label1
         '
@@ -288,9 +249,6 @@ Partial Class MovEstoqueChip
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents optInativo As RadioButton
-    Friend WithEvents optEstqPeca As RadioButton
-    Friend WithEvents optLaudo As RadioButton
-    Friend WithEvents optDefeito As RadioButton
     Friend WithEvents optMatriz As RadioButton
     Friend WithEvents dgvDados As DataGridView
     Friend WithEvents btnProcurarSerie As Button

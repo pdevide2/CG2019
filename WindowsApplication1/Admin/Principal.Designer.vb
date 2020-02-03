@@ -153,6 +153,8 @@ Partial Class Principal
         Me.ConsultaDeEstoqueGeralToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem32 = New System.Windows.Forms.ToolStripSeparator()
         Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem36 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator20 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.EntradaDeChipToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -202,8 +204,7 @@ Partial Class Principal
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblEmpresaLogada = New System.Windows.Forms.Label()
-        Me.ToolStripMenuItem36 = New System.Windows.Forms.ToolStripSeparator()
-        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MovimentaçãoDoEstoqueDeChipToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1049,7 +1050,7 @@ Partial Class Principal
         'ToolStripDropDownButton9
         '
         Me.ToolStripDropDownButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripDropDownButton9.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EntradaDeEstoqueToolStripMenuItem, Me.GerarTransitoEstoqueToolStripMenuItem, Me.BaixarTransitoEstoqueToolStripMenuItem, Me.MovimentaçãoDoEstoqueToolStripMenuItem, Me.ToolStripMenuItem30, Me.ConsultarTransitoEstoqueToolStripMenuItem, Me.ToolStripMenuItem31, Me.ConsultaDeEstoqueGeralToolStripMenuItem, Me.ToolStripMenuItem32, Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem, Me.ToolStripMenuItem36, Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem})
+        Me.ToolStripDropDownButton9.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EntradaDeEstoqueToolStripMenuItem, Me.GerarTransitoEstoqueToolStripMenuItem, Me.BaixarTransitoEstoqueToolStripMenuItem, Me.MovimentaçãoDoEstoqueToolStripMenuItem, Me.MovimentaçãoDoEstoqueDeChipToolStripMenuItem, Me.ToolStripMenuItem30, Me.ConsultarTransitoEstoqueToolStripMenuItem, Me.ToolStripMenuItem31, Me.ConsultaDeEstoqueGeralToolStripMenuItem, Me.ToolStripMenuItem32, Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem, Me.ToolStripMenuItem36, Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem})
         Me.ToolStripDropDownButton9.Image = CType(resources.GetObject("ToolStripDropDownButton9.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton9.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton9.Name = "ToolStripDropDownButton9"
@@ -1126,6 +1127,19 @@ Partial Class Principal
         Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem.Name = "TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem"
         Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem.Size = New System.Drawing.Size(304, 22)
         Me.TransferênciaDeEstoqueEntreEmpresasToolStripMenuItem.Text = "Transferência de Estoque entre Empresas"
+        '
+        'ToolStripMenuItem36
+        '
+        Me.ToolStripMenuItem36.Name = "ToolStripMenuItem36"
+        Me.ToolStripMenuItem36.Size = New System.Drawing.Size(301, 6)
+        '
+        'AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem
+        '
+        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Image = CType(resources.GetObject("AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Name = "AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem"
+        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Size = New System.Drawing.Size(304, 22)
+        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Text = "Aprovação de Transferência entre Empresas"
         '
         'ToolStripSeparator20
         '
@@ -1488,18 +1502,13 @@ Partial Class Principal
         Me.lblEmpresaLogada.TabIndex = 8
         Me.lblEmpresaLogada.Text = "."
         '
-        'ToolStripMenuItem36
+        'MovimentaçãoDoEstoqueDeChipToolStripMenuItem
         '
-        Me.ToolStripMenuItem36.Name = "ToolStripMenuItem36"
-        Me.ToolStripMenuItem36.Size = New System.Drawing.Size(301, 6)
-        '
-        'AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem
-        '
-        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Image = CType(resources.GetObject("AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Name = "AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem"
-        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Size = New System.Drawing.Size(304, 22)
-        Me.AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem.Text = "Aprovação de Transferência entre Empresas"
+        Me.MovimentaçãoDoEstoqueDeChipToolStripMenuItem.Image = CType(resources.GetObject("MovimentaçãoDoEstoqueDeChipToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.MovimentaçãoDoEstoqueDeChipToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.MovimentaçãoDoEstoqueDeChipToolStripMenuItem.Name = "MovimentaçãoDoEstoqueDeChipToolStripMenuItem"
+        Me.MovimentaçãoDoEstoqueDeChipToolStripMenuItem.Size = New System.Drawing.Size(304, 22)
+        Me.MovimentaçãoDoEstoqueDeChipToolStripMenuItem.Text = "Movimentação do Estoque de Chip"
         '
         'Principal
         '
@@ -1708,4 +1717,5 @@ Partial Class Principal
     Friend WithEvents DevoluçãoDePedidosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem36 As ToolStripSeparator
     Friend WithEvents AprovaçãoDeTransferênciaEntreEmpresasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MovimentaçãoDoEstoqueDeChipToolStripMenuItem As ToolStripMenuItem
 End Class
