@@ -90,6 +90,8 @@ Partial Class OS
         Me.chkPDF = New System.Windows.Forms.CheckBox()
         Me.Report1 = New FastReport.Report()
         Me.DbCGDataSet1 = New WinCG.dbCGDataSet()
+        Me.ckOSCliente = New System.Windows.Forms.CheckBox()
+        Me.PesqFK_Cliente = New WinCG.PesqFK()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.ContextMenuStrip2.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -179,6 +181,8 @@ Partial Class OS
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.PesqFK_Cliente)
+        Me.TabPage1.Controls.Add(Me.ckOSCliente)
         Me.TabPage1.Controls.Add(Me.btnOcorrenciasLoja)
         Me.TabPage1.Controls.Add(Me.btnAnexa2)
         Me.TabPage1.Controls.Add(Me.btnAnexa1)
@@ -263,7 +267,7 @@ Partial Class OS
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(671, 141)
+        Me.Label1.Location = New System.Drawing.Point(665, 158)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(70, 13)
         Me.Label1.TabIndex = 49
@@ -272,7 +276,7 @@ Partial Class OS
         'cboStatus
         '
         Me.cboStatus.FormattingEnabled = True
-        Me.cboStatus.Location = New System.Drawing.Point(667, 158)
+        Me.cboStatus.Location = New System.Drawing.Point(661, 175)
         Me.cboStatus.Name = "cboStatus"
         Me.cboStatus.Size = New System.Drawing.Size(201, 21)
         Me.cboStatus.TabIndex = 48
@@ -286,7 +290,7 @@ Partial Class OS
         Me.Panel1.Controls.Add(Me.lblSerie)
         Me.Panel1.Controls.Add(Me.lblNFe)
         Me.Panel1.Controls.Add(Me.lblDadosNf)
-        Me.Panel1.Location = New System.Drawing.Point(7, 135)
+        Me.Panel1.Location = New System.Drawing.Point(6, 158)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(640, 53)
         Me.Panel1.TabIndex = 47
@@ -448,10 +452,10 @@ Partial Class OS
         Me.dgvDados.AllowUserToAddRows = False
         Me.dgvDados.AllowUserToDeleteRows = False
         Me.dgvDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvDados.Location = New System.Drawing.Point(9, 203)
+        Me.dgvDados.Location = New System.Drawing.Point(9, 217)
         Me.dgvDados.Name = "dgvDados"
         Me.dgvDados.ReadOnly = True
-        Me.dgvDados.Size = New System.Drawing.Size(865, 173)
+        Me.dgvDados.Size = New System.Drawing.Size(865, 156)
         Me.dgvDados.TabIndex = 36
         '
         'txtData
@@ -697,6 +701,40 @@ Partial Class OS
         Me.DbCGDataSet1.EnforceConstraints = False
         Me.DbCGDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'ckOSCliente
+        '
+        Me.ckOSCliente.AutoSize = True
+        Me.ckOSCliente.Location = New System.Drawing.Point(12, 135)
+        Me.ckOSCliente.Name = "ckOSCliente"
+        Me.ckOSCliente.Size = New System.Drawing.Size(97, 17)
+        Me.ckOSCliente.TabIndex = 54
+        Me.ckOSCliente.Text = "OS de Cliente?"
+        Me.ckOSCliente.UseVisualStyleBackColor = True
+        '
+        'PesqFK_Cliente
+        '
+        Me.PesqFK_Cliente.CampoDesc = Nothing
+        Me.PesqFK_Cliente.CampoId = Nothing
+        Me.PesqFK_Cliente.Clicou = "0"
+        Me.PesqFK_Cliente.CodigoSelecionado = Nothing
+        Me.PesqFK_Cliente.ColunasFiltro = Nothing
+        Me.PesqFK_Cliente.DescricaoSelecionada = Nothing
+        Me.PesqFK_Cliente.FiltroSQL = Nothing
+        Me.PesqFK_Cliente.LabelBuscaDesc = Nothing
+        Me.PesqFK_Cliente.LabelBuscaId = Nothing
+        Me.PesqFK_Cliente.LabelPesqFK = "Cliente"
+        Me.PesqFK_Cliente.ListaCampos = Nothing
+        Me.PesqFK_Cliente.Location = New System.Drawing.Point(128, 127)
+        Me.PesqFK_Cliente.Name = "PesqFK_Cliente"
+        Me.PesqFK_Cliente.ObjModelFk = Nothing
+        Me.PesqFK_Cliente.OrderByQuery = Nothing
+        Me.PesqFK_Cliente.PosValida = False
+        Me.PesqFK_Cliente.Size = New System.Drawing.Size(607, 25)
+        Me.PesqFK_Cliente.Tabela = Nothing
+        Me.PesqFK_Cliente.TabIndex = 55
+        Me.PesqFK_Cliente.TituloTela = Nothing
+        Me.PesqFK_Cliente.View = Nothing
+        '
         'OS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -795,4 +833,6 @@ Partial Class OS
     Friend WithEvents chkPDF As CheckBox
     Friend WithEvents Report1 As FastReport.Report
     Friend WithEvents DbCGDataSet1 As dbCGDataSet
+    Friend WithEvents PesqFK_Cliente As PesqFK
+    Friend WithEvents ckOSCliente As CheckBox
 End Class

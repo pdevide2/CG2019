@@ -45,8 +45,15 @@ Partial Class ConsultaEstoque
         Me.Button3 = New System.Windows.Forms.Button()
         Me.lblTotalRegistros = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.ckOperadora = New System.Windows.Forms.CheckBox()
+        Me.ckModelo = New System.Windows.Forms.CheckBox()
+        Me.cboOperadora = New System.Windows.Forms.ComboBox()
+        Me.cboModelo = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.PesqFKTransito = New WinCG.PesqFK()
+        Me.PesqFKLoja = New WinCG.PesqFK()
+        Me.PesqFKArea = New WinCG.PesqFK()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.btnProcurarSimid = New System.Windows.Forms.Button()
@@ -65,13 +72,8 @@ Partial Class ConsultaEstoque
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dgvDados2 = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.PesqFKTransito = New WinCG.PesqFK()
-        Me.PesqFKLoja = New WinCG.PesqFK()
-        Me.PesqFKArea = New WinCG.PesqFK()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.lblTotalChips = New System.Windows.Forms.Label()
+        Me.lblTotalPOS = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -308,10 +310,10 @@ Partial Class ConsultaEstoque
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.Label7)
-        Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.ComboBox2)
-        Me.Panel1.Controls.Add(Me.ComboBox1)
+        Me.Panel1.Controls.Add(Me.ckOperadora)
+        Me.Panel1.Controls.Add(Me.ckModelo)
+        Me.Panel1.Controls.Add(Me.cboOperadora)
+        Me.Panel1.Controls.Add(Me.cboModelo)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.TextBox2)
         Me.Panel1.Controls.Add(Me.PesqFKTransito)
@@ -323,6 +325,46 @@ Partial Class ConsultaEstoque
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1166, 135)
         Me.Panel1.TabIndex = 68
+        '
+        'ckOperadora
+        '
+        Me.ckOperadora.AutoSize = True
+        Me.ckOperadora.Location = New System.Drawing.Point(587, 46)
+        Me.ckOperadora.Name = "ckOperadora"
+        Me.ckOperadora.Size = New System.Drawing.Size(122, 17)
+        Me.ckOperadora.TabIndex = 73
+        Me.ckOperadora.Text = "Filtrar por Operadora"
+        Me.ckOperadora.UseVisualStyleBackColor = True
+        '
+        'ckModelo
+        '
+        Me.ckModelo.AutoSize = True
+        Me.ckModelo.Location = New System.Drawing.Point(587, 9)
+        Me.ckModelo.Name = "ckModelo"
+        Me.ckModelo.Size = New System.Drawing.Size(107, 17)
+        Me.ckModelo.TabIndex = 51
+        Me.ckModelo.Text = "Filtrar por Modelo"
+        Me.ckModelo.UseVisualStyleBackColor = True
+        '
+        'cboOperadora
+        '
+        Me.cboOperadora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboOperadora.Enabled = False
+        Me.cboOperadora.FormattingEnabled = True
+        Me.cboOperadora.Location = New System.Drawing.Point(715, 44)
+        Me.cboOperadora.Name = "cboOperadora"
+        Me.cboOperadora.Size = New System.Drawing.Size(185, 21)
+        Me.cboOperadora.TabIndex = 72
+        '
+        'cboModelo
+        '
+        Me.cboModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboModelo.Enabled = False
+        Me.cboModelo.FormattingEnabled = True
+        Me.cboModelo.Location = New System.Drawing.Point(712, 7)
+        Me.cboModelo.Name = "cboModelo"
+        Me.cboModelo.Size = New System.Drawing.Size(188, 21)
+        Me.cboModelo.TabIndex = 71
         '
         'Label5
         '
@@ -340,6 +382,78 @@ Partial Class ConsultaEstoque
         Me.TextBox2.Size = New System.Drawing.Size(74, 20)
         Me.TextBox2.TabIndex = 69
         '
+        'PesqFKTransito
+        '
+        Me.PesqFKTransito.CampoDesc = "DESC_CARGO"
+        Me.PesqFKTransito.CampoId = "ID_CARGO"
+        Me.PesqFKTransito.Clicou = "0"
+        Me.PesqFKTransito.CodigoSelecionado = Nothing
+        Me.PesqFKTransito.ColunasFiltro = "DESC_CARGO"
+        Me.PesqFKTransito.DescricaoSelecionada = Nothing
+        Me.PesqFKTransito.FiltroSQL = Nothing
+        Me.PesqFKTransito.LabelBuscaDesc = "Descrição"
+        Me.PesqFKTransito.LabelBuscaId = "Código"
+        Me.PesqFKTransito.LabelPesqFK = "Transito"
+        Me.PesqFKTransito.ListaCampos = "DESC_CARGO,ID_CARGO"
+        Me.PesqFKTransito.Location = New System.Drawing.Point(101, 69)
+        Me.PesqFKTransito.Name = "PesqFKTransito"
+        Me.PesqFKTransito.ObjModelFk = Nothing
+        Me.PesqFKTransito.OrderByQuery = Nothing
+        Me.PesqFKTransito.PosValida = False
+        Me.PesqFKTransito.Size = New System.Drawing.Size(399, 28)
+        Me.PesqFKTransito.Tabela = "CG_CARGO"
+        Me.PesqFKTransito.TabIndex = 68
+        Me.PesqFKTransito.TituloTela = "Pesquisa de Cargos"
+        Me.PesqFKTransito.View = "CG_CARGO"
+        '
+        'PesqFKLoja
+        '
+        Me.PesqFKLoja.CampoDesc = "DESC_CARGO"
+        Me.PesqFKLoja.CampoId = "ID_CARGO"
+        Me.PesqFKLoja.Clicou = "0"
+        Me.PesqFKLoja.CodigoSelecionado = Nothing
+        Me.PesqFKLoja.ColunasFiltro = "DESC_CARGO"
+        Me.PesqFKLoja.DescricaoSelecionada = Nothing
+        Me.PesqFKLoja.FiltroSQL = Nothing
+        Me.PesqFKLoja.LabelBuscaDesc = "Descrição"
+        Me.PesqFKLoja.LabelBuscaId = "Código"
+        Me.PesqFKLoja.LabelPesqFK = "Loja"
+        Me.PesqFKLoja.ListaCampos = "DESC_CARGO,ID_CARGO"
+        Me.PesqFKLoja.Location = New System.Drawing.Point(101, 4)
+        Me.PesqFKLoja.Name = "PesqFKLoja"
+        Me.PesqFKLoja.ObjModelFk = Nothing
+        Me.PesqFKLoja.OrderByQuery = Nothing
+        Me.PesqFKLoja.PosValida = False
+        Me.PesqFKLoja.Size = New System.Drawing.Size(399, 28)
+        Me.PesqFKLoja.Tabela = "CG_CARGO"
+        Me.PesqFKLoja.TabIndex = 65
+        Me.PesqFKLoja.TituloTela = "Pesquisa de Cargos"
+        Me.PesqFKLoja.View = "CG_CARGO"
+        '
+        'PesqFKArea
+        '
+        Me.PesqFKArea.CampoDesc = "DESC_CARGO"
+        Me.PesqFKArea.CampoId = "ID_CARGO"
+        Me.PesqFKArea.Clicou = "0"
+        Me.PesqFKArea.CodigoSelecionado = Nothing
+        Me.PesqFKArea.ColunasFiltro = "DESC_CARGO"
+        Me.PesqFKArea.DescricaoSelecionada = Nothing
+        Me.PesqFKArea.FiltroSQL = Nothing
+        Me.PesqFKArea.LabelBuscaDesc = "Descrição"
+        Me.PesqFKArea.LabelBuscaId = "Código"
+        Me.PesqFKArea.LabelPesqFK = "Área"
+        Me.PesqFKArea.ListaCampos = "DESC_CARGO,ID_CARGO"
+        Me.PesqFKArea.Location = New System.Drawing.Point(101, 38)
+        Me.PesqFKArea.Name = "PesqFKArea"
+        Me.PesqFKArea.ObjModelFk = Nothing
+        Me.PesqFKArea.OrderByQuery = Nothing
+        Me.PesqFKArea.PosValida = False
+        Me.PesqFKArea.Size = New System.Drawing.Size(399, 28)
+        Me.PesqFKArea.Tabela = "CG_CARGO"
+        Me.PesqFKArea.TabIndex = 67
+        Me.PesqFKArea.TituloTela = "Pesquisa de Cargos"
+        Me.PesqFKArea.View = "CG_CARGO"
+        '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
@@ -352,6 +466,7 @@ Partial Class ConsultaEstoque
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.lblTotalChips)
         Me.TabPage1.Controls.Add(Me.btnProcurarSimid)
         Me.TabPage1.Controls.Add(Me.optPesqSimid2)
         Me.TabPage1.Controls.Add(Me.optPesqSimid1)
@@ -426,6 +541,7 @@ Partial Class ConsultaEstoque
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.lblTotalPOS)
         Me.TabPage2.Controls.Add(Me.txtOS)
         Me.TabPage2.Controls.Add(Me.Label4)
         Me.TabPage2.Controls.Add(Me.btnProcurarSerie)
@@ -528,111 +644,23 @@ Partial Class ConsultaEstoque
         Me.Button1.Text = "    Imprimir"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'PesqFKTransito
+        'lblTotalChips
         '
-        Me.PesqFKTransito.CampoDesc = "DESC_CARGO"
-        Me.PesqFKTransito.CampoId = "ID_CARGO"
-        Me.PesqFKTransito.Clicou = "0"
-        Me.PesqFKTransito.CodigoSelecionado = Nothing
-        Me.PesqFKTransito.ColunasFiltro = "DESC_CARGO"
-        Me.PesqFKTransito.DescricaoSelecionada = Nothing
-        Me.PesqFKTransito.FiltroSQL = Nothing
-        Me.PesqFKTransito.LabelBuscaDesc = "Descrição"
-        Me.PesqFKTransito.LabelBuscaId = "Código"
-        Me.PesqFKTransito.LabelPesqFK = "Transito"
-        Me.PesqFKTransito.ListaCampos = "DESC_CARGO,ID_CARGO"
-        Me.PesqFKTransito.Location = New System.Drawing.Point(101, 69)
-        Me.PesqFKTransito.Name = "PesqFKTransito"
-        Me.PesqFKTransito.ObjModelFk = Nothing
-        Me.PesqFKTransito.OrderByQuery = Nothing
-        Me.PesqFKTransito.PosValida = False
-        Me.PesqFKTransito.Size = New System.Drawing.Size(399, 28)
-        Me.PesqFKTransito.Tabela = "CG_CARGO"
-        Me.PesqFKTransito.TabIndex = 68
-        Me.PesqFKTransito.TituloTela = "Pesquisa de Cargos"
-        Me.PesqFKTransito.View = "CG_CARGO"
+        Me.lblTotalChips.AutoSize = True
+        Me.lblTotalChips.Location = New System.Drawing.Point(761, 11)
+        Me.lblTotalChips.Name = "lblTotalChips"
+        Me.lblTotalChips.Size = New System.Drawing.Size(87, 13)
+        Me.lblTotalChips.TabIndex = 7
+        Me.lblTotalChips.Text = "Total de Chips: 0"
         '
-        'PesqFKLoja
+        'lblTotalPOS
         '
-        Me.PesqFKLoja.CampoDesc = "DESC_CARGO"
-        Me.PesqFKLoja.CampoId = "ID_CARGO"
-        Me.PesqFKLoja.Clicou = "0"
-        Me.PesqFKLoja.CodigoSelecionado = Nothing
-        Me.PesqFKLoja.ColunasFiltro = "DESC_CARGO"
-        Me.PesqFKLoja.DescricaoSelecionada = Nothing
-        Me.PesqFKLoja.FiltroSQL = Nothing
-        Me.PesqFKLoja.LabelBuscaDesc = "Descrição"
-        Me.PesqFKLoja.LabelBuscaId = "Código"
-        Me.PesqFKLoja.LabelPesqFK = "Loja"
-        Me.PesqFKLoja.ListaCampos = "DESC_CARGO,ID_CARGO"
-        Me.PesqFKLoja.Location = New System.Drawing.Point(101, 4)
-        Me.PesqFKLoja.Name = "PesqFKLoja"
-        Me.PesqFKLoja.ObjModelFk = Nothing
-        Me.PesqFKLoja.OrderByQuery = Nothing
-        Me.PesqFKLoja.PosValida = False
-        Me.PesqFKLoja.Size = New System.Drawing.Size(399, 28)
-        Me.PesqFKLoja.Tabela = "CG_CARGO"
-        Me.PesqFKLoja.TabIndex = 65
-        Me.PesqFKLoja.TituloTela = "Pesquisa de Cargos"
-        Me.PesqFKLoja.View = "CG_CARGO"
-        '
-        'PesqFKArea
-        '
-        Me.PesqFKArea.CampoDesc = "DESC_CARGO"
-        Me.PesqFKArea.CampoId = "ID_CARGO"
-        Me.PesqFKArea.Clicou = "0"
-        Me.PesqFKArea.CodigoSelecionado = Nothing
-        Me.PesqFKArea.ColunasFiltro = "DESC_CARGO"
-        Me.PesqFKArea.DescricaoSelecionada = Nothing
-        Me.PesqFKArea.FiltroSQL = Nothing
-        Me.PesqFKArea.LabelBuscaDesc = "Descrição"
-        Me.PesqFKArea.LabelBuscaId = "Código"
-        Me.PesqFKArea.LabelPesqFK = "Área"
-        Me.PesqFKArea.ListaCampos = "DESC_CARGO,ID_CARGO"
-        Me.PesqFKArea.Location = New System.Drawing.Point(101, 38)
-        Me.PesqFKArea.Name = "PesqFKArea"
-        Me.PesqFKArea.ObjModelFk = Nothing
-        Me.PesqFKArea.OrderByQuery = Nothing
-        Me.PesqFKArea.PosValida = False
-        Me.PesqFKArea.Size = New System.Drawing.Size(399, 28)
-        Me.PesqFKArea.Tabela = "CG_CARGO"
-        Me.PesqFKArea.TabIndex = 67
-        Me.PesqFKArea.TituloTela = "Pesquisa de Cargos"
-        Me.PesqFKArea.View = "CG_CARGO"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(661, 7)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(188, 21)
-        Me.ComboBox1.TabIndex = 71
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(664, 44)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(185, 21)
-        Me.ComboBox2.TabIndex = 72
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(597, 10)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(42, 13)
-        Me.Label6.TabIndex = 73
-        Me.Label6.Text = "Modelo"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(597, 47)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(57, 13)
-        Me.Label7.TabIndex = 74
-        Me.Label7.Text = "Operadora"
+        Me.lblTotalPOS.AutoSize = True
+        Me.lblTotalPOS.Location = New System.Drawing.Point(742, 13)
+        Me.lblTotalPOS.Name = "lblTotalPOS"
+        Me.lblTotalPOS.Size = New System.Drawing.Size(128, 13)
+        Me.lblTotalPOS.TabIndex = 24
+        Me.lblTotalPOS.Text = "Total de Equipamentos: 0"
         '
         'ConsultaEstoque
         '
@@ -717,8 +745,10 @@ Partial Class ConsultaEstoque
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboOperadora As ComboBox
+    Friend WithEvents cboModelo As ComboBox
+    Friend WithEvents ckOperadora As CheckBox
+    Friend WithEvents ckModelo As CheckBox
+    Friend WithEvents lblTotalChips As Label
+    Friend WithEvents lblTotalPOS As Label
 End Class

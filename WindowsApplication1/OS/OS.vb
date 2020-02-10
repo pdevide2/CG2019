@@ -518,6 +518,13 @@ Public Class OS
     Public Overrides Sub Habilita_Controles(blnModo As Boolean)
         MyBase.Habilita_Controles(blnModo)
         chkPDF.Enabled = Not blnModo
+
+        If ckOSCliente.Checked Then
+            PesqFK_Cliente.Enabled = blnModo
+        Else
+            PesqFK_Cliente.Enabled = False
+        End If
+
         If (cboStatus.Text.Equals("EM PROCESSO")) Then
             btnAdiciona.Enabled = False
             btnExclui.Enabled = False
@@ -1421,4 +1428,36 @@ Public Class OS
         Return strconn
     End Function
 
+    Private Sub PesqFK_Cliente_Load(sender As Object, e As EventArgs) Handles PesqFK_Cliente.Load
+        With Me.PesqFK_Cliente
+            .LabelPesqFK = "Cliente"
+            .Tabela = "CG_CLIENTE"
+            .View = "CG_CLIENTE"
+            .CampoId = "ID_CLIENTE"
+            .CampoDesc = "NOME"
+            .ListaCampos = "ID_CLIENTE, NOME, SIGLA"
+            .ColunasFiltro = "NOME,SIGLA,ID_CLIENTE"  ' ComboBox de filtros
+            .LabelBuscaId = "Código"
+            .LabelBuscaDesc = "Nome"
+            .TituloTela = "Pesquisa de Clientes"
+
+            .lblLabelFK.Text = .LabelPesqFK
+
+            .PosValida = False
+
+            'Ajustes de layout
+            .lblLabelFK.Left = 0
+            .txtId.Left += 26
+            .txtId.Width -= 0
+            .txtDesc.Left = .txtId.Left + .txtId.Width + 3
+            .txtDesc.Width += 162
+            .btnPesq.Left = .txtDesc.Left + .txtDesc.Width + 2
+
+        End With
+    End Sub
+
+    Private Sub ckOSCliente_CheckedChanged(sender As Object, e As EventArgs) Handles ckOSCliente.CheckedChanged
+        Me.PesqFK_Cliente.Enabled = True
+
+    End Sub
 End Class

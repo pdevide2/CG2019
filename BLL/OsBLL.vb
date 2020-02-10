@@ -48,6 +48,8 @@ Public Class OsBLL
         listaParametros.Add(DAL.DALGenerico.CriarParametro("@USER_UPD", DbType.Int32, oOs.User_upd))
         listaParametros.Add(DAL.DALGenerico.CriarParametro("@DATA_UPD", DbType.DateTime, oOs.Data_upd))
         listaParametros.Add(DAL.DALGenerico.CriarParametro("@ID_EMPRESA", DbType.Int32, oOs.Id_empresa))
+        listaParametros.Add(DAL.DALGenerico.CriarParametro("@ID_CLIENTE", DbType.Int32, oOs.Id_cliente))
+        listaParametros.Add(DAL.DALGenerico.CriarParametro("@INDICA_OS_CLIENTE", DbType.Boolean, oOs.Indica_OS_Cliente))
 
 
         Try

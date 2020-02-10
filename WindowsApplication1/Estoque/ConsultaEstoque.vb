@@ -124,6 +124,7 @@ Public Class ConsultaEstoque
         'End If
         Me.Text = "Consulta Geral de Estoque de Chip/POS"
         LimpaControles()
+        'CarregaModelo()
         Inicio()
     End Sub
 
@@ -147,6 +148,7 @@ Public Class ConsultaEstoque
                 sql += "ID_LOCAL_ESTOQUE, ID_LOCAL, ID_OS  "
                 sql += " FROM VW_CG_ESTOQUE_EQUIPAMENTO WHERE ID_EMPRESA = " & Publico.Id_empresa
                 sql += FiltroSQL() 'Pega a String de filtro e concatena 
+                sql += FiltroModelo()
                 sql += " ORDER BY ID_EQUIPAMENTO "
 
             ElseIf Me.TipoEstoque = "C" Then
@@ -155,6 +157,7 @@ Public Class ConsultaEstoque
                 sql += "ID_LOCAL_ESTOQUE, ID_LOCAL, ID_OPERADORA, '' AS ID_OS  "
                 sql += " FROM VW_CG_ESTOQUE_CHIP WHERE ID_EMPRESA = " & Publico.Id_empresa
                 sql += FiltroSQL() 'Pega a String de filtro e concatena 
+                sql += FiltroOperadora()
                 sql += " ORDER BY ID_CHIP "
 
             End If
@@ -177,11 +180,30 @@ Public Class ConsultaEstoque
             'lblTotalRegistros.Text = "A pesquisa retornou " & dgvDados.RowCount & " linhas..."
             'Troca fonte e atualiza os headertext
             UpdateFont()
-
+            If iqq = 1 Then
+                lblTotalChips.Text = "Total de Chips: " & dgvDados.Rows.Count
+            Else
+                lblTotalPOS.Text = "Total de Equipamentos: " & dgvDados2.Rows.Count
+            End If
             'Aviso()
         Next
 
     End Sub
+
+    Private Function FiltroModelo() As String
+        Dim strFiltro As String = ""
+        If ckModelo.Checked Then
+            strFiltro = " and modelo = '" & cboModelo.SelectedValue & "' "
+        End If
+        Return strFiltro
+    End Function
+    Private Function FiltroOperadora() As String
+        Dim strFiltro As String = ""
+        If ckOperadora.Checked Then
+            strFiltro = " and ID_OPERADORA = " & cboOperadora.SelectedValue
+        End If
+        Return strFiltro
+    End Function
 
     Private Function FiltroSQL() As String
         Dim strFiltro As String = "", strChkFiltro As String = ""
@@ -685,4 +707,49 @@ Public Class ConsultaEstoque
             e.Handled = True
         End If
     End Sub
+
+    Private Sub CarregaModelo()
+        Dim sql As String = "select modelo from cg_equipamento group by modelo order by modelo"
+        Dim dt = BLL.GlobalBLL.PesquisarFkBLL(sql).Tables(0)
+        cboModelo.DataSource = Nothing
+        cboModelo.Items.Clear()
+        cboModelo.DataSource = dt
+        cboModelo.ValueMember = "modelo"
+        cboModelo.DisplayMember = "modelo"
+    End Sub
+
+    Private Sub ckModelo_CheckedChanged(sender As Object, e As EventArgs) Handles ckModelo.CheckedChanged
+        If ckModelo.Checked = True Then
+            cboModelo.Enabled = True
+            CarregaModelo()
+        Else
+            cboModelo.DataSource = Nothing
+            cboModelo.Items.Clear()
+            cboModelo.Enabled = False
+            cboModelo.Text = ""
+        End If
+    End Sub
+
+    Private Sub ckOperadora_CheckedChanged(sender As Object, e As EventArgs) Handles ckOperadora.CheckedChanged
+        If ckOperadora.Checked = True Then
+            cboOperadora.Enabled = True
+            CarregaOperadora()
+        Else
+            cboOperadora.DataSource = Nothing
+            cboOperadora.Items.Clear()
+            cboOperadora.Enabled = False
+            cboOperadora.Text = ""
+        End If
+    End Sub
+    Private Sub CarregaOperadora()
+        Dim sql As String = "select cg_chip.ID_OPERADORA, DESC_OPERADORA from cg_chip inner join CG_OPERADORA " +
+            "on CG_OPERADORA.ID_OPERADORA = CG_CHIP.ID_OPERADORA group by cg_chip.ID_OPERADORA, DESC_OPERADORA order by DESC_OPERADORA"
+        Dim dt = BLL.GlobalBLL.PesquisarFkBLL(sql).Tables(0)
+        cboOperadora.DataSource = Nothing
+        cboOperadora.Items.Clear()
+        cboOperadora.DataSource = dt
+        cboOperadora.ValueMember = "id_operadora"
+        cboOperadora.DisplayMember = "desc_operadora"
+    End Sub
+
 End Class
