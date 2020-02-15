@@ -335,6 +335,17 @@ Public Class OS
 
             cboStatus.SelectedValue = CInt(Me.LinhaGrid.Cells("STATUS_OS").Value)
 
+            ckOSCliente.Checked = False
+            PesqFK_Cliente.txtId.Text = ""
+            PesqFK_Cliente.txtDesc.Text = ""
+
+
+            If CBool(Me.LinhaGrid.Cells("INDICA_OS_CLIENTE").Value) = True Then
+                ckOSCliente.Checked = True
+                PesqFK_Cliente.txtId.Text = Me.LinhaGrid.Cells("ID_CLIENTE").Value
+                PesqFK_Cliente.txtDesc.Text = Me.LinhaGrid.Cells("NOME_CLIENTE").Value
+            End If
+
             Carregar()
             HabilitaBotoes(flagAcao)
 
@@ -419,6 +430,14 @@ Public Class OS
             objOS.User_upd = ACE_CODIGO
             objOS.Data_upd = Hoje()
             objOS.Id_empresa = Publico.Id_empresa
+
+            If ckOSCliente.Checked = True Then
+                objOS.Indica_OS_Cliente = True
+                objOS.Id_cliente = PesqFK_Cliente.txtId.Text
+            Else
+                objOS.Indica_OS_Cliente = True
+                objOS.Id_cliente = Nothing
+            End If
 
             bllPai.GravarBLL(acao, objOS)
 
